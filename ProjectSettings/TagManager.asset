@@ -11,6 +11,8 @@ TagManager:
   - Clay
   - Mushroom
   - MovableCube
+  - Harmful
+  - GameManager
   layers:
   - Default
   - TransparentFX
