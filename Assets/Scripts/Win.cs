@@ -56,6 +56,6 @@ public class Win : MonoBehaviour
         SlimeData.NumberOfLevel++;
         
         
-        SceneManager.LoadScene("Win");
+        SceneManager.LoadScene("scn_Win");
     }
 }

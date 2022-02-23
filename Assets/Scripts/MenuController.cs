@@ -60,7 +60,7 @@ public class MenuController: MonoBehaviour{
         if(SlimeData.currentLevel!=null){
             SceneManager.LoadScene(SlimeData.currentLevel);
         }else{
-            SceneManager.LoadScene("trainLevel");
+            SceneManager.LoadScene("scn_trainLevel");
         }
         
 

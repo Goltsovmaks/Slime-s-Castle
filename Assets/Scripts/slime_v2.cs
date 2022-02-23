@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class slime_v2 : MonoBehaviour
 {
@@ -36,9 +35,9 @@ public class slime_v2 : MonoBehaviour
     public Vector3 targetVelocity2;
 
 
-    public bool stuckLeft = false; //Прилип к левой стене
-    public bool stuckRight = false; //Прилип к правой стене
-    public bool stuckTop = false; //прилип к потолку
+    public bool stuckLeft = false; //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    public bool stuckRight = false; //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    public bool stuckTop = false; //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
     [SerializeField] private AudioSource jumping;
 

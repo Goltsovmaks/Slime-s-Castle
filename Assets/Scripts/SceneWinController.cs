@@ -39,28 +39,28 @@ public class SceneWinController : MonoBehaviour
         //     break;
 
         // }
-        if(levelName=="trainLevel"){
-            LoadLevel="levelSt1";
+        if(levelName=="scn_trainLevel"){
+            LoadLevel="scn_levelSt1";
         }
-        if(levelName=="levelSt1"){
-            LoadLevel="levelSt2";
+        if(levelName=="scn_levelSt1"){
+            LoadLevel="scn_levelSt2";
         }
-        if(levelName=="levelSt2"){
-            LoadLevel="SyrioLevel";
+        if(levelName=="scn_levelSt2"){
+            LoadLevel="scn_SyrioLevel";
         }
 
 
-        if(levelName=="SyrioLevel"){
-            LoadLevel="menu";
+        if(levelName=="scn_SyrioLevel"){
+            LoadLevel="scn_menu";
         }
-        if(levelName=="Level1"){
-            LoadLevel="Level2";
+        if(levelName=="scn_Level1"){
+            LoadLevel="scn_Level2";
         }
-        if(levelName=="Level2"){
-            LoadLevel="Level3";
+        if(levelName=="scn_Level2"){
+            LoadLevel="scn_Level3";
         }
-        if(levelName=="Level3"){
-            LoadLevel="Level4";
+        if(levelName=="scn_Level3"){
+            LoadLevel="scn_Level4";
         }
         SlimeData.currentLevel=LoadLevel;
         
