@@ -7,7 +7,7 @@ public class pockPlateLogic : MonoBehaviour
     
     private Animator animPockPlate;
     private AudioSource soundPockplateActive;
-    private int sumObjectsOnPockplate = 0;
+    [SerializeField]private int sumObjectsOnPockplate=0; 
     [Header("1:M")]
     // Если true - объект со скриптом связанм с остальными объектами отношением 1:M(активация объекта активирует множество объектов)
     [SerializeField]private bool M=false;
@@ -66,29 +66,28 @@ public class pockPlateLogic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player") || collider.CompareTag("MovableCube"))
+        if (collider.CompareTag("Player")||collider.CompareTag("MovableCube"))
         {
-            sumObjectsOnPockplate += 1;
+            sumObjectsOnPockplate+=1;
             pressAction();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player") || collider.CompareTag("MovableCube"))
+        if (collider.CompareTag("Player")||collider.CompareTag("MovableCube"))
         {
-            sumObjectsOnPockplate -= 1;
-            if (sumObjectsOnPockplate == 0)
-            {
+            sumObjectsOnPockplate-=1;
+            if(sumObjectsOnPockplate==0){
                 afterPressAction();
             }
-
+            
         }
     }
 
 
     private void pressAction(){
-        print("Игрок наступил на плиту");
+        // print("Игрок наступил на плиту");
         animPockPlate.SetBool("Active",true);
         soundPockplateActive.Play();
 
@@ -121,7 +120,7 @@ public class pockPlateLogic : MonoBehaviour
     private void turnObjectsConnectedAfterPressAction(){
         if(objectsConnected!=null){
             for(int i=0;i<objectsConnected.Length;i++){
-                print("Игрок сошёл с плиты, связанный объект "+objectsConnected[i].name+" закроется через: "+timesActive[i]);
+                // print("Игрок сошёл с плиты, связанный объект "+objectsConnected[i].name+" закроется через: "+timesActive[i]);
                 if(closeThroughCoroutines[i]!=null){
                     StopCoroutine(closeThroughCoroutines[i]);
                 }

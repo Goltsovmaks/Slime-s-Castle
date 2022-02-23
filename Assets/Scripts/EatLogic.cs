@@ -16,22 +16,40 @@ public class EatLogic : MonoBehaviour
 
     [SerializeField]private AudioSource soundEat;
 
-    
-
-    void Start()
-    {
+    void Awake() {
         grid = GameObject.Find("grid");
         clayTilemap=GameObject.Find("clay").GetComponent<Tilemap>();
         mushroomTilemap=GameObject.Find("mushroom").GetComponent<Tilemap>();
         slimeTransform=GetComponent<Transform>();
+        // Подсчёт всех грибов на уровне
+        int sumOfMushrooms=0;
+        for(int x=mushroomTilemap.cellBounds.x;x<=mushroomTilemap.size.x;x++){
+            for(int y=mushroomTilemap.cellBounds.y;y<=mushroomTilemap.size.y;y++){
+                if(mushroomTilemap.GetTile(new Vector3Int(x,y,0))!=null){
+                    sumOfMushrooms+=1;
+                }
+            }
+        }        
+        
+        if(SlimeData.SumMushroomOnLevel.Count<=SlimeData.NumberOfLevel){
+            SlimeData.SumMushroomOnLevel.Add(sumOfMushrooms);
+        }else{
+            SlimeData.SumMushroomOnLevel.Insert((int) SlimeData.NumberOfLevel,sumOfMushrooms);
+        }
+    }
 
-        // AllowEatClay=false;
+    void Start()
+    {
+        
+
+        
+
 
     }
 
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -78,8 +96,9 @@ public class EatLogic : MonoBehaviour
             colPosition.x = col.x;
             colPosition.y = col.y;
             if(mushroomTilemap.GetTile(mushroomTilemap.WorldToCell(colPosition))!=null){
+                EatMushroom(mushroomTilemap.GetTile(mushroomTilemap.WorldToCell(colPosition)));
                 mushroomTilemap.SetTile(mushroomTilemap.WorldToCell(colPosition),null);
-                EatMushroom();           
+                    
             }
         }
 
@@ -88,11 +107,32 @@ public class EatLogic : MonoBehaviour
     private void EatClay(){
         soundEat.Play();
     }
-    private void EatMushroom(){
+    private void EatMushroom(TileBase mushroom){
         soundEat.Play();
-        if(SlimeData.SumEatMushroom.Count<=SlimeData.NumberOfLevel){
-            SlimeData.SumEatMushroom.Add(0);
+        if(SlimeData.SumEatMushroomOnLevel.Count<=SlimeData.NumberOfLevel){
+            SlimeData.SumEatMushroomOnLevel.Add(0);
         }
-        SlimeData.SumEatMushroom.Insert((int) SlimeData.NumberOfLevel,((int) SlimeData.SumEatMushroom[SlimeData.NumberOfLevel])+1);
+        SlimeData.SumEatMushroomOnLevel[SlimeData.NumberOfLevel]=(int)SlimeData.SumEatMushroomOnLevel[SlimeData.NumberOfLevel]+1;
+        // SlimeData.SumEatMushroomOnLevel.Insert((int) SlimeData.NumberOfLevel,((int) SlimeData.SumEatMushroomOnLevel[SlimeData.NumberOfLevel])+1);
+
+        
+        
+        
+        if(SlimeData.SumTypesOfEatMushroomOnLevel.Count<=SlimeData.NumberOfLevel){
+            SlimeData.SumTypesOfEatMushroomOnLevel.Add(new Dictionary<string, int>());
+        }
+
+        Dictionary<string, int> tempMushDict=(Dictionary<string, int>)SlimeData.SumTypesOfEatMushroomOnLevel[SlimeData.NumberOfLevel];
+
+        if(tempMushDict.ContainsKey(mushroom.name)){
+            tempMushDict[mushroom.name]+=1;
+        }else{
+            tempMushDict.Add(mushroom.name,1);
+        }
+
+
+
+        SlimeData.SumTypesOfEatMushroomOnLevel[SlimeData.NumberOfLevel]=tempMushDict;
+
     }
 }

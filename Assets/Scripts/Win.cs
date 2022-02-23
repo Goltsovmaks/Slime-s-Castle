@@ -10,8 +10,10 @@ public class Win : MonoBehaviour
     //  [SerializeField]private GameObject WinWindow;
 
 
+
     void Start()
     {
+
 
         // StartPos=new Vector3;
         // StartPos.y+=10;
@@ -52,6 +54,7 @@ public class Win : MonoBehaviour
 
         SlimeData.FinishedLevelTime.Add(Time.timeSinceLevelLoad);
         SlimeData.NumberOfLevel++;
+        
         
         SceneManager.LoadScene("Win");
     }

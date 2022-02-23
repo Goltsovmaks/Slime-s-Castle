@@ -13,8 +13,17 @@ public class leverLogic : MonoBehaviour
 
     public int indexOfObject;
 
+    private ControllerManager controllerManager;
+
+    void Awake() {
+        
+
+        
+    }
+
     void Start()
     {
+        controllerManager=GameObject.Find("ControllerManager").GetComponent<ControllerManager>();
         soundLeverActive=GetComponent<AudioSource>();
         animlever=GetComponent<Animator>();
 
@@ -35,7 +44,7 @@ public class leverLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(onPlaceLever&&Input.GetKeyDown(GameObject.Find("ControllerManager").GetComponent<ControllerManager>().controlls["Interaction"]))
+        if(onPlaceLever&&Input.GetKeyDown(controllerManager.controlls["Interaction"]))
         { //; KeyCode.F
             pressAction();
         }

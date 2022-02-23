@@ -13,17 +13,24 @@ public class Slime_parameters : MonoBehaviour
     public float staminaStuckUsage;
     public float staminaRegeneration;
 
-    public float humidity;
+    private Slider humiditySlider;
+    private Slider staminaSlider;
 
-    public Slider humiditySlider;
-    public Slider staminaSlider;
+    public delegate void methodOneFloat(float arg);
 
     //public TextMeshProUGUI numberOfMushroomsText;
+    void Awake() {
+        
+    }
 
-    private void Start()
+
+    void Start()
     {
         humiditySlider = GameObject.Find("HumiditySlider").GetComponent<Slider>();
         staminaSlider = GameObject.Find("StaminaSlider").GetComponent<Slider>();
+        
+        HarmLogic.setHumidityEvent+=updateHumidity;
+
     }
 
     private void FixedUpdate()
@@ -42,10 +49,17 @@ public class Slime_parameters : MonoBehaviour
         {
             stamina = 0f;
         }
-        humiditySlider.value = humidity;
+        
         staminaSlider.value = stamina;
 
         //numberOfMushroomsText.text = "x" + numberOfMushrooms;
+    }
+    void OnDestroy() {
+        HarmLogic.setHumidityEvent-=updateHumidity;
+    }
+
+    public void updateHumidity(float humidity){
+        humiditySlider.value = humidity;
     }
    
 

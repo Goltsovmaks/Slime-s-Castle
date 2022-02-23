@@ -48,7 +48,7 @@ public class DoorLogic : MonoBehaviour
                         scriptObjectLever.objectsConnected = new GameObject[]{gameObject};
                     }
 
-                    //stateConnectedObjects[i]=objectsConnected[i].GetComponent<Animator>().GetBool("Active");
+                    stateConnectedObjects[i]=objectsConnected[i].GetComponent<Animator>().GetBool("Active");
                 }
 
                 if(objectsConnected[i].TryGetComponent(out pockPlateLogic scriptObjectPockPlate)){
@@ -63,7 +63,7 @@ public class DoorLogic : MonoBehaviour
                         if(scriptObjectPockPlate.timesActive.Length==0)scriptObjectPockPlate.timesActive = new float[1];
                     }
                     
-                    //stateConnectedObjects[i]=objectsConnected[i].GetComponent<Animator>().GetBool("Active");
+                    stateConnectedObjects[i]=objectsConnected[i].GetComponent<Animator>().GetBool("Active");
                 }
                     
             }
@@ -72,6 +72,7 @@ public class DoorLogic : MonoBehaviour
             if(stateForActiveDoor.Length==0)stateForActiveDoor=new bool[]{true};
             stateConnectedObjects=new bool[objectsConnected.Length];
         }
+
         CheckStateOnDoor();
     }
 
@@ -93,18 +94,17 @@ public class DoorLogic : MonoBehaviour
         }
         
         if(coincude!=animDoor.GetBool("Active"))soundActive.Play();
+
         if (!stateIsInverted)
         {
             if (coincude)
             {
-                print("Объект открыт");
                 animDoor.SetBool("Active", true);
                 colliderDoor.enabled = false;
 
             }
             else
             {
-                print("Объект закрыт");
                 animDoor.SetBool("Active", false);
                 colliderDoor.enabled = true;
             }
@@ -113,18 +113,17 @@ public class DoorLogic : MonoBehaviour
         {
             if (coincude)
             {
-                print("Объект закрыт");
                 animDoor.SetBool("Active", false);
                 colliderDoor.enabled = true;
             }
             else
             {
-                print("Объект открыт");
                 animDoor.SetBool("Active", true);
                 colliderDoor.enabled = false;
             }
         }
-        
+
+
         
     }
 }

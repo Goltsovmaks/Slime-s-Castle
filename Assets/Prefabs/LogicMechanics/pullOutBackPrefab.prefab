@@ -242,5 +242,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   M: 0
   objectsConnected: []
-  stateForActiveDoor: 
+  stateForActiveDoor: 00
   stateConnectedObjects: 

@@ -10,13 +10,48 @@ public class SceneWinController : MonoBehaviour
     // private string FinishedLevelTime=SlimeData.FinishedLevelTime[SlimeData.NumberOfLevel-2].toString();
     // Start is called before the first frame update
     [SerializeField]private Text ComplitedTime;
+    [SerializeField]private Text SumOfMusroomsEaten;
+
+    [SerializeField]private GameObject[] Mushrooms;
+
     void Start()
     {
         string levelName = SlimeData.currentLevel;
         // SceneManager.GetActiveScene().name;
         // string LoadLevel="";
-        if(levelName=="LevelTest"){
-            LoadLevel="Level1";
+
+        // switch(SlimeData.currentLevel){
+        //     case "trainLevel":
+        //     NumberOfLevel=0;
+        //     break;
+
+        //     case "Level1":
+        //     NumberOfLevel=1;
+        //     break;
+        //     case "Level2":
+        //     NumberOfLevel=2;
+        //     break;
+        //     case "Level3":
+        //     NumberOfLevel=3;
+        //     break;
+        //     case "Level4":
+        //     NumberOfLevel=4;
+        //     break;
+
+        // }
+        if(levelName=="trainLevel"){
+            LoadLevel="levelSt1";
+        }
+        if(levelName=="levelSt1"){
+            LoadLevel="levelSt2";
+        }
+        if(levelName=="levelSt2"){
+            LoadLevel="SyrioLevel";
+        }
+
+
+        if(levelName=="SyrioLevel"){
+            LoadLevel="menu";
         }
         if(levelName=="Level1"){
             LoadLevel="Level2";
@@ -27,6 +62,8 @@ public class SceneWinController : MonoBehaviour
         if(levelName=="Level3"){
             LoadLevel="Level4";
         }
+        SlimeData.currentLevel=LoadLevel;
+        
 
 
         // for(int i=0;i<SlimeData.FinishedLevelTime.Count;i++){
@@ -34,7 +71,10 @@ public class SceneWinController : MonoBehaviour
         // }
         // SlimeData.FinishedLevelTime[SlimeData.NumberOfLevel-2]+"."+SlimeData.FinishedLevelTime[SlimeData.NumberOfLevel-2]
         // ComplitedTime.text;
-        ComplitedTime.text+=SlimeData.FinishedLevelTime[SlimeData.NumberOfLevel-2]+" s";
+        ComplitedTime.text+=SlimeData.FinishedLevelTime[SlimeData.NumberOfLevel-1]+" s";
+        SumOfMusroomsEaten.text+=SlimeData.SumEatMushroomOnLevel[SlimeData.NumberOfLevel-1];
+        SumOfMusroomsEaten.text+=" / "+SlimeData.SumMushroomOnLevel[SlimeData.NumberOfLevel-1];
+        showMusroomsEaten();
 
 
         // private int CountAfterPoint=0;
@@ -64,6 +104,22 @@ public class SceneWinController : MonoBehaviour
              SceneManager.LoadScene(LoadLevel);
                 // break;
         }
+    }
+
+    void showMusroomsEaten(){
+        for(int i=0;i<Mushrooms.Length;i++){
+            if(((Dictionary<string,int>)SlimeData.SumTypesOfEatMushroomOnLevel[SlimeData.NumberOfLevel-1]).ContainsKey(Mushrooms[i].name)){
+                // Text mush1=Mushrooms[i].transform.GetChild(0).Text;
+                // print(Mushrooms[i].transform.GetChild(0).GetComponent<Text>());
+                Mushrooms[i].transform.GetChild(0).GetComponent<Text>().text+=((Dictionary<string,int>)SlimeData.SumTypesOfEatMushroomOnLevel[SlimeData.NumberOfLevel-1])[Mushrooms[i].name];
+            }else{
+                Mushrooms[i].SetActive(false);
+            }
+            
+        }
+
+
+
     }
 
 }
