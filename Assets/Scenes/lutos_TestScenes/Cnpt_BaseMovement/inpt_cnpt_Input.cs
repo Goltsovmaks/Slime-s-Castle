@@ -19,6 +19,14 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
             ""id"": ""3991cbad-1a83-4b5f-b327-40be0ff80e47"",
             ""actions"": [
                 {
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""f7e3b5ac-4f77-4a9a-917c-2284cef2d13b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""HorizontalMovement"",
                     ""type"": ""Value"",
                     ""id"": ""a76f9d67-93f7-43be-bd7c-babcb43a8dae"",
@@ -137,7 +145,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 {
                     ""name"": ""Arrows"",
                     ""id"": ""67341fa5-a58d-45e7-a528-fea13c15988a"",
-                    ""path"": ""1DAxis(minValue=-100,maxValue=100)"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -199,6 +207,61 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""action"": ""Skill_1_hold"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""a5686efb-62f2-4c46-940a-53bb54742157"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""411b8634-dd75-421a-9c62-e403f76c348d"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b1920803-fe87-4ae4-97e9-9212ec522e8d"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""281ce590-a1a8-43d1-8007-1c8569dcdb6a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""0d9f826c-a013-4180-8b8c-d62eec83aef6"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -224,6 +287,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
 }");
         // Slime
         m_Slime = asset.FindActionMap("Slime", throwIfNotFound: true);
+        m_Slime_Movement = m_Slime.FindAction("Movement", throwIfNotFound: true);
         m_Slime_HorizontalMovement = m_Slime.FindAction("HorizontalMovement", throwIfNotFound: true);
         m_Slime_Jump = m_Slime.FindAction("Jump", throwIfNotFound: true);
         m_Slime_NextForm_Slime = m_Slime.FindAction("NextForm_Slime", throwIfNotFound: true);
@@ -279,6 +343,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     // Slime
     private readonly InputActionMap m_Slime;
     private ISlimeActions m_SlimeActionsCallbackInterface;
+    private readonly InputAction m_Slime_Movement;
     private readonly InputAction m_Slime_HorizontalMovement;
     private readonly InputAction m_Slime_Jump;
     private readonly InputAction m_Slime_NextForm_Slime;
@@ -289,6 +354,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     {
         private @Inpt_cnpt_Input m_Wrapper;
         public SlimeActions(@Inpt_cnpt_Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Slime_Movement;
         public InputAction @HorizontalMovement => m_Wrapper.m_Slime_HorizontalMovement;
         public InputAction @Jump => m_Wrapper.m_Slime_Jump;
         public InputAction @NextForm_Slime => m_Wrapper.m_Slime_NextForm_Slime;
@@ -304,6 +370,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_SlimeActionsCallbackInterface != null)
             {
+                @Movement.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMovement;
                 @HorizontalMovement.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnHorizontalMovement;
                 @HorizontalMovement.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnHorizontalMovement;
                 @HorizontalMovement.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnHorizontalMovement;
@@ -326,6 +395,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
             m_Wrapper.m_SlimeActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
                 @HorizontalMovement.started += instance.OnHorizontalMovement;
                 @HorizontalMovement.performed += instance.OnHorizontalMovement;
                 @HorizontalMovement.canceled += instance.OnHorizontalMovement;
@@ -359,6 +431,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     }
     public interface ISlimeActions
     {
+        void OnMovement(InputAction.CallbackContext context);
         void OnHorizontalMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnNextForm_Slime(InputAction.CallbackContext context);

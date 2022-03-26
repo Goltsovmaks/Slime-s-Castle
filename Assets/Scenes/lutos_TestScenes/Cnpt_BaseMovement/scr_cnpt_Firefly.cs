@@ -11,8 +11,10 @@ public class scr_cnpt_Firefly : scr_cnpt_Form_Abstract
     //    _moveSpeed = moveSpeed;
     //}
 
-    public override void Jump(Rigidbody2D rb, float jumpPower, bool isGrounded)
+    public override void Jump(Rigidbody2D rb, float jumpPower)
     {
+        Debug.Log(rb.transform.GetChild(0).transform.name);
+        bool isGrounded = CheckIfOverlap(rb.transform.GetChild(0).transform, 0.17f, LayerMask.NameToLayer("Platforms"));
         if (isGrounded)
         {
             jumpsLeft = 1;
