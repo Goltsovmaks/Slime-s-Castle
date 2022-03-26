@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class scr_cnpt_BaseMovement : MonoBehaviour
 {
-    Inpt_cnpt_Slime _input;
+    Inpt_cnpt_Input _input;
     Rigidbody2D _rb;
+    scr_cnpt_FormBehavior formBehavior;
 
-    [SerializeField] private float _jumpPower = 5f;
-    [SerializeField] private float _moveSpeed = 5f;
-    [Range(0, .3f)] [SerializeField] private float movementSmoothing = .01f;
+    [SerializeField] private float _jumpPower = 5f;//
+    [SerializeField] private float _moveSpeed = 5f;//
+    [Range(0, .3f)] [SerializeField] private float movementSmoothing = .01f;//
+
 
 
     public Transform groundChecker;
@@ -19,9 +21,12 @@ public class scr_cnpt_BaseMovement : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _input = new Inpt_cnpt_Slime();
+        _input = new Inpt_cnpt_Input();
+        formBehavior = GetComponent<scr_cnpt_FormBehavior>();
 
-        _input.Slime.Jump.performed += context => Jump();
+        _input.Slime.Jump.performed += context => formBehavior._currentForm.Jump(_rb, _jumpPower, 
+            CheckIfOverlap(groundChecker, groundCheckRadius, whatIsGround));
+      
     }
 
     private void OnEnable()
@@ -37,32 +42,15 @@ public class scr_cnpt_BaseMovement : MonoBehaviour
     void FixedUpdate()
     {
         float moveDirection = _input.Slime.HorizontalMovement.ReadValue<float>();
-        Move(moveDirection);
 
+        formBehavior._currentForm.Move(_rb, moveDirection, _moveSpeed, movementSmoothing);
     }
 
-    void Move(float moveDirection)
-    {
-        Debug.Log(moveDirection);
-        Vector2 targetVelocity = new Vector3(moveDirection * _moveSpeed * 10f, _rb.velocity.y);
-        Vector2 velocity = Vector2.zero;
-        _rb.velocity = Vector2.SmoothDamp(_rb.velocity, targetVelocity, ref velocity, movementSmoothing);
-    }
-
-    void Jump()
-    {
-        if(CheckIfOverlap(groundChecker, groundCheckRadius, whatIsGround))
-        {
-            _rb.velocity = new Vector2(_rb.velocity.x, _jumpPower);
-        }
-    }
-
-    bool CheckIfOverlap(Transform checker, float radius, LayerMask mask) 
+    bool CheckIfOverlap(Transform checker, float radius, LayerMask mask)
     {
         bool state = false;
-        
+
         Collider2D[] Colliders = Physics2D.OverlapCircleAll(checker.position, radius, mask);
-        Debug.Log(Colliders);
         for (int i = 0; i < Colliders.Length; i++)
         {
             if (Colliders[i].gameObject != gameObject)
