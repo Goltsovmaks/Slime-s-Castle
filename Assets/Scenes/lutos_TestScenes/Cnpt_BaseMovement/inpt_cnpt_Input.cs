@@ -67,9 +67,25 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Skill_1_hold"",
+                    ""name"": ""HoldSkill"",
                     ""type"": ""Button"",
                     ""id"": ""ca9451b5-0cec-469d-87f0-6b0d5b987531"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.1)""
+                },
+                {
+                    ""name"": ""Skill_1"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd3d2d59-6034-4ba7-b12f-9bdf41cbaa3b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Skill_2"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a4c3d4b-4580-4aba-b91e-c38dbeb97c70"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -204,7 +220,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""Skill_1_hold"",
+                    ""action"": ""HoldSkill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -262,6 +278,28 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbbdebbd-9577-4640-9231-843a26ec43e4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Skill_1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ec642101-24ef-40e4-b197-8752970fba56"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Skill_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -293,7 +331,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_Slime_NextForm_Slime = m_Slime.FindAction("NextForm_Slime", throwIfNotFound: true);
         m_Slime_NextForm_Spider = m_Slime.FindAction("NextForm_Spider", throwIfNotFound: true);
         m_Slime_NextForm_Firefly = m_Slime.FindAction("NextForm_Firefly", throwIfNotFound: true);
-        m_Slime_Skill_1_hold = m_Slime.FindAction("Skill_1_hold", throwIfNotFound: true);
+        m_Slime_HoldSkill = m_Slime.FindAction("HoldSkill", throwIfNotFound: true);
+        m_Slime_Skill_1 = m_Slime.FindAction("Skill_1", throwIfNotFound: true);
+        m_Slime_Skill_2 = m_Slime.FindAction("Skill_2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -349,7 +389,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Slime_NextForm_Slime;
     private readonly InputAction m_Slime_NextForm_Spider;
     private readonly InputAction m_Slime_NextForm_Firefly;
-    private readonly InputAction m_Slime_Skill_1_hold;
+    private readonly InputAction m_Slime_HoldSkill;
+    private readonly InputAction m_Slime_Skill_1;
+    private readonly InputAction m_Slime_Skill_2;
     public struct SlimeActions
     {
         private @Inpt_cnpt_Input m_Wrapper;
@@ -360,7 +402,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         public InputAction @NextForm_Slime => m_Wrapper.m_Slime_NextForm_Slime;
         public InputAction @NextForm_Spider => m_Wrapper.m_Slime_NextForm_Spider;
         public InputAction @NextForm_Firefly => m_Wrapper.m_Slime_NextForm_Firefly;
-        public InputAction @Skill_1_hold => m_Wrapper.m_Slime_Skill_1_hold;
+        public InputAction @HoldSkill => m_Wrapper.m_Slime_HoldSkill;
+        public InputAction @Skill_1 => m_Wrapper.m_Slime_Skill_1;
+        public InputAction @Skill_2 => m_Wrapper.m_Slime_Skill_2;
         public InputActionMap Get() { return m_Wrapper.m_Slime; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -388,9 +432,15 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @NextForm_Firefly.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Firefly;
                 @NextForm_Firefly.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Firefly;
                 @NextForm_Firefly.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Firefly;
-                @Skill_1_hold.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_1_hold;
-                @Skill_1_hold.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_1_hold;
-                @Skill_1_hold.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_1_hold;
+                @HoldSkill.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnHoldSkill;
+                @HoldSkill.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnHoldSkill;
+                @HoldSkill.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnHoldSkill;
+                @Skill_1.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_1;
+                @Skill_1.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_1;
+                @Skill_1.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_1;
+                @Skill_2.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_2;
+                @Skill_2.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_2;
+                @Skill_2.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_2;
             }
             m_Wrapper.m_SlimeActionsCallbackInterface = instance;
             if (instance != null)
@@ -413,9 +463,15 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @NextForm_Firefly.started += instance.OnNextForm_Firefly;
                 @NextForm_Firefly.performed += instance.OnNextForm_Firefly;
                 @NextForm_Firefly.canceled += instance.OnNextForm_Firefly;
-                @Skill_1_hold.started += instance.OnSkill_1_hold;
-                @Skill_1_hold.performed += instance.OnSkill_1_hold;
-                @Skill_1_hold.canceled += instance.OnSkill_1_hold;
+                @HoldSkill.started += instance.OnHoldSkill;
+                @HoldSkill.performed += instance.OnHoldSkill;
+                @HoldSkill.canceled += instance.OnHoldSkill;
+                @Skill_1.started += instance.OnSkill_1;
+                @Skill_1.performed += instance.OnSkill_1;
+                @Skill_1.canceled += instance.OnSkill_1;
+                @Skill_2.started += instance.OnSkill_2;
+                @Skill_2.performed += instance.OnSkill_2;
+                @Skill_2.canceled += instance.OnSkill_2;
             }
         }
     }
@@ -437,6 +493,8 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnNextForm_Slime(InputAction.CallbackContext context);
         void OnNextForm_Spider(InputAction.CallbackContext context);
         void OnNextForm_Firefly(InputAction.CallbackContext context);
-        void OnSkill_1_hold(InputAction.CallbackContext context);
+        void OnHoldSkill(InputAction.CallbackContext context);
+        void OnSkill_1(InputAction.CallbackContext context);
+        void OnSkill_2(InputAction.CallbackContext context);
     }
 }

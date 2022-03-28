@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class scr_cnpt_Form_Abstract : MonoBehaviour
 {
+    public bool holdSkillisActive;
+    protected float overlapRadius = 0.17f;
     //protected float _jumpPower;
     //protected float _moveSpeed;
     //[Range(0, .3f)] [SerializeField] private float movementSmoothing = .01f;
@@ -23,32 +25,69 @@ public abstract class scr_cnpt_Form_Abstract : MonoBehaviour
 
     public virtual void Jump(Rigidbody2D rb, float jumpPower)//, bool isGrounded
     {
-        bool isGrounded = CheckIfOverlap(rb.transform.GetChild(0).transform, 0.17f, LayerMask.NameToLayer("Platforms"));
+        bool isGrounded = CheckIfOverlap(rb.transform.GetChild(2).transform, overlapRadius, LayerMask.GetMask("Platforms"));
+
         if (isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
     }
 
-    public virtual void Skill_1_hold()
+    public virtual void Skill_1()
     {
-        Debug.Log("That's my first skill, hold the button to use it");
+        Debug.Log("*Fireball sound*");
     }
 
-    public bool CheckIfOverlap(Transform checker, float radius, LayerMask mask)
+    public virtual void Skill_2()
     {
-        bool state = false;
+        Debug.Log("*Heal sound*");
+    }
 
-        Collider2D[] Colliders = Physics2D.OverlapCircleAll(checker.position, radius, mask);
-        for (int i = 0; i < Colliders.Length; i++)
+    protected bool CheckIfOverlap(Transform checker, float radius, LayerMask mask)
+    {
+        return Physics2D.OverlapCircleAll(checker.position, radius, mask).Length != 0;
+        //bool state = false;
+
+        //Collider2D[] colliders = Physics2D.OverlapCircleAll(checker.position, radius, mask);
+        //if (colliders.Length != 0)
+        //{
+        //    state = true;
+        //}
+        ////for (int i = 0; i < Colliders.Length; i++)
+        ////{
+        ////    if (Colliders[i].gameObject != gameObject)
+        ////    {
+        ////        state = true;
+        ////        break;
+        ////    }
+        ////}
+        //return state;
+    }
+    protected bool CheckIfOverlap(Transform[] checkers, float radius, LayerMask mask)
+    {
+        bool isOverlap = false;
+
+        foreach (var checker in checkers)
         {
-            if (Colliders[i].gameObject != gameObject)
-            {
-                state = true;
-                break;
-            }
+            isOverlap = isOverlap || Physics2D.OverlapCircleAll(checker.position, radius, mask).Length != 0;
         }
-        return state;
+        return isOverlap;
+        //bool state = false;
+
+        //Collider2D[] colliders = Physics2D.OverlapCircleAll(checker.position, radius, mask);
+        //if (colliders.Length != 0)
+        //{
+        //    state = true;
+        //}
+        ////for (int i = 0; i < Colliders.Length; i++)
+        ////{
+        ////    if (Colliders[i].gameObject != gameObject)
+        ////    {
+        ////        state = true;
+        ////        break;
+        ////    }
+        ////}
+        //return state;
     }
 
 }

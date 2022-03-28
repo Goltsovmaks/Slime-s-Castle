@@ -54,9 +54,25 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Skill_1_hold",
+                    "name": "HoldSkill",
                     "type": "Button",
                     "id": "ca9451b5-0cec-469d-87f0-6b0d5b987531",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.1)"
+                },
+                {
+                    "name": "Skill_1",
+                    "type": "Button",
+                    "id": "dd3d2d59-6034-4ba7-b12f-9bdf41cbaa3b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Skill_2",
+                    "type": "Button",
+                    "id": "6a4c3d4b-4580-4aba-b91e-c38dbeb97c70",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -191,7 +207,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
-                    "action": "Skill_1_hold",
+                    "action": "HoldSkill",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -249,6 +265,28 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "cbbdebbd-9577-4640-9231-843a26ec43e4",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "Skill_1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ec642101-24ef-40e4-b197-8752970fba56",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "Skill_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
