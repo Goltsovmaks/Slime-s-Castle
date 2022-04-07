@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class leverLogic : MonoBehaviour
 {
+    Inpt_cnpt_Input _input;
+
     private Animator animlever;
     private AudioSource soundLeverActive;
     [SerializeField]public GameObject[] objectsConnected;
@@ -16,14 +18,25 @@ public class leverLogic : MonoBehaviour
     private ControllerManager controllerManager;
 
     void Awake() {
-        
 
-        
+        _input = new Inpt_cnpt_Input();
+        _input.Slime.Interaction.performed += context => pressAction();
+
+    }
+
+    private void OnEnable()
+    {
+        _input.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _input.Disable();
     }
 
     void Start()
     {
-        controllerManager=GameObject.Find("ControllerManager").GetComponent<ControllerManager>();
+        //controllerManager=GameObject.Find("ControllerManager").GetComponent<ControllerManager>();
         soundLeverActive=GetComponent<AudioSource>();
         animlever=GetComponent<Animator>();
 
@@ -42,13 +55,13 @@ public class leverLogic : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(onPlaceLever&&Input.GetKeyDown(controllerManager.controlls["Interaction"]))
-        { //; KeyCode.F
-            pressAction();
-        }
-    }
+    //void Update()
+    //{
+    //    if(onPlaceLever&&Input.GetKeyDown(controllerManager.controlls["Interaction"]))
+    //    { //; KeyCode.F
+    //        pressAction();
+    //    }
+    //}
 
     private void OnTriggerStay2D(Collider2D collider)
     {
@@ -66,11 +79,13 @@ public class leverLogic : MonoBehaviour
     }
 
     private void pressAction(){
-        animlever.SetBool("Active",!animlever.GetBool("Active"));
-        soundLeverActive.Play();
+        if (onPlaceLever)
+        {
+            animlever.SetBool("Active", !animlever.GetBool("Active"));
+            soundLeverActive.Play();
 
-        turnObjectsConnected();
-        
+            turnObjectsConnected();
+        }
     }
 
     private void turnObjectsConnected(){

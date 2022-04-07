@@ -4,16 +4,31 @@ using UnityEngine;
 
 public class scr_cnpt_Spider : scr_cnpt_Form_Abstract
 {
-    //public scr_cnpt_Spider(float jumpPower, float moveSpeed) : base (jumpPower, moveSpeed)
+    //public scr_cnpt_Spider(Animator anim, Sprite spr, string sprPth) : base(anim, spr, sprPth)
     //{
-    //    _jumpPower = jumpPower;
-    //    _moveSpeed = moveSpeed;
+    //    animator = anim;
+    //    sprite = spr;
+    //    spritePath = sprPth;
     //}
 
     //public override void Jump(Rigidbody2D rb)
     //{
 
     //    Debug.Log("Я прыгающий павук");
+    //}
+
+
+    //private void OnEnable()
+    //{
+    //    sprite = Resources.Load("Spider") as Sprite;
+    //    Debug.Log("testts");
+    //}
+    
+
+    //protected void Awake()
+    //{
+    //    //spritePath = "Spider";
+    //    sprite = Resources.Load("Spider") as Sprite;
     //}
 
     public override void Jump(Rigidbody2D rb, float jumpPower)
@@ -49,6 +64,7 @@ public class scr_cnpt_Spider : scr_cnpt_Form_Abstract
         {
             rb.gravityScale = 0;
             targetVelocity = new Vector3(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+
         }
         else
         {

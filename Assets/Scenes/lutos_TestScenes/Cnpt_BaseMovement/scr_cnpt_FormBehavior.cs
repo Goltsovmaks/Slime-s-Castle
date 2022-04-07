@@ -10,6 +10,9 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
 
     Inpt_cnpt_Input _input;
 
+    //public delegate void FormChangeAction();
+    //public static event FormChangeAction FormIsChanged;
+
     public enum enum_forms
     {
         Slime,
@@ -61,5 +64,10 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
                 _currentForm = _forms[2];
                 break;
         }
+        //if (FormIsChanged != null)
+        //{
+        //    FormIsChanged();
+        //}
+        
     }
 }

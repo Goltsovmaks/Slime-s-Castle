@@ -6,14 +6,24 @@ public abstract class scr_cnpt_Form_Abstract : MonoBehaviour
 {
     public bool holdSkillisActive;
     protected float overlapRadius = 0.17f;
-    //protected float _jumpPower;
-    //protected float _moveSpeed;
-    //[Range(0, .3f)] [SerializeField] private float movementSmoothing = .01f;
 
-    //public scr_cnpt_Form_Abstract(float jumpPower, float moveSpeed)
+    //public Animator animator;
+    //public Sprite sprite;
+
+    //protected string spritePath;
+
+    //protected abstract void Awake();
+
+    //protected void SetSpritePath()
     //{
-    //    _jumpPower = jumpPower;
-    //    _moveSpeed = moveSpeed;
+    //    sprite = Resources.Load(spritePath) as Sprite;
+    //}
+
+    //public scr_cnpt_Form_Abstract(Animator anim, Sprite spr, string sprPth)
+    //{
+    //    animator = anim;
+    //    sprite = spr;
+    //    spritePath = sprPth;
     //}
 
     public virtual void Move(Rigidbody2D rb, Vector2 moveDirection, float moveSpeed, float movementSmoothing)

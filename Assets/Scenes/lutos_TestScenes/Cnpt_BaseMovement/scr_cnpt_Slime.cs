@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
 {
-    //public scr_cnpt_Slime(float jumpPower, float moveSpeed) : base(jumpPower, moveSpeed)
+
+    //protected void Awake()
     //{
-    //    _jumpPower = jumpPower;
-    //    _moveSpeed = moveSpeed;
+    //    spritePath = "Slime";
+    //    sprite = Resources.Load(spritePath) as Sprite;
+    //}
+    //public scr_cnpt_Slime(Animator anim, Sprite spr, string sprPth) : base(anim, spr, sprPth)
+    //{
+    //    animator = anim;
+    //    sprite = spr;
+    //    spritePath = sprPth;
     //}
 
     //public override void Jump(Rigidbody2D rb)

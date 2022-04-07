@@ -89,6 +89,14 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interaction"",
+                    ""type"": ""Button"",
+                    ""id"": ""e522c592-0d10-4b8a-a820-62a27f3c3c15"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -300,6 +308,17 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""action"": ""Skill_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b20d222-03c7-4981-9a03-08226284d263"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -334,6 +353,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_Slime_HoldSkill = m_Slime.FindAction("HoldSkill", throwIfNotFound: true);
         m_Slime_Skill_1 = m_Slime.FindAction("Skill_1", throwIfNotFound: true);
         m_Slime_Skill_2 = m_Slime.FindAction("Skill_2", throwIfNotFound: true);
+        m_Slime_Interaction = m_Slime.FindAction("Interaction", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -392,6 +412,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Slime_HoldSkill;
     private readonly InputAction m_Slime_Skill_1;
     private readonly InputAction m_Slime_Skill_2;
+    private readonly InputAction m_Slime_Interaction;
     public struct SlimeActions
     {
         private @Inpt_cnpt_Input m_Wrapper;
@@ -405,6 +426,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         public InputAction @HoldSkill => m_Wrapper.m_Slime_HoldSkill;
         public InputAction @Skill_1 => m_Wrapper.m_Slime_Skill_1;
         public InputAction @Skill_2 => m_Wrapper.m_Slime_Skill_2;
+        public InputAction @Interaction => m_Wrapper.m_Slime_Interaction;
         public InputActionMap Get() { return m_Wrapper.m_Slime; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -441,6 +463,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Skill_2.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_2;
                 @Skill_2.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_2;
                 @Skill_2.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnSkill_2;
+                @Interaction.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
+                @Interaction.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
+                @Interaction.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
             }
             m_Wrapper.m_SlimeActionsCallbackInterface = instance;
             if (instance != null)
@@ -472,6 +497,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Skill_2.started += instance.OnSkill_2;
                 @Skill_2.performed += instance.OnSkill_2;
                 @Skill_2.canceled += instance.OnSkill_2;
+                @Interaction.started += instance.OnInteraction;
+                @Interaction.performed += instance.OnInteraction;
+                @Interaction.canceled += instance.OnInteraction;
             }
         }
     }
@@ -496,5 +524,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnHoldSkill(InputAction.CallbackContext context);
         void OnSkill_1(InputAction.CallbackContext context);
         void OnSkill_2(InputAction.CallbackContext context);
+        void OnInteraction(InputAction.CallbackContext context);
     }
 }
