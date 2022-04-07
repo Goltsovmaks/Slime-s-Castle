@@ -27,14 +27,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""HorizontalMovement"",
-                    ""type"": ""Value"",
-                    ""id"": ""a76f9d67-93f7-43be-bd7c-babcb43a8dae"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""11163f91-d9ae-48b2-9cfb-1536f8de3acb"",
@@ -132,72 +124,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""action"": ""NextForm_Slime"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""wAsD"",
-                    ""id"": ""48ce1692-1af6-4dcd-a4f8-3a17ecd1cc1b"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HorizontalMovement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""d32fc351-fa64-4b15-959d-6d19e83fba18"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""HorizontalMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""1cbb0c7f-e078-4b2d-befc-a581bb914978"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""HorizontalMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Arrows"",
-                    ""id"": ""67341fa5-a58d-45e7-a528-fea13c15988a"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HorizontalMovement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""9a66923a-3cc9-457a-b24f-fdf6e91add48"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""HorizontalMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""bc4daf23-4274-4811-a4c4-430ebd0cd698"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""HorizontalMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -321,6 +247,33 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""4c07d217-72a2-4ba6-a93e-629b6fc8f3ea"",
+            ""actions"": [
+                {
+                    ""name"": ""ReturnToPreviousMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""f24a44c9-bea1-4fe1-9c8d-73722b973db0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d744ee80-af8a-4e6e-b08d-da7efad88e9f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReturnToPreviousMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -345,7 +298,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         // Slime
         m_Slime = asset.FindActionMap("Slime", throwIfNotFound: true);
         m_Slime_Movement = m_Slime.FindAction("Movement", throwIfNotFound: true);
-        m_Slime_HorizontalMovement = m_Slime.FindAction("HorizontalMovement", throwIfNotFound: true);
         m_Slime_Jump = m_Slime.FindAction("Jump", throwIfNotFound: true);
         m_Slime_NextForm_Slime = m_Slime.FindAction("NextForm_Slime", throwIfNotFound: true);
         m_Slime_NextForm_Spider = m_Slime.FindAction("NextForm_Spider", throwIfNotFound: true);
@@ -354,6 +306,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_Slime_Skill_1 = m_Slime.FindAction("Skill_1", throwIfNotFound: true);
         m_Slime_Skill_2 = m_Slime.FindAction("Skill_2", throwIfNotFound: true);
         m_Slime_Interaction = m_Slime.FindAction("Interaction", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_ReturnToPreviousMenu = m_UI.FindAction("ReturnToPreviousMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -404,7 +359,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Slime;
     private ISlimeActions m_SlimeActionsCallbackInterface;
     private readonly InputAction m_Slime_Movement;
-    private readonly InputAction m_Slime_HorizontalMovement;
     private readonly InputAction m_Slime_Jump;
     private readonly InputAction m_Slime_NextForm_Slime;
     private readonly InputAction m_Slime_NextForm_Spider;
@@ -418,7 +372,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         private @Inpt_cnpt_Input m_Wrapper;
         public SlimeActions(@Inpt_cnpt_Input wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Slime_Movement;
-        public InputAction @HorizontalMovement => m_Wrapper.m_Slime_HorizontalMovement;
         public InputAction @Jump => m_Wrapper.m_Slime_Jump;
         public InputAction @NextForm_Slime => m_Wrapper.m_Slime_NextForm_Slime;
         public InputAction @NextForm_Spider => m_Wrapper.m_Slime_NextForm_Spider;
@@ -439,9 +392,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMovement;
-                @HorizontalMovement.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnHorizontalMovement;
-                @HorizontalMovement.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnHorizontalMovement;
-                @HorizontalMovement.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnHorizontalMovement;
                 @Jump.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnJump;
@@ -473,9 +423,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @HorizontalMovement.started += instance.OnHorizontalMovement;
-                @HorizontalMovement.performed += instance.OnHorizontalMovement;
-                @HorizontalMovement.canceled += instance.OnHorizontalMovement;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
@@ -504,6 +451,39 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         }
     }
     public SlimeActions @Slime => new SlimeActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_ReturnToPreviousMenu;
+    public struct UIActions
+    {
+        private @Inpt_cnpt_Input m_Wrapper;
+        public UIActions(@Inpt_cnpt_Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ReturnToPreviousMenu => m_Wrapper.m_UI_ReturnToPreviousMenu;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @ReturnToPreviousMenu.started -= m_Wrapper.m_UIActionsCallbackInterface.OnReturnToPreviousMenu;
+                @ReturnToPreviousMenu.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnReturnToPreviousMenu;
+                @ReturnToPreviousMenu.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnReturnToPreviousMenu;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @ReturnToPreviousMenu.started += instance.OnReturnToPreviousMenu;
+                @ReturnToPreviousMenu.performed += instance.OnReturnToPreviousMenu;
+                @ReturnToPreviousMenu.canceled += instance.OnReturnToPreviousMenu;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     private int m_KeyBoardMouseSchemeIndex = -1;
     public InputControlScheme KeyBoardMouseScheme
     {
@@ -516,7 +496,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     public interface ISlimeActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnHorizontalMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnNextForm_Slime(InputAction.CallbackContext context);
         void OnNextForm_Spider(InputAction.CallbackContext context);
@@ -525,5 +504,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnSkill_1(InputAction.CallbackContext context);
         void OnSkill_2(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnReturnToPreviousMenu(InputAction.CallbackContext context);
     }
 }

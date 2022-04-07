@@ -13,6 +13,20 @@ public class MenuController: MonoBehaviour{
     private GameObject[] gameObjects;
     [SerializeField] private string levelName = SlimeData.currentLevel;
 
+    Inpt_cnpt_Input _input;
+
+    [SerializeField] private GameObject currentMenu;
+    private GameObject previuosMenu;
+
+    public bool onPause = false; //Взять у основного GameManager
+
+
+    private void Awake()
+    {
+        _input = new Inpt_cnpt_Input();
+        _input.UI.ReturnToPreviousMenu.performed += context => ReturnButtonPressed();
+    }
+
     void Start()
     {
         gameObjects=new GameObject[]{Main,Settings,PlayerControl};
@@ -44,17 +58,68 @@ public class MenuController: MonoBehaviour{
         //     Time.timeScale = 1f;
         // }
 
-        if((Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Backspace))){
-            if(Settings.activeSelf){
-                BackFromSettingsPressed();
-            }
-            if(PlayerControl.activeSelf){
-                BackFromPlayerControl();
-            }
+        //if((Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Backspace))){
+        //    if(Settings.activeSelf){
+        //        BackFromSettingsPressed();
+        //    }
+        //    if(PlayerControl.activeSelf){
+        //        BackFromPlayerControl();
+        //    }
             
-        }
+        //}
 
     }
+
+    public void ReturnButtonPressed()
+    {
+        switch (currentMenu.name)
+        {
+            case "MainPanel":
+                QuitGame();
+                break;
+            case "PauseMenu":
+                Pause();
+                break;
+            default:
+                goToNextMenu(previuosMenu);
+                break;
+        }
+    }
+
+    public void goToNextMenu(GameObject nextMenu)
+    {
+        if (currentMenu != null)
+        {
+            currentMenu.gameObject.SetActive(false);
+        }
+
+        previuosMenu = currentMenu;
+        currentMenu = nextMenu;
+
+        nextMenu.gameObject.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void PlayGame()
+    {
+        //SceneManager.LoadScene("scn_trainLevel");
+        currentMenu.gameObject.SetActive(false);
+        Debug.Log("Загружаю новую сцену");
+        
+    }
+
+    public void Pause()
+    {
+        //ставим/выключаем паузу в игре
+        onPause = !onPause;
+
+
+    }
+
     public void PlayPressed()
     {   
         if(SlimeData.currentLevel!=null){
@@ -96,6 +161,16 @@ public class MenuController: MonoBehaviour{
         }
         toSetObject.SetActive(true);
         
+    }
+
+    private void OnEnable()
+    {
+        _input.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _input.Disable();
     }
 
 }
