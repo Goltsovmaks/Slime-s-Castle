@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class scr_cnpt_Spider : scr_cnpt_Form_Abstract
 {
-    //public scr_cnpt_Spider(Animator anim, Sprite spr, string sprPth) : base(anim, spr, sprPth)
-    //{
-    //    animator = anim;
-    //    sprite = spr;
-    //    spritePath = sprPth;
-    //}
+    //protected string spritePath = "Spider";
+    public scr_cnpt_Spider()
+    {
+        sprite = Resources.Load<Sprite>("Spider");
+        //animator = anim;
+
+
+    }
 
     //public override void Jump(Rigidbody2D rb)
     //{
@@ -23,23 +25,9 @@ public class scr_cnpt_Spider : scr_cnpt_Form_Abstract
     //    sprite = Resources.Load("Spider") as Sprite;
     //    Debug.Log("testts");
     //}
-    
-
-    //protected void Awake()
-    //{
-    //    //spritePath = "Spider";
-    //    sprite = Resources.Load("Spider") as Sprite;
-    //}
 
     public override void Jump(Rigidbody2D rb, float jumpPower)
     {
-        //Transform[] checkers = new Transform[] { 
-        //    rb.transform.GetChild(0), 
-        //    rb.transform.GetChild(1),
-        //    rb.transform.GetChild(3)
-        //};
-
-        //bool isCrawling = CheckIfOverlap(checkers, overlapRadius, LayerMask.GetMask("Platforms"));
         bool isGrounded = CheckIfOverlap(rb.transform.GetChild(2).transform, overlapRadius, LayerMask.GetMask("Platforms"));
 
         if (isGrounded && !(holdSkillisActive && IsCrawling(rb)))
@@ -49,13 +37,6 @@ public class scr_cnpt_Spider : scr_cnpt_Form_Abstract
     }
     public override void Move(Rigidbody2D rb, Vector2 moveDirection, float moveSpeed, float movementSmoothing)
     {
-        //Transform[] checkers = new Transform[] {
-        //    rb.transform.GetChild(0),
-        //    rb.transform.GetChild(1),
-        //    rb.transform.GetChild(3)
-        //};
-
-        //bool isCrawling = CheckIfOverlap(checkers, overlapRadius, LayerMask.GetMask("Platforms"));
 
         Vector2 velocity = Vector2.zero;
         Vector2 targetVelocity;
@@ -64,14 +45,12 @@ public class scr_cnpt_Spider : scr_cnpt_Form_Abstract
         {
             rb.gravityScale = 0;
             targetVelocity = new Vector3(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-
         }
         else
         {
             rb.gravityScale = 0.65f;
             targetVelocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y);
-            //Vector2 velocity = Vector2.zero;
-            //rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
+
         }
 
         rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);

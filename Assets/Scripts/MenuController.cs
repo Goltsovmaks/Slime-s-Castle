@@ -20,11 +20,16 @@ public class MenuController: MonoBehaviour{
 
     public bool onPause = false; //Взять у основного GameManager
 
+    public delegate void SomeAction();
+    public SomeAction NextAction;
+
 
     private void Awake()
     {
         _input = new Inpt_cnpt_Input();
         _input.UI.ReturnToPreviousMenu.performed += context => ReturnButtonPressed();
+
+        //назначить current menu
     }
 
     void Start()
@@ -38,44 +43,13 @@ public class MenuController: MonoBehaviour{
             sliderObj.value=PlayerPrefs.GetFloat("BG_MUSIC");
 
        }
-
-
-
-        
-
-
     }
-    void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.Escape) && !Pause.activeInHierarchy)
-        // {
-        //     Pause.SetActive(true);
-        //     Time.timeScale = 0.01f;
-        // }
-        // else if (Input.GetKeyDown(KeyCode.Escape) && Pause.activeSelf && !Dead.activeInHierarchy)
-        // {
-        //     Pause.SetActive(false);
-        //     Time.timeScale = 1f;
-        // }
-
-        //if((Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Backspace))){
-        //    if(Settings.activeSelf){
-        //        BackFromSettingsPressed();
-        //    }
-        //    if(PlayerControl.activeSelf){
-        //        BackFromPlayerControl();
-        //    }
-            
-        //}
-
-    }
-
     public void ReturnButtonPressed()
     {
         switch (currentMenu.name)
         {
             case "MainPanel":
-                QuitGame();
+                QuitGame();//confirm
                 break;
             case "PauseMenu":
                 Pause();
@@ -88,10 +62,7 @@ public class MenuController: MonoBehaviour{
 
     public void goToNextMenu(GameObject nextMenu)
     {
-        if (currentMenu != null)
-        {
-            currentMenu.gameObject.SetActive(false);
-        }
+        currentMenu.gameObject.SetActive(false);
 
         previuosMenu = currentMenu;
         currentMenu = nextMenu;
@@ -99,9 +70,10 @@ public class MenuController: MonoBehaviour{
         nextMenu.gameObject.SetActive(true);
     }
 
-    public void QuitGame()
+    public static void QuitGame()
     {
         Application.Quit();
+        Debug.Log("Closing the game...");
     }
 
     public void PlayGame()
@@ -116,52 +88,69 @@ public class MenuController: MonoBehaviour{
     {
         //ставим/выключаем паузу в игре
         onPause = !onPause;
+        currentMenu.gameObject.SetActive(!currentMenu.gameObject.activeInHierarchy);
+    }
 
+    public void SetNextAction(string action)//enum_actions action
+    {
+        switch (action)
+        {
+            case "QuitGame"://enum_actions.QuitGame
+                NextAction = QuitGame;
+                break;
+            default:
+                break;
+        }
 
     }
 
-    public void PlayPressed()
-    {   
-        if(SlimeData.currentLevel!=null){
-            SceneManager.LoadScene(SlimeData.currentLevel);
-        }else{
-            SceneManager.LoadScene("scn_trainLevel");
-        }
+    public void Confirm()
+    {
+        NextAction();
+    }
+
+    //public void PlayPressed()
+    //{   
+    //    if(SlimeData.currentLevel!=null){
+    //        SceneManager.LoadScene(SlimeData.currentLevel);
+    //    }else{
+    //        SceneManager.LoadScene("scn_trainLevel");
+    //    }
         
 
-    }
+    //}
 
-    public void ExitPressed()
-    {
-        Application.Quit();
-    }
-    public void SettingsPressed()
-    {
-        setActiveOnlyFrom(Settings,gameObjects);
-    }
-    public void ControlsPressed()
-    {
-        setActiveOnlyFrom(PlayerControl,gameObjects);
-    }
+    //public void ExitPressed()
+    //{
+    //    Application.Quit();
+    //}
+    //public void SettingsPressed()
+    //{
+    //    setActiveOnlyFrom(Settings,gameObjects);
+    //}
+    //public void ControlsPressed()
+    //{
+    //    setActiveOnlyFrom(PlayerControl,gameObjects);
+    //}
 
 
-    public void BackFromSettingsPressed()
-    {
-        setActiveOnlyFrom(Main,gameObjects);
-    }
+    //public void BackFromSettingsPressed()
+    //{
+    //    setActiveOnlyFrom(Main,gameObjects);
+    //}
 
-    public void BackFromPlayerControl()
-    {
-        setActiveOnlyFrom(Settings,gameObjects);
-    }
+    //public void BackFromPlayerControl()
+    //{
+    //    setActiveOnlyFrom(Settings,gameObjects);
+    //}
 
-    public void setActiveOnlyFrom(GameObject toSetObject, GameObject[] objects){
-        foreach(GameObject objectFromObjects in objects){
-            objectFromObjects.SetActive(false);
-        }
-        toSetObject.SetActive(true);
+    //public void setActiveOnlyFrom(GameObject toSetObject, GameObject[] objects){
+    //    foreach(GameObject objectFromObjects in objects){
+    //        objectFromObjects.SetActive(false);
+    //    }
+    //    toSetObject.SetActive(true);
         
-    }
+    //}
 
     private void OnEnable()
     {

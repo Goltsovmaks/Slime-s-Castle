@@ -16,8 +16,8 @@ public class Scr_cnpt_BaseInteraction : MonoBehaviour
         formBehavior = GetComponent<scr_cnpt_FormBehavior>();
 
 
-        _input.Slime.HoldSkill.performed += context => formBehavior._currentForm.holdSkillisActive = true;
-        _input.Slime.HoldSkill.canceled += context => formBehavior._currentForm.holdSkillisActive = false;
+        _input.Slime.HoldSkill.performed += context => scr_cnpt_Form_Abstract.holdSkillisActive = true;
+        _input.Slime.HoldSkill.canceled += context => scr_cnpt_Form_Abstract.holdSkillisActive = false;
 
         _input.Slime.Skill_1.performed += context => formBehavior._currentForm.Skill_1();
         _input.Slime.Skill_2.performed += context => formBehavior._currentForm.Skill_2();

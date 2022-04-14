@@ -24,7 +24,8 @@ public class ResurrectStone : MonoBehaviour
     {
         if (myTrigger.CompareTag("Player")&&!anim.GetBool("Active"))
         {
-            SlimeData.PointOfResurrect.Add(transform.position);
+            myTrigger.GetComponent<scr_Player>().spawnPosition = transform;
+            //SlimeData.PointOfResurrect.Add(transform.position);
             anim.SetBool("Active",true);
             soundActive.Play();
         }

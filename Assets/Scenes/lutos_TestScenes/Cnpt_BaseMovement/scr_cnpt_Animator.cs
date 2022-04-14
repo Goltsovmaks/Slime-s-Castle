@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class scr_cnpt_Animator : MonoBehaviour
 {
-    public Sprite[] spriteArray;
     scr_cnpt_FormBehavior formBehavior;
     private SpriteRenderer spriteRenderer;
-    public Sprite spriteTest;
+
+    public GameObject formChangeEffect;
 
     private void Awake()
     {
@@ -17,18 +17,28 @@ public class scr_cnpt_Animator : MonoBehaviour
         //formBehavior.NextForm().per
 
     }
-    //private void OnEnable()
-    //{
-    //    scr_cnpt_FormBehavior.FormIsChanged += SetSprite;
-    //}
-    //private void OnDisable()
-    //{
-    //    scr_cnpt_FormBehavior.FormIsChanged -= SetSprite;
-    //}
+    private void OnEnable()
+    {
+        scr_cnpt_FormBehavior.FormIsChanged += SetSprite;
+    }
+    private void OnDisable()
+    {
+        scr_cnpt_FormBehavior.FormIsChanged -= SetSprite;
+    }
 
-    //private void SetSprite()
-    //{
-    //    spriteRenderer.sprite = formBehavior._currentForm.sprite;
-    //    //spriteRenderer.sprite = spriteTest;
-    //}
+    private void SetSprite()
+    {
+        spriteRenderer.sprite = formBehavior._currentForm.sprite;
+        StartCoroutine(ShowFormChangeEffect());
+        
+        //spriteRenderer.sprite = spriteTest;
+    }
+
+    IEnumerator ShowFormChangeEffect()
+    {
+        formChangeEffect.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        formChangeEffect.SetActive(false);
+    }
+
 }

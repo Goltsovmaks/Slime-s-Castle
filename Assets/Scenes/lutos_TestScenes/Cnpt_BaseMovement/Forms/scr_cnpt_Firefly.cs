@@ -7,22 +7,17 @@ public class scr_cnpt_Firefly : scr_cnpt_Form_Abstract
     private int jumpsLeft = 2;
     private float glideSpeed = 2f;
 
-    //protected void Awake()
-    //{
-    //    spritePath = "Firefly";
-    //    sprite = Resources.Load(spritePath) as Sprite;
-    //}
-    //public scr_cnpt_Firefly(Animator anim, Sprite spr, string sprPth) : base(anim, spr, sprPth)
-    //{
-    //    animator = anim;
-    //    sprite = spr;
-    //    spritePath = sprPth;
-    //}
+
+    public scr_cnpt_Firefly()
+    {
+        sprite = Resources.Load<Sprite>("Firefly");
+    }
 
     public override void Move(Rigidbody2D rb, Vector2 moveDirection, float moveSpeed, float movementSmoothing)
     {
         Vector2 velocity = Vector2.zero;
         Vector2 targetVelocity;
+        rb.gravityScale = 0.65f;
 
         if (holdSkillisActive && rb.velocity.y < 0)
         {

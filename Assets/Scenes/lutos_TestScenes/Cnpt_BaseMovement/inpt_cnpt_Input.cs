@@ -172,7 +172,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""411b8634-dd75-421a-9c62-e403f76c348d"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
@@ -183,7 +183,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""b1920803-fe87-4ae4-97e9-9212ec522e8d"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
@@ -194,7 +194,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""281ce590-a1a8-43d1-8007-1c8569dcdb6a"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
@@ -205,7 +205,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""0d9f826c-a013-4180-8b8c-d62eec83aef6"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",

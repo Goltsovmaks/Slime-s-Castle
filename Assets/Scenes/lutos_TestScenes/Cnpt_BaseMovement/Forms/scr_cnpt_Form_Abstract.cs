@@ -4,30 +4,34 @@ using UnityEngine;
 
 public abstract class scr_cnpt_Form_Abstract : MonoBehaviour
 {
-    public bool holdSkillisActive;
-    protected float overlapRadius = 0.17f;
+    public static bool holdSkillisActive;
+    protected float overlapRadius = 0.07f;
 
     //public Animator animator;
-    //public Sprite sprite;
+    public Sprite sprite;
 
     //protected string spritePath;
 
     //protected abstract void Awake();
 
+
+
+    //public scr_cnpt_Form_Abstract()
+    //{
+    //    sprite = Resources.Load(spritePath) as Sprite;
+    //    Debug.Log(spritePath);
+    //    //animator = anim;
+    //    //sprite = spr;
+    //    //spritePath = sprPth;
+    //}
     //protected void SetSpritePath()
     //{
     //    sprite = Resources.Load(spritePath) as Sprite;
     //}
 
-    //public scr_cnpt_Form_Abstract(Animator anim, Sprite spr, string sprPth)
-    //{
-    //    animator = anim;
-    //    sprite = spr;
-    //    spritePath = sprPth;
-    //}
-
     public virtual void Move(Rigidbody2D rb, Vector2 moveDirection, float moveSpeed, float movementSmoothing)
     {
+        rb.gravityScale = 0.65f;
         Vector2 targetVelocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y);
         Vector2 velocity = Vector2.zero;
         rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
