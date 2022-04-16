@@ -161,7 +161,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""411b8634-dd75-421a-9c62-e403f76c348d"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
@@ -172,7 +172,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""b1920803-fe87-4ae4-97e9-9212ec522e8d"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
@@ -183,7 +183,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""281ce590-a1a8-43d1-8007-1c8569dcdb6a"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
@@ -194,7 +194,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""0d9f826c-a013-4180-8b8c-d62eec83aef6"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
@@ -242,9 +242,17 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
             ""id"": ""4c07d217-72a2-4ba6-a93e-629b6fc8f3ea"",
             ""actions"": [
                 {
-                    ""name"": ""ReturnToPreviousMenu"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""f24a44c9-bea1-4fe1-9c8d-73722b973db0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ReturnToPreviousMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""02f879b6-f597-4bf9-bf5a-cf63df971276"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -257,7 +265,18 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""827a1a30-4393-426c-8d91-9dc6283c201f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
                     ""action"": ""ReturnToPreviousMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -297,6 +316,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_Slime_Interaction = m_Slime.FindAction("Interaction", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_ReturnToPreviousMenu = m_UI.FindAction("ReturnToPreviousMenu", throwIfNotFound: true);
     }
 
@@ -444,11 +464,13 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_ReturnToPreviousMenu;
     public struct UIActions
     {
         private @Inpt_cnpt_Input m_Wrapper;
         public UIActions(@Inpt_cnpt_Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputAction @ReturnToPreviousMenu => m_Wrapper.m_UI_ReturnToPreviousMenu;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
@@ -459,6 +481,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_UIActionsCallbackInterface != null)
             {
+                @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
                 @ReturnToPreviousMenu.started -= m_Wrapper.m_UIActionsCallbackInterface.OnReturnToPreviousMenu;
                 @ReturnToPreviousMenu.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnReturnToPreviousMenu;
                 @ReturnToPreviousMenu.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnReturnToPreviousMenu;
@@ -466,6 +491,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
                 @ReturnToPreviousMenu.started += instance.OnReturnToPreviousMenu;
                 @ReturnToPreviousMenu.performed += instance.OnReturnToPreviousMenu;
                 @ReturnToPreviousMenu.canceled += instance.OnReturnToPreviousMenu;
@@ -496,6 +524,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     }
     public interface IUIActions
     {
+        void OnPause(InputAction.CallbackContext context);
         void OnReturnToPreviousMenu(InputAction.CallbackContext context);
     }
 }

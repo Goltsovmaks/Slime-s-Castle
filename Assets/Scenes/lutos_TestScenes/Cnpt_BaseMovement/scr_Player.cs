@@ -9,6 +9,7 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
 
     public Transform spawnPosition;
 
+
     private void Awake()
     {
         maxHealth = 5;

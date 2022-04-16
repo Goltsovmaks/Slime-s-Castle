@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class HUDController : MonoBehaviour
 {
@@ -12,7 +13,20 @@ public class HUDController : MonoBehaviour
     public GameObject PlayerControl;
     public Slider sliderObj;
 
+    PlayerInput _input;
 
+    
+    void Awake()
+    {
+        _input = GetComponent<PlayerInput>();
+        // _input.actions["HoldSkill"].performed += context => scr_cnpt_Form_Abstract.holdSkillisActive = true;
+        // _input.actions["HoldSkill"].canceled += context => scr_cnpt_Form_Abstract.holdSkillisActive = false;
+
+        // _input.actions["Skill_1"].performed += context => formBehavior._currentForm.Skill_1();
+        // _input.actions["Skill_2"].performed += context => formBehavior._currentForm.Skill_2();
+
+    }
+    
     // // Start is called before the first frame update
     void Start()
     {

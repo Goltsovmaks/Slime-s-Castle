@@ -6,12 +6,24 @@ using UnityEngine.UI;
 
 public class MenuController: MonoBehaviour{
 
-    [SerializeField] private GameObject Main;
-    [SerializeField] private GameObject Settings;
-    [SerializeField] private GameObject PlayerControl;
-    [SerializeField] private Slider sliderObj;
-    private GameObject[] gameObjects;
-    [SerializeField] private string levelName = SlimeData.currentLevel;
+    // [SerializeField] private GameObject Main;
+    // [SerializeField] private GameObject Settings;
+    // [SerializeField] private GameObject PlayerControl;
+
+    // [SerializeField] private Slider sliderObj;
+    // private GameObject[] gameObjects;
+    // [SerializeField] private string levelName = SlimeData.currentLevel;
+    [SerializeField] private Slider sliderVolume;
+    [SerializeField] private Toggle toggleFullScreen;
+    [SerializeField] private Toggle toggleVSync;
+
+    [SerializeField] private SavedData settingsData = new SavedData();
+
+    [SerializeField] private SaveGame saveGame1 = new SaveGame();
+    [SerializeField] private SaveGame saveGame2 = new SaveGame();
+    [SerializeField] private SaveGame saveGame3 = new SaveGame();
+
+
 
     Inpt_cnpt_Input _input;
 
@@ -29,21 +41,29 @@ public class MenuController: MonoBehaviour{
         _input = new Inpt_cnpt_Input();
         _input.UI.ReturnToPreviousMenu.performed += context => ReturnButtonPressed();
 
+        string Data= System.IO.File.ReadAllText(Application.persistentDataPath + "/_SavedData.json");
+        settingsData = JsonUtility.FromJson<SavedData>(Data);
+        Debug.Log(settingsData.volume);
+
         //назначить current menu
     }
 
     void Start()
     {
-        gameObjects=new GameObject[]{Main,Settings,PlayerControl};
+        sliderVolume.value = settingsData.volume;
+        toggleFullScreen.isOn = settingsData.fullScreen;
 
-        float volume;
+        // gameObjects=new GameObject[]{Main,Settings,PlayerControl};
+
+
 
 
         if (PlayerPrefs.HasKey("BG_MUSIC")){
-            sliderObj.value=PlayerPrefs.GetFloat("BG_MUSIC");
+            // sliderObj.value=PlayerPrefs.GetFloat("BG_MUSIC");
 
        }
     }
+
     public void ReturnButtonPressed()
     {
         switch (currentMenu.name)
@@ -76,11 +96,33 @@ public class MenuController: MonoBehaviour{
         Debug.Log("Closing the game...");
     }
 
-    public void PlayGame()
+    public void PlayGame(int numberOfSave)
     {
+        string Data;
+        
+
+        switch (numberOfSave)
+        {
+            case 1:
+                Data = JsonUtility.ToJson(saveGame1);
+                break;
+            case 2:
+                Data = JsonUtility.ToJson(saveGame2);
+                break;
+            case 3:
+                Data = JsonUtility.ToJson(saveGame3);
+                break;
+            default:
+                Data = JsonUtility.ToJson(saveGame1);
+                break;
+
+        }
+
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/saveGame"+numberOfSave+".json",Data);
+
         //SceneManager.LoadScene("scn_trainLevel");
         currentMenu.gameObject.SetActive(false);
-        Debug.Log("Загружаю новую сцену");
+        Debug.Log("Загружаю сцену " + numberOfSave);
         
     }
 
