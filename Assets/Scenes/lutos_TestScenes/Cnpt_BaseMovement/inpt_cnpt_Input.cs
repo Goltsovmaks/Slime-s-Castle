@@ -105,17 +105,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""92a38c9d-dbd8-4782-9323-dfb4a0574785"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""88941862-b002-469e-8948-7ae480ab5be6"",
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",

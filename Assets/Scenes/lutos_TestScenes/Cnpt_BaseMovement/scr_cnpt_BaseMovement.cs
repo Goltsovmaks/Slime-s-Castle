@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class scr_cnpt_BaseMovement : MonoBehaviour
 {
-    Inpt_cnpt_Input _input;
+    //Inpt_cnpt_Input _input;
+    PlayerInput _input;
     Rigidbody2D _rb;
     scr_cnpt_FormBehavior formBehavior;
 
@@ -19,34 +21,34 @@ public class scr_cnpt_BaseMovement : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _input = new Inpt_cnpt_Input();
+        //_input = new Inpt_cnpt_Input();
+        _input = GetComponent<PlayerInput>();
         formBehavior = GetComponent<scr_cnpt_FormBehavior>();
 
-        //_input.Slime.Jump.performed += context => formBehavior._currentForm.Jump(_rb, _jumpPower, 
-        //    CheckIfOverlap(groundChecker, groundCheckRadius, whatIsGround));
-        _input.Slime.Jump.performed += context => formBehavior._currentForm.Jump(_rb, _jumpPower);
 
-        //_input.Slime.HoldSkill.performed += context => formBehavior._currentForm.holdSkillisActive = true;
-        //_input.Slime.HoldSkill.canceled += context => formBehavior._currentForm.holdSkillisActive = false;
+        //_input.Slime.Jump.performed += context => formBehavior._currentForm.Jump(_rb, _jumpPower);
+        _input.actions["Jump"].performed += context => formBehavior._currentForm.Jump(_rb, _jumpPower);
 
-        //_input.Slime.Skill_1.performed += context => formBehavior._currentForm.Skill_1();
-        //_input.Slime.Skill_2.performed += context => formBehavior._currentForm.Skill_2();
+
 
     }
 
-    private void OnEnable()
-    {
-        _input.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    _input.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        _input.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    _input.Disable();
+    //}
 
     void FixedUpdate()
     {
-        Vector2 moveDirection = _input.Slime.Movement.ReadValue<Vector2>();
+        //Vector2 moveDirection = _input.Slime.Movement.ReadValue<Vector2>();
+        Vector2 moveDirection = _input.actions["Movement"].ReadValue<Vector2>();
+
+
         //float moveDirection = _input.Slime.HorizontalMovement.ReadValue<float>();
 
         formBehavior._currentForm.Move(_rb, moveDirection, _moveSpeed, movementSmoothing);

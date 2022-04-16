@@ -29,7 +29,11 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
     {
         //do something
         //shown Die Panel
-        Respawn(spawnPosition);
+        if (!(spawnPosition is null))
+        {
+            Respawn(spawnPosition);
+        }
+        
     }
 
     public void Respawn(Transform spawnPosition)

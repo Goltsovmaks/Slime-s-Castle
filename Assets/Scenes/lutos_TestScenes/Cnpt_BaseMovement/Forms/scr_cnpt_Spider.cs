@@ -30,7 +30,7 @@ public class scr_cnpt_Spider : scr_cnpt_Form_Abstract
     {
         bool isGrounded = CheckIfOverlap(rb.transform.GetChild(2).transform, overlapRadius, LayerMask.GetMask("Platforms"));
 
-        if (isGrounded && !(holdSkillisActive && IsCrawling(rb)))
+        if (isGrounded && !(holdSkillisActive && IsTouchingPlatform(rb)))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
@@ -41,7 +41,7 @@ public class scr_cnpt_Spider : scr_cnpt_Form_Abstract
         Vector2 velocity = Vector2.zero;
         Vector2 targetVelocity;
 
-        if (holdSkillisActive && IsCrawling(rb))
+        if (holdSkillisActive && IsTouchingPlatform(rb))
         {
             rb.gravityScale = 0;
             targetVelocity = new Vector3(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
@@ -55,7 +55,7 @@ public class scr_cnpt_Spider : scr_cnpt_Form_Abstract
 
         rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
     }
-    private bool IsCrawling(Rigidbody2D rb)
+    private bool IsTouchingPlatform(Rigidbody2D rb)
     {
         Transform[] checkers = new Transform[] {
             rb.transform.GetChild(0),

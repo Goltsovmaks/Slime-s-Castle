@@ -32,6 +32,7 @@ public class scr_cnpt_Animator : MonoBehaviour
         StartCoroutine(ShowFormChangeEffect());
         
         //spriteRenderer.sprite = spriteTest;
+
     }
 
     IEnumerator ShowFormChangeEffect()
