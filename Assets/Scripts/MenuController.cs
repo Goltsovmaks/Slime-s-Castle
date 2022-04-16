@@ -131,6 +131,14 @@ public class MenuController: MonoBehaviour{
         //ставим/выключаем паузу в игре
         onPause = !onPause;
         currentMenu.gameObject.SetActive(!currentMenu.gameObject.activeInHierarchy);
+
+         
+        if(Time.timeScale==1f){
+            Time.timeScale = 0f;
+        } else{
+            Time.timeScale = 1f;
+        }
+
     }
 
     public void SetNextAction(string action)//enum_actions action

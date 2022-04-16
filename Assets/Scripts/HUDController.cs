@@ -19,18 +19,17 @@ public class HUDController : MonoBehaviour
     void Awake()
     {
         _input = GetComponent<PlayerInput>();
-        // _input.actions["HoldSkill"].performed += context => scr_cnpt_Form_Abstract.holdSkillisActive = true;
+        _input.actions["Pause"].performed += context => PausePressed();
+
         // _input.actions["HoldSkill"].canceled += context => scr_cnpt_Form_Abstract.holdSkillisActive = false;
 
-        // _input.actions["Skill_1"].performed += context => formBehavior._currentForm.Skill_1();
-        // _input.actions["Skill_2"].performed += context => formBehavior._currentForm.Skill_2();
 
     }
     
     // // Start is called before the first frame update
     void Start()
     {
-        sliderObj.value=PlayerPrefs.GetFloat("BG_MUSIC");
+        // sliderObj.value=PlayerPrefs.GetFloat("BG_MUSIC");
         // Slider sliderObj = GameObject.FindWithTag("BG_MUSIC_VOLUME_SLIDER").GetComponent<Slider>();
         // Text textObj = GameObject.FindWithTag("BG_MUSIC_VOLUME_TEXT").GetComponent<Text>();
         // sliderObj
@@ -41,26 +40,26 @@ public class HUDController : MonoBehaviour
     // // Update is called once per frame  &&!Dead.activeInHierarchy
     void Update()
     {   
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        // if(Input.GetKeyDown(KeyCode.Escape)){
 
-            // PlayerPrefs
-            if(!Pause.activeInHierarchy){
-                Pause.SetActive(true);
-                PlayerControl.SetActive(false);
-                Time.timeScale = 0.01f;
-            }else{
-                Pause.SetActive(false);
-                PlayerControl.SetActive(false);
-                Time.timeScale = 1f;
-            }
+        //     // PlayerPrefs
+        //     if(!Pause.activeInHierarchy){
+        //         Pause.SetActive(true);
+        //         PlayerControl.SetActive(false);
+        //         Time.timeScale = 0.01f;
+        //     }else{
+        //         Pause.SetActive(false);
+        //         PlayerControl.SetActive(false);
+        //         Time.timeScale = 1f;
+        //     }
 
             
-            if(PlayerControl.activeInHierarchy){
-                Pause.SetActive(true);
-                PlayerControl.SetActive(false);
-            }
+        //     if(PlayerControl.activeInHierarchy){
+        //         Pause.SetActive(true);
+        //         PlayerControl.SetActive(false);
+        //     }
 
-        }
+        // }
 
         // if(Input.GetKeyDown(KeyCode.Escape)&&!Pause.activeInHierarchy){
         //     Pause.SetActive(true);
@@ -71,6 +70,19 @@ public class HUDController : MonoBehaviour
         //     Time.timeScale = 1f;
         // }
  
+    }
+    public void PausePressed()
+    {   
+        if(Time.timeScale==1f){
+            Time.timeScale = 0f;
+        } else{
+            Time.timeScale = 1f;
+        }
+
+        Pause.SetActive(!Pause.activeInHierarchy);
+
+        
+
     }
     public void MenuPressed()
     {

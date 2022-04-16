@@ -5142,7 +5142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HUD: {fileID: 0}
-  Pause: {fileID: 0}
+  Pause: {fileID: 1272548721}
   Dead: {fileID: 0}
   PlayerControl: {fileID: 0}
   sliderObj: {fileID: 0}
@@ -7331,7 +7331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1170168559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13068,7 +13068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2002235825
 RectTransform:
   m_ObjectHideFlags: 0
