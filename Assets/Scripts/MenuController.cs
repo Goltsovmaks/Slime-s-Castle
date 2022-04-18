@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class MenuController: MonoBehaviour{
 
@@ -24,8 +25,7 @@ public class MenuController: MonoBehaviour{
     [SerializeField] private SaveGame saveGame3 = new SaveGame();
 
 
-
-    Inpt_cnpt_Input _input;
+    PlayerInput _input;
 
     [SerializeField] private GameObject currentMenu;
     private GameObject previuosMenu;
@@ -38,8 +38,8 @@ public class MenuController: MonoBehaviour{
 
     private void Awake()
     {
-        _input = new Inpt_cnpt_Input();
-        _input.UI.ReturnToPreviousMenu.performed += context => ReturnButtonPressed();
+        _input = GetComponent<PlayerInput>();
+        _input.actions["ReturnToPreviousMenu"].performed += context => ReturnButtonPressed();
 
         string Data= System.IO.File.ReadAllText(Application.persistentDataPath + "/_SavedData.json");
         settingsData = JsonUtility.FromJson<SavedData>(Data);
@@ -128,11 +128,9 @@ public class MenuController: MonoBehaviour{
 
     public void Pause()
     {
-        //ставим/выключаем паузу в игре
         onPause = !onPause;
         currentMenu.gameObject.SetActive(!currentMenu.gameObject.activeInHierarchy);
 
-         
         if(Time.timeScale==1f){
             Time.timeScale = 0f;
         } else{
@@ -202,14 +200,14 @@ public class MenuController: MonoBehaviour{
         
     //}
 
-    private void OnEnable()
-    {
-        _input.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    _input.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        _input.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    _input.Disable();
+    //}
 
 }
