@@ -25,7 +25,7 @@ public class MenuController: MonoBehaviour{
     [SerializeField] GameObject pnl_continueGame1;
     [SerializeField] GameObject pnl_SaveGame1;
     [SerializeField] Text txt_totalTimeResult;
-    [SerializeField] Text txt_lasSave;
+    [SerializeField] Text txt_lastSaveResult;
 
     [SerializeField] GameObject pnl_continueGame2;
     [SerializeField] GameObject pnl_SaveGame2;
@@ -38,9 +38,9 @@ public class MenuController: MonoBehaviour{
 
     [SerializeField] private SavedData settingsData = new SavedData();
 
-    [SerializeField] private SaveGame saveGame1 = new SaveGame();
-    [SerializeField] private SaveGame saveGame2 = new SaveGame();
-    [SerializeField] private SaveGame saveGame3 = new SaveGame();
+    [SerializeField] private SaveGame saveGame1 = new SaveGame(1);
+    [SerializeField] private SaveGame saveGame2 = new SaveGame(2);
+    [SerializeField] private SaveGame saveGame3 = new SaveGame(3);
 
 
 
@@ -123,12 +123,13 @@ public class MenuController: MonoBehaviour{
     {
         // Добавить в current menu окно паузы
         string Data;
-        Data = JsonUtility.ToJson(new SaveGame());
+        Data = JsonUtility.ToJson(new SaveGame(numberOfSave));
         System.IO.File.WriteAllText(Application.persistentDataPath + "/saveGame"+numberOfSave+".json",Data);
 
         //SceneManager.LoadScene("scn_trainLevel");
         currentMenu.gameObject.SetActive(false);
         Debug.Log("Загружаю сцену " + numberOfSave);
+        
         // switch (numberOfSave)
         // {
         //     case 1:
@@ -167,17 +168,25 @@ public class MenuController: MonoBehaviour{
 
     public void SavePressed()
     {
-        if(File.Exists(Application.persistentDataPath+"/saveGame1.json")){
-            saveGame1 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame1.json"));
-            pnl_SaveGame1.SetActive(true);
-        }
+        // pnl_SaveGame1.SetActive(true);
+        // pnl_SaveGame2.SetActive(true);
+        // pnl_SaveGame3.SetActive(true);
+        // if(File.Exists(Application.persistentDataPath+"/saveGame1.json")){
+        //     saveGame1 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame1.json"));
+            
+        //     // txt_totalTimeResult.text=saveGame1.totalTime;
+        //     txt_lastSaveResult.text=saveGame1.dataOfLastSave;
 
-        if(File.Exists(Application.persistentDataPath+"/saveGame2.json")){
-            saveGame2 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame2.json"));
-        }
-        if(File.Exists(Application.persistentDataPath+"/saveGame3.json")){
-            saveGame3 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame3.json"));
-        }
+
+        // }
+
+        // if(File.Exists(Application.persistentDataPath+"/saveGame2.json")){
+        //     saveGame2 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame2.json"));
+            
+        // }
+        // if(File.Exists(Application.persistentDataPath+"/saveGame3.json")){
+        //     saveGame3 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame3.json"));
+        // }
 
         // string Data= System.IO.File.ReadAllText(Application.persistentDataPath + "/_SavedData.json");
         // SavedData 
@@ -185,6 +194,21 @@ public class MenuController: MonoBehaviour{
         // pnl_chooseSave.SetActive(true);
         goToNextMenu(pnl_chooseSave);
 
+        // pnl_chooseSave.transform.Find("pnl_save"+1).transform.Find("txt_lastSaveResult").GetComponent<Text>().text="+++";
+        // Debug.Log(pnl_chooseSave.transform.Find("pnl_save"+1).transform.Find("txt_lastSaveResult"));
+
+        for(int i=0;i<3;i++){
+            pnl_chooseSave.transform.Find("pnl_save"+i+1).GetComponent<GameObject>().SetActive(true);
+            string path=Application.persistentDataPath+"/saveGame"+(i+1)+".json";
+
+            if(File.Exists(path)){
+                
+                SaveGame objectSave=JsonUtility.FromJson<SaveGame>(File.ReadAllText(path));
+                Debug.Log(path);
+                pnl_chooseSave.transform.Find("pnl_save"+(i+1)).transform.Find("txt_lastSaveResult").GetComponent<Text>().text=objectSave.dataOfLastSave;
+                
+            }
+        }
 
     }
 

@@ -7,6 +7,7 @@ public class SaveData : MonoBehaviour
     [SerializeField] private SavedData _SavedData = new SavedData();
 
     public void SaveDataIntoJson(){
+        Debug.Log("save");
         _SavedData.list.Add("first");
         _SavedData.list.Add("second");
         Resolution res=Screen.resolutions[Screen.resolutions.Length-1];
@@ -90,9 +91,17 @@ public class SavedData{
 [System.Serializable]
 public class SaveGame{
 
-    public string dataOfSave;
+    public string nameOfSave;
+
+    public string dataOfLastSave;
+    public string totalTime;
     public int xPositions;
     public int yPositions;
     public int zPositions;
+
+    public SaveGame(int numberOfSave){
+        nameOfSave="saveGame"+ numberOfSave;
+    }
+    public SaveGame(){}
 
 }
