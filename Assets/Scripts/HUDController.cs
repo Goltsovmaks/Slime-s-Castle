@@ -19,7 +19,7 @@ public class HUDController : MonoBehaviour
     void Awake()
     {
         _input = GetComponent<PlayerInput>();
-        _input.actions["Pause"].performed += context => PausePressed();
+        // _input.actions["Pause"].performed += context => PausePressed();
 
         // _input.actions["HoldSkill"].canceled += context => scr_cnpt_Form_Abstract.holdSkillisActive = false;
 

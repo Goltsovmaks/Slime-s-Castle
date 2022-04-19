@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.IO;
 public class SaveData : MonoBehaviour
 {
     [SerializeField] private SavedData _SavedData = new SavedData();
@@ -28,8 +28,17 @@ public class SaveData : MonoBehaviour
     }
 
     public void DO(){
-        Debug.Log(System.DateTime.Now.ToString("HH:mm:ss"));
-        Debug.Log(System.DateTime.Now.ToString("dd/MM/yyyy"));
+        string path =Application.persistentDataPath;
+        // if(File.Exists(path+"/_SavedData.json")){
+        //     Debug.Log("exists");
+        // }
+        foreach (string pathFr in Directory.GetFiles(path)) {
+                        Debug.Log(Path.GetFileName(pathFr));
+
+        }
+        
+        // Debug.Log(System.DateTime.Now.ToString("HH:mm:ss"));
+        // Debug.Log(System.DateTime.Now.ToString("dd/MM/yyyy"));
 
     }
 
@@ -58,6 +67,9 @@ public class SavedData{
 
     public string resolution;
     public List<string> list = new List<string>(); 
+
+    public Vector3 testv;
+
 
 
 

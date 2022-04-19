@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System.IO;
 
 public class MenuController: MonoBehaviour{
 
@@ -18,11 +19,29 @@ public class MenuController: MonoBehaviour{
     [SerializeField] private Toggle toggleFullScreen;
     [SerializeField] private Toggle toggleVSync;
 
+    [SerializeField] GameObject pnl_pause;
+    [SerializeField] GameObject pnl_chooseSave;
+
+    [SerializeField] GameObject pnl_continueGame1;
+    [SerializeField] GameObject pnl_SaveGame1;
+    [SerializeField] Text txt_totalTimeResult;
+    [SerializeField] Text txt_lasSave;
+
+    [SerializeField] GameObject pnl_continueGame2;
+    [SerializeField] GameObject pnl_SaveGame2;
+
+    [SerializeField] GameObject pnl_continueGame3;
+    [SerializeField] GameObject pnl_SaveGame3;
+
+
+
+
     [SerializeField] private SavedData settingsData = new SavedData();
 
     [SerializeField] private SaveGame saveGame1 = new SaveGame();
     [SerializeField] private SaveGame saveGame2 = new SaveGame();
     [SerializeField] private SaveGame saveGame3 = new SaveGame();
+
 
 
     PlayerInput _input;
@@ -40,6 +59,8 @@ public class MenuController: MonoBehaviour{
     {
         _input = GetComponent<PlayerInput>();
         _input.actions["ReturnToPreviousMenu"].performed += context => ReturnButtonPressed();
+        // _input.actions["Pause"].performed += context => PausePressed();
+
 
         string Data= System.IO.File.ReadAllText(Application.persistentDataPath + "/_SavedData.json");
         settingsData = JsonUtility.FromJson<SavedData>(Data);
@@ -65,14 +86,16 @@ public class MenuController: MonoBehaviour{
     }
 
     public void ReturnButtonPressed()
-    {
+    { //Сделать поиск активного  1 окна!!!
         switch (currentMenu.name)
         {
-            case "MainPanel":
-                QuitGame();//confirm
+            case "pnl_main":
+                PausePressed(); //Для теста - после настройки - удалить
+
+                // QuitGame();//confirm
                 break;
-            case "PauseMenu":
-                Pause();
+            case "pnl_pause":
+                PausePressed();
                 break;
             default:
                 goToNextMenu(previuosMenu);
@@ -98,44 +121,79 @@ public class MenuController: MonoBehaviour{
 
     public void PlayGame(int numberOfSave)
     {
+        // Добавить в current menu окно паузы
         string Data;
-        
-
-        switch (numberOfSave)
-        {
-            case 1:
-                Data = JsonUtility.ToJson(saveGame1);
-                break;
-            case 2:
-                Data = JsonUtility.ToJson(saveGame2);
-                break;
-            case 3:
-                Data = JsonUtility.ToJson(saveGame3);
-                break;
-            default:
-                Data = JsonUtility.ToJson(saveGame1);
-                break;
-
-        }
-
+        Data = JsonUtility.ToJson(new SaveGame());
         System.IO.File.WriteAllText(Application.persistentDataPath + "/saveGame"+numberOfSave+".json",Data);
 
         //SceneManager.LoadScene("scn_trainLevel");
         currentMenu.gameObject.SetActive(false);
         Debug.Log("Загружаю сцену " + numberOfSave);
+        // switch (numberOfSave)
+        // {
+        //     case 1:
+                
+        //         break;
+        //     case 2:
+        //         Data = JsonUtility.ToJson(saveGame2);
+        //         break;
+        //     case 3:
+        //         Data = JsonUtility.ToJson(saveGame3);
+        //         break;
+        //     default:
+        //         Data = JsonUtility.ToJson(saveGame1);
+        //         break;
+
+        // }
+
+        
         
     }
 
-    public void Pause()
+    public void PausePressed()
     {
         onPause = !onPause;
-        currentMenu.gameObject.SetActive(!currentMenu.gameObject.activeInHierarchy);
+        // currentMenu.gameObject.SetActive(!currentMenu.gameObject.activeInHierarchy);
+        // goToNextMenu(pnl_pause);
 
         if(Time.timeScale==1f){
             Time.timeScale = 0f;
         } else{
             Time.timeScale = 1f;
         }
+        pnl_pause.SetActive(!pnl_pause.activeInHierarchy);
+
+    }
+
+    public void SavePressed()
+    {
+        if(File.Exists(Application.persistentDataPath+"/saveGame1.json")){
+            saveGame1 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame1.json"));
+            pnl_SaveGame1.SetActive(true);
+        }
+
+        if(File.Exists(Application.persistentDataPath+"/saveGame2.json")){
+            saveGame2 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame2.json"));
+        }
+        if(File.Exists(Application.persistentDataPath+"/saveGame3.json")){
+            saveGame3 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame3.json"));
+        }
+
+        // string Data= System.IO.File.ReadAllText(Application.persistentDataPath + "/_SavedData.json");
+        // SavedData 
+        // Включаю нужные панели в choose save
+        // pnl_chooseSave.SetActive(true);
+        goToNextMenu(pnl_chooseSave);
+
+
+    }
+
+    public void LoadPressed()
+    {
+        // Включаю нужные панели в choose save
+        // pnl_chooseSave.SetActive(true);
+        goToNextMenu(pnl_chooseSave);
+
 
     }
 
@@ -156,6 +214,7 @@ public class MenuController: MonoBehaviour{
     {
         NextAction();
     }
+
 
     //public void PlayPressed()
     //{   
