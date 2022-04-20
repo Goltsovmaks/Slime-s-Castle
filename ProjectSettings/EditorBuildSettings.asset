@@ -12,27 +12,30 @@ EditorBuildSettings:
     path: Assets/Scenes/plex_TestScenes/scn_Menu.unity
     guid: 86f9d4b86dab88944a48bca9758d7187
   - enabled: 1
+    path: Assets/Scenes/plex_TestScenes/scn_a4.unity
+    guid: 7f09d5c3056355a478a3540f24162d67
+  - enabled: 0
     path: Assets/Scenes/scn_trainLevel.unity
     guid: db5c405c6d20f0241aa14bec555f3dab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn_levelSt1.unity
     guid: de28a717d6297334595b64e295e6bd6f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn_levelSt2.unity
     guid: 03973256a587d334ab61f2bf517e2db1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn_SyrioLevel.unity
     guid: e1b97e7aa97bcca4b8b2e1c637d77d9e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn_LevelTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/trash/Level1.unity
     guid: a5039149ab197114faf7a6c433f21e45
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/trash/Level2.unity
     guid: e47d00ae18b243e46ae79ca13b353311
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scn_Win.unity
     guid: 10203a2ebc9fc94419204c7a0367079c
   - enabled: 0

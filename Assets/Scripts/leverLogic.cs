@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class leverLogic : MonoBehaviour
 {
-    Inpt_cnpt_Input _input;
+    InputManager input;
 
     private Animator animlever;
     private AudioSource soundLeverActive;
@@ -19,20 +19,21 @@ public class leverLogic : MonoBehaviour
 
     void Awake() {
 
-        _input = new Inpt_cnpt_Input();
-        _input.Slime.Interaction.performed += context => pressAction();
+        //_input = new Inpt_cnpt_Input();
+        input = InputManager.instance;
+        input.playerInput.actions["Interaction"].performed += context => pressAction();
 
     }
 
-    private void OnEnable()
-    {
-        _input.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    _input.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        _input.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    _input.Disable();
+    //}
 
     void Start()
     {

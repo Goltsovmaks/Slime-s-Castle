@@ -11,7 +11,9 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
     public scr_cnpt_Form_Abstract _currentForm;
 
     //Inpt_cnpt_Input _input;
-    PlayerInput _input;
+    //PlayerInput _input;
+
+    InputManager input;
 
     public delegate void PressEvent();
     public static event PressEvent FormIsChanged;
@@ -36,7 +38,9 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
     private void Awake()
     {
         //_input = new Inpt_cnpt_Input();
-        _input = GetComponent<PlayerInput>();
+        //_input = GetComponent<PlayerInput>();
+
+        input = InputManager.instance;
 
         enumToForm = new Dictionary<enum_forms, scr_cnpt_Form_Abstract>()
         {
@@ -51,9 +55,9 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
         //_input.Slime.NextForm_Spider.performed += context => NextForm(enum_forms.Spider);
         //_input.Slime.NextForm_Firefly.performed += context => NextForm(enum_forms.Firefly);
 
-        _input.actions["NextForm_Slime"].performed += context => NextForm(enum_forms.Slime);
-        _input.actions["NextForm_Spider"].performed += context => NextForm(enum_forms.Spider);
-        _input.actions["NextForm_Firefly"].performed += context => NextForm(enum_forms.Firefly);
+        input.playerInput.actions["NextForm_Slime"].performed += context => NextForm(enum_forms.Slime);
+        input.playerInput.actions["NextForm_Spider"].performed += context => NextForm(enum_forms.Spider);
+        input.playerInput.actions["NextForm_Firefly"].performed += context => NextForm(enum_forms.Firefly);
     }
 
     public void NextForm(enum_forms form)

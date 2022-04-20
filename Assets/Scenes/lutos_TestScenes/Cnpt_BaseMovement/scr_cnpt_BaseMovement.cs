@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class scr_cnpt_BaseMovement : MonoBehaviour
 {
     //Inpt_cnpt_Input _input;
-    PlayerInput _input;
+    //PlayerInput _input;
     Rigidbody2D _rb;
     scr_cnpt_FormBehavior formBehavior;
 
@@ -18,16 +18,20 @@ public class scr_cnpt_BaseMovement : MonoBehaviour
     public LayerMask whatIsGround;
     [SerializeField] private float groundCheckRadius = 0.17f;
 
+    InputManager input;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         //_input = new Inpt_cnpt_Input();
-        _input = GetComponent<PlayerInput>();
+        //_input = GetComponent<PlayerInput>();
         formBehavior = GetComponent<scr_cnpt_FormBehavior>();
+
+        input = InputManager.instance;
 
 
         //_input.Slime.Jump.performed += context => formBehavior._currentForm.Jump(_rb, _jumpPower);
-        _input.actions["Jump"].performed += context => formBehavior._currentForm.Jump(_rb, _jumpPower);
+        input.playerInput.actions["Jump"].performed += context => formBehavior._currentForm.Jump(_rb, _jumpPower);
 
 
 
@@ -46,7 +50,7 @@ public class scr_cnpt_BaseMovement : MonoBehaviour
     void FixedUpdate()
     {
         //Vector2 moveDirection = _input.Slime.Movement.ReadValue<Vector2>();
-        Vector2 moveDirection = _input.actions["Movement"].ReadValue<Vector2>();
+        Vector2 moveDirection = input.playerInput.actions["Movement"].ReadValue<Vector2>();
 
 
         //float moveDirection = _input.Slime.HorizontalMovement.ReadValue<float>();

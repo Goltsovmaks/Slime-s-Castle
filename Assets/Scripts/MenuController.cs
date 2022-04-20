@@ -8,6 +8,8 @@ using System.IO;
 
 public class MenuController: MonoBehaviour{
 
+    public static MenuController instance = null;
+
     // [SerializeField] private GameObject Main;
     // [SerializeField] private GameObject Settings;
     // [SerializeField] private GameObject PlayerControl;
@@ -44,7 +46,7 @@ public class MenuController: MonoBehaviour{
 
 
 
-    PlayerInput _input;
+    //PlayerInput _input;
 
     [SerializeField] private GameObject currentMenu;
     private GameObject previuosMenu;
@@ -54,15 +56,31 @@ public class MenuController: MonoBehaviour{
     public delegate void SomeAction();
     public SomeAction NextAction;
 
+    InputManager input;
+
 
     private void Awake()
     {
-        _input = GetComponent<PlayerInput>();
-        _input.actions["ReturnToPreviousMenu"].performed += context => ReturnButtonPressed();
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance == this)
+        {
+            Debug.Log("Удаляю " + gameObject.name);
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+        
+        //_input.actions.FindActionMap("Slime").Enable();
+        //_input.actions.FindActionMap("UI").Enable();
+
         // _input.actions["Pause"].performed += context => PausePressed();
 
 
-        string Data= System.IO.File.ReadAllText(Application.persistentDataPath + "/_SavedData.json");
+        string Data= System.IO.File.ReadAllText(Application.persistentDataPath + "/_SavedData.json"); /// ПРОВЕРИТЬ НАЛИЧИЕ
         settingsData = JsonUtility.FromJson<SavedData>(Data);
         Debug.Log(settingsData.volume);
 
@@ -71,6 +89,11 @@ public class MenuController: MonoBehaviour{
 
     void Start()
     {
+        input = InputManager.instance;
+
+        //_input = GetComponent<PlayerInput>();
+        input.playerInput.actions["ReturnToPreviousMenu"].performed += context => ReturnButtonPressed();
+
         sliderVolume.value = settingsData.volume;
         toggleFullScreen.isOn = settingsData.fullScreen;
 
@@ -129,6 +152,8 @@ public class MenuController: MonoBehaviour{
         //SceneManager.LoadScene("scn_trainLevel");
         currentMenu.gameObject.SetActive(false);
         Debug.Log("Загружаю сцену " + numberOfSave);
+
+        SceneManager.LoadScene(1);
         
         // switch (numberOfSave)
         // {

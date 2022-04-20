@@ -5,20 +5,24 @@ using UnityEngine.InputSystem;
 
 public class Scr_cnpt_BaseInteraction : MonoBehaviour
 { 
-    PlayerInput _input;
+    //PlayerInput _input;
 
     scr_cnpt_FormBehavior formBehavior;
 
+    InputManager input;
+
     private void Awake()
     {
-        _input = GetComponent<PlayerInput>();
+        input = InputManager.instance;
+
+        //_input = GetComponent<PlayerInput>();
         formBehavior = GetComponent<scr_cnpt_FormBehavior>();
 
-        _input.actions["HoldSkill"].performed += context => scr_cnpt_Form_Abstract.holdSkillisActive = true;
-        _input.actions["HoldSkill"].canceled += context => scr_cnpt_Form_Abstract.holdSkillisActive = false;
+        input.playerInput.actions["HoldSkill"].performed += context => scr_cnpt_Form_Abstract.holdSkillisActive = true;
+        input.playerInput.actions["HoldSkill"].canceled += context => scr_cnpt_Form_Abstract.holdSkillisActive = false;
 
-        _input.actions["Skill_1"].performed += context => formBehavior._currentForm.Skill_1();
-        _input.actions["Skill_2"].performed += context => formBehavior._currentForm.Skill_2();
+        input.playerInput.actions["Skill_1"].performed += context => formBehavior._currentForm.Skill_1();
+        input.playerInput.actions["Skill_2"].performed += context => formBehavior._currentForm.Skill_2();
 
     }
 }
