@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        else if (instance == this)
+        else if (instance != this)
         {
-            Debug.Log("Удаляю " + gameObject.name);
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅ " + gameObject.name);
             Destroy(gameObject);
         }
 

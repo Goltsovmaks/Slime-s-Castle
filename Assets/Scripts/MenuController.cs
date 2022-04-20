@@ -24,20 +24,6 @@ public class MenuController: MonoBehaviour{
     [SerializeField] GameObject pnl_pause;
     [SerializeField] GameObject pnl_chooseSave;
 
-    [SerializeField] GameObject pnl_continueGame1;
-    [SerializeField] GameObject pnl_SaveGame1;
-    [SerializeField] Text txt_totalTimeResult;
-    [SerializeField] Text txt_lastSaveResult;
-
-    [SerializeField] GameObject pnl_continueGame2;
-    [SerializeField] GameObject pnl_SaveGame2;
-
-    [SerializeField] GameObject pnl_continueGame3;
-    [SerializeField] GameObject pnl_SaveGame3;
-
-
-
-
     [SerializeField] private SavedData settingsData = new SavedData();
 
     [SerializeField] private SaveGame saveGame1 = new SaveGame(1);
@@ -65,7 +51,7 @@ public class MenuController: MonoBehaviour{
         {
             instance = this;
         }
-        else if (instance == this)
+        else if (instance != this)
         {
             Debug.Log("Удаляю " + gameObject.name);
             Destroy(gameObject);
@@ -142,7 +128,7 @@ public class MenuController: MonoBehaviour{
         Debug.Log("Closing the game...");
     }
 
-    public void PlayGame(int numberOfSave)
+    public void PlayNewGame(int numberOfSave)
     {
         // Добавить в current menu окно паузы
         string Data;
@@ -153,28 +139,38 @@ public class MenuController: MonoBehaviour{
         currentMenu.gameObject.SetActive(false);
         Debug.Log("Загружаю сцену " + numberOfSave);
 
+        currentMenu=pnl_pause;
+        Time.timeScale = 1f; //Костыль
+        onPause=false;//Костыль
+
         SceneManager.LoadScene(1);
         
-        // switch (numberOfSave)
-        // {
-        //     case 1:
-                
-        //         break;
-        //     case 2:
-        //         Data = JsonUtility.ToJson(saveGame2);
-        //         break;
-        //     case 3:
-        //         Data = JsonUtility.ToJson(saveGame3);
-        //         break;
-        //     default:
-        //         Data = JsonUtility.ToJson(saveGame1);
-        //         break;
 
-        // }
-
-        
-        
     }
+
+    public void ContinueGame(int numberOfSave)
+    {
+        // Загружает игру и применяет к ней данные из сохранения
+        string path=Application.persistentDataPath+"/saveGame"+numberOfSave+".json";
+        SaveGame objectSave=JsonUtility.FromJson<SaveGame>(File.ReadAllText(path));
+
+        // Добавить в current menu окно паузы
+        string Data;
+        Data = JsonUtility.ToJson(new SaveGame(numberOfSave));
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/saveGame"+numberOfSave+".json",Data);
+
+        //SceneManager.LoadScene("scn_trainLevel");
+        currentMenu.gameObject.SetActive(false);
+        currentMenu=pnl_pause;
+        Time.timeScale = 1f; //Костыль
+        onPause=false;
+        Debug.Log("Загружаю сцену " + numberOfSave);
+        SceneManager.LoadScene(1);
+                
+    }
+
+
+    
 
     public void PausePressed()
     {
@@ -193,58 +189,78 @@ public class MenuController: MonoBehaviour{
 
     public void SavePressed()
     {
-        // pnl_SaveGame1.SetActive(true);
-        // pnl_SaveGame2.SetActive(true);
-        // pnl_SaveGame3.SetActive(true);
-        // if(File.Exists(Application.persistentDataPath+"/saveGame1.json")){
-        //     saveGame1 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame1.json"));
-            
-        //     // txt_totalTimeResult.text=saveGame1.totalTime;
-        //     txt_lastSaveResult.text=saveGame1.dataOfLastSave;
-
-
-        // }
-
-        // if(File.Exists(Application.persistentDataPath+"/saveGame2.json")){
-        //     saveGame2 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame2.json"));
-            
-        // }
-        // if(File.Exists(Application.persistentDataPath+"/saveGame3.json")){
-        //     saveGame3 = JsonUtility.FromJson<SaveGame>(File.ReadAllText(Application.persistentDataPath + "/saveGame3.json"));
-        // }
-
-        // string Data= System.IO.File.ReadAllText(Application.persistentDataPath + "/_SavedData.json");
-        // SavedData 
-        // Включаю нужные панели в choose save
-        // pnl_chooseSave.SetActive(true);
-        goToNextMenu(pnl_chooseSave);
-
-        // pnl_chooseSave.transform.Find("pnl_save"+1).transform.Find("txt_lastSaveResult").GetComponent<Text>().text="+++";
-        // Debug.Log(pnl_chooseSave.transform.Find("pnl_save"+1).transform.Find("txt_lastSaveResult"));
-
         for(int i=0;i<3;i++){
-            pnl_chooseSave.transform.Find("pnl_save"+i+1).GetComponent<GameObject>().SetActive(true);
-            string path=Application.persistentDataPath+"/saveGame"+(i+1)+".json";
+            // Нахожу панель одного сохранения
+            Transform transform_pnl_save=pnl_chooseSave.transform.Find("pnl_save"+(i+1)).transform;
+            transform_pnl_save.Find("pnl_SaveGame").gameObject.SetActive(true);
+            transform_pnl_save.Find("pnl_continueGame").gameObject.SetActive(false);
 
+            // Debug.Log(pnl_chooseSave.transform.Find("pnl_save"+(i+1)).gameObject.name);
+            string path=Application.persistentDataPath+"/saveGame"+(i+1)+".json";
+            // Если существует сохранение по конкретному пути - включаю необходимые панели, заполняю текстовые поля
             if(File.Exists(path)){
-                
                 SaveGame objectSave=JsonUtility.FromJson<SaveGame>(File.ReadAllText(path));
-                Debug.Log(path);
-                pnl_chooseSave.transform.Find("pnl_save"+(i+1)).transform.Find("txt_lastSaveResult").GetComponent<Text>().text=objectSave.dataOfLastSave;
+                // Debug.Log(path);
+                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text=objectSave.totalTime;
+                transform_pnl_save.Find("txt_lastSaveResult").GetComponent<Text>().text=objectSave.dataOfLastSave;
                 
             }
         }
+
+        goToNextMenu(pnl_chooseSave);
+
+
+        
 
     }
 
     public void LoadPressed()
     {
         // Включаю нужные панели в choose save
-        // pnl_chooseSave.SetActive(true);
+        for(int i=0;i<3;i++){
+            // Нахожу панель одного сохранения
+            Transform transform_pnl_save=pnl_chooseSave.transform.Find("pnl_save"+(i+1)).transform;
+            transform_pnl_save.Find("pnl_SaveGame").gameObject.SetActive(false);
+            
+
+            // Debug.Log(pnl_chooseSave.transform.Find("pnl_save"+(i+1)).gameObject.name);
+            string path=Application.persistentDataPath+"/saveGame"+(i+1)+".json";
+            // Если существует сохранение по конкретному пути - включаю необходимые панели, заполняю текстовые поля
+            if(File.Exists(path)){
+                // Панель активна, только если присутствует сохранение
+                transform_pnl_save.Find("pnl_continueGame").gameObject.SetActive(true);
+                SaveGame objectSave=JsonUtility.FromJson<SaveGame>(File.ReadAllText(path));
+                // Debug.Log(path);
+                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text=objectSave.totalTime;
+                transform_pnl_save.Find("txt_lastSaveResult").GetComponent<Text>().text=objectSave.dataOfLastSave;
+            }
+        }
+        
         goToNextMenu(pnl_chooseSave);
 
 
     }
+    public void deleteSavePressed(int numberOfSave)
+    {
+        string path=Application.persistentDataPath+"/saveGame"+numberOfSave+".json";
+        File.Delete(path);
+
+    }
+
+
+    public void gameSavePressed(int numberOfSave)
+    {
+        SaveGame save=new SaveGame(numberOfSave);
+        // Добавляю в сейв данные игрока
+        // save.dataOfLastSave=System.DateTime.Now.ToString("dd/MM/yyyy")+" "+System.DateTime.Now.ToString("HH:mm:ss");
+        string Data = JsonUtility.ToJson(save);
+        File.WriteAllText(Application.persistentDataPath + "/saveGame"+numberOfSave+".json",Data);
+        goToNextMenu(pnl_pause);
+
+
+    }
+
+
 
     public void SetNextAction(string action)//enum_actions action
     {

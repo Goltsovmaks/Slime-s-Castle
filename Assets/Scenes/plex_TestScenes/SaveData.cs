@@ -101,7 +101,8 @@ public class SaveGame{
 
     public SaveGame(int numberOfSave){
         nameOfSave="saveGame"+ numberOfSave;
+        dataOfLastSave=System.DateTime.Now.ToString("HH:mm:ss")+" "+System.DateTime.Now.ToString("dd/MM/yyyy");
     }
-    public SaveGame(){}
+    public SaveGame(){dataOfLastSave=System.DateTime.Now.ToString("HH:mm:ss")+" "+System.DateTime.Now.ToString("dd/MM/yyyy");}
 
 }
