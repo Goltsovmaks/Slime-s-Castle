@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4420657307247525582}
-  - component: {fileID: 817952318}
+  - component: {fileID: 8934430357457478803}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &817952318
+--- !u!114 &8934430357457478803
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,14 +455,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4527493731506774675}
+        m_TargetAssemblyTypeName: MenuController, Scripts
+        m_MethodName: ContinueGame
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1226,7 +1226,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4527493731506774675}
         m_TargetAssemblyTypeName: MenuController, Scripts
-        m_MethodName: PlayGame
+        m_MethodName: PlayNewGame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2007,7 +2007,7 @@ GameObject:
   - component: {fileID: 4527493731219458973}
   - component: {fileID: 4527493731219458972}
   m_Layer: 5
-  m_Name: txt_lasSave
+  m_Name: txt_lastSave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2658,6 +2658,18 @@ MonoBehaviour:
           m_StringArgument: '-'
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4527493731506774675}
+        m_TargetAssemblyTypeName: MenuController, Scripts
+        m_MethodName: deleteSavePressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4527493731329385810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2779,14 +2791,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4527493731506774675}
+        m_TargetAssemblyTypeName: MenuController, Scripts
+        m_MethodName: gameSavePressed
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3147,14 +3159,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4527493731506774675}
+        m_TargetAssemblyTypeName: MenuController, Scripts
+        m_MethodName: ContinueGame
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4046,16 +4058,8 @@ MonoBehaviour:
   sliderVolume: {fileID: 4527493732097433229}
   toggleFullScreen: {fileID: 4527493731128045936}
   toggleVSync: {fileID: 0}
-  pnl_pause: {fileID: 0}
-  pnl_chooseSave: {fileID: 0}
-  pnl_continueGame1: {fileID: 0}
-  pnl_SaveGame1: {fileID: 0}
-  txt_totalTimeResult: {fileID: 0}
-  txt_lastSaveResult: {fileID: 0}
-  pnl_continueGame2: {fileID: 0}
-  pnl_SaveGame2: {fileID: 0}
-  pnl_continueGame3: {fileID: 0}
-  pnl_SaveGame3: {fileID: 0}
+  pnl_pause: {fileID: 4527493732445328991}
+  pnl_chooseSave: {fileID: 4527493732520962718}
   settingsData:
     volume: 0
     fullScreen: 0
@@ -4998,7 +5002,7 @@ GameObject:
   - component: {fileID: 4527493731633907042}
   - component: {fileID: 4527493731633907045}
   m_Layer: 5
-  m_Name: txt_lasSaveResult
+  m_Name: txt_lastSaveResult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6175,7 +6179,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4527493731506774675}
         m_TargetAssemblyTypeName: MenuController, Scripts
-        m_MethodName: PlayGame
+        m_MethodName: PlayNewGame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6288,7 +6292,7 @@ GameObject:
   - component: {fileID: 4527493731852956020}
   - component: {fileID: 4527493731852956023}
   m_Layer: 5
-  m_Name: txt_lasSaveResult
+  m_Name: txt_lastSaveResult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6512,6 +6516,18 @@ MonoBehaviour:
           m_StringArgument: '-'
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4527493731506774675}
+        m_TargetAssemblyTypeName: MenuController, Scripts
+        m_MethodName: deleteSavePressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4527493731865870041
 GameObject:
   m_ObjectHideFlags: 0
@@ -6712,14 +6728,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4527493731506774675}
+        m_TargetAssemblyTypeName: MenuController, Scripts
+        m_MethodName: gameSavePressed
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9155,7 +9171,7 @@ GameObject:
   - component: {fileID: 4527493732281718434}
   - component: {fileID: 4527493732281718437}
   m_Layer: 5
-  m_Name: txt_lasSaveResult
+  m_Name: txt_lastSaveResult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9313,7 +9329,7 @@ GameObject:
   - component: {fileID: 4527493732300327348}
   - component: {fileID: 4527493732300327351}
   m_Layer: 5
-  m_Name: txt_lasSave
+  m_Name: txt_lastSave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10357,6 +10373,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: '-'
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4527493731506774675}
+        m_TargetAssemblyTypeName: MenuController, Scripts
+        m_MethodName: deleteSavePressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4527493732423761705
@@ -12214,7 +12242,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4527493731506774675}
         m_TargetAssemblyTypeName: MenuController, Scripts
-        m_MethodName: PlayGame
+        m_MethodName: PlayNewGame
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13308,6 +13336,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4527493731506774675}
+        m_TargetAssemblyTypeName: MenuController, Scripts
+        m_MethodName: LoadPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4527493732881130592
 GameObject:
   m_ObjectHideFlags: 0
@@ -13552,7 +13592,7 @@ GameObject:
   - component: {fileID: 4527493732927406872}
   - component: {fileID: 4527493732927406875}
   m_Layer: 5
-  m_Name: txt_lasSave
+  m_Name: txt_lastSave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13977,14 +14017,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4527493731506774675}
+        m_TargetAssemblyTypeName: MenuController, Scripts
+        m_MethodName: gameSavePressed
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -14110,14 +14150,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4527493731506774675}
+        m_TargetAssemblyTypeName: MenuController, Scripts
+        m_MethodName: ContinueGame
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -35,7 +35,7 @@ public class MenuController: MonoBehaviour{
     //PlayerInput _input;
 
     [SerializeField] private GameObject currentMenu;
-    private GameObject previuosMenu;
+    [SerializeField] private GameObject previuosMenu;
 
     public bool onPause = false; //Взять у основного GameManager
 

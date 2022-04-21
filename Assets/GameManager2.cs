@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager2 : MonoBehaviour
 {
-    public static GameManager instance = null;
+    [SerializeField] public static GameManager2 instance = null;
 
     private void Awake()
     {
@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        else if (instance != this)
+        else if (instance == this)
         {
-            Debug.Log("–£–¥–∞–ª—è—é " + gameObject.name);
+            Debug.Log("”‰‡Îˇ˛ " + gameObject.name);
             Destroy(gameObject);
         }
 
