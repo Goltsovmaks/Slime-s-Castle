@@ -95,14 +95,18 @@ public class SaveGame{
 
     public string dataOfLastSave;
     public string totalTime;
-    public int xPositions;
-    public int yPositions;
-    public int zPositions;
+    public Vector3 position;
+
+    // public bool default; //True если сохранение новое, до взятия какой-либо точки спавна
 
     public SaveGame(int numberOfSave){
         nameOfSave="saveGame"+ numberOfSave;
+        // default=true;
+    }
+    public SaveGame(){}
+
+    public void UpdateTimeSave(){
         dataOfLastSave=System.DateTime.Now.ToString("HH:mm:ss")+" "+System.DateTime.Now.ToString("dd/MM/yyyy");
     }
-    public SaveGame(){dataOfLastSave=System.DateTime.Now.ToString("HH:mm:ss")+" "+System.DateTime.Now.ToString("dd/MM/yyyy");}
 
 }

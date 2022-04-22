@@ -26,9 +26,13 @@ public class MenuController: MonoBehaviour{
 
     [SerializeField] private SavedData settingsData = new SavedData();
 
+    [SerializeField] private SaveGame[] savesGame = new SaveGame[4]{null, new SaveGame(1), new SaveGame(2), new SaveGame(3)};
+
     [SerializeField] private SaveGame saveGame1 = new SaveGame(1);
     [SerializeField] private SaveGame saveGame2 = new SaveGame(2);
     [SerializeField] private SaveGame saveGame3 = new SaveGame(3);
+
+    public string nameCurrentSave;
 
 
 
@@ -40,7 +44,12 @@ public class MenuController: MonoBehaviour{
     public bool onPause = false; //Взять у основного GameManager
 
     public delegate void SomeAction();
+    public delegate void SetSpawnPosition(Vector3 position);
+    public delegate Vector3 GetSpawnPosition();
     public SomeAction NextAction;
+
+    public static event SetSpawnPosition SetSpawnPositionEvent;
+    public static event GetSpawnPosition GetSpawnPositionEvent;
 
     InputManager input;
 
@@ -87,7 +96,6 @@ public class MenuController: MonoBehaviour{
 
 
 
-
         if (PlayerPrefs.HasKey("BG_MUSIC")){
             // sliderObj.value=PlayerPrefs.GetFloat("BG_MUSIC");
 
@@ -130,14 +138,23 @@ public class MenuController: MonoBehaviour{
 
     public void PlayNewGame(int numberOfSave)
     {
-        // Добавить в current menu окно паузы
+
+
         string Data;
-        Data = JsonUtility.ToJson(new SaveGame(numberOfSave));
+        savesGame[numberOfSave].UpdateTimeSave();
+        nameCurrentSave=savesGame[numberOfSave].nameOfSave;
+        // savesGame[numberOfSave].position=null;
+        Debug.Log(savesGame[numberOfSave].position);
+
+        Data = JsonUtility.ToJson(savesGame[numberOfSave]);
+
+        
         System.IO.File.WriteAllText(Application.persistentDataPath + "/saveGame"+numberOfSave+".json",Data);
 
         //SceneManager.LoadScene("scn_trainLevel");
         currentMenu.gameObject.SetActive(false);
         Debug.Log("Загружаю сцену " + numberOfSave);
+
 
         currentMenu=pnl_pause;
         Time.timeScale = 1f; //Костыль
@@ -154,11 +171,16 @@ public class MenuController: MonoBehaviour{
         string path=Application.persistentDataPath+"/saveGame"+numberOfSave+".json";
         SaveGame objectSave=JsonUtility.FromJson<SaveGame>(File.ReadAllText(path));
 
-        // Добавить в current menu окно паузы
         string Data;
-        Data = JsonUtility.ToJson(new SaveGame(numberOfSave));
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/saveGame"+numberOfSave+".json",Data);
+        SaveGame save=new SaveGame(numberOfSave);
+        
 
+        
+        
+        
+
+
+        // Добавить в current menu окно паузы - сделано
         //SceneManager.LoadScene("scn_trainLevel");
         currentMenu.gameObject.SetActive(false);
         currentMenu=pnl_pause;
@@ -166,6 +188,21 @@ public class MenuController: MonoBehaviour{
         onPause=false;
         Debug.Log("Загружаю сцену " + numberOfSave);
         SceneManager.LoadScene(1);
+
+
+        if(objectSave.position==null){
+            Data = JsonUtility.ToJson(save);
+            System.IO.File.WriteAllText(Application.persistentDataPath + "/saveGame"+numberOfSave+".json",Data);
+        }else{
+            save.position=objectSave.position;
+            SetSpawnPositionEvent(objectSave.position);
+            Data = JsonUtility.ToJson(save);
+            System.IO.File.WriteAllText(Application.persistentDataPath + "/saveGame"+numberOfSave+".json",Data);
+
+        }
+ 
+
+
                 
     }
 
@@ -249,12 +286,17 @@ public class MenuController: MonoBehaviour{
 
 
     public void gameSavePressed(int numberOfSave)
-    {
-        SaveGame save=new SaveGame(numberOfSave);
+    {  
+        nameCurrentSave=savesGame[numberOfSave].nameOfSave;
+        savesGame[numberOfSave].UpdateTimeSave();
+        savesGame[numberOfSave].position=GetSpawnPositionEvent();
+
         // Добавляю в сейв данные игрока
         // save.dataOfLastSave=System.DateTime.Now.ToString("dd/MM/yyyy")+" "+System.DateTime.Now.ToString("HH:mm:ss");
-        string Data = JsonUtility.ToJson(save);
+        string Data = JsonUtility.ToJson(savesGame[numberOfSave]);
         File.WriteAllText(Application.persistentDataPath + "/saveGame"+numberOfSave+".json",Data);
+        // SetSpawnPositionEvent(save.position);
+        
         goToNextMenu(pnl_pause);
 
 
@@ -281,48 +323,6 @@ public class MenuController: MonoBehaviour{
     }
 
 
-    //public void PlayPressed()
-    //{   
-    //    if(SlimeData.currentLevel!=null){
-    //        SceneManager.LoadScene(SlimeData.currentLevel);
-    //    }else{
-    //        SceneManager.LoadScene("scn_trainLevel");
-    //    }
-        
-
-    //}
-
-    //public void ExitPressed()
-    //{
-    //    Application.Quit();
-    //}
-    //public void SettingsPressed()
-    //{
-    //    setActiveOnlyFrom(Settings,gameObjects);
-    //}
-    //public void ControlsPressed()
-    //{
-    //    setActiveOnlyFrom(PlayerControl,gameObjects);
-    //}
-
-
-    //public void BackFromSettingsPressed()
-    //{
-    //    setActiveOnlyFrom(Main,gameObjects);
-    //}
-
-    //public void BackFromPlayerControl()
-    //{
-    //    setActiveOnlyFrom(Settings,gameObjects);
-    //}
-
-    //public void setActiveOnlyFrom(GameObject toSetObject, GameObject[] objects){
-    //    foreach(GameObject objectFromObjects in objects){
-    //        objectFromObjects.SetActive(false);
-    //    }
-    //    toSetObject.SetActive(true);
-        
-    //}
 
     //private void OnEnable()
     //{
