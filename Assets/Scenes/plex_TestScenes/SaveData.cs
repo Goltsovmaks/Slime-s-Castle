@@ -4,26 +4,26 @@ using UnityEngine;
 using System.IO;
 public class SaveData : MonoBehaviour
 {
-    [SerializeField] private SavedData _SavedData = new SavedData();
+    // [SerializeField] private SavedData _SavedData = new SavedData();
 
     public void SaveDataIntoJson(){
         Debug.Log("save");
-        _SavedData.list.Add("first");
-        _SavedData.list.Add("second");
+        // _SavedData.list.Add("first");
+        // _SavedData.list.Add("second");
         Resolution res=Screen.resolutions[Screen.resolutions.Length-1];
-        _SavedData.list.Add(res.width + "x" + res.height+" "+res.refreshRate);
+        // _SavedData.list.Add(res.width + "x" + res.height+" "+res.refreshRate);
 
-        string Data = JsonUtility.ToJson(_SavedData);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/_SavedData.json",Data);
+        // string Data = JsonUtility.ToJson(_SavedData);
+        // System.IO.File.WriteAllText(Application.persistentDataPath + "/_SavedData.json",Data);
     }
 
     public void LoadDataFromJson(){
 
-        string Data= System.IO.File.ReadAllText(Application.persistentDataPath + "/_SavedData.json");
-        SavedData myObject = JsonUtility.FromJson<SavedData>(Data);
+        // string Data= System.IO.File.ReadAllText(Application.persistentDataPath + "/_SavedData.json");
+        // SavedData myObject = JsonUtility.FromJson<SavedData>(Data);
 
 
-        myObject.PrintAll();
+        // myObject.PrintAll();
 
 
     }
@@ -45,68 +45,4 @@ public class SaveData : MonoBehaviour
 
 }
 
-[System.Serializable]
-public class SavedData{
-    [Range(0, 1f)]public float volume;
-    public bool fullScreen;
-    public bool vsync;
 
-    public int windowWidth;
-    public int windowHeight;
-
-    public string keyUp;
-    public string keyDown;
-    public string keyLeft;
-    public string keyRight;
-
-    public string keyJump;
-
-    public string keySkill;
-
-    public string keyUse;
-
-
-    public string resolution;
-    public List<string> list = new List<string>(); 
-
-    public Vector3 testv;
-
-
-
-
-    public void PrintAll(){
-        Debug.Log("volume:"+volume);
-        Debug.Log("fullscreen:"+fullScreen);
-        Debug.Log("Vsync:"+vsync);
-        Debug.Log("resolution:"+resolution);
-        Debug.Log("Count  of list:"+list.Count);
-        // foreach (Resolution res in Screen.resolutions) {
-        //                 Debug.Log(res.width + "x" + res.height+" "+res.refreshRate);
-        //                 Debug.Log(res);
-        //         }
-        // // Debug.Log(Screen.resolutions);
-    }
-}
-
-[System.Serializable]
-public class SaveGame{
-
-    public string nameOfSave;
-
-    public string dataOfLastSave;
-    public string totalTime;
-    public Vector3 position;
-
-    // public bool default; //True если сохранение новое, до взятия какой-либо точки спавна
-
-    public SaveGame(int numberOfSave){
-        nameOfSave="saveGame"+ numberOfSave;
-        // default=true;
-    }
-    public SaveGame(){}
-
-    public void UpdateTimeSave(){
-        dataOfLastSave=System.DateTime.Now.ToString("HH:mm:ss")+" "+System.DateTime.Now.ToString("dd/MM/yyyy");
-    }
-
-}
