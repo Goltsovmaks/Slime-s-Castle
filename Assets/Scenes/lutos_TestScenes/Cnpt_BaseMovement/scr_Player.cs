@@ -18,33 +18,18 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
         MenuController.SetSpawnPositionEvent+=SetSpawnPosition;
         MenuController.GetSpawnPositionEvent+=GetSpawnPosition;
 
-        scr_GameManager gm = scr_GameManager.instance;// Получаем ссылку на GameObject
-        gm.player = this.gameObject;
-        gm.SetStartPosition();
-
+        scr_GameManager GameManager = scr_GameManager.instance;// Получаем ссылку на GameObject
+        GameManager.player = this.gameObject;
+        GameManager.SetStartPosition();
+        // При новой загрузке точка спавна - место появления на уровне
+        spawnPosition=gameObject.transform;
         // сообщить gamemanager - я родился
 
-        
-
-
-
-
-        // if(spawnPosition!=null){
-        //     gameObject.transform.position=spawnPosition.position;
-        // }else{
-        //     spawnPosition=gameObject.transform;
-        // }
-        // spawnPosition.position
     }
     private void Start()
     {
-        Debug.Log("1");
-        // Жёсткий костыль
-        if(spawnPosition==null){
-            spawnPosition=gameObject.transform;
-        }
-        
-        Respawn(spawnPosition);
+
+
     
     }
 
@@ -83,8 +68,12 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
     }
 
     public Vector3 GetSpawnPosition(){
-        // Debug.Log(spawnPosition.position);
         return spawnPosition.position;
+    }
+
+    private void OnDestroy() {
+        MenuController.SetSpawnPositionEvent-=SetSpawnPosition;
+        MenuController.GetSpawnPositionEvent-=GetSpawnPosition;
     }
 
 

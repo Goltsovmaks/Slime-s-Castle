@@ -141,6 +141,7 @@ public class SettingsData{
 public class SaveGame{
 
     public string nameOfSave;
+    public int numberOfSave;
 
     public string dataOfLastSave;
     public string totalTime;
@@ -152,6 +153,7 @@ public class SaveGame{
 
     public SaveGame(int numberOfSave){
         nameOfSave="saveGame"+ numberOfSave;
+        this.numberOfSave=numberOfSave;
         UpdateTimeSave();
     }
     public SaveGame(){

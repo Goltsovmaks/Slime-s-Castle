@@ -12,6 +12,7 @@ public class scr_GameManager : MonoBehaviour
     scr_SaveController SaveController;
 
     public SaveGame currentSaveGame;
+    public SettingsData currentSettingsData;
 
 
 
@@ -28,13 +29,15 @@ public class scr_GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-
         
-        player = GameObject.Find("Slime");
+        // player = GameObject.Find("Slime");
         // Debug.Log(startPosition.transform.position);
-        Debug.Log("startPosition.transform.position");
+        // Debug.Log("startPosition.transform.position");
 
         // Событие, которое извещает о том, что уровень загружается, в это время нужно найти на уровне объекты
+    }
+    private void Start() {
+        SaveController = scr_SaveController.instance;
     }
 
     public void SetStartPosition(){
@@ -42,6 +45,9 @@ public class scr_GameManager : MonoBehaviour
         if(currentSaveGame.newGame){
             startPosition=GameObject.Find("StartPosition");
             player.transform.position = startPosition.transform.position;
+            // Сохраняю в сейв данные о начальной позиции
+            currentSaveGame.position = startPosition.transform.position;
+            SaveController.SetSaveGame(currentSaveGame.numberOfSave,currentSaveGame);
         }else{
             player.transform.position = currentSaveGame.position;
         }

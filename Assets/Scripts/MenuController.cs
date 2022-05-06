@@ -18,12 +18,8 @@ public class MenuController: MonoBehaviour{
     [SerializeField] GameObject pnl_pause;
     [SerializeField] GameObject pnl_chooseSave;
 
-    [SerializeField] private SettingsData settingsData = new SettingsData();
 
-
-    public string nameCurrentSave;
-
-
+    // public string nameCurrentSave;
 
     //PlayerInput _input;
 
@@ -78,7 +74,8 @@ public class MenuController: MonoBehaviour{
         //_input = GetComponent<PlayerInput>();
         input.playerInput.actions["ReturnToPreviousMenu"].performed += context => ReturnButtonPressed();
 
-        settingsData = SaveController.GetSettingsData();
+        SettingsData settingsData = SaveController.GetSettingsData();
+        GameManager.currentSettingsData=settingsData;
 
         sliderVolume.value = settingsData.volume;
         toggleFullScreen.isOn = settingsData.fullScreen;
@@ -130,9 +127,8 @@ public class MenuController: MonoBehaviour{
         save.newGame=true;
         GameManager.currentSaveGame=save;
         SaveController.SetSaveGame(numberOfSave,save);
-        nameCurrentSave = "saveGame"+ numberOfSave;
+        // nameCurrentSave = "saveGame"+ numberOfSave;
         
-        //SceneManager.LoadScene("scn_trainLevel");
         currentMenu.gameObject.SetActive(false);
         Debug.Log("Загружаю сцену " + numberOfSave);
 
@@ -240,11 +236,9 @@ public class MenuController: MonoBehaviour{
         save.UpdateTimeSave();
         save.newGame = false;
         save.position = GetSpawnPositionEvent();
-        SaveController.SetSaveGame(numberOfSave,save);
 
-        nameCurrentSave = save.nameOfSave;
-        // Добавляю в сейв данные игрока
-        
+        GameManager.currentSaveGame=save;
+        SaveController.SetSaveGame(numberOfSave,save);
 
         goToNextMenu(pnl_pause);
 
