@@ -62,7 +62,10 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
 
     public void NextForm(enum_forms form)
     {
-        _currentForm = enumToForm[form];
-        FormIsChanged();
+        if (enumToForm[form].GetType() != _currentForm.GetType())
+        {
+            _currentForm = enumToForm[form];
+            FormIsChanged();
+        }
     }
 }

@@ -30,11 +30,27 @@ public class scr_cnpt_BaseMovement : MonoBehaviour
         input = InputManager.instance;
 
 
-        //_input.Slime.Jump.performed += context => formBehavior._currentForm.Jump(_rb, _jumpPower);
-        input.playerInput.actions["Jump"].performed += context => formBehavior._currentForm.Jump(_rb, _jumpPower);
+        //input.playerInput.actions["Jump"].performed += context => formBehavior._currentForm.Jump(_rb, _jumpPower);
+
+        input.playerInput.actions["Jump"].performed += Jump;
+
+        if (_rb is null)
+        {
+            Debug.Log("rb is null");
+        }
 
 
 
+    }
+
+    private void Jump(InputAction.CallbackContext context)
+    {
+        formBehavior._currentForm.Jump(_rb, _jumpPower);
+    }
+
+    private void OnDestroy()
+    {
+        input.playerInput.actions["Jump"].performed -= Jump;
     }
 
     //private void OnEnable()

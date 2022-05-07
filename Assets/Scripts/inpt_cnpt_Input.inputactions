@@ -6,6 +6,22 @@
             "id": "3991cbad-1a83-4b5f-b327-40be0ff80e47",
             "actions": [
                 {
+                    "name": "ReturnToPreviousMenu",
+                    "type": "Button",
+                    "id": "e379d397-c301-4e73-a6fe-7a03aa852f4b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "30380270-6cbf-4380-8914-197fdb20c2fe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "f7e3b5ac-4f77-4a9a-917c-2284cef2d13b",
@@ -135,6 +151,50 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "cbbdebbd-9577-4640-9231-843a26ec43e4",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "Skill_1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ec642101-24ef-40e4-b197-8752970fba56",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "Skill_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b20d222-03c7-4981-9a03-08226284d263",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d16d6b1-dbbd-42b9-9e71-9751c22319af",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
                     "id": "a5686efb-62f2-4c46-940a-53bb54742157",
                     "path": "2DVector(mode=2)",
@@ -191,34 +251,12 @@
                 },
                 {
                     "name": "",
-                    "id": "cbbdebbd-9577-4640-9231-843a26ec43e4",
-                    "path": "<Keyboard>/e",
+                    "id": "97e7e737-3d7e-4bc3-a45f-9c1368c820bd",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
-                    "action": "Skill_1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ec642101-24ef-40e4-b197-8752970fba56",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard+Mouse",
-                    "action": "Skill_2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0b20d222-03c7-4981-9a03-08226284d263",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard+Mouse",
-                    "action": "Interaction",
+                    "action": "ReturnToPreviousMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -240,6 +278,14 @@
                     "name": "ReturnToPreviousMenu",
                     "type": "Button",
                     "id": "02f879b6-f597-4bf9-bf5a-cf63df971276",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "OnButtonPressedTest",
+                    "type": "Button",
+                    "id": "01d8c797-93ac-42f9-a1ab-a19856136c08",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -265,6 +311,17 @@
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
                     "action": "ReturnToPreviousMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "19a69ee3-f132-4a00-a9d1-f70d4c717500",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "OnButtonPressedTest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -9,6 +9,8 @@ public class scr_cnpt_Animator : MonoBehaviour
 
     public GameObject formChangeEffect;
 
+    Vector2 moveDirection;
+
     private void Awake()
     {
         formBehavior = GetComponent<scr_cnpt_FormBehavior>();
@@ -17,14 +19,25 @@ public class scr_cnpt_Animator : MonoBehaviour
         //formBehavior.NextForm().per
 
     }
-    private void OnEnable()
+
+    private void Update()
     {
-        scr_cnpt_FormBehavior.FormIsChanged += SetSprite;
+        moveDirection = InputManager.instance.playerInput.actions["Movement"].ReadValue<Vector2>();
+        FlipSprite();
     }
-    private void OnDisable()
+
+    void FlipSprite()
     {
-        scr_cnpt_FormBehavior.FormIsChanged -= SetSprite;
+        if (moveDirection.x < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else if (moveDirection.x > 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
+    
 
     private void SetSprite()
     {
@@ -42,4 +55,13 @@ public class scr_cnpt_Animator : MonoBehaviour
         formChangeEffect.SetActive(false);
     }
 
+
+    private void OnEnable()
+    {
+        scr_cnpt_FormBehavior.FormIsChanged += SetSprite;
+    }
+    private void OnDisable()
+    {
+        scr_cnpt_FormBehavior.FormIsChanged -= SetSprite;
+    }
 }

@@ -19,6 +19,22 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
             ""id"": ""3991cbad-1a83-4b5f-b327-40be0ff80e47"",
             ""actions"": [
                 {
+                    ""name"": ""ReturnToPreviousMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""e379d397-c301-4e73-a6fe-7a03aa852f4b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""30380270-6cbf-4380-8914-197fdb20c2fe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""f7e3b5ac-4f77-4a9a-917c-2284cef2d13b"",
@@ -148,6 +164,50 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""cbbdebbd-9577-4640-9231-843a26ec43e4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Skill_1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ec642101-24ef-40e4-b197-8752970fba56"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Skill_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b20d222-03c7-4981-9a03-08226284d263"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d16d6b1-dbbd-42b9-9e71-9751c22319af"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""2D Vector"",
                     ""id"": ""a5686efb-62f2-4c46-940a-53bb54742157"",
                     ""path"": ""2DVector(mode=2)"",
@@ -204,34 +264,12 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""cbbdebbd-9577-4640-9231-843a26ec43e4"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""97e7e737-3d7e-4bc3-a45f-9c1368c820bd"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""Skill_1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ec642101-24ef-40e4-b197-8752970fba56"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""Skill_2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0b20d222-03c7-4981-9a03-08226284d263"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""Interaction"",
+                    ""action"": ""ReturnToPreviousMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -253,6 +291,14 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""name"": ""ReturnToPreviousMenu"",
                     ""type"": ""Button"",
                     ""id"": ""02f879b6-f597-4bf9-bf5a-cf63df971276"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""OnButtonPressedTest"",
+                    ""type"": ""Button"",
+                    ""id"": ""01d8c797-93ac-42f9-a1ab-a19856136c08"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -278,6 +324,17 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
                     ""action"": ""ReturnToPreviousMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19a69ee3-f132-4a00-a9d1-f70d4c717500"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""OnButtonPressedTest"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -811,6 +868,8 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
 }");
         // Slime
         m_Slime = asset.FindActionMap("Slime", throwIfNotFound: true);
+        m_Slime_ReturnToPreviousMenu = m_Slime.FindAction("ReturnToPreviousMenu", throwIfNotFound: true);
+        m_Slime_Pause = m_Slime.FindAction("Pause", throwIfNotFound: true);
         m_Slime_Movement = m_Slime.FindAction("Movement", throwIfNotFound: true);
         m_Slime_Jump = m_Slime.FindAction("Jump", throwIfNotFound: true);
         m_Slime_NextForm_Slime = m_Slime.FindAction("NextForm_Slime", throwIfNotFound: true);
@@ -824,6 +883,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_ReturnToPreviousMenu = m_UI.FindAction("ReturnToPreviousMenu", throwIfNotFound: true);
+        m_UI_OnButtonPressedTest = m_UI.FindAction("OnButtonPressedTest", throwIfNotFound: true);
         // UI1
         m_UI1 = asset.FindActionMap("UI1", throwIfNotFound: true);
         m_UI1_Navigate = m_UI1.FindAction("Navigate", throwIfNotFound: true);
@@ -885,6 +945,8 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     // Slime
     private readonly InputActionMap m_Slime;
     private ISlimeActions m_SlimeActionsCallbackInterface;
+    private readonly InputAction m_Slime_ReturnToPreviousMenu;
+    private readonly InputAction m_Slime_Pause;
     private readonly InputAction m_Slime_Movement;
     private readonly InputAction m_Slime_Jump;
     private readonly InputAction m_Slime_NextForm_Slime;
@@ -898,6 +960,8 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     {
         private @Inpt_cnpt_Input m_Wrapper;
         public SlimeActions(@Inpt_cnpt_Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ReturnToPreviousMenu => m_Wrapper.m_Slime_ReturnToPreviousMenu;
+        public InputAction @Pause => m_Wrapper.m_Slime_Pause;
         public InputAction @Movement => m_Wrapper.m_Slime_Movement;
         public InputAction @Jump => m_Wrapper.m_Slime_Jump;
         public InputAction @NextForm_Slime => m_Wrapper.m_Slime_NextForm_Slime;
@@ -916,6 +980,12 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_SlimeActionsCallbackInterface != null)
             {
+                @ReturnToPreviousMenu.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnReturnToPreviousMenu;
+                @ReturnToPreviousMenu.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnReturnToPreviousMenu;
+                @ReturnToPreviousMenu.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnReturnToPreviousMenu;
+                @Pause.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnPause;
                 @Movement.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMovement;
@@ -947,6 +1017,12 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
             m_Wrapper.m_SlimeActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @ReturnToPreviousMenu.started += instance.OnReturnToPreviousMenu;
+                @ReturnToPreviousMenu.performed += instance.OnReturnToPreviousMenu;
+                @ReturnToPreviousMenu.canceled += instance.OnReturnToPreviousMenu;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
@@ -984,12 +1060,14 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_ReturnToPreviousMenu;
+    private readonly InputAction m_UI_OnButtonPressedTest;
     public struct UIActions
     {
         private @Inpt_cnpt_Input m_Wrapper;
         public UIActions(@Inpt_cnpt_Input wrapper) { m_Wrapper = wrapper; }
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputAction @ReturnToPreviousMenu => m_Wrapper.m_UI_ReturnToPreviousMenu;
+        public InputAction @OnButtonPressedTest => m_Wrapper.m_UI_OnButtonPressedTest;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1005,6 +1083,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @ReturnToPreviousMenu.started -= m_Wrapper.m_UIActionsCallbackInterface.OnReturnToPreviousMenu;
                 @ReturnToPreviousMenu.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnReturnToPreviousMenu;
                 @ReturnToPreviousMenu.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnReturnToPreviousMenu;
+                @OnButtonPressedTest.started -= m_Wrapper.m_UIActionsCallbackInterface.OnOnButtonPressedTest;
+                @OnButtonPressedTest.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnOnButtonPressedTest;
+                @OnButtonPressedTest.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnOnButtonPressedTest;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1015,6 +1096,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @ReturnToPreviousMenu.started += instance.OnReturnToPreviousMenu;
                 @ReturnToPreviousMenu.performed += instance.OnReturnToPreviousMenu;
                 @ReturnToPreviousMenu.canceled += instance.OnReturnToPreviousMenu;
+                @OnButtonPressedTest.started += instance.OnOnButtonPressedTest;
+                @OnButtonPressedTest.performed += instance.OnOnButtonPressedTest;
+                @OnButtonPressedTest.canceled += instance.OnOnButtonPressedTest;
             }
         }
     }
@@ -1135,6 +1219,8 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     }
     public interface ISlimeActions
     {
+        void OnReturnToPreviousMenu(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnNextForm_Slime(InputAction.CallbackContext context);
@@ -1149,6 +1235,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     {
         void OnPause(InputAction.CallbackContext context);
         void OnReturnToPreviousMenu(InputAction.CallbackContext context);
+        void OnOnButtonPressedTest(InputAction.CallbackContext context);
     }
     public interface IUI1Actions
     {

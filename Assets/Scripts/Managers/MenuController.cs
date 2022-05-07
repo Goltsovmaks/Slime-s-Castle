@@ -6,6 +6,10 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.IO;
 
+
+using System;
+using System.Text;
+
 public class MenuController: MonoBehaviour{
 
     public static MenuController instance = null;
@@ -18,6 +22,8 @@ public class MenuController: MonoBehaviour{
     [SerializeField] GameObject pnl_pause;
     [SerializeField] GameObject pnl_chooseSave;
 
+    [SerializeField] GameObject pnl_dead;
+
 
     // public string nameCurrentSave;
 
@@ -29,9 +35,10 @@ public class MenuController: MonoBehaviour{
     public bool onPause = false; //Взять у основного GameManager
 
     public delegate void SomeAction();
+    public SomeAction NextAction;
+
     public delegate void SetSpawnPosition(Vector3 position);
     public delegate Vector3 GetSpawnPosition();
-    public SomeAction NextAction;
 
     public static event SetSpawnPosition SetSpawnPositionEvent;
     public static event GetSpawnPosition GetSpawnPositionEvent;
@@ -89,6 +96,7 @@ public class MenuController: MonoBehaviour{
 
     public void ReturnButtonPressed()
     { //Сделать поиск активного  1 окна!!!
+        File.AppendAllText(@"c:\temp\MyTest.txt", "\n"+ "====="+"\n", Encoding.UTF8);
         switch (currentMenu.name)
         {
             case "pnl_main":
@@ -97,6 +105,7 @@ public class MenuController: MonoBehaviour{
                 QuitGame();//confirm
                 break;
             case "pnl_pause":
+                File.AppendAllText(@"c:\temp\MyTest.txt", $"void ReturnButtonPressed, case pnl_pause" + "\n", Encoding.UTF8);
                 PausePressed();
                 break;
             default:
@@ -176,7 +185,7 @@ public class MenuController: MonoBehaviour{
             Time.timeScale = 1f;
         }
         pnl_pause.SetActive(!pnl_pause.activeInHierarchy);
-
+        File.AppendAllText(@"c:\temp\MyTest.txt", $"void PausePressed, pnl status: {pnl_pause.activeInHierarchy }" + "\n", Encoding.UTF8);
     }
 
     public void SavePressed()
@@ -273,6 +282,11 @@ public class MenuController: MonoBehaviour{
     public void Confirm()
     {
         NextAction();
+    }
+
+    public void ShowOrHideDiePanel()
+    {
+        pnl_dead.SetActive(!pnl_dead.activeInHierarchy);
     }
 
 

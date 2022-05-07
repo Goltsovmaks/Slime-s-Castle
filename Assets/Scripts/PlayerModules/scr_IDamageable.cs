@@ -11,6 +11,6 @@ public interface scr_IDamageable
 
     void Die();
 
-    void Respawn(Transform spawnPoint);
+    //void Respawn(Transform spawnPoint);
 
 }
