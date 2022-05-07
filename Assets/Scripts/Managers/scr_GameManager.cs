@@ -41,9 +41,9 @@ public class scr_GameManager : MonoBehaviour
     }
 
     public void SetStartPosition(){
-        
+        startPosition=GameObject.Find("StartPosition");
         if(currentSaveGame.newGame){
-            startPosition=GameObject.Find("StartPosition");
+            
             player.transform.position = startPosition.transform.position;
             // Сохраняю в сейв данные о начальной позиции
             currentSaveGame.position = startPosition.transform.position;

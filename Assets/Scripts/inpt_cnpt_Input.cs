@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scenes/lutos_TestScenes/Cnpt_BaseMovement/inpt_cnpt_Input.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/inpt_cnpt_Input.inputactions'
 
 using System;
 using System.Collections;
