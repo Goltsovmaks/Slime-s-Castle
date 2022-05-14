@@ -96,7 +96,6 @@ public class MenuController: MonoBehaviour{
 
     public void ReturnButtonPressed()
     { //Сделать поиск активного  1 окна!!!
-        File.AppendAllText(@"c:\temp\MyTest.txt", "\n"+ "====="+"\n", Encoding.UTF8);
         switch (currentMenu.name)
         {
             case "pnl_main":
@@ -105,7 +104,6 @@ public class MenuController: MonoBehaviour{
                 QuitGame();//confirm
                 break;
             case "pnl_pause":
-                File.AppendAllText(@"c:\temp\MyTest.txt", $"void ReturnButtonPressed, case pnl_pause" + "\n", Encoding.UTF8);
                 PausePressed();
                 break;
             default:

@@ -166,7 +166,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""cbbdebbd-9577-4640-9231-843a26ec43e4"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
@@ -177,7 +177,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ec642101-24ef-40e4-b197-8752970fba56"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/t"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",

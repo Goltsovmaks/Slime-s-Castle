@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class leverLogic : MonoBehaviour
 {
@@ -20,8 +21,7 @@ public class leverLogic : MonoBehaviour
     void Awake() {
 
         //_input = new Inpt_cnpt_Input();
-        input = InputManager.instance;
-        input.playerInput.actions["Interaction"].performed += context => pressAction();
+        
 
     }
 
@@ -37,8 +37,10 @@ public class leverLogic : MonoBehaviour
 
     void Start()
     {
+        input = InputManager.instance;
+        input.playerInput.actions["Interaction"].performed += pressAction;
         //controllerManager=GameObject.Find("ControllerManager").GetComponent<ControllerManager>();
-        soundLeverActive=GetComponent<AudioSource>();
+        soundLeverActive =GetComponent<AudioSource>();
         animlever=GetComponent<Animator>();
 
         
@@ -79,7 +81,8 @@ public class leverLogic : MonoBehaviour
         }
     }
 
-    private void pressAction(){
+    private void pressAction(InputAction.CallbackContext context)
+    {
         if (onPlaceLever)
         {
             animlever.SetBool("Active", !animlever.GetBool("Active"));
@@ -100,5 +103,10 @@ public class leverLogic : MonoBehaviour
             print(name + "Ни к чему не подключён");
         }
 
+    }
+
+    private void OnDestroy()
+    {
+        input.playerInput.actions["Interaction"].performed -= pressAction;
     }
 }

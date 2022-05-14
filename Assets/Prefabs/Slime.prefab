@@ -524,7 +524,6 @@ GameObject:
   - component: {fileID: 429234339}
   - component: {fileID: 2463872516499432560}
   - component: {fileID: 187499400208640637}
-  - component: {fileID: 583886037}
   - component: {fileID: 583886046}
   m_Layer: 0
   m_Name: Slime
@@ -746,37 +745,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 0}
---- !u!114 &583886037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821145948440135432}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 60ba3487de03a6545a175c1b3b182f3d,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: KeyBoard+Mouse
-  m_DefaultActionMap: Slime
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &583886046
 MonoBehaviour:
   m_ObjectHideFlags: 0

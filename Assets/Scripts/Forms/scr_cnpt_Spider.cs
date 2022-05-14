@@ -5,9 +5,10 @@ using UnityEngine;
 public class scr_cnpt_Spider : scr_cnpt_Form_Abstract
 {
     //protected string spritePath = "Spider";
-    public scr_cnpt_Spider()
+    public scr_cnpt_Spider(scr_cnpt_FormBehavior formBehavior)
     {
         sprite = Resources.Load<Sprite>("Spider");
+        this.formBehavior = formBehavior;
         //animator = anim;
 
 

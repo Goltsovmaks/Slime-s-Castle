@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class scr_cnpt_Form_Abstract : MonoBehaviour
+public abstract class scr_cnpt_Form_Abstract
 {
+    public scr_cnpt_FormBehavior formBehavior;
+
     public static bool holdSkillisActive;
     protected float overlapRadius = 0.07f;
 
@@ -47,6 +49,11 @@ public abstract class scr_cnpt_Form_Abstract : MonoBehaviour
         }
     }
 
+    public virtual void StopUsingCurrentForm()
+    {
+
+    }
+
     public virtual void Skill_1()
     {
         Debug.Log("*Fireball sound*");
@@ -60,22 +67,6 @@ public abstract class scr_cnpt_Form_Abstract : MonoBehaviour
     protected bool CheckIfOverlap(Transform checker, float radius, LayerMask mask)
     {
         return Physics2D.OverlapCircleAll(checker.position, radius, mask).Length != 0;
-        //bool state = false;
-
-        //Collider2D[] colliders = Physics2D.OverlapCircleAll(checker.position, radius, mask);
-        //if (colliders.Length != 0)
-        //{
-        //    state = true;
-        //}
-        ////for (int i = 0; i < Colliders.Length; i++)
-        ////{
-        ////    if (Colliders[i].gameObject != gameObject)
-        ////    {
-        ////        state = true;
-        ////        break;
-        ////    }
-        ////}
-        //return state;
     }
     protected bool CheckIfOverlap(Transform[] checkers, float radius, LayerMask mask)
     {
@@ -86,22 +77,12 @@ public abstract class scr_cnpt_Form_Abstract : MonoBehaviour
             isOverlap = isOverlap || Physics2D.OverlapCircleAll(checker.position, radius, mask).Length != 0;
         }
         return isOverlap;
-        //bool state = false;
-
-        //Collider2D[] colliders = Physics2D.OverlapCircleAll(checker.position, radius, mask);
-        //if (colliders.Length != 0)
-        //{
-        //    state = true;
-        //}
-        ////for (int i = 0; i < Colliders.Length; i++)
-        ////{
-        ////    if (Colliders[i].gameObject != gameObject)
-        ////    {
-        ////        state = true;
-        ////        break;
-        ////    }
-        ////}
-        //return state;
     }
+
+    protected Collider2D[] GetInteractableObjects(Transform checker, float radius, LayerMask mask)
+    {
+        return Physics2D.OverlapCircleAll(checker.position, radius, mask);
+    }
+
 
 }

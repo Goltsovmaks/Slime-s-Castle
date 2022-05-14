@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class scr_Player : MonoBehaviour, scr_IDamageable
 {
+    public static scr_Player instance;
+
     public static float damageRate = 1f;
     public static float nextDamage;
     public static bool canTakeDamage = true;
+
+    public static GameObject currentPickedObject = null;
 
     public int maxHealth { get; private set; }
     public int currentHealth { get; private set; }
@@ -20,6 +24,16 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Debug.Log("Удаляю " + gameObject.name);
+            Destroy(gameObject);
+        }
+
         maxHealth = 3;
         currentHealth = maxHealth;
         MenuController.SetSpawnPositionEvent+=SetSpawnPosition;
@@ -27,8 +41,15 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
 
         scr_GameManager GameManager = scr_GameManager.instance;// Получаем ссылку на GameObject
         GameManager.player = this.gameObject;
-        GameManager.SetStartPosition();
-        spawnPosition = GameManager.startPosition.transform;
+
+        EditorManager editorManager = EditorManager.instance;
+
+        if (!editorManager.noMenuLevelStart)
+        {
+            GameManager.SetStartPosition();
+            spawnPosition = GameManager.startPosition.transform;
+        }
+
         // При новой загрузке точка спавна - место появления на уровне
         //spawnPosition=gameObject.transform;
         // сообщить gamemanager - я родился

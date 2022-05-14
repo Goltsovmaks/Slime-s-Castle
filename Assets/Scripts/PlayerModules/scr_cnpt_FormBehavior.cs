@@ -44,9 +44,9 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
 
         enumToForm = new Dictionary<enum_forms, scr_cnpt_Form_Abstract>()
         {
-            {enum_forms.Slime, new scr_cnpt_Slime()},
-            {enum_forms.Spider, new scr_cnpt_Spider()},
-            {enum_forms.Firefly, new scr_cnpt_Firefly()}
+            {enum_forms.Slime, new scr_cnpt_Slime(this)},
+            {enum_forms.Spider, new scr_cnpt_Spider(this)},
+            {enum_forms.Firefly, new scr_cnpt_Firefly(this)}
         };
 
         _currentForm = enumToForm[enum_forms.Slime];
@@ -58,12 +58,14 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
         input.playerInput.actions["NextForm_Slime"].performed += context => NextForm(enum_forms.Slime);
         input.playerInput.actions["NextForm_Spider"].performed += context => NextForm(enum_forms.Spider);
         input.playerInput.actions["NextForm_Firefly"].performed += context => NextForm(enum_forms.Firefly);
+
     }
 
     public void NextForm(enum_forms form)
     {
         if (enumToForm[form].GetType() != _currentForm.GetType())
         {
+            _currentForm.StopUsingCurrentForm();
             _currentForm = enumToForm[form];
             FormIsChanged();
         }

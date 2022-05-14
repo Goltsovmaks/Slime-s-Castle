@@ -4,16 +4,66 @@ using UnityEngine;
 
 public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
 {
+    public float interactionRadius = 1f;
 
-    public scr_cnpt_Slime()
+    public scr_cnpt_Slime(scr_cnpt_FormBehavior formBehavior)
     {
         sprite = Resources.Load<Sprite>("Slime");
+        this.formBehavior = formBehavior;
     }
 
-    //public override void Jump(Rigidbody2D rb)
-    //{
+    public override void Skill_1()
+    {
+        if (GetInteractableObjects(formBehavior.gameObject.transform, interactionRadius, LayerMask.GetMask("InteractableObjects")).Length != 0)
+        {
+            Collider2D[] targets = GetInteractableObjects(formBehavior.gameObject.transform, interactionRadius, LayerMask.GetMask("InteractableObjects"));
+            if (targets[0].gameObject.GetComponent<IPickable>() == null)
+            {
+                //Получить плюшки за что-то съеденное
+                Debug.Log("Съел " + targets[0].gameObject);
+                Object.Destroy(targets[0].gameObject);
+            }
+            else
+            {
+                PickObject(targets[0].gameObject);
+            }
+        }
+        else
+        {
+            DropCurrentPickedObject();
+        }
+    }
 
-    //    Debug.Log("Я прыгающий слизень");
-    //}
+    public override void Skill_2()
+    {
+        Debug.Log("*Heal sound*");
+    }
 
+    public override void StopUsingCurrentForm()
+    {
+        DropCurrentPickedObject();
+    }
+    public void PickObject(GameObject target)
+    {
+        DropCurrentPickedObject();
+
+        target.GetComponent<IPickable>().StartInteraction();
+
+        target.transform.parent = formBehavior.gameObject.transform;
+        target.transform.position = formBehavior.gameObject.transform.position;
+        
+        scr_Player.currentPickedObject = target;
+    }
+
+    public void DropCurrentPickedObject()
+    {
+        if (scr_Player.currentPickedObject != null)
+        {
+            scr_Player.currentPickedObject.GetComponent<IPickable>().StopInteraction();
+
+            scr_Player.currentPickedObject = null;
+        }
+    }
+
+    
 }

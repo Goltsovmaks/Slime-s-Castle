@@ -14,8 +14,6 @@ public class scr_GameManager : MonoBehaviour
     public SaveGame currentSaveGame;
     public SettingsData currentSettingsData;
 
-
-
     private void Awake()
     {
         if (instance == null)

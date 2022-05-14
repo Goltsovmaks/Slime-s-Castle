@@ -8,9 +8,10 @@ public class scr_cnpt_Firefly : scr_cnpt_Form_Abstract
     private float glideSpeed = 2f;
 
 
-    public scr_cnpt_Firefly()
+    public scr_cnpt_Firefly(scr_cnpt_FormBehavior formBehavior)
     {
         sprite = Resources.Load<Sprite>("Firefly");
+        this.formBehavior = formBehavior;
     }
 
     public override void Move(Rigidbody2D rb, Vector2 moveDirection, float moveSpeed, float movementSmoothing)
