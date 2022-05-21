@@ -53,10 +53,10 @@ public class scr_movingPlatform : MonoBehaviour
     void Update()
     {
         // Для отладки
-        // pathLengthHorizontal = objectPathLengthHorizontal.GetComponent<SpriteRenderer>().size.x;
-        // pathLengthVertical = objectPathLengthVertical.GetComponent<SpriteRenderer>().size.y;
-        // objectPathLengthHorizontal.transform.position = startPosition;
-        // objectPathLengthVertical.transform.position = startPosition;
+        pathLengthHorizontal = objectPathLengthHorizontal.GetComponent<SpriteRenderer>().size.x;
+        pathLengthVertical = objectPathLengthVertical.GetComponent<SpriteRenderer>().size.y;
+        objectPathLengthHorizontal.transform.position = startPosition;
+        objectPathLengthVertical.transform.position = startPosition;
 
     }
 
