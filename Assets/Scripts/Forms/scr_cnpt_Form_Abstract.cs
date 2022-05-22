@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class scr_cnpt_Form_Abstract
+public abstract class scr_cnpt_Form_Abstract: MonoBehaviour
 {
     public scr_cnpt_FormBehavior formBehavior;
 

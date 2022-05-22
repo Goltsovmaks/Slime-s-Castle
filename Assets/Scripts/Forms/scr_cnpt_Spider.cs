@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class scr_cnpt_Spider : scr_cnpt_Form_Abstract
 {
-    //protected string spritePath = "Spider";
+    public GameObject SpiderWebShot;
     public scr_cnpt_Spider(scr_cnpt_FormBehavior formBehavior)
     {
         sprite = Resources.Load<Sprite>("Spider");
         this.formBehavior = formBehavior;
         //animator = anim;
 
-
+        SpiderWebShot = formBehavior.transform.GetChild(4).gameObject;
     }
 
-    //public override void Jump(Rigidbody2D rb)
-    //{
+    public override void Skill_1()
+    {
+        //Vector2 direction = InputManager.instance.playerInput.actions["Movement"].ReadValue<Vector2>();
+        GameObject web = Instantiate(SpiderWebShot,formBehavior.transform.position, formBehavior.transform.rotation);
+        web.SetActive(true);
+        web.GetComponent<Scr_SpiderWebShot>().Shot();
+    }
 
-    //    Debug.Log("Я прыгающий павук");
-    //}
+    public override void Skill_2()
+    {
+        Debug.Log("*Heal sound*");
+    }
 
-
-    //private void OnEnable()
-    //{
-    //    sprite = Resources.Load("Spider") as Sprite;
-    //    Debug.Log("testts");
-    //}
 
     public override void Jump(Rigidbody2D rb, float jumpPower)
     {
