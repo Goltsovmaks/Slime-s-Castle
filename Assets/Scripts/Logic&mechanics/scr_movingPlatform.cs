@@ -5,13 +5,14 @@ using UnityEngine;
 public class scr_movingPlatform : MonoBehaviour
 {
     [SerializeField][Range(0, 30f)]private float speed;
-
+    [Header("|")]
     [SerializeField]private bool movingHorizontal;
+    [SerializeField][Range(0, 30f)]private float pathLengthHorizontal;    
+    [Header("|")]
     [SerializeField]private bool movingVertical;
+    [SerializeField][Range(0, 30f)]private float pathLengthVertical;
 
     [SerializeField]private GameObject movingPlatform;
-    [SerializeField]private GameObject objectPathLengthHorizontal;
-    [SerializeField]private GameObject objectPathLengthVertical;
     [SerializeField]private GameObject startMoving;
 
     private Vector2 startPosition;
@@ -19,11 +20,12 @@ public class scr_movingPlatform : MonoBehaviour
     private float widthPlatform;
     private float heightPlatform;
 
-    private float pathLengthHorizontal;
-    private float pathLengthVertical;
+    
     [Header("Для настройки изначального направления движения платформы")]
     [SerializeField]private bool movingRight;
     [SerializeField]private bool movingUp;
+
+    
 
     private void Awake() {
 
@@ -32,11 +34,9 @@ public class scr_movingPlatform : MonoBehaviour
         movingPlatform.transform.position = startMoving.transform.position;
 
         // Значения длин берутся из соответствующих объектов
-        // Неучтена ситуация с изменением видимого размера платформы!!
-        pathLengthHorizontal = objectPathLengthHorizontal.GetComponent<SpriteRenderer>().size.x;
+        
         widthPlatform = movingPlatform.GetComponent<RectTransform>().sizeDelta.x;
 
-        pathLengthVertical = objectPathLengthVertical.GetComponent<SpriteRenderer>().size.y;
         heightPlatform = movingPlatform.GetComponent<RectTransform>().sizeDelta.y;
 
 
@@ -45,18 +45,11 @@ public class scr_movingPlatform : MonoBehaviour
     void Start()
     {
         // Элементы при запуске сцены скрываются
-        objectPathLengthHorizontal.SetActive(false);
-        objectPathLengthVertical.SetActive(false);
         startMoving.SetActive(false);
     }
 
     void Update()
     {
-        // Для отладки
-        pathLengthHorizontal = objectPathLengthHorizontal.GetComponent<SpriteRenderer>().size.x;
-        pathLengthVertical = objectPathLengthVertical.GetComponent<SpriteRenderer>().size.y;
-        objectPathLengthHorizontal.transform.position = startPosition;
-        objectPathLengthVertical.transform.position = startPosition;
 
     }
 
@@ -104,6 +97,12 @@ public class scr_movingPlatform : MonoBehaviour
         {
             collision.transform.parent=null;
         }
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = new Color(0, 1, 0, 0.5f);
+        Gizmos.DrawWireCube(transform.position, new Vector3(pathLengthHorizontal, 0.5f, 0));
+        Gizmos.DrawWireCube(transform.position, new Vector3(0.5f, pathLengthVertical, 0));
     }
     
 }

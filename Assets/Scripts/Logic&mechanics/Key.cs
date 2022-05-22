@@ -17,6 +17,6 @@ public class Key : MonoBehaviour, IPickable
         gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
         this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
 
-        //добавить анимацию вылета
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     }
 }

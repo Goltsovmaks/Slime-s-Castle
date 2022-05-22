@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scr_guard : MonoBehaviour
+public class scr_guard : MonoBehaviour, IImmobilizable
 {
     private Rigidbody2D rb;
-     [SerializeField]private bool movingRight;
+    [SerializeField]private bool movingRight;
+    [SerializeField]private bool patrol;
+    [SerializeField]private bool attack;
+    [SerializeField]private bool goBack;
+    [SerializeField]private bool immobilized;
 
     private GameObject player;
 
@@ -16,6 +20,7 @@ public class scr_guard : MonoBehaviour
     [SerializeField]private GameObject startPositionObject;
     [SerializeField]private Vector3 startPosition;
 
+    [SerializeField]private bool debugging;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
@@ -28,20 +33,40 @@ public class scr_guard : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate() {
-        if(Vector2.Distance(transform.position, startPosition) < patrolDistance){
-            Patrol();
+        if(debugging){
+            startPositionObject.transform.position=startPosition;
         }
+        // Прибавляем к patrolDistance 0.1 поскольку в fixedUpdate
+        if(Vector2.Distance(transform.position, startPosition) < patrolDistance+0.1&&!attack){
+            patrol=true;
+            goBack=false; 
+        }
+        if(Vector2.Distance(transform.position, player.transform.position) < attackDistance){
+            attack=true;            
+            patrol=false;
+            goBack=false;
+        }
+        if(Vector2.Distance(transform.position, player.transform.position) > attackDistance&&!patrol){
+            goBack=true; 
+            attack=false;                       
+        }
+
+
+        if(patrol){
+            Patrol();
+        }else if(attack){
+            Attack();
+        }else if(goBack){
+            GoBack();
+        }
+
+
     }
 
     private void Attack(){ 
-
-
+        // rb.MovePosition(player.transform.position);
+        transform.position = Vector2.MoveTowards(transform.position,player.transform.position, speed*Time.fixedDeltaTime);
     }
 
     private void Patrol(){
@@ -60,6 +85,26 @@ public class scr_guard : MonoBehaviour
     }
 
     private void GoBack(){
-        
+        transform.position = Vector2.MoveTowards(transform.position,startPosition, speed*Time.fixedDeltaTime);
     }
+
+    public void Immobilize(){
+        Debug.Log(this.gameObject+" заморожен");
+        // // float timeImmobilize
+        // this.immobilized=true;
+
+        // this.rb.isKinematic = true;
+        // // this.gameObject.
+    }
+
+
+
+
+    private void OnDrawGizmos() {
+        Gizmos.color = new Color(0, 1, 0, 0.5f);
+        Gizmos.DrawWireCube(startPositionObject.transform.position, new Vector3(patrolDistance*2, 0.5f, 0));
+        Gizmos.color = new Color(1, 0, 0, 0.5f);
+        Gizmos.DrawWireSphere(transform.position, attackDistance);
+    }
+
 }
