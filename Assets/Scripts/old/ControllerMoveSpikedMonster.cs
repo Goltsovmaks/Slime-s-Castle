@@ -9,7 +9,7 @@ public class ControllerMoveSpikedMonster : MonoBehaviour
     [SerializeField][Range(0, 5f)]private float speed = 2.0F;
     [SerializeField][Range(0, 25f)]private float attackDistance = 3.0F;
 
-    private Vector2 moveVector;
+    [SerializeField]private Vector2 moveVector;
     private bool moveRight;
 
     private Rigidbody2D RigidBody;
@@ -36,11 +36,14 @@ public class ControllerMoveSpikedMonster : MonoBehaviour
     {
         
     }
+    private void Update() {
+        CheckingLeft();
+        CheckingRight();
+    }
 
     void FixedUpdate()
     {
-        CheckingLeft();
-        CheckingRight();
+        
         MoveToSlime();
         
     }
@@ -62,7 +65,14 @@ public class ControllerMoveSpikedMonster : MonoBehaviour
         } else{
             Anim.SetBool("Staying", true);
             Anim.SetBool("Moving", false);
-            moveVector=new Vector2(0,0);
+            moveVector=new Vector2(0,RigidBody.velocity.y);
+        }
+
+        if(moveVector.x>0&&!Right){
+            moveVector=new Vector2(0,RigidBody.velocity.y);
+        }
+        if(moveVector.x<0&&!Left){
+            moveVector=new Vector2(0,RigidBody.velocity.y);
         }
 
 
