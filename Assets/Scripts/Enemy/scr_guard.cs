@@ -67,18 +67,31 @@ public class scr_guard : MonoBehaviour, IImmobilizable
     private void Attack(){ 
         // rb.MovePosition(player.transform.position);
         transform.position = Vector2.MoveTowards(transform.position,player.transform.position, speed*Time.fixedDeltaTime);
+        if (transform.position.x > player.transform.position.x)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else 
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 
     private void Patrol(){
         if(transform.position.x > startPosition.x + patrolDistance){
             movingRight = false;
+            // gameObject.GetComponent<SpriteRenderer>().flipX = true;
         } else if(transform.position.x < startPosition.x - patrolDistance){
             movingRight = true;
+            
+            
         }
 
         if(movingRight){
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
             transform.position = new Vector2(transform.position.x + speed*Time.fixedDeltaTime,transform.position.y);
         }else{
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
             transform.position = new Vector2(transform.position.x - speed*Time.fixedDeltaTime,transform.position.y);
         }
         
