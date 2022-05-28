@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c228f0299e6049a4083c0c6bdd60ef23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sumObjectsOnPockplate: 0
   M: 1
   objectsConnected:
   - {fileID: 0}

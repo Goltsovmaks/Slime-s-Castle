@@ -21,19 +21,9 @@ public class scr_teleport : MonoBehaviour
         {
             Debug.Log("телепорт");
             collider.gameObject.transform.position = finalTeleportPosition;
-            // finalTeleportPosition
-            // collision.transform.parent=movingPlatform.transform;
         }
     }
-    // private void OnColliderEnter2D(Collider collision) {
-    //     if (collision.gameObject.CompareTag("Player"))
-    //     {
-    //         Debug.Log("телепорт");
-    //         collision.transform.position = finalTeleportPosition;
-    //         // finalTeleportPosition
-    //         // collision.transform.parent=movingPlatform.transform;
-    //     }
-    // }
+
 
 
 
