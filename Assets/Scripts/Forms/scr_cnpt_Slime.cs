@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
 {
-    public float interactionRadius = 1f;
+    public float interactionRadius = 0.3f;
 
     public scr_cnpt_Slime(scr_cnpt_FormBehavior formBehavior)
     {
@@ -50,7 +50,9 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
         target.GetComponent<IPickable>().StartInteraction();
 
         target.transform.parent = formBehavior.gameObject.transform;
-        target.transform.position = formBehavior.gameObject.transform.position;
+        target.transform.position = new Vector3(formBehavior.gameObject.transform.position.x,
+                                                formBehavior.gameObject.transform.position.y + 0.25f,
+                                                formBehavior.gameObject.transform.position.z);
         
         scr_Player.currentPickedObject = target;
     }

@@ -7,6 +7,7 @@ public abstract class scr_cnpt_Form_Abstract: MonoBehaviour
     public scr_cnpt_FormBehavior formBehavior;
 
     public static bool holdSkillisActive;
+    public static bool isGrounded;
     protected float overlapRadius = 0.07f;
 
     //public Animator animator;
@@ -37,6 +38,8 @@ public abstract class scr_cnpt_Form_Abstract: MonoBehaviour
         Vector2 targetVelocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y);
         Vector2 velocity = Vector2.zero;
         rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
+
+        isGrounded = CheckIfOverlap(rb.transform.GetChild(2).transform, overlapRadius, LayerMask.GetMask("Platforms"));
     }
 
     public virtual void Jump(Rigidbody2D rb, float jumpPower)//, bool isGrounded
