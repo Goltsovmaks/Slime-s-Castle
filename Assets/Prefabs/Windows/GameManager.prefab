@@ -2291,7 +2291,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1729772342939472871}
+  - {fileID: 1388082824270410780}
   - {fileID: 4527493732279304641}
   - {fileID: 4527493732323289749}
   - {fileID: 4527493732520962719}
@@ -14636,7 +14636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noMenuLevelStart: 0
---- !u!1001 &2183084643439087119
+--- !u!1001 &1515963563494779380
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -14751,15 +14751,15 @@ PrefabInstance:
     - target: {fileID: 4290451218049723295, guid: d88f9f56d786e714c9e0c56cac7a6d68,
         type: 3}
       propertyPath: m_Name
-      value: HUD
+      value: HUD (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d88f9f56d786e714c9e0c56cac7a6d68, type: 3}
---- !u!224 &1729772342939472871 stripped
+--- !u!224 &1388082824270410780 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 453382714918165992, guid: d88f9f56d786e714c9e0c56cac7a6d68,
     type: 3}
-  m_PrefabInstance: {fileID: 2183084643439087119}
+  m_PrefabInstance: {fileID: 1515963563494779380}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3906949143850994330
 PrefabInstance:
