@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class scr_HUD : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class scr_HUD : MonoBehaviour
     private void Awake()
     {
         scr_Player.PlayerWasDamaged += UpdateHPBar;
+        scr_Player.PlayerGotACoin += UpdateCoins;
+
         for (int i = 0; i < HPbar.Length; i++)
         {
-            HPbar[i] = transform.GetChild(i).gameObject;
+            HPbar[i] = transform.GetChild(0).GetChild(i).gameObject;
         }
     }
 
@@ -30,8 +33,14 @@ public class scr_HUD : MonoBehaviour
         }
     }
 
+    void UpdateCoins(int currentCoins)
+    {
+        transform.GetChild(1).GetChild(0).gameObject.GetComponent<Text>().text = currentCoins.ToString();
+    }
+
     private void OnDisable()
     {
         scr_Player.PlayerWasDamaged -= UpdateHPBar;
+        scr_Player.PlayerGotACoin -= UpdateCoins;
     }
 }

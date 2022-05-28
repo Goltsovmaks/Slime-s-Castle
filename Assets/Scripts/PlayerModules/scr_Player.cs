@@ -14,11 +14,15 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
 
     public int maxHealth { get; private set; }
     public int currentHealth { get; private set; }
+    public int currentNumberOfCoins = 0;
 
     public Transform spawnPosition;
 
     public delegate void Action(int health);
     public static event Action PlayerWasDamaged;
+
+    public delegate void TakeCoinAction(int number);
+    public static event Action PlayerGotACoin;
 
 
 
@@ -60,6 +64,13 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
 
 
     
+    }
+
+    public void AddCoin()
+    {
+        currentNumberOfCoins += 1;
+        
+        PlayerGotACoin(currentNumberOfCoins);
     }
 
     public void ApplyDamage(int damage)

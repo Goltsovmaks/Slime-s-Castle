@@ -845,6 +845,33 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Win"",
+            ""id"": ""0d8363b0-63a3-42af-9aaa-9abeb5074f43"",
+            ""actions"": [
+                {
+                    ""name"": ""QuitGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""8fb5e6f2-ae69-4aac-910c-d1b19bfafac0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2d4f0d34-39fc-43e5-94d1-c6d222744f0e"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""QuitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -896,6 +923,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_UI1_RightClick = m_UI1.FindAction("RightClick", throwIfNotFound: true);
         m_UI1_TrackedDevicePosition = m_UI1.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI1_TrackedDeviceOrientation = m_UI1.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // Win
+        m_Win = asset.FindActionMap("Win", throwIfNotFound: true);
+        m_Win_QuitGame = m_Win.FindAction("QuitGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1208,6 +1238,39 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         }
     }
     public UI1Actions @UI1 => new UI1Actions(this);
+
+    // Win
+    private readonly InputActionMap m_Win;
+    private IWinActions m_WinActionsCallbackInterface;
+    private readonly InputAction m_Win_QuitGame;
+    public struct WinActions
+    {
+        private @Inpt_cnpt_Input m_Wrapper;
+        public WinActions(@Inpt_cnpt_Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @QuitGame => m_Wrapper.m_Win_QuitGame;
+        public InputActionMap Get() { return m_Wrapper.m_Win; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WinActions set) { return set.Get(); }
+        public void SetCallbacks(IWinActions instance)
+        {
+            if (m_Wrapper.m_WinActionsCallbackInterface != null)
+            {
+                @QuitGame.started -= m_Wrapper.m_WinActionsCallbackInterface.OnQuitGame;
+                @QuitGame.performed -= m_Wrapper.m_WinActionsCallbackInterface.OnQuitGame;
+                @QuitGame.canceled -= m_Wrapper.m_WinActionsCallbackInterface.OnQuitGame;
+            }
+            m_Wrapper.m_WinActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @QuitGame.started += instance.OnQuitGame;
+                @QuitGame.performed += instance.OnQuitGame;
+                @QuitGame.canceled += instance.OnQuitGame;
+            }
+        }
+    }
+    public WinActions @Win => new WinActions(this);
     private int m_KeyBoardMouseSchemeIndex = -1;
     public InputControlScheme KeyBoardMouseScheme
     {
@@ -1249,5 +1312,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    public interface IWinActions
+    {
+        void OnQuitGame(InputAction.CallbackContext context);
     }
 }

@@ -832,6 +832,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Win",
+            "id": "0d8363b0-63a3-42af-9aaa-9abeb5074f43",
+            "actions": [
+                {
+                    "name": "QuitGame",
+                    "type": "Button",
+                    "id": "8fb5e6f2-ae69-4aac-910c-d1b19bfafac0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2d4f0d34-39fc-43e5-94d1-c6d222744f0e",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "QuitGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

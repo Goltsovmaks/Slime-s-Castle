@@ -16,6 +16,8 @@ public class Scr_Chest : MonoBehaviour
     public float xForceMin;
     public float xForceMax;
 
+    private bool opened = false;
+
     InputManager input;
     private bool playerCanInteract = false;
 
@@ -59,7 +61,12 @@ public class Scr_Chest : MonoBehaviour
             //    Destroy(scr_Player.currentPickedObject.gameObject);
             //    Open();
             //}
-            Open();
+            if (!opened)
+            {
+                Open();
+                opened = true;
+            }
+
         }
 
     }
