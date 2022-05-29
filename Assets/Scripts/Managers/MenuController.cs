@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.IO;
+using UnityEngine.Audio;
+
 
 
 using System;
@@ -47,6 +49,7 @@ public class MenuController: MonoBehaviour{
     scr_SaveController SaveController;
     scr_GameManager GameManager;
 
+    [SerializeField]private AudioMixer audioMixer;
 
     private void Awake()
     {
@@ -87,11 +90,16 @@ public class MenuController: MonoBehaviour{
         sliderVolume.value = settingsData.volume;
         toggleFullScreen.isOn = settingsData.fullScreen;
 
+        UpdateVolume();
+        //if (PlayerPrefs.HasKey("BG_MUSIC")){
+        //    // sliderObj.value=PlayerPrefs.GetFloat("BG_MUSIC");
 
-        if (PlayerPrefs.HasKey("BG_MUSIC")){
-            // sliderObj.value=PlayerPrefs.GetFloat("BG_MUSIC");
+        //}
+    }
 
-       }
+    public void UpdateVolume()
+    {
+        audioMixer.SetFloat("MasterVolume", (float)Math.Log10(sliderVolume.value) * 20);
     }
 
     public void ReturnButtonPressed()
@@ -130,6 +138,7 @@ public class MenuController: MonoBehaviour{
 
     public void PlayNewGame(int numberOfSave)
     {
+        //Cursor.visible = false;
         SaveGame save = new SaveGame(numberOfSave);
         save.newGame=true;
         GameManager.currentSaveGame=save;
@@ -150,10 +159,15 @@ public class MenuController: MonoBehaviour{
 
     public void ContinueGame(int numberOfSave)
     {
+        Cursor.visible = false;
+        //GameObject.Find("pnl_attention").SetActive(false);
+
         SaveGame save = SaveController.GetSaveGame(numberOfSave);
         save.UpdateTimeSave();
         GameManager.currentSaveGame=save;
         SaveController.SetSaveGame(numberOfSave,save);
+
+        //scr_Player.instance.AddCoin(save.playerCoins);
 
         // SetSpawnPositionEvent(save.position);
         
@@ -170,20 +184,27 @@ public class MenuController: MonoBehaviour{
                 
     }
 
+    public void RevertCursor()
+    {
+        Cursor.visible = onPause;
+    }
 
     public void PausePressed()
     {
+        
         onPause = !onPause;
+        Cursor.visible = onPause;
         // currentMenu.gameObject.SetActive(!currentMenu.gameObject.activeInHierarchy);
         // goToNextMenu(pnl_pause);
 
-        if(Time.timeScale==1f){
+
+        if (Time.timeScale==1f){
             Time.timeScale = 0f;
         } else{
             Time.timeScale = 1f;
         }
         pnl_pause.SetActive(!pnl_pause.activeInHierarchy);
-        File.AppendAllText(@"c:\temp\MyTest.txt", $"void PausePressed, pnl status: {pnl_pause.activeInHierarchy }" + "\n", Encoding.UTF8);
+        //File.AppendAllText(@"c:\temp\MyTest.txt", $"void PausePressed, pnl status: {pnl_pause.activeInHierarchy }" + "\n", Encoding.UTF8);
     }
 
     public void SavePressed()
@@ -243,6 +264,7 @@ public class MenuController: MonoBehaviour{
         save.UpdateTimeSave();
         save.newGame = false;
         save.position = GetSpawnPositionEvent();
+        save.playerCoins = scr_Player.instance.currentNumberOfCoins;
 
         GameManager.currentSaveGame=save;
         SaveController.SetSaveGame(numberOfSave,save);
@@ -287,6 +309,7 @@ public class MenuController: MonoBehaviour{
         pnl_dead.SetActive(!pnl_dead.activeInHierarchy);
     }
 
+    
 
 
     //private void OnEnable()

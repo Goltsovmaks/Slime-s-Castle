@@ -22,7 +22,11 @@ public class Scr_WinPnl : MonoBehaviour
 
     void CloseGame()
     {
-        Debug.Log("he-he");
         Application.Quit();
+    }
+
+    private void OnDisable()
+    {
+        input.playerInput.actions["QuitGame"].performed -= context => CloseGame();
     }
 }

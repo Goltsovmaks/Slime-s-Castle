@@ -66,9 +66,9 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
     
     }
 
-    public void AddCoin()
+    public void AddCoin(int coins)
     {
-        currentNumberOfCoins += 1;
+        currentNumberOfCoins += coins;
         
         PlayerGotACoin(currentNumberOfCoins);
     }

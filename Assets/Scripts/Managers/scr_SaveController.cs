@@ -149,6 +149,8 @@ public class SaveGame{
 
     public bool newGame;
 
+    public int playerCoins;
+
     // public bool default; //True если сохранение новое, до взятия какой-либо точки спавна
 
     public SaveGame(int numberOfSave){

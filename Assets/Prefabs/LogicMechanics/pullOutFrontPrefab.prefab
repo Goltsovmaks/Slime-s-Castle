@@ -141,7 +141,8 @@ AudioSource:
   m_GameObject: {fileID: 7260810896920234359}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 67d3e063a2f1a504ca1347e1f4accd28,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 9ff72138544fd5840a1346cc94f28108, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -241,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   M: 0
+  stateIsInverted: 0
   objectsConnected: []
   stateForActiveDoor: 0101
   stateConnectedObjects: 

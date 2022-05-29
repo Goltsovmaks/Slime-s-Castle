@@ -24,7 +24,7 @@ public class Scr_Coin : MonoBehaviour
             if (collision.CompareTag("Player"))
             {
                 //начислить монетку
-                collision.gameObject.GetComponent<scr_Player>().AddCoin();
+                collision.gameObject.GetComponent<scr_Player>().AddCoin(1);
                 //audioSource.Play();
                 Destroy(gameObject);
 
