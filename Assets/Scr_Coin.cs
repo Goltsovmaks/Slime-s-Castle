@@ -9,12 +9,15 @@ public class Scr_Coin : MonoBehaviour
     public delegate void TakeCoinAction();
     public static event TakeCoinAction PlayerGotACoin;
 
+    private AudioSource audioSource;
+
     void Start()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
         StartCoroutine(BecomeInteractable());
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (isInteractable)
         {
@@ -22,6 +25,7 @@ public class Scr_Coin : MonoBehaviour
             {
                 //начислить монетку
                 collision.gameObject.GetComponent<scr_Player>().AddCoin();
+                //audioSource.Play();
                 Destroy(gameObject);
 
             }

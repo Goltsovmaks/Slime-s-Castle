@@ -21,10 +21,14 @@ public class Scr_Chest : MonoBehaviour
     InputManager input;
     private bool playerCanInteract = false;
 
+    private AudioSource audioSource;
+
     void Start()
     {
         input = InputManager.instance;
         input.playerInput.actions["Interaction"].performed += Interact;
+
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void OnTriggerStay2D(Collider2D collider)
@@ -79,6 +83,8 @@ public class Scr_Chest : MonoBehaviour
     private void Open()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = openedStateSprite;
+        audioSource.Play();
+
         //spawn coins
 
         for (int i = 0; i < numberOfCoins; i++)
