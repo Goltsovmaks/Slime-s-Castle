@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/plex_TestScenes/scn_a1-a4.unity
     guid: 6c4249139837fbb42ae27e15249356a0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/plex_TestScenes/scn_a4.unity
     guid: 7f09d5c3056355a478a3540f24162d67
   - enabled: 0
