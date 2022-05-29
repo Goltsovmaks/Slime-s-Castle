@@ -112,9 +112,13 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
 
     IEnumerator Respawn(Transform spawnPosition)
     {
-        gameObject.transform.position = spawnPosition.position;
+        // gameObject.transform.position = spawnPosition.position;
         currentHealth = maxHealth;
-        yield return new WaitForSeconds(3);
+
+        yield return new WaitForSeconds(2);
+        // передвинул вниз
+        gameObject.transform.position = spawnPosition.position;
+
         InputManager.instance.playerInput.actions.FindActionMap("Slime").Enable();
         MenuController.instance.ShowOrHideDiePanel();
 
