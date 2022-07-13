@@ -1,0 +1,27 @@
+{
+    "allDialogues": [
+        {
+            "language": "",
+            "nameDialogue": "тест 1",
+            "phraseList": [
+                {
+                    "nameSpeaker": "Игрок",
+                    "phrase": "Что я забыл сделать?"
+                },
+                {
+                    "nameSpeaker": "Кто-то ещё",
+                    "phrase": "кто ты?"
+                },
+                {
+                    "nameSpeaker": "Игрок",
+                    "phrase": "я забыл..."
+                }
+            ]
+        },
+        {
+            "language": "",
+            "nameDialogue": "",
+            "phraseList": []
+        }
+    ]
+}
