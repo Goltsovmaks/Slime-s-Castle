@@ -47,8 +47,8 @@ public class scr_SaveController : MonoBehaviour
 
     public void SetSaveGame(int numberOfSave, SaveGame newSave){
         string path = Application.persistentDataPath+"/saveGame"+numberOfSave+".json";
-        string Data = JsonUtility.ToJson(newSave);
-        File.WriteAllText(path,Data);
+        string data = JsonUtility.ToJson(newSave);
+        File.WriteAllText(path,data);
     }
 
 
@@ -76,8 +76,8 @@ public class scr_SaveController : MonoBehaviour
 
     public void SetSettingsData(SettingsData newSettings){
         string path = Application.persistentDataPath+"/SettingsData.json";
-        string Data = JsonUtility.ToJson(newSettings);
-        File.WriteAllText(path,Data);
+        string data = JsonUtility.ToJson(newSettings);
+        File.WriteAllText(path,data);
     }
 
     public bool ExistsSettingsData(){
