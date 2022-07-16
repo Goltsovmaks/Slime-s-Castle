@@ -5,11 +5,10 @@ using UnityEngine;
 public class scr_fallingPlatform : MonoBehaviour
 {
 
-    private GameObject slime;
 
-    [SerializeField] private Rigidbody2D rb;
+    private Rigidbody2D rb;
     [SerializeField] private Collider2D collider;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
     private Vector3 startPosition;
     [SerializeField] [Range(0, 5f)] private float timeStanding;
@@ -50,8 +49,9 @@ public class scr_fallingPlatform : MonoBehaviour
 
     void Start()
     {
-        slime=GameObject.FindGameObjectWithTag("Player");
-        startPosition = transform.position; 
+        startPosition = transform.position;
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
 
