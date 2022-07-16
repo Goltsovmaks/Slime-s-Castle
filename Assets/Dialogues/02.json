@@ -1,0 +1,38 @@
+{
+  "language": "rus",
+  "nameDialogue": "0",
+  "phraseList": [
+    {
+      "nameSpeaker": "NPC",
+      "phrase": "Привет!"
+    },
+    {
+      "nameSpeaker": "Игрок",
+      "phrase": "Привет?"
+    },
+    {
+      "nameSpeaker": "NPC",
+      "phrase": "Послушай! Ты очень вовремя! У меня для тебя есть работа."
+    },
+    {
+      "nameSpeaker": "NPC",
+      "phrase": "Тебя же интересуют квесты?"
+    },
+    {
+      "nameSpeaker": "NPC",
+      "phrase": "В любом случае, ты должен мне помочь: собери для меня немного грибов определенных цветов.."
+    },
+    {
+      "nameSpeaker": "NPC",
+      "phrase": "..и да, не спрашивай, ладно?"
+    },
+    {
+      "nameSpeaker": "Игрок",
+      "phrase": "???"
+    },
+    {
+      "nameSpeaker": "NPC",
+      "phrase": "Жду твоего возращения!"
+    }
+  ]
+}
