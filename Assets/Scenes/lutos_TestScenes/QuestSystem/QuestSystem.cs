@@ -1,13 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuestSystem : MonoBehaviour
 {
-    public Dictionary<string, QuestStatus> quests = new Dictionary<string, QuestStatus>();
+    //public Dictionary<string, QuestStatus> quests = new Dictionary<string, QuestStatus>();
 
     public static QuestSystem instance;
 
+    //test!!!==========================================
+    public UnityEvent<int> mushroomCollected;
+
+    public void CollectMushroom(int itemID)
+    {
+        mushroomCollected.Invoke(itemID);
+    }
+    //test!!!==========================================
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+    }
+    
     private void Start()
     {
         //singleton?
@@ -17,31 +41,22 @@ public class QuestSystem : MonoBehaviour
 
     public void AssignQuest(string questName)
     {
-        if (quests[questName] == QuestStatus.notAssigned)
-        {
-            gameObject.AddComponent(System.Type.GetType(questName));
-            quests[questName] = QuestStatus.inProgress;
-        }
+        CheckBoxSystem.instance.missions[questName] = missionStatus.inProgress;
+        gameObject.AddComponent(System.Type.GetType(questName));
     }
     public void CompleteQuest(string questName)
     {
-        if (quests[questName] == QuestStatus.achieved)
-        {
-            //уничтожить квест
-            quests[questName] = QuestStatus.completed;
-            //GiveReward();
-        }
+        CheckBoxSystem.instance.missions[questName] = missionStatus.achieved;
+        //give reward?
+        
     }
 }
 
-
-
-
-public enum QuestStatus
-{
-    notAssigned,
-    inProgress,
-    achieved,
-    completed,
-    failed
-}
+//public enum QuestStatus
+//{
+//    notAssigned,
+//    inProgress,
+//    achieved,
+//    completed,
+//    failed
+//}

@@ -4,40 +4,31 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    [SerializeField]private List<string> myMissions = new List<string>();
-    private List<Quest> myQuests = new List<Quest>();
-    private int currentQuestIndex = 0;
-
-
+    [SerializeField] protected List<string> myMissions = new List<string>();
+    [SerializeField] protected List<string> myQuests = new List<string>();
+    [SerializeField] protected List<string> myQuestsRequiredState = new List<string>();
+    [SerializeField] protected int currentQuestIndex = 0;
 
     public void Interact()
     {
         string myState = CheckBoxSystem.instance.CheckMissionStatus(myMissions);
-        ShowDialog(myState);
+        DialogueManager.instance.StartDialogue(myState);
+        //complete quest!??
         TryAssignNextQuest(myState);
-        
-        //запустить диалог
-        //дать квест, если требуется
     }
 
-    private void TryAssignNextQuest(string myState)
+    protected void TryAssignNextQuest(string myState)
     {
-        if (myQuests[currentQuestIndex].requiredState == myState)
+        if (currentQuestIndex < myQuests.Count)
         {
-            //запускаем квест
+            if (myQuestsRequiredState[currentQuestIndex] == myState)
+            {
+                QuestSystem.instance.AssignQuest(myQuests[currentQuestIndex]);
+                currentQuestIndex += 1;
+            }
         }
+        
     }
 
-    private void ShowDialog(string code)
-    {
-
-    }
-}
-public enum npcState
-{
-    welcome,
-    needHelp,
-    inProgress,
-    helped
 }
 

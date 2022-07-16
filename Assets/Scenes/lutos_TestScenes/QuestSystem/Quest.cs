@@ -10,7 +10,7 @@ public class Quest : MonoBehaviour
     public string title;
     public string description;
 
-    public string requiredState;
+    //public string requiredState;
 
     //reward?
     
@@ -18,7 +18,6 @@ public class Quest : MonoBehaviour
 
     public void Init()
     {
-        QuestSystem.instance.quests[this.name] = QuestStatus.inProgress;
         goals.ForEach(g => g.Init());
     }
 
@@ -35,7 +34,7 @@ public class Quest : MonoBehaviour
     public void Completed()
     {
         //update questProgress
-        QuestSystem.instance.quests[this.name] = QuestStatus.achieved;
+        QuestSystem.instance.CompleteQuest(this.GetType().ToString());
         Destroy(this);
     }
 

@@ -20,6 +20,7 @@ public class GatheringGoal : Goal
         base.Init();
         //подписаться на ивент подбираемых вещей
         //ItemCollectedEvent += ItemCollected(int itemID)
+        QuestSystem.instance.mushroomCollected.AddListener(ItemCollected);
     }
 
     private void ItemCollected(int itemID)
