@@ -14,7 +14,6 @@ public class scr_fallingStalagmite : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
 
-
     [SerializeField][Range(0, 2f)]private float widthCheckArea;    
     [SerializeField][Range(0, 30f)]private float heightCheckArea;
 
@@ -22,29 +21,31 @@ public class scr_fallingStalagmite : MonoBehaviour
     [SerializeField][Range(0, 100f)]private float repulsiveForceHorizontal;
     [SerializeField][Range(0, 10f)]private float repulsiveForceVertical;
 
-    [Header("Настройка гравитации")]
-    [SerializeField][Range(0, 5f)]private float gravityScale;
+    [Header("Настройка скорости и высоты падения")]
+    [SerializeField][Range(0, 30f)]private float speedFalling;
+    [SerializeField][Range(0, 120f)]private float heightFalling;
 
     [Header("true, если восстанавливается")]
     [SerializeField] private bool reusable = true;
-    [SerializeField] [Range(0, 10f)] private float timeFalling;
+    [SerializeField] [Range(0, 20f)] private float timeFalling;
     [SerializeField] [Range(0.1f, 10f)] private float timeRecovery;
+
+    [Header("true, если всегда падает")]
+    [SerializeField] private bool alwaysFalling;
 
     private bool checkCollider;
     [SerializeField]private LayerMask slime;
 
-    
     IEnumerator fallDown(){
         falling = true;
 
-        rb.isKinematic = false;
-        rb.gravityScale = gravityScale;
+        // rb.isKinematic = false;
+        rb.velocity = new Vector2(0,-speedFalling);
 
         yield return new WaitForSeconds(timeFalling);
         spriteRenderer.enabled = false;
-        rb.isKinematic = true;
-        // Обнуление набранной скорости
-        rb.velocity=Vector3.zero;
+        // rb.isKinematic = true;
+        // Обнуление скорости
         transform.position = startPosition;
 
         if(!reusable){
@@ -78,11 +79,46 @@ public class scr_fallingStalagmite : MonoBehaviour
 
 // Проверка на попадание игрока в зону
     private void FixedUpdate() {
-        checkCollider = Physics2D.OverlapBox(transform.position - offsetPosition, size, 0f, slime);
-        if(checkCollider&&!recovering&&!falling){
-            StartCoroutine(fallDown());
-            Debug.Log("start");          
+        if(alwaysFalling){
+            checkCollider = true;
+        }else{
+            checkCollider = Physics2D.OverlapBox(transform.position - offsetPosition, size, 0f, slime);
         }
+
+        
+        if(checkCollider&&!recovering&&!falling){
+            falling = true;
+            rb.velocity = new Vector2(0,-speedFalling);
+
+
+
+            // StartCoroutine(fallDown());
+
+        }
+
+        if(Vector3.Distance(startPosition, transform.position) > heightFalling){
+            StartCoroutine(recoverAfter(timeRecovery));    
+        }
+
+        // if(falling){
+            
+        //     // rb.isKinematic = false;
+        //     rb.velocity = new Vector2(0,-speedFalling);
+
+        //     spriteRenderer.enabled = false;
+        //     // Обнуление скорости
+        //     // transform.position = startPosition;
+
+        //     if(!reusable){
+        //         Destroy(gameObject);
+        //     }else{
+        //         StartCoroutine(recoverAfter(timeRecovery));            
+        //     }
+        // }
+
+
+        // тригер, который ломает сталагмиты
+            
     }
 // При столкновении придаём импульс игроку
     private void OnTriggerEnter2D(Collider2D colider)
@@ -113,5 +149,7 @@ public class scr_fallingStalagmite : MonoBehaviour
     private void OnDrawGizmos() {
         Gizmos.color = new Color(0, 1, 0, 0.5f);
         Gizmos.DrawWireCube(transform.position - new Vector3(0, heightCheckArea/2, 0), new Vector3(widthCheckArea, heightCheckArea, 0));
+        Gizmos.color = new Color(1, 0, 0, 0.5f);
+        Gizmos.DrawWireCube(transform.position - new Vector3(0, heightFalling, 0), new Vector3(1, 1, 0));
     }
 }

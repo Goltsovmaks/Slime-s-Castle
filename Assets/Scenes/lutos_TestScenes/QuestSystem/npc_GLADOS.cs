@@ -6,7 +6,8 @@ public class npc_GLADOS : NPC
 {
     private void Start()
     {
-        //вставить квесты в цели?
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ?
+        // РџРѕРґРіСЂСѓР·РєР° РёР· JSON
         myMissions.Add("q_MushroomCollector");
         myMissions.Add("p_StoneDoor");
         myQuests.Add("q_MushroomCollector");
