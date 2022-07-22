@@ -39,6 +39,7 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
 
     public override void Skill_2()
     {
+        Debug.Log("using skill_2");
         Collider2D[] targets = GetInteractableObjects(formBehavior.gameObject.transform, interactionRadius, LayerMask.GetMask("Pipe"));
         if (targets.Length != 0)
         {
@@ -60,7 +61,7 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
             Vector2 velocity = Vector2.zero;
             Vector2 targetVelocity;
             rb.gravityScale = 0;
-            targetVelocity = new Vector3(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+            targetVelocity = new Vector3(moveDirection.x * moveSpeed * 0.75f, moveDirection.y * moveSpeed * 0.75f);
             rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
         }
         else
@@ -83,7 +84,7 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
     {
         isPipeCrawling = true;
         Transform entrance = pipe.transform.GetChild(0);
-        transform.position = entrance.transform.position;
+        formBehavior.gameObject.transform.position = entrance.transform.position;
         //change sprite
         //change collider
     }
@@ -92,7 +93,7 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
     {
         isPipeCrawling = false;
         Transform exit = pipe.transform.GetChild(1);
-        transform.position = exit.transform.position;
+        formBehavior.gameObject.transform.position = exit.transform.position;
         //change sprite
         //change collider
     }
