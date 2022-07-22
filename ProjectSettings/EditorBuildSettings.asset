@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/plex_TestScenes/scn_Menu.unity
     guid: 86f9d4b86dab88944a48bca9758d7187
   - enabled: 1
+    path: Assets/Scenes/lutos_TestScenes/Pipes/scn_pipesTest.unity
+    guid: 4c2e70794c7ddfa4eb2db048f5c1b086
+  - enabled: 1
     path: Assets/Scenes/plex_TestScenes/scn_a1-a4.unity
     guid: 6c4249139837fbb42ae27e15249356a0
   - enabled: 0
