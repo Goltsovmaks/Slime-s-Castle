@@ -60,7 +60,7 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
         {
             Vector2 velocity = Vector2.zero;
             Vector2 targetVelocity;
-            rb.gravityScale = 0;
+            rb.gravityScale = 0f;
             targetVelocity = new Vector3(moveDirection.x * moveSpeed * 0.75f, moveDirection.y * moveSpeed * 0.75f);
             rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
         }
@@ -83,6 +83,8 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
     public void StartPipeCrawling(GameObject pipe)
     {
         isPipeCrawling = true;
+        formBehavior.canChangeForm = false;
+        scr_CameraManager.instance.SwitchCameraState();
         Transform entrance = pipe.transform.GetChild(0);
         formBehavior.gameObject.transform.position = entrance.transform.position;
         //change sprite
@@ -92,7 +94,9 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
     public void StopPipeCrawling(GameObject pipe)
     {
         isPipeCrawling = false;
-        Transform exit = pipe.transform.GetChild(1);
+        formBehavior.canChangeForm = true;
+        scr_CameraManager.instance.SwitchCameraState();
+        Transform exit = pipe.transform.GetChild(0);
         formBehavior.gameObject.transform.position = exit.transform.position;
         //change sprite
         //change collider
