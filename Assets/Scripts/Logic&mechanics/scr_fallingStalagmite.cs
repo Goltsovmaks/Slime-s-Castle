@@ -28,7 +28,7 @@ public class scr_fallingStalagmite : MonoBehaviour
     [Header("true, если восстанавливается")]
     [SerializeField] private bool reusable = true;
     [SerializeField] [Range(0, 20f)] private float timeFalling;
-    [SerializeField] [Range(0.1f, 10f)] private float timeRecovery;
+    [SerializeField] [Range(0.001f, 10f)] private float timeRecovery;
 
     [Header("true, если всегда падает")]
     [SerializeField] private bool alwaysFalling;
@@ -36,25 +36,23 @@ public class scr_fallingStalagmite : MonoBehaviour
     private bool checkCollider;
     [SerializeField]private LayerMask slime;
 
-    IEnumerator fallDown(){
-        falling = true;
+    // IEnumerator fallDown(){
+    //     falling = true;
 
-        // rb.isKinematic = false;
-        rb.velocity = new Vector2(0,-speedFalling);
+    //     rb.velocity = new Vector2(0,-speedFalling);
 
-        yield return new WaitForSeconds(timeFalling);
-        spriteRenderer.enabled = false;
-        // rb.isKinematic = true;
-        // Обнуление скорости
-        transform.position = startPosition;
+    //     yield return new WaitForSeconds(timeFalling);
+    //     spriteRenderer.enabled = false;
+    //     // Обнуление скорости
+    //     transform.position = startPosition;
 
-        if(!reusable){
-            Destroy(gameObject);
-        }else{
-            StartCoroutine(recoverAfter(timeRecovery));            
-        }
+    //     if(!reusable){
+    //         Destroy(gameObject);
+    //     }else{
+    //         StartCoroutine(recoverAfter(timeRecovery));            
+    //     }
 
-    }
+    // }
 
     IEnumerator recoverAfter(float time){
         recovering = true;
@@ -62,6 +60,8 @@ public class scr_fallingStalagmite : MonoBehaviour
 
         // После прошествия времени сталагмит восстановиться
         yield return new WaitForSeconds(time);
+        rb.velocity = new Vector2(0,0);
+        transform.position = startPosition;
         // Включаем
         spriteRenderer.enabled = true;
         recovering = false;
@@ -90,14 +90,13 @@ public class scr_fallingStalagmite : MonoBehaviour
             falling = true;
             rb.velocity = new Vector2(0,-speedFalling);
 
-
-
             // StartCoroutine(fallDown());
 
         }
 
-        if(Vector3.Distance(startPosition, transform.position) > heightFalling){
-            StartCoroutine(recoverAfter(timeRecovery));    
+        if(Vector3.Distance(startPosition, transform.position) > heightFalling&&!recovering){
+            StartCoroutine(recoverAfter(timeRecovery));
+            // Debug.Log("консоль");
         }
 
         // if(falling){
@@ -142,6 +141,9 @@ public class scr_fallingStalagmite : MonoBehaviour
             // //SlimeData.PointOfResurrect.Add(transform.position);
             // anim.SetBool("Active",true);
             // soundActive.Play();
+        }
+        if(colider.CompareTag("Breaking")){
+            StartCoroutine(recoverAfter(timeRecovery));
         }
     }
 

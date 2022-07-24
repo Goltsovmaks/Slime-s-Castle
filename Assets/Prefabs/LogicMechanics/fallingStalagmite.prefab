@@ -150,7 +150,8 @@ MonoBehaviour:
   heightCheckArea: 5
   repulsiveForceHorizontal: 50
   repulsiveForceVertical: 3
-  speedFalling: 0
+  speedFalling: 4
+  heightFalling: 1
   reusable: 1
   timeFalling: 2
   timeRecovery: 0.5
