@@ -7,12 +7,14 @@ public class scr_cnpt_Firefly : scr_cnpt_Form_Abstract
     private int jumpsLeft = 1;
     private float glideSpeed = 2f;
 
+
     //private bool isGrounded = false;
 
 
     public scr_cnpt_Firefly(scr_cnpt_FormBehavior formBehavior)
     {
         sprite = Resources.Load<Sprite>("Firefly");
+        lightIntensity = 1.1f;
         this.formBehavior = formBehavior;
     }
 

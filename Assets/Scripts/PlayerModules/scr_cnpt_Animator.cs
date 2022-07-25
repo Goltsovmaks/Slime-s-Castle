@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+
 
 public class scr_cnpt_Animator : MonoBehaviour
 {
     scr_cnpt_FormBehavior formBehavior;
     private SpriteRenderer spriteRenderer;
+   // private light2d light2D;
 
     public GameObject formChangeEffect;
 
@@ -15,6 +18,7 @@ public class scr_cnpt_Animator : MonoBehaviour
     {
         formBehavior = GetComponent<scr_cnpt_FormBehavior>();
         spriteRenderer = GetComponent <SpriteRenderer>();
+       // light2D = GetComponent<light2d>();
 
         //formBehavior.NextForm().per
 
@@ -38,6 +42,10 @@ public class scr_cnpt_Animator : MonoBehaviour
         }
     }
     
+    private void ChangeLight()
+    {
+       // light.intensity = formBehavior._currentForm.lightIntensity;
+    }
 
     private void SetSprite()
     {
@@ -59,9 +67,11 @@ public class scr_cnpt_Animator : MonoBehaviour
     private void OnEnable()
     {
         scr_cnpt_FormBehavior.FormIsChanged += SetSprite;
+        scr_cnpt_FormBehavior.FormIsChanged += ChangeLight;
     }
     private void OnDisable()
     {
         scr_cnpt_FormBehavior.FormIsChanged -= SetSprite;
+        scr_cnpt_FormBehavior.FormIsChanged -= ChangeLight;
     }
 }

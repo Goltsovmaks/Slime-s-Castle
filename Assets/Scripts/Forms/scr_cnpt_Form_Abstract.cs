@@ -10,6 +10,8 @@ public abstract class scr_cnpt_Form_Abstract: MonoBehaviour
     public static bool isGrounded;
     protected float overlapRadius = 0.07f;
 
+    public float lightIntensity = 0.5f;
+
     //public Animator animator;
     public Sprite sprite;
 
