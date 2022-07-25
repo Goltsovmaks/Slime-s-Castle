@@ -26,33 +26,14 @@ public class scr_fallingStalagmite : MonoBehaviour
     [SerializeField][Range(0, 120f)]private float heightFalling;
 
     [Header("true, если восстанавливается")]
-    [SerializeField] private bool reusable = true;
-    [SerializeField] [Range(0, 20f)] private float timeFalling;
-    [SerializeField] [Range(0.001f, 10f)] private float timeRecovery;
+    [SerializeField]private bool reusable = true;
+    [SerializeField][Range(0.001f, 10f)] private float timeRecovery;
 
     [Header("true, если всегда падает")]
-    [SerializeField] private bool alwaysFalling;
+    [SerializeField]private bool alwaysFalling;
 
     private bool checkCollider;
     [SerializeField]private LayerMask slime;
-
-    // IEnumerator fallDown(){
-    //     falling = true;
-
-    //     rb.velocity = new Vector2(0,-speedFalling);
-
-    //     yield return new WaitForSeconds(timeFalling);
-    //     spriteRenderer.enabled = false;
-    //     // Обнуление скорости
-    //     transform.position = startPosition;
-
-    //     if(!reusable){
-    //         Destroy(gameObject);
-    //     }else{
-    //         StartCoroutine(recoverAfter(timeRecovery));            
-    //     }
-
-    // }
 
     IEnumerator recoverAfter(float time){
         recovering = true;
@@ -89,34 +70,13 @@ public class scr_fallingStalagmite : MonoBehaviour
         if(checkCollider&&!recovering&&!falling){
             falling = true;
             rb.velocity = new Vector2(0,-speedFalling);
-
-            // StartCoroutine(fallDown());
-
         }
 
         if(Vector3.Distance(startPosition, transform.position) > heightFalling&&!recovering){
-            StartCoroutine(recoverAfter(timeRecovery));
-            // Debug.Log("консоль");
+            collision();
         }
 
-        // if(falling){
-            
-        //     // rb.isKinematic = false;
-        //     rb.velocity = new Vector2(0,-speedFalling);
 
-        //     spriteRenderer.enabled = false;
-        //     // Обнуление скорости
-        //     // transform.position = startPosition;
-
-        //     if(!reusable){
-        //         Destroy(gameObject);
-        //     }else{
-        //         StartCoroutine(recoverAfter(timeRecovery));            
-        //     }
-        // }
-
-
-        // тригер, который ломает сталагмиты
             
     }
 // При столкновении придаём импульс игроку
@@ -134,6 +94,7 @@ public class scr_fallingStalagmite : MonoBehaviour
             repulsiveVector.y *= repulsiveForceVertical;
 
             colider.attachedRigidbody.AddForce(repulsiveVector, ForceMode2D.Impulse);
+            collision();
 
 
             // StartCoroutine(fallDownAfter(timeStanding));
@@ -142,8 +103,22 @@ public class scr_fallingStalagmite : MonoBehaviour
             // anim.SetBool("Active",true);
             // soundActive.Play();
         }
+        // тригер, который ломает сталагмиты
         if(colider.CompareTag("Breaking")){
-            StartCoroutine(recoverAfter(timeRecovery));
+
+            collision();
+        }
+
+        if(colider.CompareTag("Starting")){
+            startPosition = new Vector3(transform.position.x,colider.gameObject.transform.position.y,0);
+        }
+    }
+
+    private void collision(){
+        if(!reusable){
+            Destroy(gameObject);
+        }else{
+            StartCoroutine(recoverAfter(timeRecovery));            
         }
     }
 
@@ -152,6 +127,6 @@ public class scr_fallingStalagmite : MonoBehaviour
         Gizmos.color = new Color(0, 1, 0, 0.5f);
         Gizmos.DrawWireCube(transform.position - new Vector3(0, heightCheckArea/2, 0), new Vector3(widthCheckArea, heightCheckArea, 0));
         Gizmos.color = new Color(1, 0, 0, 0.5f);
-        Gizmos.DrawWireCube(transform.position - new Vector3(0, heightFalling, 0), new Vector3(1, 1, 0));
+        Gizmos.DrawWireCube(transform.position - new Vector3(0, heightFalling, 0), new Vector3(0.5f, 0.5f, 0));
     }
 }
