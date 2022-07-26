@@ -27,7 +27,6 @@ public class NPC : MonoBehaviour
                 currentQuestIndex += 1;
             }
         }
-        
     }
 
 }

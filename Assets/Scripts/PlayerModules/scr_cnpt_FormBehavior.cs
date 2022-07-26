@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class scr_cnpt_FormBehavior : MonoBehaviour
 {
 
     private Dictionary<enum_forms, scr_cnpt_Form_Abstract> enumToForm;
 
     public scr_cnpt_Form_Abstract _currentForm;
+
+    public bool canChangeForm = true;
 
     //Inpt_cnpt_Input _input;
     //PlayerInput _input;
@@ -63,11 +66,15 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
 
     public void NextForm(enum_forms form)
     {
-        if (enumToForm[form].GetType() != _currentForm.GetType())
+        if (canChangeForm)
         {
-            //_currentForm.StopUsingCurrentForm();
-            _currentForm = enumToForm[form];
-            FormIsChanged();
+            if (enumToForm[form].GetType() != _currentForm.GetType())
+            {
+                //_currentForm.StopUsingCurrentForm();
+                _currentForm = enumToForm[form];
+                FormIsChanged();
+            }
         }
+        
     }
 }

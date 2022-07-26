@@ -13,6 +13,7 @@ TagManager:
   - MovableCube
   - Harmful
   - GameManager
+  - SlimeAttack
   - Breaking
   - Starting
   layers:
@@ -32,7 +33,7 @@ TagManager:
   - Dead
   - Monster
   - 
-  - 
+  - Pipe
   - 
   - 
   - Coin
