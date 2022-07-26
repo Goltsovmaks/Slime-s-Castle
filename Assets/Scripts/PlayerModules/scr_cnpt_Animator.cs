@@ -28,7 +28,20 @@ public class scr_cnpt_Animator : MonoBehaviour
     private void Update()
     {
         moveDirection = InputManager.instance.playerInput.actions["Movement"].ReadValue<Vector2>();
-        FlipSprite();
+        //FlipSprite();
+        Flip();
+    }
+
+    void Flip()
+    {
+        if (moveDirection.x < 0)
+        {
+            gameObject.transform.localScale = new Vector3(-1f,1f);
+        }
+        else if (moveDirection.x > 0)
+        {
+            gameObject.transform.localScale = new Vector3(1f,1f);
+        }
     }
 
     void FlipSprite()

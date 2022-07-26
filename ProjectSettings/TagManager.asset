@@ -13,6 +13,7 @@ TagManager:
   - MovableCube
   - Harmful
   - GameManager
+  - SlimeAttack
   layers:
   - Default
   - TransparentFX

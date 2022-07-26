@@ -10,8 +10,10 @@ public class scr_EventSystem : MonoBehaviour
     public UnityEvent<int> playerTriggerEnter;
     public UnityEvent<int> playerTriggerExit;
 
+    public UnityEvent slimeHasAttacked;
 
-    
+
+
 
 
 

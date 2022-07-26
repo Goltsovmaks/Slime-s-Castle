@@ -16,6 +16,8 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
 
     public override void Skill_1()
     {
+        scr_EventSystem.instance.slimeHasAttacked.Invoke();
+
         //сначала собирать массив, потом провер€ть на длину 0, »—ѕ–ј¬»“№
         if (GetInteractableObjects(formBehavior.gameObject.transform, interactionRadius, LayerMask.GetMask("InteractableObjects")).Length != 0)
         {
