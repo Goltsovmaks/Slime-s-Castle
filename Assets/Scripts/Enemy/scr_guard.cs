@@ -15,6 +15,7 @@ public class scr_guard : MonoBehaviour, IImmobilizable
 
     [SerializeField][Range(0, 5f)]private float speed;
     [SerializeField][Range(0, 30f)]private float patrolDistance;
+    [SerializeField]private bool aggressive;
     [SerializeField][Range(0, 30f)]private float attackDistance;
 
     [SerializeField]private GameObject startPositionObject;
@@ -66,14 +67,17 @@ public class scr_guard : MonoBehaviour, IImmobilizable
 
     private void Attack(){ 
         // rb.MovePosition(player.transform.position);
+        if(!aggressive){
+            return;
+        }
         transform.position = Vector2.MoveTowards(transform.position,player.transform.position, speed*Time.fixedDeltaTime);
         if (transform.position.x > player.transform.position.x)
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            gameObject.transform.localScale = new Vector2(-1,1);
         }
         else 
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            gameObject.transform.localScale = new Vector2(1,1);
         }
     }
 
@@ -88,10 +92,10 @@ public class scr_guard : MonoBehaviour, IImmobilizable
         }
 
         if(movingRight){
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            gameObject.transform.localScale = new Vector2(1,1);
             transform.position = new Vector2(transform.position.x + speed*Time.fixedDeltaTime,transform.position.y);
         }else{
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            gameObject.transform.localScale = new Vector2(-1,1);
             transform.position = new Vector2(transform.position.x - speed*Time.fixedDeltaTime,transform.position.y);
         }
         
