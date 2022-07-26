@@ -11,7 +11,7 @@ public class scr_EventSystem : MonoBehaviour
     public UnityEvent<int> playerTriggerExit;
 
 
-
+    
 
 
 
