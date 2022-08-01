@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class scr_Rockfall : MonoBehaviour
 {
-    public int requiredTriggerID;
+    public string requiredTriggerID;
 
     private Animator animator;
 
@@ -14,13 +14,18 @@ public class scr_Rockfall : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
     }
 
-    private void Rockfall(int id)
+
+    private void Rockfall(TriggerType triggerType, string id)
     {
-        if (id == requiredTriggerID)
+        if (triggerType == TriggerType.objectTrigger)
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            animator.Play("anim_Rockfall");
+            if (id == requiredTriggerID)
+            {
+                gameObject.GetComponent<BoxCollider2D>().enabled = true;
+                animator.Play("anim_Rockfall");
+            }
         }
+
     }
 
     private void OnDestroy()

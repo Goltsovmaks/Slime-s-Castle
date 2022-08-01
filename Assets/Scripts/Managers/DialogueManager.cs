@@ -43,15 +43,22 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         SaveController = scr_SaveController.instance;
+        scr_EventSystem.instance.playerTriggerEnter.AddListener(StartTriggerDialog);
 
-        
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        scr_EventSystem.instance.playerTriggerEnter.RemoveListener(StartTriggerDialog);
     }
+
+    private void StartTriggerDialog(TriggerType triggerType, string id)
+    {
+        if (triggerType == TriggerType.dialogTrigger)
+        {
+            StartDialogue(id);
+        }
+    }
+
 
     public void continuePresseed(){
         

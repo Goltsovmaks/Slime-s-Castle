@@ -105,6 +105,14 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""GrateInteraction"",
+                    ""type"": ""Button"",
+                    ""id"": ""d675557d-f831-4027-8029-fe055b70201e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -270,6 +278,17 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
                     ""action"": ""ReturnToPreviousMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5e05b07-6656-4a5c-973f-050fe8157f07"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""GrateInteraction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -906,6 +925,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_Slime_Skill_1 = m_Slime.FindAction("Skill_1", throwIfNotFound: true);
         m_Slime_Skill_2 = m_Slime.FindAction("Skill_2", throwIfNotFound: true);
         m_Slime_Interaction = m_Slime.FindAction("Interaction", throwIfNotFound: true);
+        m_Slime_GrateInteraction = m_Slime.FindAction("GrateInteraction", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -986,6 +1006,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Slime_Skill_1;
     private readonly InputAction m_Slime_Skill_2;
     private readonly InputAction m_Slime_Interaction;
+    private readonly InputAction m_Slime_GrateInteraction;
     public struct SlimeActions
     {
         private @Inpt_cnpt_Input m_Wrapper;
@@ -1001,6 +1022,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         public InputAction @Skill_1 => m_Wrapper.m_Slime_Skill_1;
         public InputAction @Skill_2 => m_Wrapper.m_Slime_Skill_2;
         public InputAction @Interaction => m_Wrapper.m_Slime_Interaction;
+        public InputAction @GrateInteraction => m_Wrapper.m_Slime_GrateInteraction;
         public InputActionMap Get() { return m_Wrapper.m_Slime; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1043,6 +1065,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Interaction.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
                 @Interaction.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
                 @Interaction.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
+                @GrateInteraction.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnGrateInteraction;
+                @GrateInteraction.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnGrateInteraction;
+                @GrateInteraction.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnGrateInteraction;
             }
             m_Wrapper.m_SlimeActionsCallbackInterface = instance;
             if (instance != null)
@@ -1080,6 +1105,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Interaction.started += instance.OnInteraction;
                 @Interaction.performed += instance.OnInteraction;
                 @Interaction.canceled += instance.OnInteraction;
+                @GrateInteraction.started += instance.OnGrateInteraction;
+                @GrateInteraction.performed += instance.OnGrateInteraction;
+                @GrateInteraction.canceled += instance.OnGrateInteraction;
             }
         }
     }
@@ -1293,6 +1321,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnSkill_1(InputAction.CallbackContext context);
         void OnSkill_2(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnGrateInteraction(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
