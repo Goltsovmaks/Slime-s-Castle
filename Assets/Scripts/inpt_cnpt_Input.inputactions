@@ -92,6 +92,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "inter2",
+                    "type": "Button",
+                    "id": "3986169d-2cc5-49ca-9907-02398b849a92",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -257,6 +265,17 @@
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
                     "action": "ReturnToPreviousMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "75efbc3f-9b1e-4d29-bdb9-c73d02e16986",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "inter2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

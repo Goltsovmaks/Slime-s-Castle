@@ -105,6 +105,14 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""inter2"",
+                    ""type"": ""Button"",
+                    ""id"": ""3986169d-2cc5-49ca-9907-02398b849a92"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -270,6 +278,17 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
                     ""action"": ""ReturnToPreviousMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75efbc3f-9b1e-4d29-bdb9-c73d02e16986"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""inter2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -906,6 +925,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_Slime_Skill_1 = m_Slime.FindAction("Skill_1", throwIfNotFound: true);
         m_Slime_Skill_2 = m_Slime.FindAction("Skill_2", throwIfNotFound: true);
         m_Slime_Interaction = m_Slime.FindAction("Interaction", throwIfNotFound: true);
+        m_Slime_inter2 = m_Slime.FindAction("inter2", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -986,6 +1006,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Slime_Skill_1;
     private readonly InputAction m_Slime_Skill_2;
     private readonly InputAction m_Slime_Interaction;
+    private readonly InputAction m_Slime_inter2;
     public struct SlimeActions
     {
         private @Inpt_cnpt_Input m_Wrapper;
@@ -1001,6 +1022,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         public InputAction @Skill_1 => m_Wrapper.m_Slime_Skill_1;
         public InputAction @Skill_2 => m_Wrapper.m_Slime_Skill_2;
         public InputAction @Interaction => m_Wrapper.m_Slime_Interaction;
+        public InputAction @inter2 => m_Wrapper.m_Slime_inter2;
         public InputActionMap Get() { return m_Wrapper.m_Slime; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1043,6 +1065,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Interaction.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
                 @Interaction.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
                 @Interaction.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
+                @inter2.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInter2;
+                @inter2.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInter2;
+                @inter2.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInter2;
             }
             m_Wrapper.m_SlimeActionsCallbackInterface = instance;
             if (instance != null)
@@ -1080,6 +1105,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Interaction.started += instance.OnInteraction;
                 @Interaction.performed += instance.OnInteraction;
                 @Interaction.canceled += instance.OnInteraction;
+                @inter2.started += instance.OnInter2;
+                @inter2.performed += instance.OnInter2;
+                @inter2.canceled += instance.OnInter2;
             }
         }
     }
@@ -1293,6 +1321,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnSkill_1(InputAction.CallbackContext context);
         void OnSkill_2(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnInter2(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
