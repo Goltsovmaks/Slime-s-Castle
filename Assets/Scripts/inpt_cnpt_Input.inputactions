@@ -92,6 +92,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "GrateInteraction",
+                    "type": "Button",
+                    "id": "d675557d-f831-4027-8029-fe055b70201e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -257,6 +265,17 @@
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
                     "action": "ReturnToPreviousMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f5e05b07-6656-4a5c-973f-050fe8157f07",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "GrateInteraction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
