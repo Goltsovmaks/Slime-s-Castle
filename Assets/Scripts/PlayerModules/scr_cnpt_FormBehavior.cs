@@ -11,7 +11,7 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
 
     public scr_cnpt_Form_Abstract _currentForm;
 
-    public bool canChangeForm = true;
+    public static bool canChangeForm = true;
 
     //Inpt_cnpt_Input _input;
     //PlayerInput _input;

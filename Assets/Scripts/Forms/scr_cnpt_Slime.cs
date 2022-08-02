@@ -6,7 +6,7 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
 {
     public float interactionRadius = 0.3f;
 
-    public bool isPipeCrawling = false;
+    public static bool isPipeCrawling = false;
 
     public scr_cnpt_Slime(scr_cnpt_FormBehavior formBehavior)
     {
@@ -42,18 +42,18 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
     public override void Skill_2()
     {
         Debug.Log("using skill_2");
-        Collider2D[] targets = GetInteractableObjects(formBehavior.gameObject.transform, interactionRadius, LayerMask.GetMask("Pipe"));
-        if (targets.Length != 0)
-        {
-            if (!isPipeCrawling)
-            {
-                StartPipeCrawling(targets[0].gameObject);
-            }
-            else
-            {
-                StopPipeCrawling(targets[0].gameObject);
-            } 
-        }
+        //Collider2D[] targets = GetInteractableObjects(formBehavior.gameObject.transform, interactionRadius, LayerMask.GetMask("Pipe"));
+        //if (targets.Length != 0)
+        //{
+        //    if (!isPipeCrawling)
+        //    {
+        //        StartPipeCrawling(targets[0].gameObject);
+        //    }
+        //    else
+        //    {
+        //        StopPipeCrawling(targets[0].gameObject);
+        //    } 
+        //}
     }
 
     public override void Move(Rigidbody2D rb, Vector2 moveDirection, float moveSpeed, float movementSmoothing)
@@ -82,27 +82,27 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
         }
     }
 
-    public void StartPipeCrawling(GameObject pipe)
-    {
-        isPipeCrawling = true;
-        formBehavior.canChangeForm = false;
-        scr_CameraManager.instance.SwitchCameraState();
-        Transform entrance = pipe.transform.GetChild(0);
-        formBehavior.gameObject.transform.position = entrance.transform.position;
-        //change sprite
-        //change collider
-    }
+    //public void StartPipeCrawling(GameObject pipe)
+    //{
+    //    isPipeCrawling = true;
+    //    formBehavior.canChangeForm = false;
+    //    scr_CameraManager.instance.SwitchCameraState();
+    //    Transform entrance = pipe.transform.GetChild(0);
+    //    formBehavior.gameObject.transform.position = entrance.transform.position;
+    //    //change sprite
+    //    //change collider
+    //}
 
-    public void StopPipeCrawling(GameObject pipe)
-    {
-        isPipeCrawling = false;
-        formBehavior.canChangeForm = true;
-        scr_CameraManager.instance.SwitchCameraState();
-        Transform exit = pipe.transform.GetChild(0);
-        formBehavior.gameObject.transform.position = exit.transform.position;
-        //change sprite
-        //change collider
-    }
+    //public void StopPipeCrawling(GameObject pipe)
+    //{
+    //    isPipeCrawling = false;
+    //    formBehavior.canChangeForm = true;
+    //    scr_CameraManager.instance.SwitchCameraState();
+    //    Transform exit = pipe.transform.GetChild(0);
+    //    formBehavior.gameObject.transform.position = exit.transform.position;
+    //    //change sprite
+    //    //change collider
+    //}
 
     public override void StopUsingCurrentForm()
     {

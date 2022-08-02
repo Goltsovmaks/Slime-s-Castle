@@ -3,51 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class scr_grate : MonoBehaviour
+
+public class scr_grate : scr_grate_abstract
 {
-    [SerializeField]bool playerIsClose = false;
+    private Transform exit2;
 
-    private Transform exit;
-
-
-    void Start()
+    private scr_grate()
     {
-        //Зажимает нужную клавишу
-        InputManager.instance.playerInput.actions["GrateInteraction"].performed += Interact;
-        exit = transform.GetChild(0);
+        slimeSlipAnimationName = "grateSlipAnimation";
     }
 
-    private void OnDestroy()
+    protected override void Start()
     {
-        InputManager.instance.playerInput.actions["GrateInteraction"].performed -= Interact;
+        base.Start();
+        exit2 = transform.GetChild(1);
     }
 
-    private void Interact(InputAction.CallbackContext context)
+    protected override IEnumerator Teleport()
     {
-        if (playerIsClose)
+        yield return new WaitForSeconds(secondsWaitUntillTeleportation);
+
+        if (CheckIfPlayerIsCloserToPoint1())
         {
-            //проверка на слайма?
-            scr_Player.instance.transform.position = exit.position;
-            //move to exit
+            scr_Player.instance.transform.position = exit2.position;
         }
-    }
-
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+        else
         {
-            playerIsClose = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            playerIsClose = false;
+            scr_Player.instance.transform.position = exit1.position;
         }
 
+        //play another part of animation?
+        yield return new WaitForSeconds(secondsWaitAfterTeleportation);
+        InputManager.instance.playerInput.actions.FindActionMap("Slime").Enable();
+    }
+
+    private bool CheckIfPlayerIsCloserToPoint1()
+    {
+        Vector3 playerPosition = scr_Player.instance.transform.position;
+
+        float exit1Distance = Mathf.Sqrt(Mathf.Pow((playerPosition - exit1.position).x,2f) + Mathf.Pow((playerPosition - exit1.position).y,2f));
+        float exit2Distance = Mathf.Sqrt(Mathf.Pow((playerPosition - exit2.position).x, 2f) + Mathf.Pow((playerPosition - exit2.position).y, 2f));
+
+        return exit1Distance <= exit2Distance;
     }
 }
+
+
 
