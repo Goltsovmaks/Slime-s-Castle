@@ -5,9 +5,7 @@ using UnityEngine.InputSystem;
 
 public class scr_grate : MonoBehaviour
 {
-    InputManager inputManager;
-
-    bool playerIsClose = false;
+    [SerializeField]bool playerIsClose = false;
 
     private Transform exit;
 
@@ -15,13 +13,13 @@ public class scr_grate : MonoBehaviour
     void Start()
     {
         //Зажимает нужную клавишу
-        //inputManager.playerInput.actions["GrateInteraction"].performed += Interact;
+        InputManager.instance.playerInput.actions["GrateInteraction"].performed += Interact;
         exit = transform.GetChild(0);
     }
 
     private void OnDestroy()
     {
-        //inputManager.playerInput.actions["GrateInteraction"].performed -= Interact;
+        InputManager.instance.playerInput.actions["GrateInteraction"].performed -= Interact;
     }
 
     private void Interact(InputAction.CallbackContext context)
