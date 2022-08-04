@@ -7,7 +7,6 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class scr_Lamp : MonoBehaviour
 {
-    // Start is called before the first frame update
     Light2D light;
 
     public  float maxShineTime = 3f;
