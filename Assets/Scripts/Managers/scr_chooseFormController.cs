@@ -41,7 +41,7 @@ public class scr_chooseFormController : MonoBehaviour
     {
 
         input = InputManager.instance;
-        // FormBehavior = scr_cnpt_FormBehavior.instance;
+        FormBehavior = scr_cnpt_FormBehavior.instance;
 
         input.playerInput.actions["middleMouseClick"].performed += ChooseForm;
         input.playerInput.actions["middleMouseClick"].canceled += ChooseForm;
