@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+public enum enum_forms
+    {
+        Slime,
+        Spider,
+        Firefly
+    }
 
 public class scr_cnpt_FormBehavior : MonoBehaviour
 {
+    public static scr_cnpt_FormBehavior instance = null;
 
     private Dictionary<enum_forms, scr_cnpt_Form_Abstract> enumToForm;
 
@@ -21,12 +27,7 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
     public delegate void PressEvent();
     public static event PressEvent FormIsChanged;
 
-    public enum enum_forms
-    {
-        Slime,
-        Spider,
-        Firefly
-    }
+    
 
     //private void OnEnable()
     //{
@@ -43,7 +44,19 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
         //_input = new Inpt_cnpt_Input();
         //_input = GetComponent<PlayerInput>();
 
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
         input = InputManager.instance;
+
+        // scr_chooseFormController ChooseFormController = scr_chooseFormController.instance;
+        // ChooseFormController.FormBehavior = this;
 
         enumToForm = new Dictionary<enum_forms, scr_cnpt_Form_Abstract>()
         {

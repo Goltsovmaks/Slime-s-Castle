@@ -100,6 +100,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "middleMouseClick",
+                    "type": "Button",
+                    "id": "2ff3ba77-baa4-439d-808e-c35f5cf4e377",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -276,6 +284,17 @@
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
                     "action": "inter2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "900e5df8-8b3f-4ea0-9bf7-947aad219fda",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "middleMouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

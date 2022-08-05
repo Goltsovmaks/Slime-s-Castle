@@ -113,6 +113,14 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""middleMouseClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ff3ba77-baa4-439d-808e-c35f5cf4e377"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -289,6 +297,17 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
                     ""action"": ""inter2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""900e5df8-8b3f-4ea0-9bf7-947aad219fda"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""middleMouseClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -926,6 +945,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_Slime_Skill_2 = m_Slime.FindAction("Skill_2", throwIfNotFound: true);
         m_Slime_Interaction = m_Slime.FindAction("Interaction", throwIfNotFound: true);
         m_Slime_inter2 = m_Slime.FindAction("inter2", throwIfNotFound: true);
+        m_Slime_middleMouseClick = m_Slime.FindAction("middleMouseClick", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -1007,6 +1027,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Slime_Skill_2;
     private readonly InputAction m_Slime_Interaction;
     private readonly InputAction m_Slime_inter2;
+    private readonly InputAction m_Slime_middleMouseClick;
     public struct SlimeActions
     {
         private @Inpt_cnpt_Input m_Wrapper;
@@ -1023,6 +1044,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         public InputAction @Skill_2 => m_Wrapper.m_Slime_Skill_2;
         public InputAction @Interaction => m_Wrapper.m_Slime_Interaction;
         public InputAction @inter2 => m_Wrapper.m_Slime_inter2;
+        public InputAction @middleMouseClick => m_Wrapper.m_Slime_middleMouseClick;
         public InputActionMap Get() { return m_Wrapper.m_Slime; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1068,6 +1090,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @inter2.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInter2;
                 @inter2.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInter2;
                 @inter2.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInter2;
+                @middleMouseClick.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMiddleMouseClick;
+                @middleMouseClick.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMiddleMouseClick;
+                @middleMouseClick.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnMiddleMouseClick;
             }
             m_Wrapper.m_SlimeActionsCallbackInterface = instance;
             if (instance != null)
@@ -1108,6 +1133,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @inter2.started += instance.OnInter2;
                 @inter2.performed += instance.OnInter2;
                 @inter2.canceled += instance.OnInter2;
+                @middleMouseClick.started += instance.OnMiddleMouseClick;
+                @middleMouseClick.performed += instance.OnMiddleMouseClick;
+                @middleMouseClick.canceled += instance.OnMiddleMouseClick;
             }
         }
     }
@@ -1322,6 +1350,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnSkill_2(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
         void OnInter2(InputAction.CallbackContext context);
+        void OnMiddleMouseClick(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
