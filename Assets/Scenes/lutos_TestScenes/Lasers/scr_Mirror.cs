@@ -13,8 +13,6 @@ public class scr_Mirror : MonoBehaviour
     [SerializeField] private float timeLeftSinceLastReflection = 0;
     [SerializeField] private float stopRate = 0.1f;
 
-    [SerializeField] private bool isRotating = false;
-
     private void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -23,24 +21,15 @@ public class scr_Mirror : MonoBehaviour
 
     private void Update()
     {
-        if (isRotating)
-        {
-            transform.Rotate(0, 0, 36f * Time.deltaTime);
-        }
-
-
-
         timeLeftSinceLastReflection -= Time.deltaTime;
         if (timeLeftSinceLastReflection <= 0)
         {
             lineRenderer.enabled = false;
-            //timeLeftSinceLastReflection = 0;
         }
         else
         {
             lineRenderer.enabled = true;
         }
-        //StopReflecting();
     }
 
     public void Reflect(Vector2 startPoint,Vector2 hitPoint)
@@ -72,20 +61,13 @@ public class scr_Mirror : MonoBehaviour
         if (raycastHits2D.Length > currentHit)
         {
             lineRenderer.SetPosition(1, raycastHits2D[currentHit].point);
-            Debug.Log("hit");
-            Interact(startPoint, raycastHits2D[currentHit]);
+            Interact(hitPoint, raycastHits2D[currentHit]);
         }
         else
         {
             lineRenderer.SetPosition(1, hitPoint + direction * maxCastDistance);
-            Debug.Log("NOhit");
         }
     }
-
-    //private void StopReflecting()
-    //{
-    //    isReflecting = false;
-    //}
 
     private void Interact(Vector2 startPoint,RaycastHit2D raycastHit2D)
     {
@@ -93,6 +75,5 @@ public class scr_Mirror : MonoBehaviour
         {
             mirror.Reflect(startPoint,raycastHit2D.point);
         }
-        
     }
 }
