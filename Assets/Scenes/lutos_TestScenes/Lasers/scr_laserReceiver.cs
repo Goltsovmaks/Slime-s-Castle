@@ -8,8 +8,10 @@ public class scr_laserReceiver : MonoBehaviour
     [SerializeField] private float timeRate = 0.1f;
     [SerializeField] private bool isOn;
 
+    [SerializeField] private Material requiredLaserMaterial;
 
     [SerializeField] public GameObject[] objectsConnected;
+
 
 
     //what is that?
@@ -58,10 +60,12 @@ public class scr_laserReceiver : MonoBehaviour
         }
     }
 
-    public void Enable()
+    public void Enable(Material laserMaterial)
     {
-        laserReceivementTime = Time.time;
-
+        if (laserMaterial == requiredLaserMaterial)
+        {
+            laserReceivementTime = Time.time;
+        }
     }
 
     public void ChangeState()

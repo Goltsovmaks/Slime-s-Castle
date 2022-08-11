@@ -22,8 +22,23 @@ public class pockPlateLogic : MonoBehaviour
     IEnumerator closeThrough(float time, int index){
         // После прошествия времени дверь закроется
         yield return new WaitForSeconds(time);
-        objectsConnected[index].GetComponent<DoorLogic>().stateConnectedObjects[indexOfObject]=animPockPlate.GetBool("Active");
-        objectsConnected[index].GetComponent<DoorLogic>().CheckStateOnDoor();
+
+        ///================= LASER UPDATE===============///
+        if (objectsConnected[index].TryGetComponent(out scr_RotateModule rotateModule))
+        {
+            rotateModule.isRotating = animPockPlate.GetBool("Active");
+        }
+        else
+        {
+            //=========DEFAULT===========///
+            objectsConnected[index].GetComponent<DoorLogic>().stateConnectedObjects[indexOfObject] = animPockPlate.GetBool("Active");
+            objectsConnected[index].GetComponent<DoorLogic>().CheckStateOnDoor();
+            //=========DEFAULT===========///
+        }
+        ///================= LASER UPDATE===============///
+
+        //objectsConnected[index].GetComponent<DoorLogic>().stateConnectedObjects[indexOfObject]=animPockPlate.GetBool("Active");
+        //objectsConnected[index].GetComponent<DoorLogic>().CheckStateOnDoor();
 
         closeThroughCoroutines[index]=null;
     }
@@ -49,6 +64,7 @@ public class pockPlateLogic : MonoBehaviour
                     }
                 }else{
                     print("На объекте "+objectsConnected[i].name+" нет скрипта DoorLogic");
+
                 }   
             }
 
@@ -108,8 +124,20 @@ public class pockPlateLogic : MonoBehaviour
                 if(closeThroughCoroutines[i]!=null){
                     StopCoroutine(closeThroughCoroutines[i]);
                 }
-                objectsConnected[i].GetComponent<DoorLogic>().stateConnectedObjects[indexOfObject]=animPockPlate.GetBool("Active");
-                objectsConnected[i].GetComponent<DoorLogic>().CheckStateOnDoor();
+                ///================= LASER UPDATE===============///
+                if (objectsConnected[i].TryGetComponent(out scr_RotateModule rotateModule))
+                {
+                    rotateModule.isRotating = animPockPlate.GetBool("Active");
+                }
+                else
+                {
+                    //=========DEFAULT===========///
+                    objectsConnected[i].GetComponent<DoorLogic>().stateConnectedObjects[indexOfObject] = animPockPlate.GetBool("Active");
+                    objectsConnected[i].GetComponent<DoorLogic>().CheckStateOnDoor();
+                    //=========DEFAULT===========///
+                }
+                ///================= LASER UPDATE===============///
+
 
             }
         }else{

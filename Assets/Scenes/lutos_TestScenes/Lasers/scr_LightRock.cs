@@ -12,6 +12,8 @@ public class scr_LightRock : scr_Reflective
     [SerializeField] private static float stopRate = 0.1f;
     [SerializeField] private static int reflectionStep = 10;
 
+    [SerializeField] private Material reflectionLaserMaterial;
+
     //[SerializeField] public List<scr_ray> rays = new List<scr_ray>();
 
     [SerializeField] GameObject rayPrefab;
@@ -23,11 +25,12 @@ public class scr_LightRock : scr_Reflective
         rays = new List<scr_ray>();
     }
 
-    public override void Reflect(GameObject source, GameObject origin, Vector2 startPoint, Vector2 hitPoint, Dictionary<GameObject, int> reflectionDictionary, int currentReflectionStep) //reflectionStep
+    public override void Reflect(GameObject source, GameObject origin, Vector2 startPoint, Vector2 hitPoint, Material laserMaterial, Dictionary<GameObject, int> reflectionDictionary, int currentReflectionStep) //reflectionStep
     {
         if (currentReflectionStep < reflectionStep)
         {
             LineRenderer lineRenderer;
+            Material currentLaserMaterial;
 
             if (reflectionDictionary.ContainsKey(source))
             {
@@ -79,6 +82,16 @@ public class scr_LightRock : scr_Reflective
                     Vector2 normal = new Vector2(Mathf.Sin(-Mathf.Deg2Rad * transform.rotation.eulerAngles.z), Mathf.Cos(-Mathf.Deg2Rad * transform.rotation.eulerAngles.z));
                     Vector2 direction = normal.normalized;
 
+                    if (reflectionLaserMaterial != null)
+                    {
+                        currentLaserMaterial = reflectionLaserMaterial;
+                        lineRenderer.material = reflectionLaserMaterial;
+                    }
+                    else
+                    {
+                        currentLaserMaterial = laserMaterial;
+                        lineRenderer.material = laserMaterial;
+                    }
 
                     lineRenderer.SetPosition(0, transform.position);
 
@@ -95,7 +108,7 @@ public class scr_LightRock : scr_Reflective
                     if (raycastHits2D.Length > currentHit)
                     {
                         lineRenderer.SetPosition(1, raycastHits2D[currentHit].point);
-                        Interact(gameObject, transform.position, raycastHits2D[currentHit], reflectionDictionary, currentReflectionStep + 1);
+                        Interact(gameObject, transform.position, raycastHits2D[currentHit], currentLaserMaterial, reflectionDictionary, currentReflectionStep + 1);
                     }
                     else
                     {
@@ -108,16 +121,16 @@ public class scr_LightRock : scr_Reflective
 
     }
 
-    private void Interact(GameObject origin, Vector2 startPoint, RaycastHit2D raycastHit2D, Dictionary<GameObject, int> dictionary, int currentReflectionStep)
+    private void Interact(GameObject origin, Vector2 startPoint, RaycastHit2D raycastHit2D, Material laserMaterial, Dictionary<GameObject, int> dictionary, int currentReflectionStep)
     {
         if (raycastHit2D.collider.TryGetComponent<scr_Reflective>(out scr_Reflective reflective))
         {
             dictionary = UpdateDictionary(gameObject, dictionary);
-            reflective.Reflect(gameObject, origin, startPoint, raycastHit2D.point, dictionary, currentReflectionStep);
+            reflective.Reflect(gameObject, origin, startPoint, raycastHit2D.point, laserMaterial, dictionary, currentReflectionStep);
         }
         if (raycastHit2D.collider.TryGetComponent<scr_laserReceiver>(out scr_laserReceiver receiver))
         {
-            receiver.Enable();
+            receiver.Enable(laserMaterial);
         }
     }
 

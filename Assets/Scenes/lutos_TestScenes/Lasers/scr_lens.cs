@@ -12,7 +12,7 @@ public class scr_lens : MonoBehaviour
     [SerializeField]string rayCastMask;
     [SerializeField] float maxCastDistance;
 
-    
+    [SerializeField] Material laserMaterial;
 
     private void Start()
     {
@@ -31,6 +31,7 @@ public class scr_lens : MonoBehaviour
         RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, direction, maxCastDistance, LayerMask.GetMask(rayCastMask));
 
         lineRenderer.enabled = true;
+        lineRenderer.material = laserMaterial;
         lineRenderer.SetPosition(0, transform.position);
         if (raycastHit2D)
         {
@@ -67,11 +68,11 @@ public class scr_lens : MonoBehaviour
     {
         if (raycastHit2D.collider.TryGetComponent<scr_Reflective>(out scr_Reflective reflective))
         {
-            reflective.Reflect(gameObject, gameObject, startPoint, raycastHit2D.point, new Dictionary<GameObject, int>() { { gameObject, 0 } }, 0);
+            reflective.Reflect(gameObject, gameObject, startPoint, raycastHit2D.point, laserMaterial, new Dictionary<GameObject, int>() { { gameObject, 0 } }, 0);
         }
         if (raycastHit2D.collider.TryGetComponent<scr_laserReceiver>(out scr_laserReceiver receiver))
         {
-            receiver.Enable();
+            receiver.Enable(laserMaterial);
         }
 
     }
