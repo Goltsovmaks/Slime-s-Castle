@@ -43,8 +43,8 @@ public class scr_chooseFormController : MonoBehaviour
         input = InputManager.instance;
         FormBehavior = scr_cnpt_FormBehavior.instance;
 
-        input.playerInput.actions["middleMouseClick"].performed += ChooseForm;
-        input.playerInput.actions["middleMouseClick"].canceled += ChooseForm;
+        input.playerInput.actions["ChooseForm"].performed += ChooseForm;
+        input.playerInput.actions["ChooseForm"].canceled += ChooseForm;
         
     }
 
@@ -99,25 +99,32 @@ public class scr_chooseFormController : MonoBehaviour
         }
 
 
-        Cursor.visible = false;
+        // Cursor.visible = false;
 
     }
 
     private void ChooseForm(InputAction.CallbackContext context){
         if(pnl_circleNoneFormPainted.activeSelf){
-
+            
         }else{
             FormBehavior.NextForm(currentForm);
-            Debug.Log("Приянта форма:" +currentForm);
         }
+
+       
+
         pnl_chooseForm.SetActive(!pnl_chooseForm.activeSelf);
-        
+
+        if(pnl_chooseForm.activeSelf){
+            Time.timeScale = 0.01f;
+        }else{
+            Time.timeScale = 1;
+        }
     }
 
     private void OnDestroy()
     {
-        input.playerInput.actions["middleMouseClick"].performed -= ChooseForm;
-        input.playerInput.actions["middleMouseClick"].canceled -= ChooseForm;
+        input.playerInput.actions["ChooseForm"].performed -= ChooseForm;
+        input.playerInput.actions["ChooseForm"].canceled -= ChooseForm;
     }
 
 }

@@ -103,7 +103,7 @@ public class scr_scenePartLoader : MonoBehaviour
         {
             shouldLoad = false;
         }
-        Debug.Log("вышел"+gameObject.name);
+        // Debug.Log("вышел"+gameObject.name);
     }
 
     void TriggerCheck()

@@ -94,15 +94,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "inter2",
-                    "type": "Button",
-                    "id": "3986169d-2cc5-49ca-9907-02398b849a92",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "middleMouseClick",
+                    "name": "ChooseForm",
                     "type": "Button",
                     "id": "2ff3ba77-baa4-439d-808e-c35f5cf4e377",
                     "expectedControlType": "Button",
@@ -278,23 +270,12 @@
                 },
                 {
                     "name": "",
-                    "id": "75efbc3f-9b1e-4d29-bdb9-c73d02e16986",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard+Mouse",
-                    "action": "inter2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "900e5df8-8b3f-4ea0-9bf7-947aad219fda",
                     "path": "<Mouse>/middleButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
-                    "action": "middleMouseClick",
+                    "action": "ChooseForm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

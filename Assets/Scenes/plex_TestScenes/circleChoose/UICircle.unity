@@ -246,20 +246,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2080207584033259502, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
+    - target: {fileID: 347138459016583567, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2649398310030063326, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
         type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2720562629074675088, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4420657307247525582, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
         type: 3}
@@ -376,17 +371,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4527493731293433428, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
+    - target: {fileID: 5573733419942443298, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
         type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4527493731293433429, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527493732445328991, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
+    - target: {fileID: 7150066296395148575, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
         type: 3}
       propertyPath: m_IsActive
       value: 0
