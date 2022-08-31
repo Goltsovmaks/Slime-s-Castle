@@ -13,7 +13,13 @@ public class pockPlateLogic : MonoBehaviour
     [SerializeField]private bool M=false;
     [SerializeField]public GameObject[] objectsConnected;
     [SerializeField][Range(0, 60f)]public float[] timesActive;
-    
+
+
+    ///================= LASER UPDATE===============///
+    [SerializeField] private float rotationDirection;
+    ///================= LASER UPDATE===============///
+
+
 
     public int indexOfObject;
 
@@ -27,6 +33,7 @@ public class pockPlateLogic : MonoBehaviour
         if (objectsConnected[index].TryGetComponent(out scr_RotateModule rotateModule))
         {
             rotateModule.isRotating = animPockPlate.GetBool("Active");
+            //rotateModule.rotationDirection = rotationDirection;
         }
         else
         {
@@ -128,6 +135,7 @@ public class pockPlateLogic : MonoBehaviour
                 if (objectsConnected[i].TryGetComponent(out scr_RotateModule rotateModule))
                 {
                     rotateModule.isRotating = animPockPlate.GetBool("Active");
+                    rotateModule.rotationDirection = rotationDirection;
                 }
                 else
                 {

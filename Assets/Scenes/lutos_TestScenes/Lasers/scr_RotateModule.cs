@@ -7,6 +7,8 @@ public class scr_RotateModule : MonoBehaviour
     [SerializeField] private Vector3 rotation;
     public bool isRotating = false;
 
+    public float rotationDirection;
+
     private void Update()
     {
         if (isRotating)
@@ -16,6 +18,6 @@ public class scr_RotateModule : MonoBehaviour
     }
     public void Rotate()
     {
-        transform.Rotate(Time.deltaTime * rotation);
+        transform.Rotate(Time.deltaTime * rotation * rotationDirection);
     }
 }
