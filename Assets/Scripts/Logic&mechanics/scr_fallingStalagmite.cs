@@ -7,7 +7,7 @@ public class scr_fallingStalagmite : MonoBehaviour
     private Vector3 size;
     private Vector3 offsetPosition;
     private Vector3 startPosition;
-    private Vector2 repulsiveVector;
+
     private bool recovering;
     private bool falling;
 
@@ -16,10 +16,6 @@ public class scr_fallingStalagmite : MonoBehaviour
 
     [SerializeField][Range(0, 2f)]private float widthCheckArea;    
     [SerializeField][Range(0, 30f)]private float heightCheckArea;
-
-    [Header("Сила толчка при соприкосновении")]
-    [SerializeField][Range(0, 100f)]private float repulsiveForceHorizontal;
-    [SerializeField][Range(0, 10f)]private float repulsiveForceVertical;
 
     [Header("Настройка скорости и высоты падения")]
     [SerializeField][Range(0, 30f)]private float speedFalling;
@@ -79,21 +75,10 @@ public class scr_fallingStalagmite : MonoBehaviour
 
             
     }
-// При столкновении придаём импульс игроку
     private void OnTriggerEnter2D(Collider2D colider)
     {
         if (colider.CompareTag("Player"))
         {
-
-            if(transform.position.x>colider.transform.position.x){
-                repulsiveVector = new Vector2(-1,1);
-            }else{
-                repulsiveVector = new Vector2(1,1);
-            }
-            repulsiveVector.x *= repulsiveForceHorizontal;
-            repulsiveVector.y *= repulsiveForceVertical;
-
-            colider.attachedRigidbody.AddForce(repulsiveVector, ForceMode2D.Impulse);
             collision();
 
 

@@ -107,6 +107,14 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""ChooseForm"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ff3ba77-baa4-439d-808e-c35f5cf4e377"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""GrateInteraction"",
                     ""type"": ""Button"",
                     ""id"": ""d675557d-f831-4027-8029-fe055b70201e"",
@@ -278,6 +286,17 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
                     ""action"": ""ReturnToPreviousMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""900e5df8-8b3f-4ea0-9bf7-947aad219fda"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""ChooseForm"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -925,6 +944,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_Slime_Skill_1 = m_Slime.FindAction("Skill_1", throwIfNotFound: true);
         m_Slime_Skill_2 = m_Slime.FindAction("Skill_2", throwIfNotFound: true);
         m_Slime_Interaction = m_Slime.FindAction("Interaction", throwIfNotFound: true);
+        m_Slime_ChooseForm = m_Slime.FindAction("ChooseForm", throwIfNotFound: true);
         m_Slime_GrateInteraction = m_Slime.FindAction("GrateInteraction", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -1006,6 +1026,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Slime_Skill_1;
     private readonly InputAction m_Slime_Skill_2;
     private readonly InputAction m_Slime_Interaction;
+    private readonly InputAction m_Slime_ChooseForm;
     private readonly InputAction m_Slime_GrateInteraction;
     public struct SlimeActions
     {
@@ -1022,6 +1043,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         public InputAction @Skill_1 => m_Wrapper.m_Slime_Skill_1;
         public InputAction @Skill_2 => m_Wrapper.m_Slime_Skill_2;
         public InputAction @Interaction => m_Wrapper.m_Slime_Interaction;
+        public InputAction @ChooseForm => m_Wrapper.m_Slime_ChooseForm;
         public InputAction @GrateInteraction => m_Wrapper.m_Slime_GrateInteraction;
         public InputActionMap Get() { return m_Wrapper.m_Slime; }
         public void Enable() { Get().Enable(); }
@@ -1065,6 +1087,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Interaction.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
                 @Interaction.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
                 @Interaction.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
+                @ChooseForm.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnChooseForm;
+                @ChooseForm.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnChooseForm;
+                @ChooseForm.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnChooseForm;
                 @GrateInteraction.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnGrateInteraction;
                 @GrateInteraction.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnGrateInteraction;
                 @GrateInteraction.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnGrateInteraction;
@@ -1105,6 +1130,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Interaction.started += instance.OnInteraction;
                 @Interaction.performed += instance.OnInteraction;
                 @Interaction.canceled += instance.OnInteraction;
+                @ChooseForm.started += instance.OnChooseForm;
+                @ChooseForm.performed += instance.OnChooseForm;
+                @ChooseForm.canceled += instance.OnChooseForm;
                 @GrateInteraction.started += instance.OnGrateInteraction;
                 @GrateInteraction.performed += instance.OnGrateInteraction;
                 @GrateInteraction.canceled += instance.OnGrateInteraction;
@@ -1321,6 +1349,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnSkill_1(InputAction.CallbackContext context);
         void OnSkill_2(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnChooseForm(InputAction.CallbackContext context);
         void OnGrateInteraction(InputAction.CallbackContext context);
     }
     public interface IUIActions

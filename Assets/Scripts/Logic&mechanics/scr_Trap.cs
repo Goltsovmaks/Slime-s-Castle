@@ -31,8 +31,8 @@ public class scr_Trap : MonoBehaviour
 
     enum creatureType
     {
-        player,
-        enemy
+        Player,
+        Enemy
     }
 
 

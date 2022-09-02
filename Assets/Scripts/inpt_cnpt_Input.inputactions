@@ -94,6 +94,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "ChooseForm",
+                    "type": "Button",
+                    "id": "2ff3ba77-baa4-439d-808e-c35f5cf4e377",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "GrateInteraction",
                     "type": "Button",
                     "id": "d675557d-f831-4027-8029-fe055b70201e",
@@ -265,6 +273,17 @@
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
                     "action": "ReturnToPreviousMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "900e5df8-8b3f-4ea0-9bf7-947aad219fda",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "ChooseForm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

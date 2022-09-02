@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 5796382450546635188}
   - component: {fileID: 5796382450546635190}
   - component: {fileID: 5796382450546635189}
+  - component: {fileID: 4953618437932708180}
   m_Layer: 0
   m_Name: damageArea
   m_TagString: Untagged
@@ -101,6 +102,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!114 &4953618437932708180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796382450546635211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f218e7e524b131489909fe37b01cea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repulsiveForceHorizontal: 50
+  repulsiveForceVertical: 3
 --- !u!1 &5796382451167526134
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,15 +263,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b9e8e44b78ba2479c328f999823dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingRight: 0
-  patrol: 0
-  attack: 0
-  goBack: 0
-  immobilized: 0
+  canTakeDamage: 1
+  healthEnemy: 0
+  damageRate: 0
   speed: 1
   patrolDistance: 2
   aggressive: 0
   attackDistance: 0
+  debugging: 0
+  patrol: 0
+  attack: 0
+  goBack: 0
+  immobilized: 0
   startPositionObject: {fileID: 5796382450340096717}
   startPosition: {x: 0, y: 0, z: 0}
-  debugging: 0

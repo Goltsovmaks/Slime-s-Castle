@@ -13,7 +13,13 @@ public class Quest : MonoBehaviour
     //public string requiredState;
 
     //reward?
-    
+
+    private void Start()
+    {
+        //add info from file (such as title/goals etc)
+        Init();
+    }
+
     public List<Goal> goals = new List<Goal>();
 
     public void Init()

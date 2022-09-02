@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8483736072838383127}
   - component: {fileID: 7595931510595584364}
   - component: {fileID: 1065427599963500584}
+  - component: {fileID: 8734636156649450109}
   - component: {fileID: 32927433469294326}
   m_Layer: 0
   m_Name: fallingStalagmite
@@ -153,12 +154,25 @@ MonoBehaviour:
   speedFalling: 4
   heightFalling: 1
   reusable: 1
-  timeFalling: 2
   timeRecovery: 0.5
   alwaysFalling: 0
   slime:
     serializedVersion: 2
     m_Bits: 4096
+--- !u!114 &8734636156649450109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933758918595605112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f218e7e524b131489909fe37b01cea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repulsiveForceHorizontal: 50
+  repulsiveForceVertical: 3
 --- !u!114 &32927433469294326
 MonoBehaviour:
   m_ObjectHideFlags: 0
