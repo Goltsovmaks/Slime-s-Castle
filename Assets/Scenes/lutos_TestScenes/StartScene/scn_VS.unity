@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30922002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -84.59579, y: -5.482958, z: -4.725275}
+  m_LocalPosition: {x: -88.35579, y: -5.482958, z: -4.725275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1130577221}
@@ -343,7 +343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683614698}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.42, y: -27.9, z: -10}
+  m_LocalPosition: {x: -35.18, y: -27.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1996001647}
@@ -491,7 +491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743998178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -84.59579, y: -5.482958, z: -4.725275}
+  m_LocalPosition: {x: -88.35579, y: -5.482958, z: -4.725275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2010612628}
@@ -713,7 +713,7 @@ PrefabInstance:
     - target: {fileID: 1821145948440135484, guid: 418e4df719f8a014cac5ddf4d8ce9143,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.42
+      value: -35.18
       objectReference: {fileID: 0}
     - target: {fileID: 1821145948440135484, guid: 418e4df719f8a014cac5ddf4d8ce9143,
         type: 3}
@@ -1232,6 +1232,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1170247859830410, guid: a7c5d7b5843ad7b4f979afe0da2fa769, type: 3}
+      propertyPath: timeFreezeContinue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170247859830410, guid: a7c5d7b5843ad7b4f979afe0da2fa769, type: 3}
+      propertyPath: currentDialogue.phraseList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170247859830410, guid: a7c5d7b5843ad7b4f979afe0da2fa769, type: 3}
+      propertyPath: currentDialogue.phraseList.Array.data[0].phrase
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170247859830410, guid: a7c5d7b5843ad7b4f979afe0da2fa769, type: 3}
+      propertyPath: currentDialogue.phraseList.Array.data[1].phrase
+      value: sdfg
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170247859830410, guid: a7c5d7b5843ad7b4f979afe0da2fa769, type: 3}
+      propertyPath: currentDialogue.phraseList.Array.data[2].phrase
+      value: dfg
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170247859830410, guid: a7c5d7b5843ad7b4f979afe0da2fa769, type: 3}
+      propertyPath: currentDialogue.phraseList.Array.data[0].nameSpeaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170247859830410, guid: a7c5d7b5843ad7b4f979afe0da2fa769, type: 3}
+      propertyPath: currentDialogue.phraseList.Array.data[1].nameSpeaker
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170247859830410, guid: a7c5d7b5843ad7b4f979afe0da2fa769, type: 3}
+      propertyPath: currentDialogue.phraseList.Array.data[2].nameSpeaker
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 347138459016583567, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
         type: 3}
       propertyPath: m_IsActive
@@ -1373,6 +1405,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778245378681595491, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ContinueDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778245378681595491, guid: a7c5d7b5843ad7b4f979afe0da2fa769,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7c5d7b5843ad7b4f979afe0da2fa769, type: 3}

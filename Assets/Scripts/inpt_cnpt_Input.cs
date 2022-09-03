@@ -340,6 +340,14 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ContinueDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""34b36fb1-e4ba-4c7a-87cb-4cc1a8e38fe1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -373,6 +381,17 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
                     ""action"": ""OnButtonPressedTest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f27361e8-42fd-499a-b565-796fce45486f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""ContinueDialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -951,6 +970,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_ReturnToPreviousMenu = m_UI.FindAction("ReturnToPreviousMenu", throwIfNotFound: true);
         m_UI_OnButtonPressedTest = m_UI.FindAction("OnButtonPressedTest", throwIfNotFound: true);
+        m_UI_ContinueDialogue = m_UI.FindAction("ContinueDialogue", throwIfNotFound: true);
         // UI1
         m_UI1 = asset.FindActionMap("UI1", throwIfNotFound: true);
         m_UI1_Navigate = m_UI1.FindAction("Navigate", throwIfNotFound: true);
@@ -1147,6 +1167,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_ReturnToPreviousMenu;
     private readonly InputAction m_UI_OnButtonPressedTest;
+    private readonly InputAction m_UI_ContinueDialogue;
     public struct UIActions
     {
         private @Inpt_cnpt_Input m_Wrapper;
@@ -1154,6 +1175,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputAction @ReturnToPreviousMenu => m_Wrapper.m_UI_ReturnToPreviousMenu;
         public InputAction @OnButtonPressedTest => m_Wrapper.m_UI_OnButtonPressedTest;
+        public InputAction @ContinueDialogue => m_Wrapper.m_UI_ContinueDialogue;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1172,6 +1194,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @OnButtonPressedTest.started -= m_Wrapper.m_UIActionsCallbackInterface.OnOnButtonPressedTest;
                 @OnButtonPressedTest.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnOnButtonPressedTest;
                 @OnButtonPressedTest.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnOnButtonPressedTest;
+                @ContinueDialogue.started -= m_Wrapper.m_UIActionsCallbackInterface.OnContinueDialogue;
+                @ContinueDialogue.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnContinueDialogue;
+                @ContinueDialogue.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnContinueDialogue;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1185,6 +1210,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @OnButtonPressedTest.started += instance.OnOnButtonPressedTest;
                 @OnButtonPressedTest.performed += instance.OnOnButtonPressedTest;
                 @OnButtonPressedTest.canceled += instance.OnOnButtonPressedTest;
+                @ContinueDialogue.started += instance.OnContinueDialogue;
+                @ContinueDialogue.performed += instance.OnContinueDialogue;
+                @ContinueDialogue.canceled += instance.OnContinueDialogue;
             }
         }
     }
@@ -1357,6 +1385,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnReturnToPreviousMenu(InputAction.CallbackContext context);
         void OnOnButtonPressedTest(InputAction.CallbackContext context);
+        void OnContinueDialogue(InputAction.CallbackContext context);
     }
     public interface IUI1Actions
     {

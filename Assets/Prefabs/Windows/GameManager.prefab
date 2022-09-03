@@ -633,7 +633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2662476359951986667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -646,14 +646,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6936509598176327727}
-  m_Father: {fileID: 6201013226269543230}
-  m_RootOrder: 2
+  m_Father: {fileID: 3921113151203235494}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 240, y: 90}
-  m_Pivot: {x: 1, y: 1}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7634569641642144009
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -806,14 +806,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2662476359951986667}
   - {fileID: 6201013226269543230}
   m_Father: {fileID: 4527493731293433426}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4191529103268809319
 MonoBehaviour:
@@ -940,14 +941,13 @@ RectTransform:
   m_Children:
   - {fileID: 7791779216847141700}
   - {fileID: 2358597227952152319}
-  - {fileID: 2662476359951986667}
   m_Father: {fileID: 3921113151203235494}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -475}
-  m_SizeDelta: {x: 1800, y: 375}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 375}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &4231506318344936363
 CanvasRenderer:
@@ -16485,6 +16485,7 @@ MonoBehaviour:
   pnl_dialogue: {fileID: 2327138954303977368}
   txt_nameSpeaker: {fileID: 954959608342958979}
   txt_phrase: {fileID: 5624602023849283173}
+  timeFreezeContinue: 0.5
   currentDialogue:
     language: 
     nameDialogue: 
