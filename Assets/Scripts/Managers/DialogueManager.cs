@@ -154,7 +154,7 @@ public class DialogueManager : MonoBehaviour
 
     private void OnDestroy() 
     {
-        input.playerInput.actions["ContinueDialogue"].performed -= ContinuePresseed;
+        InputManager.instance.playerInput.actions["ContinueDialogue"].performed -= ContinuePresseed;
         scr_EventSystem.instance.playerTriggerEnter.RemoveListener(StartTriggerDialog);
     }
 

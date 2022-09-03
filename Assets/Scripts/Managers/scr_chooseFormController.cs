@@ -27,6 +27,7 @@ public class scr_chooseFormController : MonoBehaviour
     InputManager input;
 
     private void Awake() {
+
         if (instance == null)
         {
             instance = this;
@@ -35,17 +36,17 @@ public class scr_chooseFormController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        
     }
     
     void Start()
     {
-
         input = InputManager.instance;
         FormBehavior = scr_cnpt_FormBehavior.instance;
 
         input.playerInput.actions["ChooseForm"].performed += ChooseForm;
         input.playerInput.actions["ChooseForm"].canceled += ChooseForm;
-        
     }
 
     // Update is called once per frame
@@ -123,8 +124,8 @@ public class scr_chooseFormController : MonoBehaviour
 
     private void OnDestroy()
     {
-        input.playerInput.actions["ChooseForm"].performed -= ChooseForm;
-        input.playerInput.actions["ChooseForm"].canceled -= ChooseForm;
+        InputManager.instance.playerInput.actions["ChooseForm"].performed -= ChooseForm;
+        InputManager.instance.playerInput.actions["ChooseForm"].canceled -= ChooseForm;
     }
 
 }

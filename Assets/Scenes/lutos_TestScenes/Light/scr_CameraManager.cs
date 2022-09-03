@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+
 
 public class scr_CameraManager : MonoBehaviour
 {
@@ -9,6 +11,11 @@ public class scr_CameraManager : MonoBehaviour
     private bool mainCameraIsActive = true;
 
     public Animator animator;
+
+    public GameObject mainVcam;
+    public GameObject pipeCrawlingVcam;
+
+
 
     private void Awake()
     {
@@ -22,6 +29,8 @@ public class scr_CameraManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
+        scr_EventSystem.instance.playerAwake.AddListener(SetFollowAtPlayer);
 
     }
 
@@ -37,6 +46,13 @@ public class scr_CameraManager : MonoBehaviour
             animator.Play("Main");
         }
         mainCameraIsActive = !mainCameraIsActive;
+    }
+
+    public void SetFollowAtPlayer(GameObject player)
+    {
+        mainVcam.GetComponent<CinemachineVirtualCamera>().Follow = player.transform;
+        pipeCrawlingVcam.GetComponent<CinemachineVirtualCamera>().Follow = player.transform;
+        
     }
 
 }
