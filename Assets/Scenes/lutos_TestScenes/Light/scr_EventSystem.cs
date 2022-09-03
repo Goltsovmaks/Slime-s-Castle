@@ -11,6 +11,7 @@ public class scr_EventSystem : MonoBehaviour
     public UnityEvent<int> playerTriggerExit;
 
     public UnityEvent slimeHasAttacked;
+    public UnityEvent<int> mobDeath;
 
 
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class scr_guard : MonoBehaviour, IImmobilizable, scr_IDamageable
 {
+    public int mobID;
+
     [SerializeField]private bool canTakeDamage = true;
     [SerializeField]private int healthEnemy;
     [SerializeField][Range(0, 10f)]private float damageRate;
@@ -164,6 +166,7 @@ public class scr_guard : MonoBehaviour, IImmobilizable, scr_IDamageable
 
     public void Die(){
         Debug.Log("помер");
+        scr_EventSystem.instance.mobDeath.Invoke(mobID);
         Destroy(gameObject);
     }
 
