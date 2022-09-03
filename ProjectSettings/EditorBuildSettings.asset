@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/plex_TestScenes/scn_Menu.unity
+    guid: 86f9d4b86dab88944a48bca9758d7187
+  - enabled: 1
     path: Assets/Scenes/lutos_TestScenes/StartScene/scn_VS.unity
     guid: f8a2828682ca32643824ad6d0e83fd6f
   - enabled: 1
@@ -20,12 +23,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/plex_TestScenes/ScnForDownloadOnScene/scn_dng_a4.unity
     guid: 3e11aea9c4a7a3c4390a3ca6808524e3
+  - enabled: 1
+    path: Assets/Scenes/plex_TestScenes/ScnForDownloadOnScene/scn_dng_a5.unity
+    guid: 28711e5ce6812c84aa394e02486abae3
+  - enabled: 1
+    path: Assets/Scenes/plex_TestScenes/ScnForDownloadOnScene/scn_dng_a6.unity
+    guid: 8059e1aff7a6dfb45a2ea13a15cab805
+  - enabled: 1
+    path: Assets/Scenes/plex_TestScenes/ScnForDownloadOnScene/scn_dng_a7.unity
+    guid: d2f737a4b93479a4992ea020587ac685
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/plex_TestScenes/scn_Menu.unity
-    guid: 86f9d4b86dab88944a48bca9758d7187
   - enabled: 0
     path: Assets/Scenes/lutos_TestScenes/Pipes/scn_pipesTest.unity
     guid: 4c2e70794c7ddfa4eb2db048f5c1b086

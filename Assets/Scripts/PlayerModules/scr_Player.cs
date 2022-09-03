@@ -38,6 +38,8 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
             Destroy(gameObject);
         }
 
+        scr_EventSystem.instance.playerAwake.Invoke(gameObject);
+
         maxHealth = 3;
         currentHealth = maxHealth;
         MenuController.SetSpawnPositionEvent+=SetSpawnPosition;
