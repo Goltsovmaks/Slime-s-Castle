@@ -115,9 +115,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""testCont"",
+                    ""name"": ""GrateInteraction"",
                     ""type"": ""Button"",
-                    ""id"": ""d10b0895-7ae3-4fdd-a498-812b43bc7b1f"",
+                    ""id"": ""d675557d-f831-4027-8029-fe055b70201e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -302,12 +302,12 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""80309a05-3703-4398-aca8-ca8b8269c0c6"",
-                    ""path"": """",
+                    ""id"": ""f5e05b07-6656-4a5c-973f-050fe8157f07"",
+                    ""path"": ""<Keyboard>/g"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""testCont"",
+                    ""action"": ""GrateInteraction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -964,7 +964,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_Slime_Skill_2 = m_Slime.FindAction("Skill_2", throwIfNotFound: true);
         m_Slime_Interaction = m_Slime.FindAction("Interaction", throwIfNotFound: true);
         m_Slime_ChooseForm = m_Slime.FindAction("ChooseForm", throwIfNotFound: true);
-        m_Slime_testCont = m_Slime.FindAction("testCont", throwIfNotFound: true);
+        m_Slime_GrateInteraction = m_Slime.FindAction("GrateInteraction", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -1047,7 +1047,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Slime_Skill_2;
     private readonly InputAction m_Slime_Interaction;
     private readonly InputAction m_Slime_ChooseForm;
-    private readonly InputAction m_Slime_testCont;
+    private readonly InputAction m_Slime_GrateInteraction;
     public struct SlimeActions
     {
         private @Inpt_cnpt_Input m_Wrapper;
@@ -1064,7 +1064,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         public InputAction @Skill_2 => m_Wrapper.m_Slime_Skill_2;
         public InputAction @Interaction => m_Wrapper.m_Slime_Interaction;
         public InputAction @ChooseForm => m_Wrapper.m_Slime_ChooseForm;
-        public InputAction @testCont => m_Wrapper.m_Slime_testCont;
+        public InputAction @GrateInteraction => m_Wrapper.m_Slime_GrateInteraction;
         public InputActionMap Get() { return m_Wrapper.m_Slime; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1110,9 +1110,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @ChooseForm.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnChooseForm;
                 @ChooseForm.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnChooseForm;
                 @ChooseForm.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnChooseForm;
-                @testCont.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnTestCont;
-                @testCont.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnTestCont;
-                @testCont.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnTestCont;
+                @GrateInteraction.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnGrateInteraction;
+                @GrateInteraction.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnGrateInteraction;
+                @GrateInteraction.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnGrateInteraction;
             }
             m_Wrapper.m_SlimeActionsCallbackInterface = instance;
             if (instance != null)
@@ -1153,9 +1153,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @ChooseForm.started += instance.OnChooseForm;
                 @ChooseForm.performed += instance.OnChooseForm;
                 @ChooseForm.canceled += instance.OnChooseForm;
-                @testCont.started += instance.OnTestCont;
-                @testCont.performed += instance.OnTestCont;
-                @testCont.canceled += instance.OnTestCont;
+                @GrateInteraction.started += instance.OnGrateInteraction;
+                @GrateInteraction.performed += instance.OnGrateInteraction;
+                @GrateInteraction.canceled += instance.OnGrateInteraction;
             }
         }
     }
@@ -1378,7 +1378,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnSkill_2(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
         void OnChooseForm(InputAction.CallbackContext context);
-        void OnTestCont(InputAction.CallbackContext context);
+        void OnGrateInteraction(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

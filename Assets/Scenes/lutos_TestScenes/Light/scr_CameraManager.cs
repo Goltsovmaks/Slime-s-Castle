@@ -27,6 +27,7 @@ public class scr_CameraManager : MonoBehaviour
 
     public void SwitchCameraState()
     {
+        //переписать если больше камер
         if (mainCameraIsActive)
         {
             animator.Play("PipeCrawling");

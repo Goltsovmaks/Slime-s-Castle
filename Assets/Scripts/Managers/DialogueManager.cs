@@ -25,8 +25,6 @@ public class DialogueManager : MonoBehaviour
     private int phraseCounter = 0;
     private bool canButtonContinuePressed=true;
 
-
-
     scr_SaveController SaveController;
     InputManager input;
 
@@ -49,7 +47,6 @@ public class DialogueManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-
     }
 
     // Start is called before the first frame update
@@ -60,14 +57,31 @@ public class DialogueManager : MonoBehaviour
         input.playerInput.actions["ContinueDialogue"].performed += ContinuePresseed;
 
         SaveController = scr_SaveController.instance;
+        scr_EventSystem.instance.playerTriggerEnter.AddListener(StartTriggerDialog);
 
-        
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void StartTriggerDialog(TriggerType triggerType, string id)
     {
- 
+        if (triggerType == TriggerType.dialogTrigger)
+        {
+            StartDialogue(id);
+        }
+    }
+
+
+    public void ContinueDialogue(){
+        
+        if(currentDialogue.phraseList.Count-1>phraseCounter){
+            phraseCounter++;
+            txt_phrase.text = currentDialogue.phraseList[phraseCounter].phrase;
+            txt_nameSpeaker.text = currentDialogue.phraseList[phraseCounter].nameSpeaker;
+            
+        }else{
+            FinishDialogue();
+        }
+        
     }
 
     public void ContinuePresseed(InputAction.CallbackContext context){
@@ -79,17 +93,6 @@ public class DialogueManager : MonoBehaviour
         }
             
 
-    }
-
-    public void ContinueDialogue(){
-        if(currentDialogue.phraseList.Count-1>phraseCounter){
-            phraseCounter++;
-            txt_phrase.text = currentDialogue.phraseList[phraseCounter].phrase;
-            txt_nameSpeaker.text = currentDialogue.phraseList[phraseCounter].nameSpeaker;
-            
-        }else{
-            FinishDialogue();
-        }
     }
 
     public void StartDialogue(string nameDialogue){
@@ -149,6 +152,12 @@ public class DialogueManager : MonoBehaviour
  
     }
 
+    private void OnDestroy() 
+    {
+        input.playerInput.actions["ContinueDialogue"].performed -= ContinuePresseed;
+        scr_EventSystem.instance.playerTriggerEnter.RemoveListener(StartTriggerDialog);
+    }
+
     public void SetupDialogueFile(string nameDialogue){
         if(ExistsDialogue(nameDialogue)){
             Debug.Log(nameDialogue+" Файл диалога с таким именем уже существует");            
@@ -159,10 +168,6 @@ public class DialogueManager : MonoBehaviour
             Debug.Log(nameDialogue+" Файл диалога создан");            
         }
 
-    }
-
-    private void OnDestroy() {
-        input.playerInput.actions["ContinueDialogue"].performed -= ContinuePresseed;
     }
 
 

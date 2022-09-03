@@ -102,9 +102,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "testCont",
+                    "name": "GrateInteraction",
                     "type": "Button",
-                    "id": "d10b0895-7ae3-4fdd-a498-812b43bc7b1f",
+                    "id": "d675557d-f831-4027-8029-fe055b70201e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -289,12 +289,12 @@
                 },
                 {
                     "name": "",
-                    "id": "80309a05-3703-4398-aca8-ca8b8269c0c6",
-                    "path": "",
+                    "id": "f5e05b07-6656-4a5c-973f-050fe8157f07",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
-                    "action": "testCont",
+                    "action": "GrateInteraction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public enum enum_forms
+
+    public enum enum_forms
     {
         Slime,
         Spider,
         Firefly
     }
+
 
 public class scr_cnpt_FormBehavior : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
 
     public scr_cnpt_Form_Abstract _currentForm;
 
-    public bool canChangeForm = true;
+    public static bool canChangeForm = true;
 
     //Inpt_cnpt_Input _input;
     //PlayerInput _input;
