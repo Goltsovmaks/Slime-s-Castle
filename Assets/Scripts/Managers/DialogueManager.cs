@@ -18,11 +18,23 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Text txt_nameSpeaker;
     [SerializeField] private Text txt_phrase;
 
+    [SerializeField][Range(0, 1f)] private float timeFreezeContinue;
+
     private Dialogues dialogues = new Dialogues();
     [SerializeField]private Dialogue currentDialogue = new Dialogue();
     private int phraseCounter = 0;
+    private bool canButtonContinuePressed=true;
+
+
 
     scr_SaveController SaveController;
+    InputManager input;
+
+    IEnumerator freezeContinue(float time){
+        canButtonContinuePressed = false;
+        yield return new WaitForSeconds(time);
+        canButtonContinuePressed = true;
+    }
 
     private void Awake()
     {
@@ -37,11 +49,16 @@ public class DialogueManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        input = InputManager.instance;
+
+        input.playerInput.actions["ContinueDialogue"].performed += ContinuePresseed;
+
         SaveController = scr_SaveController.instance;
 
         
@@ -50,11 +67,21 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+ 
     }
 
-    public void continuePresseed(){
-        
+    public void ContinuePresseed(InputAction.CallbackContext context){
+        if(!canButtonContinuePressed){
+            return;
+        }else{
+            StartCoroutine(freezeContinue(timeFreezeContinue));
+            ContinueDialogue();
+        }
+            
+
+    }
+
+    public void ContinueDialogue(){
         if(currentDialogue.phraseList.Count-1>phraseCounter){
             phraseCounter++;
             txt_phrase.text = currentDialogue.phraseList[phraseCounter].phrase;
@@ -63,7 +90,6 @@ public class DialogueManager : MonoBehaviour
         }else{
             FinishDialogue();
         }
-        
     }
 
     public void StartDialogue(string nameDialogue){
@@ -71,6 +97,8 @@ public class DialogueManager : MonoBehaviour
         phraseCounter=0;
         // активация окна
         pnl_dialogue.gameObject.SetActive(true);
+
+        InputManager.instance.playerInput.actions.FindActionMap("Slime").Disable();
 
 
         // цвет текста менять??(игрок - зелёный, гриб - синий)
@@ -84,6 +112,7 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = new Dialogue();
         // дизактивация окна
         pnl_dialogue.gameObject.SetActive(false);
+        InputManager.instance.playerInput.actions.FindActionMap("Slime").Enable();
 
         txt_phrase.text = "";
         txt_nameSpeaker.text = "";
@@ -130,6 +159,10 @@ public class DialogueManager : MonoBehaviour
             Debug.Log(nameDialogue+" Файл диалога создан");            
         }
 
+    }
+
+    private void OnDestroy() {
+        input.playerInput.actions["ContinueDialogue"].performed -= ContinuePresseed;
     }
 
 

@@ -100,6 +100,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "testCont",
+                    "type": "Button",
+                    "id": "d10b0895-7ae3-4fdd-a498-812b43bc7b1f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -278,6 +286,17 @@
                     "action": "ChooseForm",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80309a05-3703-4398-aca8-ca8b8269c0c6",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "testCont",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -305,6 +324,14 @@
                     "name": "OnButtonPressedTest",
                     "type": "Button",
                     "id": "01d8c797-93ac-42f9-a1ab-a19856136c08",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ContinueDialogue",
+                    "type": "Button",
+                    "id": "34b36fb1-e4ba-4c7a-87cb-4cc1a8e38fe1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -341,6 +368,17 @@
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
                     "action": "OnButtonPressedTest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f27361e8-42fd-499a-b565-796fce45486f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "ContinueDialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
