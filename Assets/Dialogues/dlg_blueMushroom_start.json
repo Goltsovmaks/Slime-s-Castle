@@ -1,0 +1,14 @@
+{
+  "language": "rus",
+  "nameDialogue": "1",
+  "phraseList": [
+    {
+      "nameSpeaker": "Blue Mushroom",
+      "phrase": "test"
+    },
+    {
+      "nameSpeaker": "Blue Mushroom",
+      "phrase": "test2"
+    }
+  ]
+}

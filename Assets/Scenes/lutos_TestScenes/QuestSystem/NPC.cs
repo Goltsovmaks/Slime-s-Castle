@@ -17,7 +17,7 @@ public class NPC : MonoBehaviour
         if (playerIsClose)
         {
             string myState = CheckBoxSystem.instance.CheckMissionStatus(myMissions);
-            DialogueManager.instance.StartDialogue(myState);
+            DialogueManager.instance.StartDialogue("dlg_"+gameObject.name+"_"+myState);
             //complete quest!??
             TryAssignNextQuest(myState);
         }
