@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  whoCanBeDamaged: 
+  whoCanBeDamaged: 00000000
 --- !u!4 &851727318265772560
 Transform:
   m_ObjectHideFlags: 0

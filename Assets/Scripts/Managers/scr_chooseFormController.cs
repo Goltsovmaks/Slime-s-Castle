@@ -43,7 +43,6 @@ public class scr_chooseFormController : MonoBehaviour
     void Start()
     {
         input = InputManager.instance;
-        FormBehavior = scr_cnpt_FormBehavior.instance;
 
         input.playerInput.actions["ChooseForm"].performed += ChooseForm;
         input.playerInput.actions["ChooseForm"].canceled += ChooseForm;
@@ -108,7 +107,7 @@ public class scr_chooseFormController : MonoBehaviour
         if(pnl_circleNoneFormPainted.activeSelf){
             
         }else{
-            FormBehavior.NextForm(currentForm);
+            scr_cnpt_FormBehavior.instance.NextForm(currentForm);
         }
 
        

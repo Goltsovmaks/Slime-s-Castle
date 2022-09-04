@@ -69,13 +69,9 @@ public class scr_cnpt_FormBehavior : MonoBehaviour
 
         _currentForm = enumToForm[enum_forms.Slime];
 
-        //_input.Slime.NextForm_Slime.performed += context => NextForm(enum_forms.Slime);
-        //_input.Slime.NextForm_Spider.performed += context => NextForm(enum_forms.Spider);
-        //_input.Slime.NextForm_Firefly.performed += context => NextForm(enum_forms.Firefly);
-
-        input.playerInput.actions["NextForm_Slime"].performed += context => NextForm(enum_forms.Slime);
-        input.playerInput.actions["NextForm_Spider"].performed += context => NextForm(enum_forms.Spider);
-        input.playerInput.actions["NextForm_Firefly"].performed += context => NextForm(enum_forms.Firefly);
+        //input.playerInput.actions["NextForm_Slime"].performed += context => NextForm(enum_forms.Slime);
+        //input.playerInput.actions["NextForm_Spider"].performed += context => NextForm(enum_forms.Spider);
+        //input.playerInput.actions["NextForm_Firefly"].performed += context => NextForm(enum_forms.Firefly);
 
     }
 
