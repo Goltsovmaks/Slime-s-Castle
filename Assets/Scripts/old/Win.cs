@@ -9,10 +9,14 @@ public class Win : MonoBehaviour
     // private Vector3 StartPos;
     //  [SerializeField]private GameObject WinWindow;
 
+    scr_TimeManager TimeManager;
+
 
 
     void Start()
     {
+
+        TimeManager = scr_TimeManager.instance;
 
 
         // StartPos=new Vector3;
@@ -54,6 +58,9 @@ public class Win : MonoBehaviour
 
         SlimeData.FinishedLevelTime.Add(Time.timeSinceLevelLoad);
         SlimeData.NumberOfLevel++;
+
+        TimeManager.GetSinceStartLevel();
+
         
         
         SceneManager.LoadScene("scn_Win");

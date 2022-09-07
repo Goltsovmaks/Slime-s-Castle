@@ -25,7 +25,6 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
     public static event Action PlayerGotACoin;
 
 
-
     private void Awake()
     {
         if (instance == null)

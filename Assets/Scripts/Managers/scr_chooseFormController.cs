@@ -16,9 +16,12 @@ public class scr_chooseFormController : MonoBehaviour
 
     [SerializeField]private GameObject pnl_circleNoneFormPainted;
 
+    [SerializeField][Range(0,  500f)]private float radiusOutForms;
+
+    [SerializeField][Range(0, 500f)]private float radiusNoneForm;
+
 
     private enum_forms currentForm;
-    public scr_cnpt_FormBehavior FormBehavior;
 
     private Vector2 startMousePosition;
 
@@ -85,11 +88,11 @@ public class scr_chooseFormController : MonoBehaviour
         }
 
 
-        if(Vector2.Distance(startMousePosition,screenPosition)>250f){
+        if(Vector2.Distance(startMousePosition,screenPosition)>radiusOutForms){
             startMousePosition+=(screenPosition-startMousePosition)*0.5f;
         }
 
-        if(Vector2.Distance(startMousePosition,screenPosition)<125f){
+        if(Vector2.Distance(startMousePosition,screenPosition)<radiusNoneForm){
             pnl_circleNoneFormPainted.SetActive(true);
             pnl_circleFormPainted.SetActive(false);
 
