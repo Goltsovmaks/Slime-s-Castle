@@ -13,9 +13,9 @@ public class Goal
     public int currentAmount;
     public int requiredAmount;
 
-    public virtual void Init()
+    public virtual void Init(Quest quest)
     {
-        //
+        this.quest = quest;
     }
 
     protected void Evaluate()

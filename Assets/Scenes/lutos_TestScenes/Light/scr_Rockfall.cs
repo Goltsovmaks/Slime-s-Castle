@@ -4,33 +4,29 @@ using UnityEngine;
 
 public class scr_Rockfall : MonoBehaviour
 {
-    public string requiredTriggerID;
+    public int requiredTriggerID;
 
     private Animator animator;
 
     void Start()
     {
-        scr_EventSystem.instance.playerTriggerEnter.AddListener(Rockfall);
+        scr_EventSystem.instance.playerEnteredObjectTrigger.AddListener(Rockfall);
         animator = gameObject.GetComponent<Animator>();
     }
 
 
-    private void Rockfall(TriggerType triggerType, string id)
+    private void Rockfall(int id)
     {
-        if (triggerType == TriggerType.objectTrigger)
+        if (id == requiredTriggerID)
         {
-            if (id == requiredTriggerID)
-            {
-                gameObject.GetComponent<BoxCollider2D>().enabled = true;
-                animator.Play("anim_Rockfall");
-            }
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            animator.Play("anim_Rockfall");
         }
-
     }
 
     private void OnDestroy()
     {
-        scr_EventSystem.instance.playerTriggerEnter.RemoveListener(Rockfall);
+        scr_EventSystem.instance.playerEnteredObjectTrigger.RemoveListener(Rockfall);
     }
 
 }

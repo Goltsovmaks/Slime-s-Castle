@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class KillGoal : Goal
 {
-    private int mobID;
+    public int mobID;
 
-    public KillGoal(Quest quest, bool completed, string description, int mobID, int currentAmount, int requiredAmount)
+    //public KillGoal(Quest quest, bool completed, string description, int mobID, int currentAmount, int requiredAmount)
+    //{
+    //    this.quest = quest;
+    //    this.completed = completed;
+    //    this.description = description;
+    //    this.currentAmount = currentAmount;
+    //    this.requiredAmount = requiredAmount;
+    //    this.mobID = mobID;
+    //}
+    public override void Init(Quest quest)
     {
-        this.quest = quest;
-        this.completed = completed;
-        this.description = description;
-        this.currentAmount = currentAmount;
-        this.requiredAmount = requiredAmount;
-        this.mobID = mobID;
-    }
-    public override void Init()
-    {
-        base.Init();
+        base.Init(quest);
         //подписаться на ивент подбираемых вещей
         //ItemCollectedEvent += ItemCollected(int itemID)
         scr_EventSystem.instance.mobDeath.AddListener(MobKilled);

@@ -838,7 +838,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentForm: {fileID: 0}
-  canChangeForm: 1
 --- !u!114 &429234338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,7 +1016,6 @@ GameObject:
   - component: {fileID: 3934007328035806866}
   - component: {fileID: 8084236435289791946}
   - component: {fileID: 6533173584944579553}
-  - component: {fileID: 1715667084}
   m_Layer: 0
   m_Name: SlimeAttack
   m_TagString: SlimeAttack
@@ -1095,7 +1093,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1019686671086760942, guid: 44c3edd32e5ced64ca24bf74e3c87a7a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1120,17 +1118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd5cb2ff93a05a49af9c6e1bd33aa5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1715667084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2712936937699672267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab6fb48a9038ae44d8a0e23a43f6eccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  whoCanBeDamaged: 01000000
+  damage: 1

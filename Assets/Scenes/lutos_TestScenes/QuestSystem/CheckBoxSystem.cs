@@ -27,8 +27,20 @@ public class CheckBoxSystem : MonoBehaviour
     {
         //test!!!
         missions.Add("q_MushroomCollector", missionStatus.notAssigned);
+        missions.Add("q_FirstKillLesson", missionStatus.notAssigned);
         missions.Add("p_StoneDoor", missionStatus.notAssigned);
+        missions.Add("m_pit", missionStatus.notAssigned);
+
+        scr_EventSystem.instance.playerEnteredMissionTrigger.AddListener(ChangeMissionStatus);
     }
+
+
+    private void ChangeMissionStatus(string missionName, missionStatus status)
+    {
+        missions[missionName] = status;
+    }
+
+
     public void SeeTheStoneDoor()
     {
         missions["p_StoneDoor"] = missionStatus.achieved;
@@ -47,6 +59,11 @@ public class CheckBoxSystem : MonoBehaviour
         }
         //выдает статус миссий
         return missionStatus;
+    }
+
+    private void OnDestroy()
+    {
+        scr_EventSystem.instance.playerEnteredMissionTrigger.RemoveListener(ChangeMissionStatus);
     }
 }
 

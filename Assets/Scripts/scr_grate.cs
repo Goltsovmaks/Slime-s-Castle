@@ -21,19 +21,27 @@ public class scr_grate : scr_grate_abstract
 
     protected override IEnumerator Teleport()
     {
-        yield return new WaitForSeconds(secondsWaitUntillTeleportation);
+        scr_Player.instance.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        InputManager.instance.playerInput.actions.FindActionMap("Slime").Disable();
+
+        
+
+        //yield return new WaitForSeconds(secondsWaitUntillTeleportation);
 
         if (CheckIfPlayerIsCloserToPoint1())
         {
             scr_Player.instance.transform.position = exit2.position;
+            animator.Play("SeepRight");
         }
         else
         {
             scr_Player.instance.transform.position = exit1.position;
+            animator.Play("SeepLeft");
         }
 
         //play another part of animation?
         yield return new WaitForSeconds(secondsWaitAfterTeleportation);
+        scr_Player.instance.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         InputManager.instance.playerInput.actions.FindActionMap("Slime").Enable();
     }
 

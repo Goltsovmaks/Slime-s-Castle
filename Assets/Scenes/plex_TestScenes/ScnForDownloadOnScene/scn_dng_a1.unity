@@ -123,6 +123,120 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &74475409
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6223630874494796144, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796144, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796144, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -24.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796144, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796144, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796144, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796144, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796144, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796144, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796144, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796144, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796145, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.77848816
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796145, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5.1813245
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796145, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.11075592
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796145, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0656621
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796150, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: id
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796150, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796150, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: missionName
+      value: m_pit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796150, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: missionStatus
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796150, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: destroyAfterCollision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796151, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: m_Name
+      value: Trigger (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 47ae12edf0c47ef48a99f1419ba90579, type: 3}
 --- !u!1 &421154032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,8 +1165,9 @@ GameObject:
   - component: {fileID: 854144867}
   - component: {fileID: 854144866}
   - component: {fileID: 854144870}
+  - component: {fileID: 854144871}
   m_Layer: 0
-  m_Name: sprt_NPC_musrooms_0
+  m_Name: BlueMushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1236,17 +1351,35 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854144865}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e21e52f062bf0a48882e432296c65ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myMissions:
-  - q_MushroomCollector
-  - p_StoneDoor
-  myQuests:
-  - 
+  myMissions: []
+  myQuests: []
   myQuestsRequiredState: []
+  currentQuestIndex: 0
+  playerIsClose: 0
+--- !u!114 &854144871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854144865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561aa16fa61aa8b4d8c52228a99322f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMissions:
+  - q_FirstKillLesson
+  - m_pit
+  myQuests:
+  - q_FirstKillLesson
+  myQuestsRequiredState:
+  - 02
   currentQuestIndex: 0
   playerIsClose: 0
 --- !u!1 &898980299
@@ -2214,12 +2347,17 @@ PrefabInstance:
     - target: {fileID: 6223630874494796150, guid: 47ae12edf0c47ef48a99f1419ba90579,
         type: 3}
       propertyPath: id
-      value: dlg_blueMushroom_start
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6223630874494796150, guid: 47ae12edf0c47ef48a99f1419ba90579,
         type: 3}
       propertyPath: type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796150, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: dialogName
+      value: dlg_BlueMushroom_start
       objectReference: {fileID: 0}
     - target: {fileID: 6223630874494796150, guid: 47ae12edf0c47ef48a99f1419ba90579,
         type: 3}
