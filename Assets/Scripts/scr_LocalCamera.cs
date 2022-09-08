@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class scr_LocalCamera : MonoBehaviour
 {
-    public int requiredTriggerID;
+    public string requiredTriggerID;
 
     private CinemachineVirtualCamera virtualCamera;
 
@@ -17,7 +17,7 @@ public class scr_LocalCamera : MonoBehaviour
         virtualCamera = gameObject.GetComponent<CinemachineVirtualCamera>();
     }
 
-    private void TurnOnLocalCamera(int id)
+    private void TurnOnLocalCamera(string id)
     {
         if (id == requiredTriggerID)
         {
@@ -25,7 +25,7 @@ public class scr_LocalCamera : MonoBehaviour
         }
     }
 
-    private void TurnOffLocalCamera(int id)
+    private void TurnOffLocalCamera(string id)
     {
         if (id == requiredTriggerID)
         {

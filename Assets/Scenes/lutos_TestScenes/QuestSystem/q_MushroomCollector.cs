@@ -13,6 +13,7 @@ public class q_MushroomCollector : Quest
         //requiredState = "0";
 
 
+
         //goals.Add(new GatheringGoal(this,false,"Collect 3 GREEN mushrooms",99, 0, 3));
         //goals.Add(new GatheringGoal(this,false, "Collect 5 BLUE mushrooms", 55, 0, 5));
 

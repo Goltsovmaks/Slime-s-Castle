@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class scr_Rockfall : MonoBehaviour
 {
-    public int requiredTriggerID;
+    public string requiredTriggerID;
 
     private Animator animator;
 
@@ -15,7 +15,7 @@ public class scr_Rockfall : MonoBehaviour
     }
 
 
-    private void Rockfall(int id)
+    private void Rockfall(string id)
     {
         if (id == requiredTriggerID)
         {

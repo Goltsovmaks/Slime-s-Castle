@@ -8,10 +8,13 @@ public class scr_Trigger : MonoBehaviour
     public bool destroyAfterCollision;
     public bool destroyAfterLeaving;
 
+    public bool destroyAfterTime;
+    public float time;
+
     [Header("if dialogType")]
     public string dialogName;
     [Header("if objectType")]
-    public int id;
+    public string objectName;
     [Header("if missionType")]
     public string missionName;
     public missionStatus missionStatus;
@@ -29,11 +32,16 @@ public class scr_Trigger : MonoBehaviour
                     scr_EventSystem.instance.playerEnteredDialogTrigger.Invoke(dialogName);
                     break;
                 case TriggerType.objectTrigger:
-                    scr_EventSystem.instance.playerEnteredObjectTrigger.Invoke(id);
+                    scr_EventSystem.instance.playerEnteredObjectTrigger.Invoke(objectName);
                     break;
                 case TriggerType.missionTrigger:
                     scr_EventSystem.instance.playerEnteredMissionTrigger.Invoke(missionName,missionStatus);
                     break;
+            }
+
+            if (destroyAfterTime)
+            {
+                StartCoroutine(DestroyAfterTime());
             }
             
             if (destroyAfterCollision)
@@ -41,6 +49,12 @@ public class scr_Trigger : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    IEnumerator DestroyAfterTime()
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -53,7 +67,7 @@ public class scr_Trigger : MonoBehaviour
                     scr_EventSystem.instance.playerLeftDialogTrigger.Invoke(dialogName);
                     break;
                 case TriggerType.objectTrigger:
-                    scr_EventSystem.instance.playerLeftObjectTrigger.Invoke(id);
+                    scr_EventSystem.instance.playerLeftObjectTrigger.Invoke(objectName);
                     break;
                 case TriggerType.missionTrigger:
                     scr_EventSystem.instance.playerLeftMissionTrigger.Invoke(missionName, missionStatus);

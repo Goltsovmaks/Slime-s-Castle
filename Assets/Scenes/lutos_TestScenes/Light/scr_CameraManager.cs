@@ -14,6 +14,7 @@ public class scr_CameraManager : MonoBehaviour
 
     public GameObject mainVcam;
     public GameObject pipeCrawlingVcam;
+    public Camera mainCamera;
 
 
 
@@ -36,7 +37,7 @@ public class scr_CameraManager : MonoBehaviour
 
     public void SwitchCameraState()
     {
-        //переписать если больше камер
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         if (mainCameraIsActive)
         {
             animator.Play("PipeCrawling");
