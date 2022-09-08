@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &754160921
 Transform:
   m_ObjectHideFlags: 0
@@ -477,6 +477,303 @@ MonoBehaviour:
   - {x: -8.083218, y: 6.5793877, z: 0}
   - {x: -3.3205342, y: 4.605955, z: 0}
   - {x: 4.340745, y: 5.2227535, z: 0}
+--- !u!1 &1158939433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1158939434}
+  - component: {fileID: 1158939435}
+  m_Layer: 0
+  m_Name: Light 2D (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1158939434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158939433}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.79, y: 3.2, z: 2.1140249}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1955775768}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1158939435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158939433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.85
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_Vertices:
+  - position: {x: 14.438026, y: 1.1886368, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.220324, y: 1.1986294, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.230059, y: 1.1857796, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 13.235154, y: 5.227418, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 13.178977, y: 1.7132435, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 11.7950115, y: 1.7561417, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 10.813145, y: 7.2753553, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 3.3791056, y: 9.562546, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.722055, y: 8.723052, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.230059, y: 1.1857796, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.220324, y: 1.1986294, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 13.235154, y: 5.227418, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 10.813145, y: 7.2753553, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 3.3791056, y: 9.562546, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.722055, y: 8.723052, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 11.7950115, y: 1.7561417, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 13.178977, y: 1.7132435, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 14.438026, y: 1.1886368, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.2294, y: 0.4157, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.3505, y: 0.4252, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.4687, y: 0.4536, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.5808, y: 0.5003, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.6843, y: 0.564, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.7764, y: 0.6432, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.855, y: 0.7359, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.9179, y: 0.8398, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.9638, y: 0.9523, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.9914, y: 1.0706, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 19, y: 1.1918, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.9894, y: 1.3128, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.96, y: 1.4307, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.9124, y: 1.5425, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.8454, y: 1.6485, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.8357, y: 1.6614, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.7553, y: 1.7524, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 18.7043, y: 1.7975, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 13.7261, y: 5.8207, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 11.3103, y: 7.8633, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 11.2116, y: 7.9342, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 11.103, y: 7.9886, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 11.0395, y: 8.0113, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 3.6055, y: 10.2985, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 3.4869, y: 10.3249, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 3.3657, y: 10.3324, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 3.2448, y: 10.3207, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 3.1272, y: 10.2901, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 3.0311, y: 10.2494, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.374, y: 9.4099, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.2703, y: 9.3466, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.1778, y: 9.2678, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.0989, y: 9.1754, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.0355, y: 9.0718, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.9892, y: 8.9595, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.9611, y: 8.8412, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.952, y: 8.7201, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.962, y: 8.599, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.991, y: 8.481, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.0382, y: 8.3691, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.1024, y: 8.2659, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.182, y: 8.1741, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.284, y: 8.0897, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 11.357, y: 1.1228, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 11.4621, y: 1.0618, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 11.5754, y: 1.0181, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 11.6942, y: 0.9927, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 11.7711, y: 0.9865, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 13.0134, y: 0.948, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 14.1419, y: 0.4778, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 14.2573, y: 0.4401, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 14.4374, y: 0.4186, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  m_Triangles: 000001000200000003000100040003000000050003000400050006000300050007000600070005000800090012001200090012001300090013001400090014001500090015001600090016001700090017001800090018001900090019001a0009001a001b0009001b001c0009001c001d0009001d001e0009001e001f0009001f00200009000a0021000900200021000a00210022000a00220023000a000b0024000a00230024000b000c0025000b00240025000c00250026000c00260027000c00270028000c000d0029000c00280029000d0029002a000d002a002b000d002b002c000d002c002d000d002d002e000d000e002f000d002e002f000e002f0030000e00300031000e00310032000e00320033000e00330034000e00340035000e00350036000e00360037000e00370038000e00380039000e0039003a000e003a003b000e003b003c000e000f003d000e003c003d000f003d003e000f003e003f000f003f0040000f00400041000f00100042000f0041004200100011004300100042004300110043004400110044004500120009001100120045001100
+  m_LocalBounds:
+    m_Center: {x: 9.976, y: 5.37405, z: 0}
+    m_Extent: {x: 9.024, y: 4.95835, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.77
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: 18.230059, y: 1.1857796, z: 0}
+  - {x: 18.220324, y: 1.1986294, z: 0}
+  - {x: 13.235154, y: 5.227418, z: 0}
+  - {x: 10.813145, y: 7.2753553, z: 0}
+  - {x: 3.3791056, y: 9.562546, z: 0}
+  - {x: 1.722055, y: 8.723052, z: 0}
+  - {x: 11.7950115, y: 1.7561417, z: 0}
+  - {x: 13.178977, y: 1.7132435, z: 0}
+  - {x: 14.438026, y: 1.1886368, z: 0}
 --- !u!1 &1345466935
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +964,423 @@ MonoBehaviour:
   - {x: -6.92371, y: 1.5090818, z: 0}
   - {x: -14.052017, y: -8.518644, z: 0}
   - {x: -14.121355, y: -14.330315, z: 0}
+--- !u!1 &1358446605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1358446606}
+  - component: {fileID: 1358446607}
+  m_Layer: 0
+  m_Name: Light 2D (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1358446606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358446605}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.23, y: 6.62, z: 2.1140249}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1955775768}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1358446607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358446605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.8
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.82
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_Vertices:
+  - position: {x: -0.48318863, y: -2.1745815, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.81936073, y: 3.7932873, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.34456825, y: 3.806881, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.84682083, y: 4.272538, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.3284664, y: 4.2810526, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.3451557, y: 3.7796621, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.753439, y: 3.7252245, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.8078766, y: 2.8406115, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.3417778, y: 2.7201147, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.3561172, y: 2.3390799, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -6.8253593, y: -2.196621, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -7.12895, y: -2.1720772, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.48318863, y: -2.1745815, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.34456825, y: 3.806881, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.81936073, y: 3.7932873, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.84682083, y: 4.272538, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.3284664, y: 4.2810526, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.3451557, y: 3.7796621, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.753439, y: 3.7252245, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.8078766, y: 2.8406115, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.3417778, y: 2.7201147, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.3561172, y: 2.3390799, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -7.12895, y: -2.1720772, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -6.8253593, y: -2.196621, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.4778, y: -3.6945, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.3073, y: -3.6843, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.1391, y: -3.6551, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.0248, y: -3.6071, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.1823, y: -3.5411, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.3314, y: -3.4579, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.4702, y: -3.3584, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.597, y: -3.244, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.7101, y: -3.1161, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.8082, y: -2.9763, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.89, y: -2.8264, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.9545, y: -2.6683, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.0008, y: -2.5039, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.0284, y: -2.3354, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.0365, y: -2.2097, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.1751, y: 3.7716, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.1695, y: 3.9423, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.1447, y: 4.1112, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.1012, y: 4.2763, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 1.0394, y: 4.4355, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.9601, y: 4.5868, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.8644, y: 4.7282, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.7534, y: 4.858, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.6286, y: 4.9745, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.4914, y: 5.0763, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.4111, y: 5.1229, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.3909, y: 5.1549, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.2841, y: 5.2881, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.163, y: 5.4086, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.0292, y: 5.5147, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.1156, y: 5.6051, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.2697, y: 5.6787, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.4311, y: 5.7345, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.5977, y: 5.7719, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.8381, y: 5.7925, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.3197, y: 5.801, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.4902, y: 5.7924, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.6587, y: 5.7647, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.8231, y: 5.7183, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -2.9812, y: 5.6537, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.131, y: 5.5718, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.2707, y: 5.4736, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.3986, y: 5.3604, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.5129, y: 5.2336, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.6123, y: 5.0947, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.6954, y: 4.9455, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.7133, y: 4.9027, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.7262, y: 4.8931, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.851, y: 4.7767, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -3.9621, y: 4.6469, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.0578, y: 4.5055, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.1371, y: 4.3543, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.1989, y: 4.1951, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.2425, y: 4.03, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.2554, y: 3.9327, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.2875, y: 3.91, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.415, y: 3.7964, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.529, y: 3.6692, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.6279, y: 3.5301, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.7107, y: 3.3807, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.7761, y: 3.2229, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.8235, y: 3.0589, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -4.8459, y: 2.9271, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.2949, y: -1.1968, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.3969, y: -1.3338, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.4829, y: -1.4813, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.5518, y: -1.6375, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.6028, y: -1.8005, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.6352, y: -1.9682, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.6485, y: -2.1384, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.6427, y: -2.3091, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.6178, y: -2.478, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.5741, y: -2.6431, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.5121, y: -2.8022, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.4327, y: -2.9534, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.3368, y: -3.0947, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.2257, y: -3.2244, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -8.1007, y: -3.3408, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -7.9635, y: -3.4424, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -7.8157, y: -3.528, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -7.6593, y: -3.5965, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -7.4961, y: -3.647, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -7.2517, y: -3.687, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -6.9481, y: -3.7116, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -6.82, y: -3.7166, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  m_Triangles: 0000010002000000030001000000040003000000050004000000060005000000070006000000080007000000090008000a000900000009000a000b000c00180018000c00180019000c0019001a000c001a001b000c001b001c000c001c001d000c001d001e000c001e001f000c001f0020000c00200021000c00210022000c00220023000c00230024000c00240025000c00250026000c000d0027000c00260027000d00270028000d00280029000d0029002a000d002a002b000d002b002c000d002c002d000d002d002e000d002e002f000d002f0030000d000e0031000d00300031000e000f0032000e00310032000f00320033000f00330034000f00340035000f00350036000f00360037000f00370038000f00380039000f0039003a000f0010003b000f003a003b0010003b003c0010003c003d0010003d003e0010003e003f0010003f004000100040004100100041004200100042004300100043004400100044004500100011004600100045004600110012004700110046004700120047004800120048004900120049004a0012004a004b0012004b004c0012004c004d00120013004e0012004d004e00130014004f0013004e004f0014004f005000140050005100140051005200140052005300140053005400140054005500140015005600140055005600150016005700150056005700160057005800160058005900160059005a0016005a005b0016005b005c0016005c005d0016005d005e0016005e005f0016005f006000160060006100160061006200160062006300160063006400160064006500160065006600160066006700160067006800160068006900160069006a00160017006b0016006a006b0017006b006c0018000c00170018006c001700
+  m_LocalBounds:
+    m_Center: {x: -3.7367003, y: 1.0422001, z: 0}
+    m_Extent: {x: 4.9118004, y: 4.7588, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 1.52
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.48318863, y: -2.1745815, z: 0}
+  - {x: -0.34456825, y: 3.806881, z: 0}
+  - {x: -0.81936073, y: 3.7932873, z: 0}
+  - {x: -0.84682083, y: 4.272538, z: 0}
+  - {x: -2.3284664, y: 4.2810526, z: 0}
+  - {x: -2.3451557, y: 3.7796621, z: 0}
+  - {x: -2.753439, y: 3.7252245, z: 0}
+  - {x: -2.8078766, y: 2.8406115, z: 0}
+  - {x: -3.3417778, y: 2.7201147, z: 0}
+  - {x: -3.3561172, y: 2.3390799, z: 0}
+  - {x: -7.12895, y: -2.1720772, z: 0}
+  - {x: -6.8253593, y: -2.196621, z: 0}
 --- !u!1 &1426785408
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +1397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1426785409
 Transform:
   m_ObjectHideFlags: 0
@@ -1090,7 +1804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1436249928
 Transform:
   m_ObjectHideFlags: 0
@@ -1871,6 +2585,8 @@ Transform:
   - {fileID: 1560948046}
   - {fileID: 1436249928}
   - {fileID: 754160921}
+  - {fileID: 1158939434}
+  - {fileID: 1358446606}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2440,7 +3156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!212 &48411891508050981
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2542,7 +3258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &80806097639466944
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2733,7 +3449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &133760706178345750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2907,7 +3623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &227194442338602368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2957,7 +3673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &255708676471816742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3088,7 +3804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &306573959099476612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3182,7 +3898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &368765348447102048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3556,7 +4272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &595779722524544397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3618,7 +4334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!50 &607072905142323600
 Rigidbody2D:
   serializedVersion: 4
@@ -3675,7 +4391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &664680429873051587
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4465,7 +5181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &791781371624795226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5315,7 +6031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!50 &1164736022508116867
 Rigidbody2D:
   serializedVersion: 4
@@ -5470,7 +6186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &1230424520030682134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5773,7 +6489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &1360088581623466963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5938,7 +6654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!1 &1451349445959765556
 GameObject:
   m_ObjectHideFlags: 0
@@ -5974,7 +6690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &1455603349035411415
 Transform:
   m_ObjectHideFlags: 0
@@ -6259,7 +6975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &1572062177904724380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6338,7 +7054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!212 &1632216834452588042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39163,7 +39879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!156049354 &1819111682099841980
 Grid:
   m_ObjectHideFlags: 0
@@ -39211,7 +39927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &1862474768392466575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39261,7 +39977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &1934702056981090479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39351,7 +40067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!1 &1951800619067774432
 GameObject:
   m_ObjectHideFlags: 0
@@ -39387,7 +40103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!212 &1965332431359147314
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39670,7 +40386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!212 &2108511264962988954
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40003,7 +40719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &2229422660147587597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40209,7 +40925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!50 &2331521293971516153
 Rigidbody2D:
   serializedVersion: 4
@@ -40502,7 +41218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &2406704742664764634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40635,7 +41351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!1 &2519430148184610657
 GameObject:
   m_ObjectHideFlags: 0
@@ -40671,7 +41387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &2525361539181582065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40858,7 +41574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &2610559872100337547
 Transform:
   m_ObjectHideFlags: 0
@@ -41357,7 +42073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!1 &2815016848950666478
 GameObject:
   m_ObjectHideFlags: 0
@@ -41393,7 +42109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!483693784 &2841215815078416892
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -41789,7 +42505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &3061365412361798608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41853,7 +42569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &3081692870813499741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41951,7 +42667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &3148355470677070434
 Transform:
   m_ObjectHideFlags: 0
@@ -42098,7 +42814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!50 &3270361726165371947
 Rigidbody2D:
   serializedVersion: 4
@@ -42291,7 +43007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!1 &3391360196622291346
 GameObject:
   m_ObjectHideFlags: 0
@@ -42391,7 +43107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &3444133201892271346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42562,7 +43278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &3499475978333107442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42612,7 +43328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &3531855206197407615
 Transform:
   m_ObjectHideFlags: 0
@@ -42867,7 +43583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!1 &3659689004670456599
 GameObject:
   m_ObjectHideFlags: 0
@@ -43098,7 +43814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &3827584769722494601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43169,7 +43885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &3854689719501003247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43775,7 +44491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &4226387499469553205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43955,7 +44671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &4297423071493810263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44027,7 +44743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!212 &4322909309463366119
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -44517,7 +45233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!212 &4560255631800476174
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -44856,7 +45572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!50 &4672170429996031592
 Rigidbody2D:
   serializedVersion: 4
@@ -44996,7 +45712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!1 &4758324407222384708
 GameObject:
   m_ObjectHideFlags: 0
@@ -45032,7 +45748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &4762250045166527006
 Transform:
   m_ObjectHideFlags: 0
@@ -46077,7 +46793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &5249057605367443865
 Transform:
   m_ObjectHideFlags: 0
@@ -46127,7 +46843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &5272355348933113084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46319,7 +47035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &5404757053604371784
 Transform:
   m_ObjectHideFlags: 0
@@ -46510,7 +47226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &5480546125537103718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46643,7 +47359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!50 &5592501108991157006
 Rigidbody2D:
   serializedVersion: 4
@@ -46795,7 +47511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &5658549845998435745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46970,7 +47686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &5708876307073533780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47020,7 +47736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &5749965337082428790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47113,7 +47829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &5812840516397888986
 Transform:
   m_ObjectHideFlags: 0
@@ -47163,7 +47879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &5830625853348209113
 Transform:
   m_ObjectHideFlags: 0
@@ -47328,7 +48044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &5919911393828599502
 Transform:
   m_ObjectHideFlags: 0
@@ -47522,7 +48238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!212 &6013005445625736718
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47650,7 +48366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &6082994059626499746
 Transform:
   m_ObjectHideFlags: 0
@@ -47858,7 +48574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &6182917380545992389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48143,7 +48859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!212 &6256019563400006755
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -48349,7 +49065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &6333856369053135147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48491,7 +49207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &6415451394272964356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48828,7 +49544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &6514261394692893752
 Transform:
   m_ObjectHideFlags: 0
@@ -49055,7 +49771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &6629439615930685715
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49419,7 +50135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &6842456531281015026
 Transform:
   m_ObjectHideFlags: 0
@@ -49828,7 +50544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &7111035271084998386
 Transform:
   m_ObjectHideFlags: 0
@@ -50010,7 +50726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &7201723805868520931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50068,7 +50784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!1 &7263108916779508667
 GameObject:
   m_ObjectHideFlags: 0
@@ -50104,7 +50820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &7287126862781957013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50308,7 +51024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!1 &7360434488644575383
 GameObject:
   m_ObjectHideFlags: 0
@@ -50344,7 +51060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &7371917242040066202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50456,7 +51172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!1839735485 &7406490781099128204
 Tilemap:
   m_ObjectHideFlags: 0
@@ -50554,7 +51270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!50 &7433388040644803378
 Rigidbody2D:
   serializedVersion: 4
@@ -50792,7 +51508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &7530005782854895327
 Transform:
   m_ObjectHideFlags: 0
@@ -50982,7 +51698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!212 &7610791695624060359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -51495,7 +52211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &7838061057221010907
 Transform:
   m_ObjectHideFlags: 0
@@ -51933,7 +52649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!50 &8003392507212537934
 Rigidbody2D:
   serializedVersion: 4
@@ -52373,7 +53089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!1 &8212499124786038635
 GameObject:
   m_ObjectHideFlags: 0
@@ -52409,7 +53125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &8217323837609700950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52564,7 +53280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &8265735548980918534
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52922,7 +53638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!212 &8413083212038413443
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53152,7 +53868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &8552435902182083922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53335,7 +54051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!114 &8646188793985602696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53407,7 +54123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &8675271525379145189
 Transform:
   m_ObjectHideFlags: 0
@@ -54614,7 +55330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!50 &8840099209351912745
 Rigidbody2D:
   serializedVersion: 4
@@ -54883,7 +55599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!61 &8934809052643933257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55075,7 +55791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!4 &9024658244876648046
 Transform:
   m_ObjectHideFlags: 0
@@ -55435,7 +56151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repulsiveForceHorizontal: 50
-  repulsiveForceVertical: 3
+  repulsiveForceVertical: 1
 --- !u!50 &9178772873163616950
 Rigidbody2D:
   serializedVersion: 4
