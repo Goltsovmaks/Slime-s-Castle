@@ -31,7 +31,7 @@ public class scr_TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetTimeeStartLevel();
+        SetTimeStartLevel();
         
     }
 
@@ -43,13 +43,21 @@ public class scr_TimeManager : MonoBehaviour
 
     }
 
-    public void SetTimeeStartLevel(){
+    public void SetTimeStartLevel(){
         timeStartLevel = Time.time;
     }
 
-    public float GetSinceStartLevel(){
+    public float GetTimeSinceStartLevel(){
         timeSinceStartLevel = Time.time - timeStartLevel;
         return timeSinceStartLevel;
+    }
+
+    public void SetTimeCompleteLevel(){
+        timeCompleteLevel = timeSinceStartLevel;
+    }
+
+    public float GetTimeCompleteLevel(){
+        return timeCompleteLevel;
     }
 
 

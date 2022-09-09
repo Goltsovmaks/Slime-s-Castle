@@ -28,7 +28,8 @@ public class Scr_WinPnl : MonoBehaviour
 
     private void Start() {
         TimeManager = scr_TimeManager.instance;
-        ComplitedTime.text += TimeManager.GetSinceStartLevel()+" s";
+        ComplitedTime.text += "Level complited in "+TimeManager.GetTimeCompleteLevel()+" s";
+
     }
 
     void CloseGame()

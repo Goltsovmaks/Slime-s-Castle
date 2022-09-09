@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class Win : MonoBehaviour
 {
     // public Transform slime;
@@ -9,14 +11,16 @@ public class Win : MonoBehaviour
     // private Vector3 StartPos;
     //  [SerializeField]private GameObject WinWindow;
 
+    // [SerializeField]private Text ComplitedTime;
+
     scr_TimeManager TimeManager;
 
 
 
     void Start()
     {
-
         TimeManager = scr_TimeManager.instance;
+
 
 
         // StartPos=new Vector3;
@@ -54,14 +58,16 @@ public class Win : MonoBehaviour
         // }
         // WinWindow.SetActive(false);
                 // SlimeData.Add(Time.timeSinceLevelLoad)
-        SlimeData.currentLevel=SceneManager.GetActiveScene().name;
 
-        SlimeData.FinishedLevelTime.Add(Time.timeSinceLevelLoad);
-        SlimeData.NumberOfLevel++;
+        // SlimeData.currentLevel=SceneManager.GetActiveScene().name;
 
-        TimeManager.GetSinceStartLevel();
+        // SlimeData.FinishedLevelTime.Add(Time.timeSinceLevelLoad);
+        // SlimeData.NumberOfLevel++;
 
-        
+        // TimeManager.GetSinceStartLevel();
+        // ComplitedTime.text = "Level complited in "+TimeManager.GetSinceStartLevel()+" s";
+
+        TimeManager.SetTimeCompleteLevel();
         
         SceneManager.LoadScene("scn_Win");
     }
