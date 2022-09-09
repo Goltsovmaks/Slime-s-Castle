@@ -831,7 +831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  whoCanBeDamaged: 
+  whoCanBeDamaged: 00000000
 --- !u!61 &712910966349631372
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1232,7 +1232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  whoCanBeDamaged: 
+  whoCanBeDamaged: 00000000
 --- !u!4 &988730932859819024
 Transform:
   m_ObjectHideFlags: 0
@@ -4098,7 +4098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  whoCanBeDamaged: 
+  whoCanBeDamaged: 00000000
 --- !u!4 &4627942253521028629
 Transform:
   m_ObjectHideFlags: 0
@@ -4475,7 +4475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  whoCanBeDamaged: 
+  whoCanBeDamaged: 00000000
 --- !u!4 &4866299312741392949
 Transform:
   m_ObjectHideFlags: 0
@@ -4721,6 +4721,26 @@ Tilemap:
       m_AnimationSpeed: 7.1512985
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
+  - first: {x: -40, y: 6, z: 0}
+    second:
+      m_AnimatedSprites:
+      - {fileID: -5539417095282696931, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      - {fileID: -1729736412205058821, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      - {fileID: -7171317854284301616, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      - {fileID: 4942957186593010893, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      m_AnimationSpeed: 7.451292
+      m_AnimationTimeOffset: 0
+      m_IsLooping: 1
+  - first: {x: -57, y: 7, z: 0}
+    second:
+      m_AnimatedSprites:
+      - {fileID: -5539417095282696931, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      - {fileID: -1729736412205058821, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      - {fileID: -7171317854284301616, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      - {fileID: 4942957186593010893, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      m_AnimationSpeed: 7.605937
+      m_AnimationTimeOffset: 0
+      m_IsLooping: 1
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -4951,7 +4971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  whoCanBeDamaged: 
+  whoCanBeDamaged: 00000000
 --- !u!1 &5328393280365736797
 GameObject:
   m_ObjectHideFlags: 0
@@ -10259,6 +10279,16 @@ Tilemap:
       m_AnimationSpeed: 8.578436
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
+  - first: {x: -59, y: -3, z: 0}
+    second:
+      m_AnimatedSprites:
+      - {fileID: -5539417095282696931, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      - {fileID: -1729736412205058821, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      - {fileID: -7171317854284301616, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      - {fileID: 4942957186593010893, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
+      m_AnimationSpeed: 8.072151
+      m_AnimationTimeOffset: 0
+      m_IsLooping: 1
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -10993,7 +11023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  whoCanBeDamaged: 
+  whoCanBeDamaged: 00000000
 --- !u!1 &7282244192091921877
 GameObject:
   m_ObjectHideFlags: 0
@@ -41837,7 +41867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  whoCanBeDamaged: 
+  whoCanBeDamaged: 00000000
 --- !u!4 &8246374615938284639
 Transform:
   m_ObjectHideFlags: 0

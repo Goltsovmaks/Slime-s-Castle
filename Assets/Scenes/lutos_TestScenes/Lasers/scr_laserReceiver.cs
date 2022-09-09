@@ -17,7 +17,8 @@ public class scr_laserReceiver : MonoBehaviour
     //what is that?
     public int indexOfObject;
 
-    SpriteRenderer spriteRenderer;
+    //SpriteRenderer spriteRenderer;
+    Animator animator;
 
     private void Start()
     {
@@ -36,7 +37,8 @@ public class scr_laserReceiver : MonoBehaviour
                 print("На объекте " + objectsConnected[i].name + " нет скрипта DoorLogic");
             }
         }
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -74,11 +76,11 @@ public class scr_laserReceiver : MonoBehaviour
         turnObjectsConnected();
         if (isOn)
         {
-            spriteRenderer.color = Color.cyan;
+            animator.SetBool("isOn",true);
         }
         else
         {
-            spriteRenderer.color = Color.magenta;
+            animator.SetBool("isOn", false);
         }
         
     }

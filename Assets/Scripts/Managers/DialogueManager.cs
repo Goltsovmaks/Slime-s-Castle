@@ -57,17 +57,14 @@ public class DialogueManager : MonoBehaviour
         input.playerInput.actions["ContinueDialogue"].performed += ContinuePresseed;
 
         SaveController = scr_SaveController.instance;
-        scr_EventSystem.instance.playerTriggerEnter.AddListener(StartTriggerDialog);
+        scr_EventSystem.instance.playerEnteredDialogTrigger.AddListener(StartTriggerDialog);
 
     }
 
 
-    private void StartTriggerDialog(TriggerType triggerType, string id)
+    private void StartTriggerDialog(string dialogName)
     {
-        if (triggerType == TriggerType.dialogTrigger)
-        {
-            StartDialogue(id);
-        }
+        StartDialogue(dialogName);
     }
 
 
@@ -155,7 +152,7 @@ public class DialogueManager : MonoBehaviour
     private void OnDestroy() 
     {
         InputManager.instance.playerInput.actions["ContinueDialogue"].performed -= ContinuePresseed;
-        scr_EventSystem.instance.playerTriggerEnter.RemoveListener(StartTriggerDialog);
+        scr_EventSystem.instance.playerEnteredDialogTrigger.RemoveListener(StartTriggerDialog);
     }
 
     public void SetupDialogueFile(string nameDialogue){

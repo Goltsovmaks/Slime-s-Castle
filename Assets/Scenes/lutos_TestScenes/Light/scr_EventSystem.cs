@@ -7,8 +7,15 @@ public class scr_EventSystem : MonoBehaviour
 {
     public static scr_EventSystem instance = null;
 
-    public UnityEvent<TriggerType, string> playerTriggerEnter;
-    public UnityEvent<int> playerTriggerExit;
+    public UnityEvent<string> playerEnteredDialogTrigger;
+    public UnityEvent<string> playerEnteredObjectTrigger;
+    public UnityEvent<string, missionStatus> playerEnteredMissionTrigger;
+
+    public UnityEvent<string> playerLeftDialogTrigger;
+    public UnityEvent<string> playerLeftObjectTrigger;
+    public UnityEvent<string, missionStatus> playerLeftMissionTrigger;
+
+    public UnityEvent<int> playerTriggerExit; // ???
 
     public UnityEvent slimeHasAttacked;
     public UnityEvent<int> mobDeath;
