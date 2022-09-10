@@ -119,8 +119,10 @@ public class scr_chooseFormController : MonoBehaviour
 
         if(pnl_chooseForm.activeSelf){
             Time.timeScale = 0.01f;
+            Cursor.visible = false;
         }else{
             Time.timeScale = 1;
+            
         }
     }
 

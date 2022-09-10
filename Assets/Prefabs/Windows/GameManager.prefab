@@ -820,7 +820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195913930271259088}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.63, y: -23.10842, z: -10}
+  m_LocalPosition: {x: 50.824, y: -23.765, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7555864701771061361}
@@ -1152,6 +1152,85 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1761477624089332392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3676363146197017098}
+  - component: {fileID: 3037667303367874615}
+  - component: {fileID: 7500584526192933785}
+  m_Layer: 5
+  m_Name: txt_continue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3676363146197017098
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761477624089332392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6201013226269543230}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -155}
+  m_SizeDelta: {x: -120, y: -180}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3037667303367874615
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761477624089332392}
+  m_CullTransparentMesh: 1
+--- !u!114 &7500584526192933785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761477624089332392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 19e868df24675a646bac592e2ad90966, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: < space - next>
 --- !u!1 &1980588180429304655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,6 +1425,7 @@ RectTransform:
   - {fileID: 7791779216847141700}
   - {fileID: 8830174693710580245}
   - {fileID: 2358597227952152319}
+  - {fileID: 3676363146197017098}
   m_Father: {fileID: 3921113151203235494}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1592,8 +1672,8 @@ Transform:
   - {fileID: 4527493731506774672}
   - {fileID: 7555864701771061361}
   - {fileID: 7649855063935883778}
-  - {fileID: 5905747745046062701}
   - {fileID: 4106828427184670307}
+  - {fileID: 5905747745046062701}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17235,6 +17315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeStartLevel: 0
   timeSinceStartLevel: 0
+  timeLastGetTime: 0
   timeCompleteLevel: 0
 --- !u!1 &6124400611183367298
 GameObject:
@@ -17891,7 +17972,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4420657307247525582}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2844990150561520105
 MonoBehaviour:
@@ -17905,7 +17986,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b05d39aa612b449b67930eaffd984c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTriggerEnter:
+  playerEnteredDialogTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  playerEnteredObjectTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  playerEnteredMissionTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  playerLeftDialogTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  playerLeftObjectTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  playerLeftMissionTrigger:
     m_PersistentCalls:
       m_Calls: []
   playerTriggerExit:
