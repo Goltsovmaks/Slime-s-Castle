@@ -37,7 +37,7 @@ public class scr_TimeCounter : MonoBehaviour
                 TopTimecounterWhite.SetActive(false);
                 TopTimecounterGreen.SetActive(true);
                 soundCounterActive.Play();
-                TimeManager.GetTimeSinceStartLevel();
+                TimeManager.SetTimeStartLevel();
             }
             
         }

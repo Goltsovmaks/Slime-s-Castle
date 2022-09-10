@@ -267,7 +267,7 @@ public class MenuController: MonoBehaviour{
         save.newGame = false;
         save.position = GetSpawnPositionEvent();
         save.playerCoins = scr_Player.instance.currentNumberOfCoins;
-        save.totalTime += TimeManager.GetTimeCompleteLevel();
+        save.totalTime += TimeManager.GetTimeSinceGetLastTime();
 
         GameManager.currentSaveGame=save;
         SaveController.SetSaveGame(numberOfSave,save);

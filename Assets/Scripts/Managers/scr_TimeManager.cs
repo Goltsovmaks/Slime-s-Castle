@@ -10,6 +10,8 @@ public class scr_TimeManager : MonoBehaviour
 
     [SerializeField]private float timeSinceStartLevel;
 
+    [SerializeField]private float timeLastGetTime;
+
     [SerializeField]private float timeCompleteLevel;
 
     // private Dictionary<string,float>;
@@ -48,16 +50,23 @@ public class scr_TimeManager : MonoBehaviour
     }
 
     public float GetTimeSinceStartLevel(){
-        timeSinceStartLevel = Time.time - timeStartLevel;
-        return timeSinceStartLevel;
+        
+        return Time.time - timeStartLevel;
     }
 
     public void SetTimeCompleteLevel(){
+        timeSinceStartLevel = Time.time - timeStartLevel;
         timeCompleteLevel = timeSinceStartLevel;
     }
 
     public float GetTimeCompleteLevel(){
         return timeCompleteLevel;
+    }
+
+    public float GetTimeSinceGetLastTime(){
+        float timeLastRequest = Time.time - timeLastGetTime;
+        timeLastGetTime = Time.time;
+        return timeLastRequest;
     }
 
 

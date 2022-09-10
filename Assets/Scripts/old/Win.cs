@@ -14,12 +14,14 @@ public class Win : MonoBehaviour
     // [SerializeField]private Text ComplitedTime;
 
     scr_TimeManager TimeManager;
+    scr_GameManager GameManager;
 
 
 
     void Start()
     {
         TimeManager = scr_TimeManager.instance;
+        GameManager = scr_GameManager.instance;
 
 
 
@@ -68,6 +70,10 @@ public class Win : MonoBehaviour
         // ComplitedTime.text = "Level complited in "+TimeManager.GetSinceStartLevel()+" s";
 
         TimeManager.SetTimeCompleteLevel();
+
+        //         save.totalTime += 
+
+        // GameManager.currentSaveGame.totalTime +=TimeManager.GetTimeCompleteLevel();
         
         SceneManager.LoadScene("scn_Win");
     }

@@ -1580,6 +1580,11 @@ PrefabInstance:
       propertyPath: id
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6223630874494796150, guid: 47ae12edf0c47ef48a99f1419ba90579,
+        type: 3}
+      propertyPath: objectName
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6223630874494796151, guid: 47ae12edf0c47ef48a99f1419ba90579,
         type: 3}
       propertyPath: m_Name
