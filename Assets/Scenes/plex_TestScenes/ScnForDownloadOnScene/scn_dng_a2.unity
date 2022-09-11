@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2718763238031960732}
     m_Modifications:
+    - target: {fileID: 8553749429743856205, guid: 53860a5ec1a1d3545bce4f2053d32a9b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 8553749429743856207, guid: 53860a5ec1a1d3545bce4f2053d32a9b,
         type: 3}
       propertyPath: m_Name
@@ -2843,6 +2848,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8553749429743856205, guid: 53860a5ec1a1d3545bce4f2053d32a9b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 8553749429743856207, guid: 53860a5ec1a1d3545bce4f2053d32a9b,
         type: 3}
       propertyPath: m_Name
@@ -52597,7 +52607,7 @@ SpriteRenderer:
   m_Color: {r: 0, g: 0.6530299, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 2
   m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0
   m_SpriteTileMode: 0
@@ -54256,7 +54266,7 @@ BoxCollider2D:
     oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0
-    drawMode: 0
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2

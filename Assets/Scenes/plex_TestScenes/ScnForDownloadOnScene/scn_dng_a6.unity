@@ -291,6 +291,11 @@ PrefabInstance:
       propertyPath: reusable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2618903378361664059, guid: b98e092ce371a434090370106f911fb6,
+        type: 3}
+      propertyPath: timeStanding
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7165679533870783734, guid: b98e092ce371a434090370106f911fb6,
         type: 3}
       propertyPath: m_RootOrder
@@ -996,6 +1001,11 @@ PrefabInstance:
         type: 3}
       propertyPath: reusable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618903378361664059, guid: b98e092ce371a434090370106f911fb6,
+        type: 3}
+      propertyPath: timeStanding
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7165679533870783734, guid: b98e092ce371a434090370106f911fb6,
         type: 3}
@@ -1783,6 +1793,11 @@ PrefabInstance:
         type: 3}
       propertyPath: reusable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618903378361664059, guid: b98e092ce371a434090370106f911fb6,
+        type: 3}
+      propertyPath: timeStanding
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7165679533870783734, guid: b98e092ce371a434090370106f911fb6,
         type: 3}

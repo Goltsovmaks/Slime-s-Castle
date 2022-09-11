@@ -220,7 +220,7 @@ public class MenuController: MonoBehaviour{
             // Если существует сохранение по конкретному пути - включаю необходимые панели, заполняю текстовые поля
             if(SaveController.ExistsSaveGame(i)){
                 SaveGame save = SaveController.GetSaveGame(i);
-                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = save.totalTime + " s";
+                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = save.GetTotalTime();
                 transform_pnl_save.Find("txt_lastSaveResult").GetComponent<Text>().text = save.dataOfLastSave;
             }
 
@@ -244,7 +244,7 @@ public class MenuController: MonoBehaviour{
                 transform_pnl_save.Find("pnl_continueGame").gameObject.SetActive(true);
                 SaveGame save = SaveController.GetSaveGame(i);
 
-                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = save.totalTime + " s";
+                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = save.GetTotalTime();
                 transform_pnl_save.Find("txt_lastSaveResult").GetComponent<Text>().text = save.dataOfLastSave;
             }
 
@@ -267,6 +267,7 @@ public class MenuController: MonoBehaviour{
         save.newGame = false;
         save.position = GetSpawnPositionEvent();
         save.playerCoins = scr_Player.instance.currentNumberOfCoins;
+        save.totalTime = GameManager.currentSaveGame.totalTime;
         save.totalTime += TimeManager.GetTimeSinceGetLastTime();
 
         GameManager.currentSaveGame=save;

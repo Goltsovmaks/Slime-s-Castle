@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Scr_WinPnl : MonoBehaviour
 {
@@ -28,13 +29,14 @@ public class Scr_WinPnl : MonoBehaviour
 
     private void Start() {
         TimeManager = scr_TimeManager.instance;
-        ComplitedTime.text += "Level complited in "+TimeManager.GetTimeCompleteLevel()+" s";
+        ComplitedTime.text = "Level complited in "+TimeManager.GetTimeCompleteLevel()+" s";
 
     }
 
     void CloseGame()
     {
-        Application.Quit();
+        // Application.Quit();
+        SceneManager.LoadScene("scn_Menu");
     }
 
     private void OnDisable()

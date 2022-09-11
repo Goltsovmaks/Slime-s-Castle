@@ -576,18 +576,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4260388001895646820, guid: 8083078d526b63a4e8842cb1d589a6e3,
         type: 3}
+      propertyPath: m_DrawMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260388001895646820, guid: 8083078d526b63a4e8842cb1d589a6e3,
+        type: 3}
       propertyPath: m_SortingOrder
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4260388001895646843, guid: 8083078d526b63a4e8842cb1d589a6e3,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4260388001895646843, guid: 8083078d526b63a4e8842cb1d589a6e3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4260388001895646843, guid: 8083078d526b63a4e8842cb1d589a6e3,
         type: 3}
