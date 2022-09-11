@@ -1447,17 +1447,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: fallingStalagmite
       objectReference: {fileID: 0}
-    - target: {fileID: 8301115631499221918, guid: 1a5deb89e5982ea4a92974b75ff2b82f,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 884361774569233088, guid: 1a329560d0efbbb4eb0020f08e4c4e04,
-        type: 3}
-    - target: {fileID: 8301115631499221918, guid: 1a5deb89e5982ea4a92974b75ff2b82f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a5deb89e5982ea4a92974b75ff2b82f, type: 3}
 --- !u!4 &1232270990 stripped
@@ -3539,7 +3528,7 @@ Tilemap:
       - {fileID: -1729736412205058821, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
       - {fileID: -7171317854284301616, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
       - {fileID: 4942957186593010893, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
-      m_AnimationSpeed: 7.465454
+      m_AnimationSpeed: 7.995185
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -57, y: 17, z: 0}
@@ -3549,7 +3538,7 @@ Tilemap:
       - {fileID: -1729736412205058821, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
       - {fileID: -7171317854284301616, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
       - {fileID: 4942957186593010893, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
-      m_AnimationSpeed: 7.8731027
+      m_AnimationSpeed: 8.075482
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -51, y: 17, z: 0}
@@ -3559,7 +3548,7 @@ Tilemap:
       - {fileID: -1729736412205058821, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
       - {fileID: -7171317854284301616, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
       - {fileID: 4942957186593010893, guid: ff50589dd97a1ac44a181a7eb13c904d, type: 3}
-      m_AnimationSpeed: 7.0058184
+      m_AnimationSpeed: 7.423128
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
