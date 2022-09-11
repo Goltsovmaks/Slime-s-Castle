@@ -12,8 +12,8 @@ public class scr_CameraManager : MonoBehaviour
 
     public Animator animator;
 
-    public GameObject mainVcam;
-    public GameObject pipeCrawlingVcam;
+    public CinemachineVirtualCamera mainVcam;
+    public CinemachineVirtualCamera pipeCrawlingVcam;
     public Camera mainCamera;
 
 
@@ -31,13 +31,16 @@ public class scr_CameraManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        scr_EventSystem.instance.playerAwake.AddListener(SetFollowAtPlayer);
+    }
 
+
+    private void Start()
+    {
+        scr_EventSystem.instance.playerAwake.AddListener(SetFollowAtPlayer);
     }
 
     public void SwitchCameraState()
     {
-        //���������� ���� ������ �����
         if (mainCameraIsActive)
         {
             animator.Play("PipeCrawling");
@@ -49,10 +52,10 @@ public class scr_CameraManager : MonoBehaviour
         mainCameraIsActive = !mainCameraIsActive;
     }
 
-    public void SetFollowAtPlayer(GameObject player)
+    public void SetFollowAtPlayer(Transform playerTransform)
     {
-        mainVcam.GetComponent<CinemachineVirtualCamera>().Follow = player.transform;
-        pipeCrawlingVcam.GetComponent<CinemachineVirtualCamera>().Follow = player.transform;
+        mainVcam.Follow = playerTransform;
+        pipeCrawlingVcam.Follow = playerTransform;
         
     }
 

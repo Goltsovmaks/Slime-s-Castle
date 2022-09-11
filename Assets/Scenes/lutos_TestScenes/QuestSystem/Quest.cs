@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[System.Serializable]
+
 public class Quest : MonoBehaviour
 {
     private bool completed;
@@ -15,14 +15,12 @@ public class Quest : MonoBehaviour
 
     //reward?
 
-    
-
     public List<Goal> goals = new List<Goal>();
 
     private void Start()
     {
         //add info from file (such as title/goals etc)
-        Init();
+        //Init();
     }
 
     public void Init()
@@ -46,9 +44,8 @@ public class Quest : MonoBehaviour
         Destroy(this);
     }
 
-    public void FillQuestAttributes(Quest quest)
+    public void FillQuestAttributes(QuestSerializable quest)
     {
-        this.completed = quest.completed;
         this.title = quest.title;
         this.description = quest.description;
         this.goals = quest.goals;
@@ -56,4 +53,18 @@ public class Quest : MonoBehaviour
         Init();
     }
 
+    private void OnDestroy()
+    {
+        goals.ForEach(g => g.Uninit());
+    }
+
+}
+
+[System.Serializable]
+public class QuestSerializable
+{
+    public string title;
+    public string description;
+
+    public List<Goal> goals = new List<Goal>();
 }

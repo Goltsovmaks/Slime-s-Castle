@@ -36,7 +36,7 @@ public class QuestSystem : MonoBehaviour
     private void Start()
     {
         SetupQuestFile("q_FirstKillLesson");
-
+        Debug.Log(typeof(string).Assembly.ImageRuntimeVersion);
     }
 
     public void AssignQuest(string questName)
@@ -64,18 +64,20 @@ public class QuestSystem : MonoBehaviour
 
     //==========
 
-    public Quest GetQuest(string questName)
+
+
+    public QuestSerializable GetQuest(string questName)
     {
         if (QuestExists(questName))
         {
             string path = Application.dataPath + "/Quests/" + questName + ".json";
-            Quest quest = JsonUtility.FromJson<Quest>(File.ReadAllText(path));
+            QuestSerializable quest = JsonUtility.FromJson<QuestSerializable>(File.ReadAllText(path));
             return quest;
         }
         else
         {
             Debug.Log("Файла квеста с таким именем не существует");
-            return new Quest();
+            return new QuestSerializable();
         }
 
     }
@@ -94,7 +96,8 @@ public class QuestSystem : MonoBehaviour
         }
         else
         {
-            Quest quest = new Quest();
+            QuestSerializable quest = new QuestSerializable();
+            quest.goals.Add(new Goal());
             quest.goals.Add(new Goal());
 
             string data = JsonUtility.ToJson(quest);
@@ -106,7 +109,6 @@ public class QuestSystem : MonoBehaviour
             //data += "\n" + killGoalData + "\n" + gatheringGoalData;
 
             System.IO.File.WriteAllText(path, data);
-            Debug.Log(questName + " Файл диалога создан");
         }
 
     }

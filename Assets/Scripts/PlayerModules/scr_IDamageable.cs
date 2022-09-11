@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface scr_IDamageable
 {
-    int maxHealth { get; }
-    int currentHealth { get; }
+    //int maxHealth { get; }
+    //int currentHealth { get; }
 
     public void ApplyDamage(int damage);
 

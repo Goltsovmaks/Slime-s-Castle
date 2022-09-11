@@ -418,8 +418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4446566138596222472}
-  mainVcam: {fileID: 3867810394694795302}
-  pipeCrawlingVcam: {fileID: 520185757780561019}
+  mainVcam: {fileID: 2184300482975341483}
+  pipeCrawlingVcam: {fileID: 7092433367344034611}
   mainCamera: {fileID: 6692346153291416556}
 --- !u!1 &347138459016583567
 GameObject:
@@ -558,7 +558,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7770767, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2216,7 +2216,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7770767, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11598,7 +11598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4527493732279304641
 RectTransform:
   m_ObjectHideFlags: 0
