@@ -1,1 +1,2 @@
-{"title":"test","description":"","goals":[{"completed":true,"description":"tets","currentAmount":0,"requiredAmount":0}]}
+{"title":"First Kill Lesson","description":"Some killing study","goals":[
+{"completed":false,"description":"Kill them all!","currentAmount":0,"requiredAmount":2,"goalType":"KillGoal","itemID":0,"mobID":0}]}

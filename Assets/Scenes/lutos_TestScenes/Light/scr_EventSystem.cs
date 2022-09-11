@@ -20,7 +20,7 @@ public class scr_EventSystem : MonoBehaviour
     public UnityEvent slimeHasAttacked;
     public UnityEvent<int> mobDeath;
 
-    public UnityEvent<GameObject> playerAwake;
+    public UnityEvent<Transform> playerAwake;
 
 
 

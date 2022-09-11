@@ -144,7 +144,7 @@ public class SaveGame{
     public int numberOfSave;
 
     public string dataOfLastSave;
-    public string totalTime;
+    public float totalTime;
     public Vector3 position;
 
     public bool newGame;
@@ -161,6 +161,13 @@ public class SaveGame{
     public SaveGame(){
         UpdateTimeSave();
     
+    }
+
+    public string GetTotalTime(){
+        int hours = (int)totalTime/3600;
+        int minutes = (int)totalTime%3600/60;
+        int seconds = (int)totalTime%3600%60;
+        return hours +"h "+minutes+"m "+seconds+"s";
     }
 
     public void UpdateTimeSave(){

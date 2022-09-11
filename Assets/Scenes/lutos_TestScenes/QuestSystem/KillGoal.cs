@@ -21,7 +21,7 @@ public class KillGoal : Goal
         base.Init(quest);
         //подписаться на ивент подбираемых вещей
         //ItemCollectedEvent += ItemCollected(int itemID)
-        scr_EventSystem.instance.mobDeath.AddListener(MobKilled);
+        //scr_EventSystem.instance.mobDeath.AddListener(MobKilled);
     }
 
 

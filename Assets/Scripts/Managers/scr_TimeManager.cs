@@ -10,6 +10,8 @@ public class scr_TimeManager : MonoBehaviour
 
     [SerializeField]private float timeSinceStartLevel;
 
+    [SerializeField]private float timeLastGetTime;
+
     [SerializeField]private float timeCompleteLevel;
 
     // private Dictionary<string,float>;
@@ -31,7 +33,7 @@ public class scr_TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetTimeeStartLevel();
+        SetTimeStartLevel();
         
     }
 
@@ -43,13 +45,28 @@ public class scr_TimeManager : MonoBehaviour
 
     }
 
-    public void SetTimeeStartLevel(){
+    public void SetTimeStartLevel(){
         timeStartLevel = Time.time;
     }
 
-    public float GetSinceStartLevel(){
+    public float GetTimeSinceStartLevel(){
+        
+        return Time.time - timeStartLevel;
+    }
+
+    public void SetTimeCompleteLevel(){
         timeSinceStartLevel = Time.time - timeStartLevel;
-        return timeSinceStartLevel;
+        timeCompleteLevel = timeSinceStartLevel;
+    }
+
+    public float GetTimeCompleteLevel(){
+        return timeCompleteLevel;
+    }
+
+    public float GetTimeSinceGetLastTime(){
+        float timeLastRequest = Time.time - timeLastGetTime;
+        timeLastGetTime = Time.time;
+        return timeLastRequest;
     }
 
 

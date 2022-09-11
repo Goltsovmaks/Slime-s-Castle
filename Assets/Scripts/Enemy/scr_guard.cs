@@ -7,7 +7,7 @@ public class scr_guard : MonoBehaviour, IImmobilizable, scr_IDamageable
     public int mobID;
 
     [SerializeField]private bool canTakeDamage = true;
-    [SerializeField]private int healthEnemy;
+    //[SerializeField]private int healthEnemy;
     [SerializeField][Range(0, 10f)]private float damageRate;
     private float nextDamage;
     
@@ -36,9 +36,12 @@ public class scr_guard : MonoBehaviour, IImmobilizable, scr_IDamageable
 
     private Vector2 velocityVector;
 
-    
-    public int maxHealth { get; private set; }
-    public int currentHealth { get; private set; }
+
+    //public int maxHealth { get; private set; }
+    //public int currentHealth { get; private set; }
+
+    public int maxHealth;
+    public int currentHealth;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
@@ -48,7 +51,7 @@ public class scr_guard : MonoBehaviour, IImmobilizable, scr_IDamageable
 
     void Start()
     {
-        maxHealth=healthEnemy;
+        //maxHealth=healthEnemy;
         currentHealth=maxHealth;
     }
 
@@ -147,6 +150,9 @@ public class scr_guard : MonoBehaviour, IImmobilizable, scr_IDamageable
     }
 
     public void ApplyDamage(int damage){
+        Debug.Log("currentHealth is " + currentHealth);
+        Debug.Log("damage is " + damage);
+
         if (Time.time > nextDamage && canTakeDamage)
         {
             nextDamage = Time.time + damageRate;
@@ -160,7 +166,6 @@ public class scr_guard : MonoBehaviour, IImmobilizable, scr_IDamageable
             }
             Debug.Log("currentHP is " + currentHealth);
 
-            // PlayerWasDamaged(currentHealth);
         }
     }
 

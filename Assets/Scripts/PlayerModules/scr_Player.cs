@@ -12,8 +12,12 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
 
     public static GameObject currentPickedObject = null;
 
-    public int maxHealth { get; private set; }
-    public int currentHealth { get; private set; }
+    //public int maxHealth { get; private set; }
+    //public int currentHealth { get; private set; }
+
+    public int maxHealth;
+    public int currentHealth;
+
     public int currentNumberOfCoins = 0;
 
     public Transform spawnPosition;
@@ -37,7 +41,7 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
             Destroy(gameObject);
         }
 
-        scr_EventSystem.instance.playerAwake.Invoke(gameObject);
+        scr_EventSystem.instance.playerAwake.Invoke(transform);
 
         maxHealth = 3;
         currentHealth = maxHealth;
@@ -64,7 +68,7 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
     {
 
 
-    
+
     }
 
     public void AddCoin(int coins)

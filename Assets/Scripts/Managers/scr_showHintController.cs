@@ -10,7 +10,7 @@ public class scr_showHintController : MonoBehaviour
     public static scr_showHintController instance = null;
 
     [SerializeField] private GameObject pnl_hintButton;
-    [SerializeField] private Text txt_nameButton;
+    public Text txt_nameButton;
 
     private scr_CameraManager CameraManager;
 
