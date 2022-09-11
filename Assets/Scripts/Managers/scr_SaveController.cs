@@ -36,7 +36,7 @@ public class scr_SaveController : MonoBehaviour
     
     public SaveGame GetSaveGame(int numberOfSave){
         if(ExistsSaveGame(numberOfSave)){
-            string path = Application.persistentDataPath+"/saveGame"+numberOfSave+".json";
+            string path = Application.streamingAssetsPath + "/Saves/saveGame"+numberOfSave+".json";
             SaveGame saveGame = JsonUtility.FromJson<SaveGame>(File.ReadAllText(path));
             return saveGame;
         }else{
@@ -46,25 +46,25 @@ public class scr_SaveController : MonoBehaviour
     }
 
     public void SetSaveGame(int numberOfSave, SaveGame newSave){
-        string path = Application.persistentDataPath+"/saveGame"+numberOfSave+".json";
+        string path = Application.streamingAssetsPath + "/Saves/saveGame" + numberOfSave+".json";
         string data = JsonUtility.ToJson(newSave);
         File.WriteAllText(path,data);
     }
 
 
     public bool ExistsSaveGame(int numberOfSave){
-        string path = Application.persistentDataPath+"/saveGame"+numberOfSave+".json";
+        string path = Application.streamingAssetsPath + "/Saves/saveGame" + numberOfSave+".json";
         return File.Exists(path);
     }
 
     public void DeleteSaveGame(int numberOfSave){
-        string path=Application.persistentDataPath+"/saveGame"+numberOfSave+".json";
+        string path= Application.streamingAssetsPath + "/Saves/saveGame" + numberOfSave+".json";
         File.Delete(path);
     }
 
     public SettingsData GetSettingsData(){
         if(ExistsSettingsData()){
-            string path = Application.persistentDataPath+"/SettingsData.json";
+            string path = Application.streamingAssetsPath + "/SettingsData.json";
             SettingsData settingsData = JsonUtility.FromJson<SettingsData>(File.ReadAllText(path));
             return settingsData;
         }else{
@@ -75,13 +75,13 @@ public class scr_SaveController : MonoBehaviour
     }
 
     public void SetSettingsData(SettingsData newSettings){
-        string path = Application.persistentDataPath+"/SettingsData.json";
+        string path = Application.streamingAssetsPath + "/SettingsData.json";
         string data = JsonUtility.ToJson(newSettings);
         File.WriteAllText(path,data);
     }
 
     public bool ExistsSettingsData(){
-        string path = Application.persistentDataPath+"//SettingsData.json";
+        string path = Application.streamingAssetsPath + "/SettingsData.json";
         return File.Exists(path);
     }
 

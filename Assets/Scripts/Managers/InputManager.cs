@@ -29,7 +29,7 @@ public class InputManager : MonoBehaviour
 
         playerInput = GetComponent<PlayerInput>();
         playerInput.actions.FindActionMap("Slime").Enable();
-        playerInput.actions.FindActionMap("UI").Enable();
+        //playerInput.actions.FindActionMap("UI").Enable();
         playerInput.actions.FindActionMap("UI1").Enable();
 
         //проверка нажатия клавиши

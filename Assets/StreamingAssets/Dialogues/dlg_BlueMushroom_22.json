@@ -1,0 +1,14 @@
+{
+  "language": "rus",
+  "nameDialogue": "0",
+  "phraseList": [
+    {
+      "nameSpeaker": "NPC",
+      "phrase": "Ох, а ты быстро!"
+    },
+    {
+      "nameSpeaker": "NPC",
+      "phrase": "Ты здорово меня выручил, приходи попозже, может, найдем для тебя еще какую работенку.."
+    }
+  ]
+}

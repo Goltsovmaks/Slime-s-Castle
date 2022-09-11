@@ -49,15 +49,22 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
         MenuController.GetSpawnPositionEvent+=GetSpawnPosition;
 
         scr_GameManager GameManager = scr_GameManager.instance;// Получаем ссылку на GameObject
-        GameManager.player = this.gameObject;
+        GameManager.player = this.gameObject;//
 
         EditorManager editorManager = EditorManager.instance;
 
-        if (!editorManager.noMenuLevelStart)
+
+        if (!GameManager.currentSaveGame.newGame)
         {
-            GameManager.SetStartPosition();
-            spawnPosition = GameManager.startPosition.transform;
+            transform.position = GameManager.currentSaveGame.position;
         }
+        
+
+        //if (!editorManager.noMenuLevelStart)
+        //{
+        //    //GameManager.SetStartPosition();
+        //    //spawnPosition = GameManager.startPosition.transform;
+        //}
 
         // При новой загрузке точка спавна - место появления на уровне
         //spawnPosition=gameObject.transform;

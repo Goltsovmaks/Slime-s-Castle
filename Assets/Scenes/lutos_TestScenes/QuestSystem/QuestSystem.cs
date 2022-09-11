@@ -36,7 +36,10 @@ public class QuestSystem : MonoBehaviour
     private void Start()
     {
         SetupQuestFile("q_FirstKillLesson");
-        Debug.Log(typeof(string).Assembly.ImageRuntimeVersion);
+        Debug.Log(Application.streamingAssetsPath);
+        Debug.Log(Application.dataPath);
+
+       
     }
 
     public void AssignQuest(string questName)
@@ -70,7 +73,7 @@ public class QuestSystem : MonoBehaviour
     {
         if (QuestExists(questName))
         {
-            string path = Application.dataPath + "/Quests/" + questName + ".json";
+            string path = Application.streamingAssetsPath + "/Quests/" + questName + ".json";
             QuestSerializable quest = JsonUtility.FromJson<QuestSerializable>(File.ReadAllText(path));
             return quest;
         }
@@ -84,7 +87,7 @@ public class QuestSystem : MonoBehaviour
 
     public bool QuestExists(string quest)
     {
-        string path = Application.dataPath + "/Quests/" + quest + ".json";
+        string path = Application.streamingAssetsPath + "/Quests/" + quest + ".json";
         return File.Exists(path);
     }
     
@@ -101,7 +104,7 @@ public class QuestSystem : MonoBehaviour
             quest.goals.Add(new Goal());
 
             string data = JsonUtility.ToJson(quest);
-            string path = Application.dataPath + "/Quests/" + questName + ".json";
+            string path = Application.streamingAssetsPath + "/Quests/" + questName + ".json";
 
             //string killGoalData = JsonUtility.ToJson(new KillGoal());
             //string gatheringGoalData = JsonUtility.ToJson(new GatheringGoal());

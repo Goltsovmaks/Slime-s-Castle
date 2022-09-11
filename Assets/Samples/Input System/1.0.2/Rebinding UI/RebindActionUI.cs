@@ -269,13 +269,15 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
             // Configure the rebind.
             m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex)
-                //.WithControlsExcluding("<Mouse>/leftButton")
-                //.WithControlsExcluding("<Mouse>/rightButton")
-                //.WithControlsExcluding("<Mouse>/press")
+                .WithControlsExcluding("<Mouse>/leftButton")
+                .WithControlsExcluding("<Mouse>/rightButton")
+                .WithControlsExcluding("<Mouse>/press")
                 .WithControlsExcluding("<Pointer>/position")
                 .WithControlsExcluding("<Keyboard>/printScreen")
-                .WithControlsExcluding("<Keyboard>/anyKey")
-                //.WithCancelingThrough("<Keyboard>/escape")
+                //.WithControlsExcluding("<Keyboard>/anyKey")
+                .WithCancelingThrough("<Keyboard>/escape")
+
+       
                 .OnCancel(
                     operation =>
                     {
