@@ -584,6 +584,11 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 187499400208640637, guid: 418e4df719f8a014cac5ddf4d8ce9143,
+        type: 3}
+      propertyPath: respawnTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1821145948440135432, guid: 418e4df719f8a014cac5ddf4d8ce9143,
         type: 3}
       propertyPath: m_Name

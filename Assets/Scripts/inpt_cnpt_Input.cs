@@ -51,14 +51,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""NextForm_Slime"",
-                    ""type"": ""Button"",
-                    ""id"": ""d7212b87-b796-47ed-a7c9-8601e0e5f835"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
                     ""name"": ""NextForm_Spider"",
                     ""type"": ""Button"",
                     ""id"": ""6818c4b7-b856-4801-9213-bcbc4878c318"",
@@ -124,17 +116,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""88941862-b002-469e-8948-7ae480ab5be6"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""NextForm_Slime"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -937,7 +918,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_Slime_Pause = m_Slime.FindAction("Pause", throwIfNotFound: true);
         m_Slime_Movement = m_Slime.FindAction("Movement", throwIfNotFound: true);
         m_Slime_Jump = m_Slime.FindAction("Jump", throwIfNotFound: true);
-        m_Slime_NextForm_Slime = m_Slime.FindAction("NextForm_Slime", throwIfNotFound: true);
         m_Slime_NextForm_Spider = m_Slime.FindAction("NextForm_Spider", throwIfNotFound: true);
         m_Slime_NextForm_Firefly = m_Slime.FindAction("NextForm_Firefly", throwIfNotFound: true);
         m_Slime_HoldSkill = m_Slime.FindAction("HoldSkill", throwIfNotFound: true);
@@ -1019,7 +999,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Slime_Pause;
     private readonly InputAction m_Slime_Movement;
     private readonly InputAction m_Slime_Jump;
-    private readonly InputAction m_Slime_NextForm_Slime;
     private readonly InputAction m_Slime_NextForm_Spider;
     private readonly InputAction m_Slime_NextForm_Firefly;
     private readonly InputAction m_Slime_HoldSkill;
@@ -1035,7 +1014,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_Slime_Pause;
         public InputAction @Movement => m_Wrapper.m_Slime_Movement;
         public InputAction @Jump => m_Wrapper.m_Slime_Jump;
-        public InputAction @NextForm_Slime => m_Wrapper.m_Slime_NextForm_Slime;
         public InputAction @NextForm_Spider => m_Wrapper.m_Slime_NextForm_Spider;
         public InputAction @NextForm_Firefly => m_Wrapper.m_Slime_NextForm_Firefly;
         public InputAction @HoldSkill => m_Wrapper.m_Slime_HoldSkill;
@@ -1064,9 +1042,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnJump;
-                @NextForm_Slime.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Slime;
-                @NextForm_Slime.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Slime;
-                @NextForm_Slime.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Slime;
                 @NextForm_Spider.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Spider;
                 @NextForm_Spider.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Spider;
                 @NextForm_Spider.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Spider;
@@ -1104,9 +1079,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @NextForm_Slime.started += instance.OnNextForm_Slime;
-                @NextForm_Slime.performed += instance.OnNextForm_Slime;
-                @NextForm_Slime.canceled += instance.OnNextForm_Slime;
                 @NextForm_Spider.started += instance.OnNextForm_Spider;
                 @NextForm_Spider.performed += instance.OnNextForm_Spider;
                 @NextForm_Spider.canceled += instance.OnNextForm_Spider;
@@ -1342,7 +1314,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnNextForm_Slime(InputAction.CallbackContext context);
         void OnNextForm_Spider(InputAction.CallbackContext context);
         void OnNextForm_Firefly(InputAction.CallbackContext context);
         void OnHoldSkill(InputAction.CallbackContext context);
