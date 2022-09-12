@@ -122,13 +122,13 @@ public class DialogueManager : MonoBehaviour
     }
 
     public bool ExistsDialogue(string dialogue){
-        string path = Application.dataPath+"/Dialogues/"+dialogue+".json";
+        string path = Application.streamingAssetsPath + "/Dialogues/"+dialogue+".json";
         return File.Exists(path);
     }
 
     public Dialogues GetDialogues(){
         if(ExistsDialogue("allDialogues")){
-            string path = Application.dataPath+"/Dialogues/allDialogues.json";
+            string path = Application.streamingAssetsPath + "/Dialogues/allDialogues.json";
             Dialogues dialogues = JsonUtility.FromJson<Dialogues>(File.ReadAllText(path));
             return dialogues;
         }else{
@@ -139,7 +139,7 @@ public class DialogueManager : MonoBehaviour
 
     public Dialogue GetDialogue(string nameDialogue){
         if(ExistsDialogue(nameDialogue)){
-            string path = Application.dataPath+"/Dialogues/"+nameDialogue+".json";
+            string path = Application.streamingAssetsPath + "/Dialogues/"+nameDialogue+".json";
             Dialogue dialogue = JsonUtility.FromJson<Dialogue>(File.ReadAllText(path));
             return dialogue;
         }else{
@@ -160,7 +160,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log(nameDialogue+" Файл диалога с таким именем уже существует");            
         }else{
             string data = JsonUtility.ToJson(new Dialogue());
-            string path = Application.dataPath+"/Dialogues/"+nameDialogue+".json";
+            string path = Application.streamingAssetsPath + "/Dialogues/"+nameDialogue+".json";
             System.IO.File.WriteAllText(path, data);
             Debug.Log(nameDialogue+" Файл диалога создан");            
         }
