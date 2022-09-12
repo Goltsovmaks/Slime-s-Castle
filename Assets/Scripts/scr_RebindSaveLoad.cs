@@ -7,17 +7,18 @@ using System.IO;
 public class scr_RebindSaveLoad : MonoBehaviour
 {
     public InputActionAsset actions;
+    public PlayerInput playerInput;
 
     public void OnEnable()
     {
-        Debug.Log("ebanled");
-        string path = Application.streamingAssetsPath + "rebinds" + ".json";
+        string path = Application.streamingAssetsPath + "/rebinds" + ".json";
 
         string rebinds = File.ReadAllText(path);
         if (!string.IsNullOrEmpty(rebinds) && rebinds != "")
         {
-            Debug.Log("not null or empty");
-            actions.LoadFromJson(rebinds);
+            playerInput.actions.LoadFromJson(rebinds);
+            //actions = InputActionAsset.FromJson(rebinds);
+            //actions.LoadFromJson(rebinds);
         }
 
 
@@ -30,13 +31,15 @@ public class scr_RebindSaveLoad : MonoBehaviour
     public void OnDisable()
     {
         Debug.Log("disabled");
-        string path = Application.streamingAssetsPath + "rebinds" + ".json";
-
-        string rebinds = JsonUtility.ToJson(actions);
+        string path = Application.streamingAssetsPath + "/rebinds" + ".json";
+        
+        string rebinds = playerInput.actions.ToJson(); ; //JsonUtility.ToJson(actions)
         System.IO.File.WriteAllText(path, rebinds);
 
         //var rebinds = actions.ToJson();
         //PlayerPrefs.SetString("rebinds", rebinds);
+
+        
 
     }
 }
