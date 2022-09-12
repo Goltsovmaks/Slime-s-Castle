@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 7314837712317301646}
   - component: {fileID: 7314837712317301647}
   - component: {fileID: 7314837712317301644}
+  - component: {fileID: 3454487413058235466}
   m_Layer: 16
   m_Name: prfb_Fly
   m_TagString: Enemy
@@ -183,3 +184,17 @@ MonoBehaviour:
   timeStaying: 1.6
   speedFlying: 0.5
   debugging: 0
+--- !u!114 &3454487413058235466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7314837712317301645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6fb48a9038ae44d8a0e23a43f6eccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  whoCanBeDamaged: 00000000
