@@ -38,14 +38,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "NextForm_Slime",
-                    "type": "Button",
-                    "id": "d7212b87-b796-47ed-a7c9-8601e0e5f835",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
-                },
-                {
                     "name": "NextForm_Spider",
                     "type": "Button",
                     "id": "6818c4b7-b856-4801-9213-bcbc4878c318",
@@ -106,22 +98,11 @@
                 {
                     "name": "",
                     "id": "a58f2d9c-9d34-4852-b21a-eec80dcba01f",
-                    "path": "<Keyboard>/l",
+                    "path": "<Keyboard>/u",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "88941862-b002-469e-8948-7ae480ab5be6",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard+Mouse",
-                    "action": "NextForm_Slime",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

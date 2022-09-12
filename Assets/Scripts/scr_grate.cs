@@ -40,7 +40,7 @@ public class scr_grate : scr_grate_abstract
         }
 
         //play another part of animation?
-        yield return new WaitForSeconds(secondsWaitAfterTeleportation);
+        yield return new WaitForSeconds(2f/3f);
         scr_Player.instance.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         InputManager.instance.playerInput.actions.FindActionMap("Slime").Enable();
     }

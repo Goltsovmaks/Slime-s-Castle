@@ -21,6 +21,7 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
     public int currentNumberOfCoins = 0;
 
     public Transform spawnPosition;
+    [SerializeField]private float respawnTime = 1f;
 
     public delegate void Action(int health);
     public static event Action PlayerWasDamaged;
@@ -127,7 +128,7 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
         // gameObject.transform.position = spawnPosition.position;
         currentHealth = maxHealth;
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(respawnTime);
         // передвинул вниз
         gameObject.transform.position = spawnPosition.position;
 
