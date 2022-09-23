@@ -1,0 +1,14 @@
+{
+    "language": "rus",
+    "nameDialogue": "dlg_hintTimeCounter",
+    "phraseList": [
+      {
+        "nameSpeaker": "Подсказка",
+        "phrase": "Это арка, которая начинает отсчёт времени на уровне."
+      },
+      {
+        "nameSpeaker": "Подсказка",
+        "phrase": "Попробуй пройти уровень как можно быстрее!"
+      }      
+    ]
+  }

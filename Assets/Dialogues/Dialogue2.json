@@ -1,0 +1,30 @@
+{
+  "language": "rus",
+  "nameDialogue": "Dialogue2",
+  "phraseList": [
+    {
+      "nameSpeaker": "Крыса",
+      "phrase": "*Пищит*"
+    },
+    {
+      "nameSpeaker": "Игрок\"",
+      "phrase": "*Булькает*"
+    },
+    {
+      "nameSpeaker": "Крыса",
+      "phrase": "*Задумчиво пищит*"
+    },
+    {
+      "nameSpeaker": "Игрок",
+      "phrase": "*Задумчиво булькает*"
+    },
+    {
+      "nameSpeaker": "Крыса",
+      "phrase": "Опять маг понапридумывал бесполезных созданий..."
+    },
+    {
+      "nameSpeaker": "Игрок",
+      "phrase": "*Обиженно булькает*"
+    }
+  ]
+}

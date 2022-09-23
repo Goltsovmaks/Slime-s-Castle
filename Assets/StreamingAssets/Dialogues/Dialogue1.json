@@ -1,0 +1,26 @@
+{
+  "language": "rus",
+  "nameDialogue": "Dialogue1",
+  "phraseList": [
+    {
+      "nameSpeaker": "Игрок",
+      "phrase": "Привет"
+    },
+    {
+      "nameSpeaker": "Гриб",
+      "phrase": "Привет!"
+    },
+    {
+      "nameSpeaker": "Игрок",
+      "phrase": "Как дела?"
+    },
+    {
+      "nameSpeaker": "Гриб",
+      "phrase": "Ты - Слизень, а я гриб. А что насчёт дел... Я никуда ничего не девал!"
+    },
+    {
+      "nameSpeaker": "Игрок",
+      "phrase": "Тогда я тебя съем!"
+    }
+  ]
+}
