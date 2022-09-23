@@ -13,6 +13,10 @@ TagManager:
   - MovableCube
   - Harmful
   - GameManager
+  - SlimeAttack
+  - Breaking
+  - Starting
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -30,7 +34,7 @@ TagManager:
   - Dead
   - Monster
   - 
-  - 
+  - Pipe
   - 
   - 
   - Coin
@@ -39,7 +43,6 @@ TagManager:
   - 
   - 
   - SpiderWeb
-  - 
   - 
   - 
   - 

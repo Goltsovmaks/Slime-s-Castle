@@ -26,12 +26,14 @@ public class MenuController: MonoBehaviour{
 
     [SerializeField] GameObject pnl_dead;
 
+    [SerializeField] public GameObject pnl_main;
+
 
     // public string nameCurrentSave;
 
     //PlayerInput _input;
 
-    [SerializeField] private GameObject currentMenu;
+    [SerializeField] public GameObject currentMenu;
     [SerializeField] private GameObject previuosMenu;
 
     public bool onPause = false; //Взять у основного GameManager
@@ -48,8 +50,10 @@ public class MenuController: MonoBehaviour{
     InputManager input;
     scr_SaveController SaveController;
     scr_GameManager GameManager;
+    scr_TimeManager TimeManager;
 
     [SerializeField]private AudioMixer audioMixer;
+    
 
     private void Awake()
     {
@@ -80,6 +84,7 @@ public class MenuController: MonoBehaviour{
         input = InputManager.instance;
         SaveController = scr_SaveController.instance;
         GameManager = scr_GameManager.instance;
+        TimeManager = scr_TimeManager.instance;
 
         //_input = GetComponent<PlayerInput>();
         input.playerInput.actions["ReturnToPreviousMenu"].performed += context => ReturnButtonPressed();
@@ -218,7 +223,7 @@ public class MenuController: MonoBehaviour{
             // Если существует сохранение по конкретному пути - включаю необходимые панели, заполняю текстовые поля
             if(SaveController.ExistsSaveGame(i)){
                 SaveGame save = SaveController.GetSaveGame(i);
-                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = save.totalTime;
+                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = save.GetTotalTime();
                 transform_pnl_save.Find("txt_lastSaveResult").GetComponent<Text>().text = save.dataOfLastSave;
             }
 
@@ -242,7 +247,7 @@ public class MenuController: MonoBehaviour{
                 transform_pnl_save.Find("pnl_continueGame").gameObject.SetActive(true);
                 SaveGame save = SaveController.GetSaveGame(i);
 
-                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = save.totalTime;
+                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = save.GetTotalTime();
                 transform_pnl_save.Find("txt_lastSaveResult").GetComponent<Text>().text = save.dataOfLastSave;
             }
 
@@ -265,6 +270,8 @@ public class MenuController: MonoBehaviour{
         save.newGame = false;
         save.position = GetSpawnPositionEvent();
         save.playerCoins = scr_Player.instance.currentNumberOfCoins;
+        save.totalTime = GameManager.currentSaveGame.totalTime;
+        save.totalTime += TimeManager.GetTimeSinceGetLastTime();
 
         GameManager.currentSaveGame=save;
         SaveController.SetSaveGame(numberOfSave,save);

@@ -51,14 +51,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""NextForm_Slime"",
-                    ""type"": ""Button"",
-                    ""id"": ""d7212b87-b796-47ed-a7c9-8601e0e5f835"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
                     ""name"": ""NextForm_Spider"",
                     ""type"": ""Button"",
                     ""id"": ""6818c4b7-b856-4801-9213-bcbc4878c318"",
@@ -105,6 +97,14 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChooseForm"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ff3ba77-baa4-439d-808e-c35f5cf4e377"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -116,17 +116,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""88941862-b002-469e-8948-7ae480ab5be6"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard+Mouse"",
-                    ""action"": ""NextForm_Slime"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -272,6 +261,17 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""action"": ""ReturnToPreviousMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""900e5df8-8b3f-4ea0-9bf7-947aad219fda"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""ChooseForm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -299,6 +299,14 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""name"": ""OnButtonPressedTest"",
                     ""type"": ""Button"",
                     ""id"": ""01d8c797-93ac-42f9-a1ab-a19856136c08"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ContinueDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""34b36fb1-e4ba-4c7a-87cb-4cc1a8e38fe1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -335,6 +343,17 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoard+Mouse"",
                     ""action"": ""OnButtonPressedTest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f27361e8-42fd-499a-b565-796fce45486f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard+Mouse"",
+                    ""action"": ""ContinueDialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -899,18 +918,19 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         m_Slime_Pause = m_Slime.FindAction("Pause", throwIfNotFound: true);
         m_Slime_Movement = m_Slime.FindAction("Movement", throwIfNotFound: true);
         m_Slime_Jump = m_Slime.FindAction("Jump", throwIfNotFound: true);
-        m_Slime_NextForm_Slime = m_Slime.FindAction("NextForm_Slime", throwIfNotFound: true);
         m_Slime_NextForm_Spider = m_Slime.FindAction("NextForm_Spider", throwIfNotFound: true);
         m_Slime_NextForm_Firefly = m_Slime.FindAction("NextForm_Firefly", throwIfNotFound: true);
         m_Slime_HoldSkill = m_Slime.FindAction("HoldSkill", throwIfNotFound: true);
         m_Slime_Skill_1 = m_Slime.FindAction("Skill_1", throwIfNotFound: true);
         m_Slime_Skill_2 = m_Slime.FindAction("Skill_2", throwIfNotFound: true);
         m_Slime_Interaction = m_Slime.FindAction("Interaction", throwIfNotFound: true);
+        m_Slime_ChooseForm = m_Slime.FindAction("ChooseForm", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_ReturnToPreviousMenu = m_UI.FindAction("ReturnToPreviousMenu", throwIfNotFound: true);
         m_UI_OnButtonPressedTest = m_UI.FindAction("OnButtonPressedTest", throwIfNotFound: true);
+        m_UI_ContinueDialogue = m_UI.FindAction("ContinueDialogue", throwIfNotFound: true);
         // UI1
         m_UI1 = asset.FindActionMap("UI1", throwIfNotFound: true);
         m_UI1_Navigate = m_UI1.FindAction("Navigate", throwIfNotFound: true);
@@ -979,13 +999,13 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Slime_Pause;
     private readonly InputAction m_Slime_Movement;
     private readonly InputAction m_Slime_Jump;
-    private readonly InputAction m_Slime_NextForm_Slime;
     private readonly InputAction m_Slime_NextForm_Spider;
     private readonly InputAction m_Slime_NextForm_Firefly;
     private readonly InputAction m_Slime_HoldSkill;
     private readonly InputAction m_Slime_Skill_1;
     private readonly InputAction m_Slime_Skill_2;
     private readonly InputAction m_Slime_Interaction;
+    private readonly InputAction m_Slime_ChooseForm;
     public struct SlimeActions
     {
         private @Inpt_cnpt_Input m_Wrapper;
@@ -994,13 +1014,13 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_Slime_Pause;
         public InputAction @Movement => m_Wrapper.m_Slime_Movement;
         public InputAction @Jump => m_Wrapper.m_Slime_Jump;
-        public InputAction @NextForm_Slime => m_Wrapper.m_Slime_NextForm_Slime;
         public InputAction @NextForm_Spider => m_Wrapper.m_Slime_NextForm_Spider;
         public InputAction @NextForm_Firefly => m_Wrapper.m_Slime_NextForm_Firefly;
         public InputAction @HoldSkill => m_Wrapper.m_Slime_HoldSkill;
         public InputAction @Skill_1 => m_Wrapper.m_Slime_Skill_1;
         public InputAction @Skill_2 => m_Wrapper.m_Slime_Skill_2;
         public InputAction @Interaction => m_Wrapper.m_Slime_Interaction;
+        public InputAction @ChooseForm => m_Wrapper.m_Slime_ChooseForm;
         public InputActionMap Get() { return m_Wrapper.m_Slime; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1022,9 +1042,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnJump;
-                @NextForm_Slime.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Slime;
-                @NextForm_Slime.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Slime;
-                @NextForm_Slime.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Slime;
                 @NextForm_Spider.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Spider;
                 @NextForm_Spider.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Spider;
                 @NextForm_Spider.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnNextForm_Spider;
@@ -1043,6 +1060,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Interaction.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
                 @Interaction.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
                 @Interaction.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnInteraction;
+                @ChooseForm.started -= m_Wrapper.m_SlimeActionsCallbackInterface.OnChooseForm;
+                @ChooseForm.performed -= m_Wrapper.m_SlimeActionsCallbackInterface.OnChooseForm;
+                @ChooseForm.canceled -= m_Wrapper.m_SlimeActionsCallbackInterface.OnChooseForm;
             }
             m_Wrapper.m_SlimeActionsCallbackInterface = instance;
             if (instance != null)
@@ -1059,9 +1079,6 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @NextForm_Slime.started += instance.OnNextForm_Slime;
-                @NextForm_Slime.performed += instance.OnNextForm_Slime;
-                @NextForm_Slime.canceled += instance.OnNextForm_Slime;
                 @NextForm_Spider.started += instance.OnNextForm_Spider;
                 @NextForm_Spider.performed += instance.OnNextForm_Spider;
                 @NextForm_Spider.canceled += instance.OnNextForm_Spider;
@@ -1080,6 +1097,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @Interaction.started += instance.OnInteraction;
                 @Interaction.performed += instance.OnInteraction;
                 @Interaction.canceled += instance.OnInteraction;
+                @ChooseForm.started += instance.OnChooseForm;
+                @ChooseForm.performed += instance.OnChooseForm;
+                @ChooseForm.canceled += instance.OnChooseForm;
             }
         }
     }
@@ -1091,6 +1111,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_ReturnToPreviousMenu;
     private readonly InputAction m_UI_OnButtonPressedTest;
+    private readonly InputAction m_UI_ContinueDialogue;
     public struct UIActions
     {
         private @Inpt_cnpt_Input m_Wrapper;
@@ -1098,6 +1119,7 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputAction @ReturnToPreviousMenu => m_Wrapper.m_UI_ReturnToPreviousMenu;
         public InputAction @OnButtonPressedTest => m_Wrapper.m_UI_OnButtonPressedTest;
+        public InputAction @ContinueDialogue => m_Wrapper.m_UI_ContinueDialogue;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1116,6 +1138,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @OnButtonPressedTest.started -= m_Wrapper.m_UIActionsCallbackInterface.OnOnButtonPressedTest;
                 @OnButtonPressedTest.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnOnButtonPressedTest;
                 @OnButtonPressedTest.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnOnButtonPressedTest;
+                @ContinueDialogue.started -= m_Wrapper.m_UIActionsCallbackInterface.OnContinueDialogue;
+                @ContinueDialogue.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnContinueDialogue;
+                @ContinueDialogue.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnContinueDialogue;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1129,6 +1154,9 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
                 @OnButtonPressedTest.started += instance.OnOnButtonPressedTest;
                 @OnButtonPressedTest.performed += instance.OnOnButtonPressedTest;
                 @OnButtonPressedTest.canceled += instance.OnOnButtonPressedTest;
+                @ContinueDialogue.started += instance.OnContinueDialogue;
+                @ContinueDialogue.performed += instance.OnContinueDialogue;
+                @ContinueDialogue.canceled += instance.OnContinueDialogue;
             }
         }
     }
@@ -1286,19 +1314,20 @@ public class @Inpt_cnpt_Input : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnNextForm_Slime(InputAction.CallbackContext context);
         void OnNextForm_Spider(InputAction.CallbackContext context);
         void OnNextForm_Firefly(InputAction.CallbackContext context);
         void OnHoldSkill(InputAction.CallbackContext context);
         void OnSkill_1(InputAction.CallbackContext context);
         void OnSkill_2(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnChooseForm(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnPause(InputAction.CallbackContext context);
         void OnReturnToPreviousMenu(InputAction.CallbackContext context);
         void OnOnButtonPressedTest(InputAction.CallbackContext context);
+        void OnContinueDialogue(InputAction.CallbackContext context);
     }
     public interface IUI1Actions
     {

@@ -19,15 +19,18 @@ public class scr_movingPlatform : MonoBehaviour
 
     private float widthPlatform;
     private float heightPlatform;
+    private Vector2 velocityVector;
+
+    private Rigidbody2D rb;
 
     
     [Header("Для настройки изначального направления движения платформы")]
     [SerializeField]private bool movingRight;
     [SerializeField]private bool movingUp;
 
-    
-
     private void Awake() {
+
+        rb = GetComponent<Rigidbody2D>();
 
         movingPlatform = gameObject;
         startPosition = movingPlatform.transform.position;
@@ -50,6 +53,9 @@ public class scr_movingPlatform : MonoBehaviour
 
     void Update()
     {
+                // rb.velocity = velocityVector;
+                Vector2 velocity = Vector2.zero;
+        rb.velocity = Vector2.SmoothDamp(rb.velocity, velocityVector, ref velocity, .01f);
 
     }
 
@@ -63,10 +69,10 @@ public class scr_movingPlatform : MonoBehaviour
         }
 
         if(movingRight&&movingHorizontal){
-            movingPlatform.transform.position = new Vector2(movingPlatform.transform.position.x+speed*Time.fixedDeltaTime,movingPlatform.transform.position.y);
+            velocityVector = new Vector2(speed,0);
         }
         if(!movingRight&&movingHorizontal){
-            movingPlatform.transform.position = new Vector2(movingPlatform.transform.position.x-speed*Time.fixedDeltaTime,movingPlatform.transform.position.y);
+            velocityVector = new Vector2(-speed,0);
         }
         // Для определения вертикального движения
         if(movingPlatform.transform.position.y>=startPosition.y+pathLengthVertical/2-heightPlatform/2){
@@ -77,20 +83,39 @@ public class scr_movingPlatform : MonoBehaviour
         }
 
         if(movingUp&&movingVertical){
-            movingPlatform.transform.position = new Vector2(movingPlatform.transform.position.x, movingPlatform.transform.position.y+speed*Time.fixedDeltaTime);
+            velocityVector = new Vector2(0,speed);
         }
         if(!movingUp&&movingVertical){
-            movingPlatform.transform.position = new Vector2(movingPlatform.transform.position.x, movingPlatform.transform.position.y-speed*Time.fixedDeltaTime);
+            velocityVector = new Vector2(0,-speed);
         }
+
+        // rb.gravityScale = 0.65f;
+        // Vector2 targetVelocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y);
+        Vector2 velocity = Vector2.zero;
+        // rb.velocity = Vector2.SmoothDamp(rb.velocity, velocityVector, ref velocity, .01f);
+        
+        // rb.velocity = velocityVector;
+        
+        // rb.AddForce(velocityVector*50);
+        // rb.AddForce(velocityVector*50);
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.transform.parent=movingPlatform.transform;
+            collision.transform.parent = movingPlatform.transform;
+            // collision.GetComponent<Rigidbody2D>.velocity=
         }
     }
+
+    // private void OnCollisionStay2D(Collision2D collision) {
+    //     if (collision.gameObject.CompareTag("Player"))
+    //     {
+    //         // collision.transform.parent = movingPlatform.transform;
+    //         collision.gameObject.GetComponent<Rigidbody2D>().velocity=velocityVector;
+    //     }
+    // }
 
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player"))

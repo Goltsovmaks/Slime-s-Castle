@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class scr_cnpt_Animator : MonoBehaviour
 {
     scr_cnpt_FormBehavior formBehavior;
     private SpriteRenderer spriteRenderer;
+    private Light2D light;
 
     public GameObject formChangeEffect;
 
@@ -15,6 +19,7 @@ public class scr_cnpt_Animator : MonoBehaviour
     {
         formBehavior = GetComponent<scr_cnpt_FormBehavior>();
         spriteRenderer = GetComponent <SpriteRenderer>();
+        light = GetComponent<Light2D>();
 
         //formBehavior.NextForm().per
 
@@ -23,7 +28,20 @@ public class scr_cnpt_Animator : MonoBehaviour
     private void Update()
     {
         moveDirection = InputManager.instance.playerInput.actions["Movement"].ReadValue<Vector2>();
-        FlipSprite();
+        //FlipSprite();
+        Flip();
+    }
+
+    void Flip()
+    {
+        if (moveDirection.x < 0)
+        {
+            gameObject.transform.localScale = new Vector3(-1f,1f);
+        }
+        else if (moveDirection.x > 0)
+        {
+            gameObject.transform.localScale = new Vector3(1f,1f);
+        }
     }
 
     void FlipSprite()
@@ -38,6 +56,11 @@ public class scr_cnpt_Animator : MonoBehaviour
         }
     }
     
+    private void ChangeLight()
+    {
+        light.intensity = formBehavior._currentForm.lightIntensity;
+        //some other parameteres
+    }
 
     private void SetSprite()
     {
@@ -59,9 +82,11 @@ public class scr_cnpt_Animator : MonoBehaviour
     private void OnEnable()
     {
         scr_cnpt_FormBehavior.FormIsChanged += SetSprite;
+        scr_cnpt_FormBehavior.FormIsChanged += ChangeLight;
     }
     private void OnDisable()
     {
         scr_cnpt_FormBehavior.FormIsChanged -= SetSprite;
+        scr_cnpt_FormBehavior.FormIsChanged -= ChangeLight;
     }
 }

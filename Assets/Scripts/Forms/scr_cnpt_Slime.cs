@@ -6,6 +6,8 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
 {
     public float interactionRadius = 0.3f;
 
+    public static bool isPipeCrawling = false;
+
     public scr_cnpt_Slime(scr_cnpt_FormBehavior formBehavior)
     {
         sprite = Resources.Load<Sprite>("Slime");
@@ -14,6 +16,9 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
 
     public override void Skill_1()
     {
+        scr_EventSystem.instance.slimeHasAttacked.Invoke();
+
+        //сначала собирать массив, потом провер€ть на длину 0, »—ѕ–ј¬»“№
         if (GetInteractableObjects(formBehavior.gameObject.transform, interactionRadius, LayerMask.GetMask("InteractableObjects")).Length != 0)
         {
             Collider2D[] targets = GetInteractableObjects(formBehavior.gameObject.transform, interactionRadius, LayerMask.GetMask("InteractableObjects"));
@@ -36,8 +41,68 @@ public class scr_cnpt_Slime : scr_cnpt_Form_Abstract
 
     public override void Skill_2()
     {
-        Debug.Log("*Heal sound*");
+        Debug.Log("using skill_2");
+        //Collider2D[] targets = GetInteractableObjects(formBehavior.gameObject.transform, interactionRadius, LayerMask.GetMask("Pipe"));
+        //if (targets.Length != 0)
+        //{
+        //    if (!isPipeCrawling)
+        //    {
+        //        StartPipeCrawling(targets[0].gameObject);
+        //    }
+        //    else
+        //    {
+        //        StopPipeCrawling(targets[0].gameObject);
+        //    } 
+        //}
     }
+
+    public override void Move(Rigidbody2D rb, Vector2 moveDirection, float moveSpeed, float movementSmoothing)
+    {
+        if (isPipeCrawling)
+        {
+            Vector2 velocity = Vector2.zero;
+            Vector2 targetVelocity;
+            rb.gravityScale = 0f;
+            targetVelocity = new Vector3(moveDirection.x * moveSpeed * 0.75f, moveDirection.y * moveSpeed * 0.75f);
+            rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, movementSmoothing);
+        }
+        else
+        {
+            rb.gravityScale = 0.65f;
+            base.Move(rb, moveDirection, moveSpeed, movementSmoothing);
+        }
+        
+    }
+
+    public override void Jump(Rigidbody2D rb, float jumpPower)
+    {
+        if (!isPipeCrawling)
+        {
+            base.Jump(rb, jumpPower);
+        }
+    }
+
+    //public void StartPipeCrawling(GameObject pipe)
+    //{
+    //    isPipeCrawling = true;
+    //    formBehavior.canChangeForm = false;
+    //    scr_CameraManager.instance.SwitchCameraState();
+    //    Transform entrance = pipe.transform.GetChild(0);
+    //    formBehavior.gameObject.transform.position = entrance.transform.position;
+    //    //change sprite
+    //    //change collider
+    //}
+
+    //public void StopPipeCrawling(GameObject pipe)
+    //{
+    //    isPipeCrawling = false;
+    //    formBehavior.canChangeForm = true;
+    //    scr_CameraManager.instance.SwitchCameraState();
+    //    Transform exit = pipe.transform.GetChild(0);
+    //    formBehavior.gameObject.transform.position = exit.transform.position;
+    //    //change sprite
+    //    //change collider
+    //}
 
     public override void StopUsingCurrentForm()
     {

@@ -38,14 +38,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "NextForm_Slime",
-                    "type": "Button",
-                    "id": "d7212b87-b796-47ed-a7c9-8601e0e5f835",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
-                },
-                {
                     "name": "NextForm_Spider",
                     "type": "Button",
                     "id": "6818c4b7-b856-4801-9213-bcbc4878c318",
@@ -92,6 +84,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ChooseForm",
+                    "type": "Button",
+                    "id": "2ff3ba77-baa4-439d-808e-c35f5cf4e377",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -103,17 +103,6 @@
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "88941862-b002-469e-8948-7ae480ab5be6",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard+Mouse",
-                    "action": "NextForm_Slime",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -259,6 +248,17 @@
                     "action": "ReturnToPreviousMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "900e5df8-8b3f-4ea0-9bf7-947aad219fda",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "ChooseForm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -286,6 +286,14 @@
                     "name": "OnButtonPressedTest",
                     "type": "Button",
                     "id": "01d8c797-93ac-42f9-a1ab-a19856136c08",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ContinueDialogue",
+                    "type": "Button",
+                    "id": "34b36fb1-e4ba-4c7a-87cb-4cc1a8e38fe1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -322,6 +330,17 @@
                     "processors": "",
                     "groups": "KeyBoard+Mouse",
                     "action": "OnButtonPressedTest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f27361e8-42fd-499a-b565-796fce45486f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard+Mouse",
+                    "action": "ContinueDialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4863319830156289080}
   - component: {fileID: 248400872274820159}
   - component: {fileID: 6160747763687866164}
+  - component: {fileID: 7451070828204898022}
   m_Layer: 0
   m_Name: leverPrefab
   m_TagString: Untagged
@@ -245,3 +246,16 @@ MonoBehaviour:
   objectsConnected:
   - {fileID: 0}
   indexOfObject: 0
+--- !u!114 &7451070828204898022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738166441820029175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f44c27e7d833bd48a17127f8e5dc7aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameHintButton: E

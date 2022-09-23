@@ -12,18 +12,22 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
 
     public static GameObject currentPickedObject = null;
 
-    public int maxHealth { get; private set; }
-    public int currentHealth { get; private set; }
+    //public int maxHealth { get; private set; }
+    //public int currentHealth { get; private set; }
+
+    public int maxHealth;
+    public int currentHealth;
+
     public int currentNumberOfCoins = 0;
 
     public Transform spawnPosition;
+    [SerializeField]private float respawnTime = 1f;
 
     public delegate void Action(int health);
     public static event Action PlayerWasDamaged;
 
     public delegate void TakeCoinAction(int number);
     public static event Action PlayerGotACoin;
-
 
 
     private void Awake()
@@ -38,21 +42,30 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
             Destroy(gameObject);
         }
 
+        scr_EventSystem.instance.playerAwake.Invoke(transform);
+
         maxHealth = 3;
         currentHealth = maxHealth;
         MenuController.SetSpawnPositionEvent+=SetSpawnPosition;
         MenuController.GetSpawnPositionEvent+=GetSpawnPosition;
 
         scr_GameManager GameManager = scr_GameManager.instance;// Получаем ссылку на GameObject
-        GameManager.player = this.gameObject;
+        GameManager.player = this.gameObject;//
 
         EditorManager editorManager = EditorManager.instance;
 
-        if (!editorManager.noMenuLevelStart)
+
+        if (!GameManager.currentSaveGame.newGame)
         {
-            GameManager.SetStartPosition();
-            spawnPosition = GameManager.startPosition.transform;
+            transform.position = GameManager.currentSaveGame.position;
         }
+        
+
+        //if (!editorManager.noMenuLevelStart)
+        //{
+        //    //GameManager.SetStartPosition();
+        //    //spawnPosition = GameManager.startPosition.transform;
+        //}
 
         // При новой загрузке точка спавна - место появления на уровне
         //spawnPosition=gameObject.transform;
@@ -63,7 +76,7 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
     {
 
 
-    
+
     }
 
     public void AddCoin(int coins)
@@ -115,7 +128,7 @@ public class scr_Player : MonoBehaviour, scr_IDamageable
         // gameObject.transform.position = spawnPosition.position;
         currentHealth = maxHealth;
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(respawnTime);
         // передвинул вниз
         gameObject.transform.position = spawnPosition.position;
 
