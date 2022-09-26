@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,55 +14,32 @@ public class leverLogic : MonoBehaviour
 
     public int indexOfObject;
 
-    private ControllerManager controllerManager;
-
-    void Awake() {
-
-        //_input = new Inpt_cnpt_Input();
-        
-
-    }
-
-    //private void OnEnable()
-    //{
-    //    _input.Enable();
-    //}
-
-    //private void OnDisable()
-    //{
-    //    _input.Disable();
-    //}
 
     void Start()
     {
-        input = InputManager.instance;
+        input = InputManager.Instance;
         input.playerInput.actions["Interaction"].performed += pressAction;
-        //controllerManager=GameObject.Find("ControllerManager").GetComponent<ControllerManager>();
         soundLeverActive =GetComponent<AudioSource>();
         animlever=GetComponent<Animator>();
 
         
-        for(int i=0;i<objectsConnected.Length;i++){
-            if(objectsConnected[i].TryGetComponent(out DoorLogic scriptDoor)){
-                if(!scriptDoor.M){
+        for(int i=0;i<objectsConnected.Length;i++)
+        {
+            if(objectsConnected[i].TryGetComponent(out DoorLogic scriptDoor))
+            {
+                if(!scriptDoor.M)
+                {
                     scriptDoor.objectsConnected = new GameObject[]{gameObject};
                     scriptDoor.stateConnectedObjects = new bool[]{animlever.GetBool("Active")};
                 }
-            }else{
+            }
+            else
+            {
                 print("На объекте "+objectsConnected[i].name+" нет скрипта DoorLogic");
             }   
         }
         
     }
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if(onPlaceLever&&Input.GetKeyDown(controllerManager.controlls["Interaction"]))
-    //    { //; KeyCode.F
-    //        pressAction();
-    //    }
-    //}
 
     private void OnTriggerStay2D(Collider2D collider)
     {
@@ -92,14 +67,20 @@ public class leverLogic : MonoBehaviour
         }
     }
 
-    private void turnObjectsConnected(){
-        if(objectsConnected!=null){
-            for(int i=0;i<objectsConnected.Length;i++){
-                objectsConnected[i].GetComponent<DoorLogic>().stateConnectedObjects[indexOfObject]=animlever.GetBool("Active");
+    private void turnObjectsConnected()
+    {
+        if(objectsConnected!=null)
+        {
+            for(int i=0;i<objectsConnected.Length;i++)
+            {
+                objectsConnected[i].GetComponent<DoorLogic>().stateConnectedObjects[indexOfObject] = 
+                    animlever.GetBool("Active");
                 objectsConnected[i].GetComponent<DoorLogic>().CheckStateOnDoor();
 
             }
-        }else{
+        }
+        else
+        {
             print(name + "Ни к чему не подключён");
         }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class scr_TimeCounter : MonoBehaviour
@@ -14,7 +12,6 @@ public class scr_TimeCounter : MonoBehaviour
     [SerializeField]private GameObject TopTimecounterWhite;
     [SerializeField]private GameObject TopTimecounterGreen;
 
-    // Start is called before the first frame update
     void Start()
     {
         TimeManager = scr_TimeManager.instance;
@@ -23,17 +20,12 @@ public class scr_TimeCounter : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collider) 
     {
-        
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.CompareTag("Player"))
         {
-            if(!active){
+            if(!active)
+            {
                 active = true;
                 TopTimecounterWhite.SetActive(false);
                 TopTimecounterGreen.SetActive(true);

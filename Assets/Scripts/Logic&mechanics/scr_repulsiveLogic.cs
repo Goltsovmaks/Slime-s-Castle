@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class scr_repulsiveLogic : MonoBehaviour
@@ -11,25 +9,18 @@ public class scr_repulsiveLogic : MonoBehaviour
 
     private Vector2 repulsiveVector;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D colider)
     {
         if (colider.CompareTag("Player"))
         {
 
-            if(transform.position.x>colider.transform.position.x){
+            if(transform.position.x>colider.transform.position.x)
+            {
                 repulsiveVector = new Vector2(-1,1);
-            }else{
+            }
+            else
+            {
                 repulsiveVector = new Vector2(1,1);
             }
             repulsiveVector.x *= repulsiveForceHorizontal;

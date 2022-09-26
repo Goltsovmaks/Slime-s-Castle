@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class scr_SlimeAttack : MonoBehaviour
@@ -49,12 +48,6 @@ public class scr_SlimeAttack : MonoBehaviour
         if (collider.CompareTag("Enemy"))
         {
             collider.gameObject.GetComponent<scr_IDamageable>().ApplyDamage(damage);
-
-            //if (Time.time > nextDamage)
-            //{
-            //    col.gameObject.GetComponent<scr_IDamageable>().ApplyDamage(1);
-            //    nextDamage = Time.time + damageRate;
-            //}
         }
     }
 }

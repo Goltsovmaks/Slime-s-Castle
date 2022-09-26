@@ -1,11 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class scr_fallingPlatform : MonoBehaviour
 {
-
-
     private Rigidbody2D rb;
     [SerializeField] private Collider2D collider;
     private SpriteRenderer spriteRenderer;
@@ -18,30 +15,30 @@ public class scr_fallingPlatform : MonoBehaviour
     [Header("true, если многоразовая")]
     [SerializeField] private bool reusable = true;
 
-    IEnumerator fallDownAfter(float time){
-        // После прошествия времени платформа упадёт
+    IEnumerator fallDownAfter(float time)
+    {
         yield return new WaitForSeconds(time);
-        // Выключить коллайдер
         rb.isKinematic = false;
         collider.enabled = false;
         yield return new WaitForSeconds(timeFalling);
         spriteRenderer.enabled = false;
-        if(!reusable){
+        if(!reusable)
+        {
             Destroy(gameObject);
-        }else{
+        }
+        else
+        {
             StartCoroutine(recoverAfter(timeRecovery-timeFalling));            
         }
 
     }
 
-    IEnumerator recoverAfter(float time){
-        // После прошествия времени платформа восстановиться
+    IEnumerator recoverAfter(float time)
+    {
         yield return new WaitForSeconds(time);
-        // Включить коллайдер и поставить на место
         collider.enabled = true;
         spriteRenderer.enabled = true;
         rb.isKinematic = true;
-        // Обнление набранной скорости
         rb.velocity=Vector3.zero;
         transform.position = startPosition;        
         
@@ -52,13 +49,6 @@ public class scr_fallingPlatform : MonoBehaviour
         startPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 
@@ -67,10 +57,6 @@ public class scr_fallingPlatform : MonoBehaviour
         if (colider.CompareTag("Player")&&collider.enabled)
         {
             StartCoroutine(fallDownAfter(timeStanding));
-            // colider.GetComponent<scr_Player>().spawnPosition = transform;
-            // //SlimeData.PointOfResurrect.Add(transform.position);
-            // anim.SetBool("Active",true);
-            // soundActive.Play();
         }
     }
 

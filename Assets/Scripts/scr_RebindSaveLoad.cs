@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.IO;
@@ -10,7 +8,7 @@ public class scr_RebindSaveLoad : MonoBehaviour
 
     public void OnEnable()
     {
-        playerInput = InputManager.instance.playerInput;
+        playerInput = InputManager.Instance.playerInput;
         //actions.Disable();
         string path = Application.streamingAssetsPath + "/rebinds" + ".json";
 
@@ -43,7 +41,7 @@ public class scr_RebindSaveLoad : MonoBehaviour
 
     public void OnDisable()
     {
-        playerInput = InputManager.instance.playerInput;
+        playerInput = InputManager.Instance.playerInput;
         string path = Application.streamingAssetsPath + "/rebinds" + ".json";
         //string rebinds;
 

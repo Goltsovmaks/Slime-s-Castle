@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,7 +23,7 @@ public class Scr_Chest : MonoBehaviour
 
     void Start()
     {
-        input = InputManager.instance;
+        input = InputManager.Instance;
         input.playerInput.actions["Interaction"].performed += Interact;
 
         audioSource = gameObject.GetComponent<AudioSource>();
@@ -49,22 +47,9 @@ public class Scr_Chest : MonoBehaviour
 
     private void Interact(InputAction.CallbackContext context)
     {
-        //if (scr_Player.currentPickedObject != null && playerCanInteract)
-        //{
-        //    if (scr_Player.currentPickedObject.GetComponent<Key>().keyColour == chestColour)
-        //    {
-        //        Destroy(scr_Player.currentPickedObject.gameObject);
-        //        Open();
-        //    }
-        //}
 
         if (playerCanInteract)
         {
-            //if (scr_Player.currentPickedObject.GetComponent<Key>().keyColour == chestColour)
-            //{
-            //    Destroy(scr_Player.currentPickedObject.gameObject);
-            //    Open();
-            //}
             if (!opened)
             {
                 Open();
@@ -85,13 +70,11 @@ public class Scr_Chest : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = openedStateSprite;
         audioSource.Play();
 
-        //spawn coins
-
         for (int i = 0; i < numberOfCoins; i++)
         {
             GameObject coin = Instantiate(coinPrefab, transform.position, transform.rotation);
-            coin.GetComponent<Rigidbody2D>().velocity = new Vector3(Random.Range(xForceMin, xForceMax),
-                                                                    Random.Range(yForceMin, yForceMax));
+            coin.GetComponent<Rigidbody2D>().velocity = 
+                new Vector3(Random.Range(xForceMin, xForceMax),Random.Range(yForceMin, yForceMax));
         }
         
     }

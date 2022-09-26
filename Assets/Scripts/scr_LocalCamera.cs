@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
@@ -32,8 +30,6 @@ public class scr_LocalCamera : MonoBehaviour
             virtualCamera.enabled = false;
         }
     }
-
-    
 
     private void OnDestroy()
     {

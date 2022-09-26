@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class scr_fallingStalagmite : MonoBehaviour
@@ -31,15 +30,15 @@ public class scr_fallingStalagmite : MonoBehaviour
     private bool checkCollider;
     [SerializeField]private LayerMask slime;
 
-    IEnumerator recoverAfter(float time){
+    IEnumerator recoverAfter(float time)
+    {
         recovering = true;
         falling = false;
 
-        // После прошествия времени сталагмит восстановиться
         yield return new WaitForSeconds(time);
         rb.velocity = new Vector2(0,0);
         transform.position = startPosition;
-        // Включаем
+
         spriteRenderer.enabled = true;
         recovering = false;
          
@@ -54,21 +53,27 @@ public class scr_fallingStalagmite : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-// Проверка на попадание игрока в зону
-    private void FixedUpdate() {
-        if(alwaysFalling){
+    private void FixedUpdate() 
+    {
+        if(alwaysFalling)
+        {
             checkCollider = true;
-        }else{
-            checkCollider = Physics2D.OverlapBox(transform.position - offsetPosition, size, 0f, slime);
+        }
+        else
+        {
+            checkCollider = Physics2D.OverlapBox(transform.position - offsetPosition, 
+                size, 0f, slime);
         }
 
         
-        if(checkCollider&&!recovering&&!falling){
+        if(checkCollider&&!recovering&&!falling)
+        {
             falling = true;
             rb.velocity = new Vector2(0,-speedFalling);
         }
 
-        if(Vector3.Distance(startPosition, transform.position) > heightFalling&&!recovering){
+        if(Vector3.Distance(startPosition, transform.position) > heightFalling&&!recovering)
+        {
             collision();
         }
 
@@ -80,38 +85,38 @@ public class scr_fallingStalagmite : MonoBehaviour
         if (colider.CompareTag("Player"))
         {
             collision();
-
-
-            // StartCoroutine(fallDownAfter(timeStanding));
-            // colider.GetComponent<scr_Player>().spawnPosition = transform;
-            // //SlimeData.PointOfResurrect.Add(transform.position);
-            // anim.SetBool("Active",true);
-            // soundActive.Play();
         }
-        // тригер, который ломает сталагмиты
+
         if(colider.CompareTag("Breaking")){
 
             collision();
         }
 
         if(colider.CompareTag("Starting")){
-            startPosition = new Vector3(transform.position.x,colider.gameObject.transform.position.y,0);
+            startPosition = new Vector3(transform.position.x,
+                colider.gameObject.transform.position.y,0);
         }
     }
 
-    private void collision(){
-        if(!reusable){
+    private void collision()
+    {
+        if(!reusable)
+        {
             Destroy(gameObject);
-        }else{
+        }
+        else
+        {
             StartCoroutine(recoverAfter(timeRecovery));            
         }
     }
 
-// Для отладки в редакторе
-    private void OnDrawGizmos() {
+    private void OnDrawGizmos() 
+    {
         Gizmos.color = new Color(0, 1, 0, 0.5f);
-        Gizmos.DrawWireCube(transform.position - new Vector3(0, heightCheckArea/2, 0), new Vector3(widthCheckArea, heightCheckArea, 0));
+        Gizmos.DrawWireCube(transform.position - new Vector3(0, 
+            heightCheckArea/2, 0), new Vector3(widthCheckArea, heightCheckArea, 0));
         Gizmos.color = new Color(1, 0, 0, 0.5f);
-        Gizmos.DrawWireCube(transform.position - new Vector3(0, heightFalling, 0), new Vector3(0.5f, 0.5f, 0));
+        Gizmos.DrawWireCube(transform.position - new Vector3(0, 
+            heightFalling, 0), new Vector3(0.5f, 0.5f, 0));
     }
 }

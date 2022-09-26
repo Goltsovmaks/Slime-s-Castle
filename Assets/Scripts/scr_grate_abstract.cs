@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,23 +18,20 @@ public abstract class scr_grate_abstract : MonoBehaviour
 
     protected virtual void Start()
     {
-        InputManager.instance.playerInput.actions["Interaction"].performed += Interact;
+        InputManager.Instance.playerInput.actions["Interaction"].performed += Interact;
         exit1 = transform.GetChild(0);
         animator = GetComponent<Animator>();
     }
 
     protected void OnDestroy()
     {
-        InputManager.instance.playerInput.actions["Interaction"].performed -= Interact;
+        InputManager.Instance.playerInput.actions["Interaction"].performed -= Interact;
     }
 
     protected virtual void Interact(InputAction.CallbackContext context)
     {
         if (playerIsClose && scr_Player.instance.GetComponent<scr_cnpt_FormBehavior>()._currentForm.GetType().ToString() == "scr_cnpt_Slime")
         {
-            //scr_Player.instance.GetComponent<Animator>().Play(slimeSlipAnimationName);
-            
-
             StartCoroutine(Teleport());
         }
     }
@@ -43,16 +39,12 @@ public abstract class scr_grate_abstract : MonoBehaviour
     protected virtual IEnumerator Teleport()
     {
         scr_Player.instance.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        InputManager.instance.playerInput.actions.FindActionMap("Slime").Disable();
-
-        //animator.Play("Seep");
+        InputManager.Instance.playerInput.actions.FindActionMap("Slime").Disable();
 
         yield return new WaitForSeconds(secondsWaitUntillTeleportation);
         scr_Player.instance.transform.position = exit1.position;
-        //play another part of animation?
-        //yield return new WaitForSeconds(secondsWaitAfterTeleportation);
         scr_Player.instance.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-        InputManager.instance.playerInput.actions.FindActionMap("Slime").Enable();
+        InputManager.Instance.playerInput.actions.FindActionMap("Slime").Enable();
     }
 
 

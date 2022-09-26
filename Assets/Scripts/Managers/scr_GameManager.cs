@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class scr_GameManager : MonoBehaviour
@@ -22,36 +20,30 @@ public class scr_GameManager : MonoBehaviour
         }
         else if (instance != this)
         {
-            Debug.Log("Удаляю " + gameObject.name);
             Destroy(gameObject);
         }
 
         DontDestroyOnLoad(gameObject);
         
-        // player = GameObject.Find("Slime");
-        // Debug.Log(startPosition.transform.position);
-        // Debug.Log("startPosition.transform.position");
-
-        // Событие, которое извещает о том, что уровень загружается, в это время нужно найти на уровне объекты
     }
-    private void Start() {
+    private void Start() 
+    {
         SaveController = scr_SaveController.instance;
     }
 
-    public void SetStartPosition(){
+    public void SetStartPosition()
+    {
         startPosition=GameObject.Find("StartPosition");
-        if(currentSaveGame.newGame){
-            
+        if(currentSaveGame.newGame)
+        {
             player.transform.position = startPosition.transform.position;
-            // Сохраняю в сейв данные о начальной позиции
             currentSaveGame.position = startPosition.transform.position;
             SaveController.SetSaveGame(currentSaveGame.numberOfSave,currentSaveGame);
-        }else{
+        }
+        else
+        {
             player.transform.position = currentSaveGame.position;
         }
 
     }
-
-
-
 }
