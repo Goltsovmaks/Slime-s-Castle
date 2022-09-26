@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,7 +18,6 @@ public class NPC : MonoBehaviour
             string myState = CheckBoxSystem.instance.CheckMissionStatus(myMissions);
             DialogueManager.instance.StartDialogue("dlg_"+gameObject.name+"_"+myState);
             Debug.Log("dlg_" + gameObject.name + "_" + myState);
-            //complete quest!??
             TryAssignNextQuest(myState);
         }
     }
@@ -36,19 +34,15 @@ public class NPC : MonoBehaviour
         }
     }
 
-    //скорее всего нет взаимодействия с коллайдерами
-
-
     protected virtual void Start()
     {
-        InputManager.instance.playerInput.actions["Interaction"].performed += Interact;
+        InputManager.Instance.playerInput.actions["Interaction"].performed += Interact;
     }
 
     protected void OnDestroy()
     {
-        InputManager.instance.playerInput.actions["Interaction"].performed -= Interact;
+        InputManager.Instance.playerInput.actions["Interaction"].performed -= Interact;
     }
-
 
     protected void OnTriggerStay2D(Collider2D collision)
     {

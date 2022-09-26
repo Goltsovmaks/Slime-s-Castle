@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 [System.Serializable]
 public class Goal
@@ -25,7 +22,7 @@ public class Goal
         switch (goalType)
         {
             case "GatheringGoal":
-                QuestSystem.instance.mushroomCollected.AddListener(ItemCollected);
+                //QuestSystem.instance.mushroomCollected.AddListener(ItemCollected);
                 break;
             case "KillGoal":
                 scr_EventSystem.instance.mobDeath.AddListener(MobKilled);
@@ -39,7 +36,7 @@ public class Goal
         switch (goalType)
         {
             case "GatheringGoal":
-                QuestSystem.instance.mushroomCollected.RemoveListener(ItemCollected);
+                //QuestSystem.instance.mushroomCollected.RemoveListener(ItemCollected);
                 break;
             case "KillGoal":
                 scr_EventSystem.instance.mobDeath.RemoveListener(MobKilled);
@@ -75,7 +72,6 @@ public class Goal
     {
         if (mobID == this.mobID)
         {
-            Debug.Log("nice one, correct mob was killed");
             currentAmount++;
             Evaluate();
         }

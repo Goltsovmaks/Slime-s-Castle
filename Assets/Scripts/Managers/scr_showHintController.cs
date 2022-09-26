@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
-// using Cinemachine;
 
 public class scr_showHintController : MonoBehaviour
 {
@@ -18,7 +15,8 @@ public class scr_showHintController : MonoBehaviour
 
     private Vector3 positionObject;
 
-    private void Awake() {
+    private void Awake() 
+    {
         if (instance == null)
         {
             instance = this;
@@ -31,42 +29,35 @@ public class scr_showHintController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-
         CameraManager = scr_CameraManager.instance;
         camera = CameraManager.mainCamera;
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetTextHint(string textHint)
     {
-
-    }
-
-    public void SetTextHint(string textHint){
         txt_nameButton.text = textHint;
     }
 
-    public void SetPositionObject(Vector3 positionObject){
+    public void SetPositionObject(Vector3 positionObject)
+    {
         this.positionObject = positionObject;
     }
 
-    public void ShowHint(){
+    public void ShowHint()
+    {
         pnl_hintButton.SetActive(true);
     }
 
-    public void UpdateHint(){
-        
+    public void UpdateHint()
+    {
         pnl_hintButton.transform.position = camera.WorldToScreenPoint(positionObject);
         pnl_hintButton.transform.position = new Vector3(pnl_hintButton.transform.position.x,pnl_hintButton.transform.position.y+50,0);
     }
 
-    public void hideHint(){
+    public void hideHint()
+    {
         pnl_hintButton.SetActive(false);
     }
-
-
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,12 +9,14 @@ public class Scr_cnpt_BaseInteraction : MonoBehaviour
 
     private void Awake()
     {
-        input = InputManager.instance;
+        input = InputManager.Instance;
 
         formBehavior = GetComponent<scr_cnpt_FormBehavior>();
 
-        input.playerInput.actions["HoldSkill"].performed += context => scr_cnpt_Form_Abstract.holdSkillisActive = true;
-        input.playerInput.actions["HoldSkill"].canceled += context => scr_cnpt_Form_Abstract.holdSkillisActive = false;
+        input.playerInput.actions["HoldSkill"].performed += 
+            context => scr_cnpt_Form_Abstract.holdSkillisActive = true;
+        input.playerInput.actions["HoldSkill"].canceled += 
+            context => scr_cnpt_Form_Abstract.holdSkillisActive = false;
 
         input.playerInput.actions["Skill_1"].performed += Skill_1;
         input.playerInput.actions["Skill_2"].performed += Skill_2;
@@ -34,8 +34,10 @@ public class Scr_cnpt_BaseInteraction : MonoBehaviour
 
     private void OnDestroy()
     {
-        input.playerInput.actions["HoldSkill"].performed -= context => scr_cnpt_Form_Abstract.holdSkillisActive = true;
-        input.playerInput.actions["HoldSkill"].canceled -= context => scr_cnpt_Form_Abstract.holdSkillisActive = false;
+        input.playerInput.actions["HoldSkill"].performed -= 
+            context => scr_cnpt_Form_Abstract.holdSkillisActive = true;
+        input.playerInput.actions["HoldSkill"].canceled -= 
+            context => scr_cnpt_Form_Abstract.holdSkillisActive = false;
 
         input.playerInput.actions["Skill_1"].performed -= Skill_1;
         input.playerInput.actions["Skill_2"].performed -= Skill_2;

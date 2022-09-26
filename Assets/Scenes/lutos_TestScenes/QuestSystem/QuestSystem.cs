@@ -1,23 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.IO;
 
 public class QuestSystem : MonoBehaviour
 {
-    //public Dictionary<string, QuestStatus> quests = new Dictionary<string, QuestStatus>();
-
     public static QuestSystem instance;
 
-    //test!!!==========================================
-    public UnityEvent<int> mushroomCollected;
-
-    public void CollectMushroom(int itemID)
-    {
-        mushroomCollected.Invoke(itemID);
-    }
-    //test!!!==========================================
     private void Awake()
     {
         if (instance == null)
@@ -36,19 +24,12 @@ public class QuestSystem : MonoBehaviour
     private void Start()
     {
         SetupQuestFile("q_FirstKillLesson");
-        Debug.Log(Application.streamingAssetsPath);
-        Debug.Log(Application.dataPath);
 
-       
     }
 
     public void AssignQuest(string questName)
     {
         CheckBoxSystem.instance.missions[questName] = missionStatus.inProgress;
-
-        //gameObject.AddComponent(System.Type.GetType(questName));
-
-        //---
         AddQuest(questName);
     }
 
@@ -61,13 +42,8 @@ public class QuestSystem : MonoBehaviour
     public void CompleteQuest(string questName)
     {
         CheckBoxSystem.instance.missions[questName] = missionStatus.achieved;
-        //give reward?
         
     }
-
-    //==========
-
-
 
     public QuestSerializable GetQuest(string questName)
     {
@@ -105,11 +81,6 @@ public class QuestSystem : MonoBehaviour
 
             string data = JsonUtility.ToJson(quest);
             string path = Application.streamingAssetsPath + "/Quests/" + questName + ".json";
-
-            //string killGoalData = JsonUtility.ToJson(new KillGoal());
-            //string gatheringGoalData = JsonUtility.ToJson(new GatheringGoal());
-
-            //data += "\n" + killGoalData + "\n" + gatheringGoalData;
 
             System.IO.File.WriteAllText(path, data);
         }

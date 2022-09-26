@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,10 +21,9 @@ public class CheckBoxSystem : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
     }
-    //test!!!==========================================
+
     private void Start()
     {
-        //test!!!
         missions.Add("q_MushroomCollector", missionStatus.notAssigned);
         missions.Add("q_FirstKillLesson", missionStatus.notAssigned);
         missions.Add("p_StoneDoor", missionStatus.notAssigned);
@@ -41,15 +39,6 @@ public class CheckBoxSystem : MonoBehaviour
     }
 
 
-    public void SeeTheStoneDoor()
-    {
-        missions["p_StoneDoor"] = missionStatus.achieved;
-    }
-    public void CheckMissionState()
-    {
-        Debug.Log("Mission is " + missions["q_MushroomCollector"]);
-    }
-    //test!!!==========================================
     public string CheckMissionStatus(List<string> missionList)
     {
         string missionStatus = "";

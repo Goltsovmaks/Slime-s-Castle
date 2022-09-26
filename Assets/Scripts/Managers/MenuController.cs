@@ -1,18 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
-using System.IO;
 using UnityEngine.Audio;
-
-
-
 using System;
-using System.Text;
 
-public class MenuController: MonoBehaviour{
+public class MenuController: MonoBehaviour
+{
 
     public static MenuController instance = null;
 
@@ -28,15 +21,10 @@ public class MenuController: MonoBehaviour{
 
     [SerializeField] public GameObject pnl_main;
 
-
-    // public string nameCurrentSave;
-
-    //PlayerInput _input;
-
     [SerializeField] public GameObject currentMenu;
     [SerializeField] private GameObject previuosMenu;
 
-    public bool onPause = false; //Взять у основного GameManager
+    public bool onPause = false;
 
     public delegate void SomeAction();
     public SomeAction NextAction;
@@ -54,7 +42,6 @@ public class MenuController: MonoBehaviour{
 
     [SerializeField]private AudioMixer audioMixer;
     
-
     private void Awake()
     {
         if (instance == null)
@@ -63,31 +50,22 @@ public class MenuController: MonoBehaviour{
         }
         else if (instance != this)
         {
-            Debug.Log("Удаляю " + gameObject.name);
             Destroy(gameObject);
         }
 
         DontDestroyOnLoad(gameObject);
 
-      
-        //_input.actions.FindActionMap("Slime").Enable();
-        //_input.actions.FindActionMap("UI").Enable();
-
-        // _input.actions["Pause"].performed += context => PausePressed();
-
-
-        //назначить current menu
     }
 
     void Start()
     {
-        input = InputManager.instance;
+        input = InputManager.Instance;
         SaveController = scr_SaveController.instance;
         GameManager = scr_GameManager.instance;
         TimeManager = scr_TimeManager.instance;
 
-        //_input = GetComponent<PlayerInput>();
-        input.playerInput.actions["ReturnToPreviousMenu"].performed += context => ReturnButtonPressed();
+        input.playerInput.actions["ReturnToPreviousMenu"].performed += 
+            context => ReturnButtonPressed();
 
         SettingsData settingsData = SaveController.GetSettingsData();
         GameManager.currentSettingsData=settingsData;
@@ -96,10 +74,7 @@ public class MenuController: MonoBehaviour{
         toggleFullScreen.isOn = settingsData.fullScreen;
 
         UpdateVolume();
-        //if (PlayerPrefs.HasKey("BG_MUSIC")){
-        //    // sliderObj.value=PlayerPrefs.GetFloat("BG_MUSIC");
-
-        //}
+ 
     }
 
     public void UpdateVolume()
@@ -108,13 +83,11 @@ public class MenuController: MonoBehaviour{
     }
 
     public void ReturnButtonPressed()
-    { //Сделать поиск активного  1 окна!!!
+    { 
         switch (currentMenu.name)
         {
             case "pnl_main":
-                // PausePressed(); //Для теста - после настройки - удалить
-
-                QuitGame();//confirm
+                QuitGame();
                 break;
             case "pnl_pause":
                 PausePressed();
@@ -138,25 +111,20 @@ public class MenuController: MonoBehaviour{
     public static void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Closing the game...");
     }
 
     public void PlayNewGame(int numberOfSave)
     {
-        //Cursor.visible = false;
         SaveGame save = new SaveGame(numberOfSave);
         save.newGame=true;
         GameManager.currentSaveGame=save;
         SaveController.SetSaveGame(numberOfSave,save);
-        // nameCurrentSave = "saveGame"+ numberOfSave;
         
         currentMenu.gameObject.SetActive(false);
-        Debug.Log("Загружаю сцену " + numberOfSave);
-
 
         currentMenu=pnl_pause;
-        Time.timeScale = 1f; //Костыль
-        onPause=false;//Костыль
+        Time.timeScale = 1f;
+        onPause=false;
 
         SceneManager.LoadScene(1);
         
@@ -165,28 +133,17 @@ public class MenuController: MonoBehaviour{
     public void ContinueGame(int numberOfSave)
     {
         Cursor.visible = false;
-        //GameObject.Find("pnl_attention").SetActive(false);
 
         SaveGame save = SaveController.GetSaveGame(numberOfSave);
         save.UpdateTimeSave();
         GameManager.currentSaveGame=save;
         SaveController.SetSaveGame(numberOfSave,save);
 
-        //scr_Player.instance.AddCoin(save.playerCoins);
-
-        // SetSpawnPositionEvent(save.position);
-        
-  
-        // Добавить в current menu окно паузы - сделано
-        //SceneManager.LoadScene("scn_trainLevel");
         currentMenu.gameObject.SetActive(false);
         currentMenu=pnl_pause;
-        Time.timeScale = 1f; //Костыль
+        Time.timeScale = 1f;
         onPause=false;
-        Debug.Log("Загружаю сцену " + numberOfSave);
-        SceneManager.LoadScene(1);
-
-                
+        SceneManager.LoadScene(1);   
     }
 
     public void RevertCursor()
@@ -196,12 +153,8 @@ public class MenuController: MonoBehaviour{
 
     public void PausePressed()
     {
-        
         onPause = !onPause;
         Cursor.visible = onPause;
-        // currentMenu.gameObject.SetActive(!currentMenu.gameObject.activeInHierarchy);
-        // goToNextMenu(pnl_pause);
-
 
         if (Time.timeScale==1f){
             Time.timeScale = 0f;
@@ -209,46 +162,46 @@ public class MenuController: MonoBehaviour{
             Time.timeScale = 1f;
         }
         pnl_pause.SetActive(!pnl_pause.activeInHierarchy);
-        //File.AppendAllText(@"c:\temp\MyTest.txt", $"void PausePressed, pnl status: {pnl_pause.activeInHierarchy }" + "\n", Encoding.UTF8);
     }
 
     public void SavePressed()
     {
-        for(int i=1;i<=3;i++){
-            // Нахожу панель одного сохранения
+        for(int i=1;i<=3;i++)
+        {
             Transform transform_pnl_save=pnl_chooseSave.transform.Find("pnl_save"+i).transform;
             transform_pnl_save.Find("pnl_SaveGame").gameObject.SetActive(true);
             transform_pnl_save.Find("pnl_continueGame").gameObject.SetActive(false);
 
-            // Если существует сохранение по конкретному пути - включаю необходимые панели, заполняю текстовые поля
-            if(SaveController.ExistsSaveGame(i)){
+            if(SaveController.ExistsSaveGame(i))
+            {
                 SaveGame save = SaveController.GetSaveGame(i);
-                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = save.GetTotalTime();
-                transform_pnl_save.Find("txt_lastSaveResult").GetComponent<Text>().text = save.dataOfLastSave;
+                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = 
+                    save.GetTotalTime();
+                transform_pnl_save.Find("txt_lastSaveResult").GetComponent<Text>().text = 
+                    save.dataOfLastSave;
             }
 
         }
 
         goToNextMenu(pnl_chooseSave);
-
-
     }
 
     public void LoadPressed()
     {
-        // Включаю нужные панели в choose save
-        for(int i=1;i<=3;i++){
-            // Нахожу панель одного сохранения
+        for(int i=1;i<=3;i++)
+        {
             Transform transform_pnl_save=pnl_chooseSave.transform.Find("pnl_save"+i).transform;
             transform_pnl_save.Find("pnl_SaveGame").gameObject.SetActive(false);
             
-            // Если существует сохранение по конкретному пути - включаю необходимые панели, заполняю текстовые поля
-            if(SaveController.ExistsSaveGame(i)){
+            if(SaveController.ExistsSaveGame(i))
+            {
                 transform_pnl_save.Find("pnl_continueGame").gameObject.SetActive(true);
                 SaveGame save = SaveController.GetSaveGame(i);
 
-                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = save.GetTotalTime();
-                transform_pnl_save.Find("txt_lastSaveResult").GetComponent<Text>().text = save.dataOfLastSave;
+                transform_pnl_save.Find("txt_totalTimeResult").GetComponent<Text>().text = 
+                    save.GetTotalTime();
+                transform_pnl_save.Find("txt_lastSaveResult").GetComponent<Text>().text = 
+                    save.dataOfLastSave;
             }
 
         }
@@ -259,7 +212,6 @@ public class MenuController: MonoBehaviour{
     public void deleteSavePressed(int numberOfSave)
     {
         SaveController.DeleteSaveGame(numberOfSave);
-
     }
 
 
@@ -277,11 +229,8 @@ public class MenuController: MonoBehaviour{
         SaveController.SetSaveGame(numberOfSave,save);
 
         goToNextMenu(pnl_pause);
-
-
     }
 
-    // Функция сохранения данных, которые мы указали в настройках
     public void BackFromSettingsPressed()
     {  
         SettingsData settingsData = new SettingsData();
@@ -293,11 +242,11 @@ public class MenuController: MonoBehaviour{
 
 
 
-    public void SetNextAction(string action)//enum_actions action
+    public void SetNextAction(string action)
     {
         switch (action)
         {
-            case "QuitGame"://enum_actions.QuitGame
+            case "QuitGame":
                 NextAction = QuitGame;
                 break;
             default:
@@ -315,18 +264,5 @@ public class MenuController: MonoBehaviour{
     {
         pnl_dead.SetActive(!pnl_dead.activeInHierarchy);
     }
-
-    
-
-
-    //private void OnEnable()
-    //{
-    //    _input.Enable();
-    //}
-
-    //private void OnDisable()
-    //{
-    //    _input.Disable();
-    //}
 
 }

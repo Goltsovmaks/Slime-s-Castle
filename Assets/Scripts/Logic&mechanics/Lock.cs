@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,7 +12,7 @@ public class Lock : MonoBehaviour
 
     void Start()
     {
-        input = InputManager.instance;
+        input = InputManager.Instance;
         input.playerInput.actions["Interaction"].performed += Interact;
 
         audioSource = gameObject.GetComponent<AudioSource>();
@@ -42,11 +40,9 @@ public class Lock : MonoBehaviour
         {
             if (scr_Player.currentPickedObject.GetComponent<Key>().keyColour == lockColour)
             {
-                //transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
                 audioSource.Play();
                 gameObject.SetActive(false);
                 Destroy(scr_Player.currentPickedObject.gameObject);
-                
             }
         }
         
@@ -56,6 +52,4 @@ public class Lock : MonoBehaviour
     {
         input.playerInput.actions["Interaction"].performed -= Interact;
     }
-
-
 }

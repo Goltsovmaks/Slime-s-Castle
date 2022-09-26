@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -15,7 +13,7 @@ public class Scr_WinPnl : MonoBehaviour
 
     private void Awake()
     {
-        input = InputManager.instance;
+        input = InputManager.Instance;
 
         playerInput = input.GetComponent<PlayerInput>();
         playerInput.actions.FindActionMap("Slime").Disable();
@@ -29,7 +27,8 @@ public class Scr_WinPnl : MonoBehaviour
 
     }
 
-    private void Start() {
+    private void Start() 
+    {
         TimeManager = scr_TimeManager.instance;
         ComplitedTime.text = "Level complited in "+TimeManager.GetTimeCompleteLevel()+" s";
 
